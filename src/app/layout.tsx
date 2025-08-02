@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { siteConfig } from '@/config/site.config'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -17,25 +18,27 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Weblog',
-    template: '%s | Weblog',
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: 'My personal blog built with Next.js and TypeScript',
-  keywords: ['blog', 'personal', 'nextjs', 'typescript', 'react'],
-  authors: [{ name: 'Admin' }],
-  creator: 'Admin',
+  description: siteConfig.description,
+  keywords: siteConfig.seo.keywords,
+  authors: [{ name: siteConfig.author.name }],
+  creator: siteConfig.author.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: process.env.NEXT_PUBLIC_APP_URL,
-    siteName: 'Weblog',
-    title: 'Weblog',
-    description: 'My personal blog built with Next.js and TypeScript',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: siteConfig.seo.ogImage ? [{ url: siteConfig.seo.ogImage }] : undefined,
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Weblog',
-    description: 'My personal blog built with Next.js and TypeScript',
+    card: siteConfig.seo.twitterCard,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: siteConfig.seo.ogImage ? [siteConfig.seo.ogImage] : undefined,
   },
   robots: {
     index: true,

@@ -1,15 +1,23 @@
-# Weblog
+# 🚀 Configurable Next.js Blog Template
 
-A modern, full-featured blog built with React SSR, inspired by [nelsonlai.me](https://github.com/tszhong0411/nelsonlai.me).
+A modern, **fully configurable** blog template built with Next.js 15 and TypeScript. Perfect for developers, writers, and content creators who want a professional blog without the complexity.
+
+**✨ Everything is configurable** - Just edit one file and you're ready to go!
 
 ## 🚀 Features
+
+### 🎯 Configuration-First Design
+- **Single Config File** - Configure everything in `src/config/site.config.ts`
+- **Zero Setup** - Edit config and start writing
+- **Type Safe** - Full TypeScript support for configuration
+- **Flexible** - Add/remove features as needed
 
 ### Core Technologies
 - **Next.js 15** with App Router for SSR/SSG
 - **TypeScript** for type safety
 - **Tailwind CSS** for modern styling
 - **MDX** for rich content authoring
-- **ContentLayer** for type-safe content management
+- **React Markdown** for reliable content rendering
 
 ### UI/UX Features
 - **Responsive Design** - Works perfectly on all devices
@@ -30,7 +38,8 @@ A modern, full-featured blog built with React SSR, inspired by [nelsonlai.me](ht
 - **TypeScript** - Full type safety
 - **ESLint & Prettier** - Code quality and formatting
 - **Hot Reload** - Instant feedback during development
-- **Contentlayer** - Type-safe content with auto-completion
+- **File-based Routing** - Automatic route generation
+- **Zero Config** - Works out of the box
 
 ## 🏗️ Project Structure
 
@@ -39,6 +48,7 @@ weblog/
 ├── src/
 │   ├── app/                  # Next.js App Router
 │   │   ├── blog/            # Blog pages
+│   │   ├── about/           # About page
 │   │   ├── layout.tsx       # Root layout
 │   │   └── page.tsx         # Homepage
 │   ├── components/          # React components
@@ -46,17 +56,54 @@ weblog/
 │   │   ├── header.tsx      # Site header
 │   │   ├── footer.tsx      # Site footer
 │   │   └── theme-provider.tsx
+│   ├── config/             # Configuration
+│   │   └── site.config.ts  # 🎯 Main configuration file
 │   ├── lib/                # Utility functions
+│   │   ├── posts.ts        # Blog post utilities
 │   │   ├── utils.ts        # Common utilities
 │   │   └── reading-time.ts # Reading time calculation
 │   └── styles/             # Global styles
 │       └── globals.css     # Tailwind + custom styles
 ├── content/                # Blog content
-│   ├── blog/              # Blog posts (MDX)
-│   └── pages/             # Static pages (MDX)
+│   └── blog/              # Blog posts (MDX)
 ├── public/                # Static assets
+├── CONFIG.md              # 📖 Detailed configuration guide
 └── package.json           # Dependencies and scripts
 ```
+
+## ⚡ Quick Configuration
+
+**Get your blog ready in 2 minutes!**
+
+1. **Clone this repository**
+2. **Edit `src/config/site.config.ts`** with your information:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Blog Name',
+  title: 'Your SEO Title',
+  description: 'Your blog description...',
+  url: 'https://yourdomain.com',
+  
+  author: {
+    name: 'Your Name',
+    email: 'you@example.com',
+  },
+  
+  social: {
+    github: 'https://github.com/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+    email: 'you@example.com',
+  },
+  
+  // ... customize everything else
+}
+```
+
+3. **Start writing** - Add your posts to `content/blog/`
+4. **Deploy** - Push to GitHub and deploy to Vercel/Netlify
+
+📖 **Need more details?** Check out [CONFIG.md](CONFIG.md) for the complete configuration guide.
 
 ## 🛠️ Getting Started
 
@@ -97,51 +144,63 @@ pnpm start
 
 ### Creating Blog Posts
 
-1. Create a new `.mdx` file in `content/blog/`
-2. Add frontmatter with required fields:
+Simply create `.mdx` files in `content/blog/` with frontmatter:
 
 ```mdx
 ---
-title: "Your Post Title"
-description: "A brief description of your post"
-date: "2024-01-01"
+title: "Your Amazing Post"
+description: "What this post is about"
+date: "2024-01-15"
 published: true
 featured: false
-tags: ["tag1", "tag2"]
-author: "Your Name"
+tags: ["nextjs", "react"]
 ---
 
-# Your content here
+# Your Amazing Post
 
-Write your blog post content using Markdown and React components.
+Write your content here using **Markdown** and React components!
+
+```typescript
+// Code blocks work perfectly
+const blog = "awesome";
 ```
 
-### Frontmatter Fields
+That's it! Your post will automatically appear on your blog.
+```
 
-- `title` (required): Post title
-- `description` (required): Post description for SEO
-- `date` (required): Publication date (YYYY-MM-DD)
-- `published` (optional): Whether the post is published (default: true)
-- `featured` (optional): Mark as featured post (default: false)
-- `tags` (optional): Array of tags
-- `author` (optional): Author name (default: "Admin")
+### Frontmatter Options
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `title` | ✅ | Post title |
+| `description` | ✅ | SEO description |
+| `date` | ✅ | Publication date (YYYY-MM-DD) |
+| `published` | ❌ | Show/hide post (default: true) |
+| `featured` | ❌ | Featured post (default: false) |
+| `tags` | ❌ | Array of tags |
 
 ## 🎨 Customization
 
-### Themes
-The blog supports light and dark themes out of the box. Customize colors in:
-- `tailwind.config.ts` - Tailwind configuration
-- `src/styles/globals.css` - CSS custom properties
+**Everything is customizable!** 
 
-### Components
-All UI components are in `src/components/ui/` and can be customized as needed.
+### 🎯 Quick Customization
+- **Site Info**: Edit `src/config/site.config.ts`
+- **Colors**: Modify `tailwind.config.ts`
+- **Styles**: Update `src/styles/globals.css`
 
-### Styling
-- Uses Tailwind CSS for utility-first styling
-- Custom CSS variables for consistent theming
-- Responsive design with mobile-first approach
+### 🎭 Themes
+- **Auto Theme Detection** - Respects system preference
+- **Manual Toggle** - Users can switch themes
+- **Custom Colors** - Easy to modify in config
 
-## 📦 Scripts
+### 🧩 Components
+- **Modular Design** - Components in `src/components/`
+- **Reusable UI** - Consistent design system
+- **Easy to Extend** - Add your own components
+
+📖 **Advanced customization**: See [CONFIG.md](CONFIG.md) for detailed guides.
+
+## 📦 Available Scripts
 
 ```bash
 # Development
@@ -151,49 +210,59 @@ pnpm start            # Start production server
 
 # Code Quality
 pnpm lint             # Run ESLint
-pnpm lint:fix         # Fix ESLint errors
 pnpm format           # Format code with Prettier
-pnpm type-check       # Run TypeScript checks
-
-# Content
-pnpm db:generate      # Generate Drizzle schema
-pnpm db:push          # Push database changes
-pnpm db:studio        # Open Drizzle Studio
-
-# Testing
-pnpm test             # Run unit tests
-pnpm test:e2e         # Run E2E tests
 ```
+
+**That's it!** Simple and clean. 🎉
 
 ## 🚀 Deployment
 
-This blog can be deployed to:
-- **Vercel** (recommended) - Zero configuration
-- **Netlify** - Great for static sites
-- **Railway** - Full-stack deployment
-- **Any Node.js hosting** - Self-hosted options
+**Deploy anywhere in minutes!**
 
-### Vercel Deployment
+### Recommended: Vercel (Zero Config)
+1. **Configure** your blog in `src/config/site.config.ts`
+2. **Push** to GitHub
+3. **Deploy** - Connect to Vercel
+4. **Done!** Your blog is live
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy with zero configuration
+### Other Options
+- **Netlify** - Drag & drop deployment
+- **Railway** - Full-stack hosting
+- **GitHub Pages** - Free static hosting
+- **Your server** - Any Node.js environment
+
+⚠️ **Don't forget**: Update your `url` in the config file to match your domain!
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+We love contributions! Here's how you can help:
+
+1. **⭐ Star** this repository if you find it useful
+2. **🐛 Report bugs** by opening an issue
+3. **💡 Suggest features** for new functionality
+4. **🔧 Submit PRs** for improvements
+5. **📖 Improve docs** - help others get started
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is **MIT licensed** - feel free to use it for personal or commercial projects!
 
-## 🙏 Acknowledgments
+## 🌟 Show Your Support
 
-This project is inspired by and follows the architecture of:
-- [nelsonlai.me](https://github.com/tszhong0411/nelsonlai.me) - An excellent Next.js blog
-- [shadcn/ui](https://ui.shadcn.com/) - Beautiful UI components
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- ⭐ **Star this repo** if it helped you
+- 🐦 **Share on Twitter** - spread the word
+- 💬 **Join discussions** - help the community
+- 🤝 **Contribute** - make it even better
+
+## 🙏 Built With
+
+- 🚀 **[Next.js](https://nextjs.org/)** - The React framework
+- 🎨 **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS
+- ⚡ **[TypeScript](https://www.typescriptlang.org/)** - Type safety
+- 🧩 **[Radix UI](https://www.radix-ui.com/)** - Accessible components
+
+---
+
+**Made with ❤️ for the developer community**
+
+*Happy blogging! 🎉*

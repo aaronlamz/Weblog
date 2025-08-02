@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { siteConfig } from '@/config/site.config'
 
 export function Header() {
   return (
@@ -9,38 +10,31 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/" className="font-bold text-xl">
-              Weblog
+              {siteConfig.name}
             </Link>
           </div>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <Link 
-              href="/" 
-              className="text-foreground/60 hover:text-foreground transition-colors"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/blog" 
-              className="text-foreground/60 hover:text-foreground transition-colors"
-            >
-              Blog
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-foreground/60 hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
+            {siteConfig.nav.main.map((item) => (
+              <Link 
+                key={item.href}
+                href={item.href} 
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                {item.title}
+              </Link>
+            ))}
           </nav>
 
           <div className="flex items-center space-x-2">
             <ThemeToggle />
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/contact">
-                Contact
-              </Link>
-            </Button>
+            {siteConfig.social.email && (
+              <Button variant="outline" size="sm" asChild>
+                <Link href={`mailto:${siteConfig.social.email}`}>
+                  Contact
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

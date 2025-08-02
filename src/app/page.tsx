@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { siteConfig } from '@/config/site.config'
 
 export default function HomePage() {
   const posts = getAllPosts().slice(0, 6)
@@ -11,11 +12,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center py-20">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Welcome to My Blog
+          {siteConfig.pages.home.hero.title}
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Sharing thoughts, experiences, and insights about web development, 
-          technology, and life.
+          {siteConfig.pages.home.hero.description}
         </p>
         <Button asChild size="lg">
           <Link href="/blog">
