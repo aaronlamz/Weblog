@@ -72,9 +72,9 @@ export const siteConfig: SiteConfig = {
   },
   
   social: {
-    github: 'https://github.com/yourusername', // 用户需要修改
-    twitter: 'https://twitter.com/yourusername', // 用户需要修改
-    email: 'your.email@example.com', // 用户需要修改
+    github: 'https://github.com/aaronlamz', // 用户需要修改
+    twitter: 'https://x.com/aaronlamz', // 用户需要修改
+    email: 'aaronlamz2022@gmail.com', // 用户需要修改
   },
   
   seo: {
