@@ -63,11 +63,11 @@ export const siteConfig: SiteConfig = {
   name: 'Weblog',
   title: 'Personal Blog & Portfolio',
   description: 'A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.',
-  url: 'https://your-domain.com', // 用户需要修改
+  url: 'https://your-project.vercel.app', // 部署后替换为实际的 Vercel 域名
   
   author: {
-    name: 'Your Name', // 用户需要修改
-    email: 'your.email@example.com', // 用户需要修改
+    name: 'Aaron Lam', // 用户需要修改
+    email: 'aaronlamz2022@gmail.com', // 用户需要修改
     bio: 'Developer, writer, and tech enthusiast',
   },
   
