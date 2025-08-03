@@ -4,9 +4,9 @@ import { formatDate } from '@/lib/utils'
 import ReactMarkdown from 'react-markdown'
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {

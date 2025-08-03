@@ -18,7 +18,7 @@ export function Header() {
             {siteConfig.nav.main.map((item) => (
               <Link 
                 key={item.href}
-                href={item.href} 
+                href={item.href as any} 
                 className="text-foreground/60 hover:text-foreground transition-colors"
               >
                 {item.title}

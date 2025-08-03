@@ -6,7 +6,6 @@ const nextConfig = {
   output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   basePath: process.env.NODE_ENV === 'production' ? process.env.BASE_PATH || '' : '',
   experimental: {
-    appDir: true,
     typedRoutes: true,
   },
   images: {
@@ -18,12 +17,13 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return []
-  },
-  async rewrites() {
-    return []
-  },
+  // 移除 redirects 和 rewrites，因为它们与 export 不兼容
+  // async redirects() {
+  //   return []
+  // },
+  // async rewrites() {
+  //   return []
+  // },
 }
 
 module.exports = withContentlayer(nextConfig) 
