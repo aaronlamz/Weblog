@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
+export const dynamic = 'force-static'
+
 // 表单验证 schema
 const contactSchema = z.object({
   name: z.string().min(1, '姓名不能为空'),
