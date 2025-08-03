@@ -1,4 +1,5 @@
-const { withContentlayer } = require('next-contentlayer2')
+// 移除 Contentlayer 依赖
+// const { withContentlayer } = require('next-contentlayer2')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -26,4 +27,5 @@ const nextConfig = {
   // },
 }
 
-module.exports = withContentlayer(nextConfig) 
+module.exports = nextConfig
+// module.exports = withContentlayer(nextConfig) 
