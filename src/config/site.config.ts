@@ -66,7 +66,7 @@ export const siteConfig: SiteConfig = {
   url: 'https://your-project.vercel.app', // 部署后替换为实际的 Vercel 域名
   
   author: {
-    name: 'Aaron Lam', // 用户需要修改
+    name: 'Aaron', // 用户需要修改
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
     bio: 'Developer, writer, and tech enthusiast',
   },

@@ -3,47 +3,221 @@ import { getAllPosts } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site.config'
+import { AnimatedText } from '@/components/animated-text'
+import { TypewriterText } from '@/components/typewriter-text'
+import { 
+  ArrowRight, 
+  Calendar, 
+  Clock, 
+  Star,
+  Code,
+  Palette,
+  Zap,
+  FileText
+} from 'lucide-react'
 
 export default function HomePage() {
   const posts = getAllPosts().slice(0, 6)
+  const featuredPosts = posts.filter(post => post.featured).slice(0, 3)
+  const recentPosts = posts.slice(0, 3)
+
+  const skills = [
+    { 
+      name: 'Development', 
+      icon: Code, 
+      description: 'Modern web technologies',
+      color: 'text-blue-600 dark:text-blue-400',
+      bgColor: 'bg-blue-100 dark:bg-blue-900/30'
+    },
+    { 
+      name: 'Design', 
+      icon: Palette, 
+      description: 'UI/UX and visual design',
+      color: 'text-purple-600 dark:text-purple-400',
+      bgColor: 'bg-purple-100 dark:bg-purple-900/30'
+    },
+    { 
+      name: 'Performance', 
+      icon: Zap, 
+      description: 'Fast and optimized solutions',
+      color: 'text-yellow-600 dark:text-yellow-400',
+      bgColor: 'bg-yellow-100 dark:bg-yellow-900/30'
+    },
+  ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="text-center py-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          {siteConfig.pages.home.hero.title}
-        </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          {siteConfig.pages.home.hero.description}
-        </p>
-        <Button asChild size="lg">
-          <Link href="/blog">
-            Read the Blog
-          </Link>
-        </Button>
+      <section className="container mx-auto px-4 py-20 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <span className="text-foreground">I'm </span>
+            <span className="text-rainbow animate-pulse">
+              {siteConfig.author.name}
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+            a <span className="text-foreground font-semibold">
+              <TypewriterText 
+                texts={['Full Stack Engineer', 'Web Developer', 'UI/UX Designer', 'Problem Solver']}
+                speed={120}
+                deleteSpeed={80}
+                pauseTime={1500}
+              />
+            </span>
+          </p>
+          <p className="text-lg text-muted-foreground mb-8">
+            building{' '}
+            <AnimatedText 
+              words={['Amazing', 'Beautiful', 'Modern', 'Interactive', 'Responsive', 'Dynamic']}
+              className="font-bold text-xl"
+              animationType="slide"
+            />{' '}
+            websites using{' '}
+            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded font-mono text-sm hover:scale-105 transition-transform cursor-pointer">
+              React
+            </span>
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button asChild size="lg" className="group">
+              <Link href="/blog">
+                Read My Blog
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/about">
+                About Me
+              </Link>
+            </Button>
+          </div>
+
+          {/* Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {skills.map((skill, index) => {
+              const Icon = skill.icon
+              return (
+                <div 
+                  key={skill.name}
+                  className={`
+                    p-6 rounded-2xl border 
+                    hover:bg-card/80 hover:scale-105 hover:shadow-xl
+                    transition-all duration-300 group cursor-pointer
+                    ${skill.bgColor}
+                  `}
+                  style={{
+                    animationDelay: `${index * 200}ms`
+                  }}
+                >
+                  <div className={`w-12 h-12 rounded-xl ${skill.bgColor} flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300`}>
+                    <Icon className={`w-6 h-6 ${skill.color} group-hover:scale-110 transition-transform`} />
+                  </div>
+                  <h3 className={`font-semibold mb-2 ${skill.color} group-hover:text-foreground transition-colors`}>
+                    {skill.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                    {skill.description}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </section>
 
-      {/* Featured Posts */}
-      <section className="py-16">
-        <h2 className="text-3xl font-bold mb-8">Latest Posts</h2>
+      {/* Featured Posts Section */}
+      {featuredPosts.length > 0 && (
+        <section className="container mx-auto px-4 py-16">
+          <div className="flex items-center gap-2 mb-8">
+            <Star className="w-5 h-5 text-yellow-500" />
+            <h2 className="text-3xl font-bold">Featured Articles</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {featuredPosts.map((post, index) => (
+              <article 
+                key={post.slug} 
+                className={`group ${index === 0 ? 'lg:row-span-2' : ''}`}
+              >
+                <Link href={`/blog/${post.slug}`}>
+                  <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 h-full border hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group-hover:scale-[1.02]">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                      <Calendar className="w-4 h-4" />
+                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      <span>•</span>
+                      <Clock className="w-4 h-4" />
+                      <span>{post.readingTime?.text}</span>
+                      <Star className="w-4 h-4 text-yellow-500 ml-auto" />
+                    </div>
+                    
+                    <h3 className={`font-bold mb-4 group-hover:text-primary transition-colors ${
+                      index === 0 ? 'text-2xl lg:text-3xl' : 'text-xl'
+                    }`}>
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {post.description}
+                    </p>
+                    
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-secondary/50 text-secondary-foreground text-xs rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Latest Posts Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
+          {recentPosts.map((post) => (
             <article key={post.slug} className="group">
               <Link href={`/blog/${post.slug}`}>
-                <div className="bg-card rounded-lg p-6 h-full border hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                    {post.description}
-                  </p>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <time dateTime={post.date}>
-                      {formatDate(post.date)}
-                    </time>
+                <div className="bg-card rounded-xl p-6 h-full border hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group-hover:scale-[1.02]">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <Calendar className="w-4 h-4" />
+                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <span>•</span>
+                    <Clock className="w-4 h-4" />
                     <span>{post.readingTime?.text}</span>
                   </div>
+                  
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                    {post.description}
+                  </p>
+                  
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-secondary/50 text-secondary-foreground text-xs rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Link>
             </article>
@@ -51,16 +225,20 @@ export default function HomePage() {
         </div>
         
         {posts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No posts yet. Check back soon!</p>
+          <div className="text-center py-20">
+            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+              <FileText className="w-8 h-8 text-muted-foreground" />
+            </div>
+            <p className="text-muted-foreground text-lg">No posts yet. Check back soon!</p>
           </div>
         )}
         
         {posts.length > 0 && (
           <div className="text-center mt-12">
-            <Button asChild variant="outline">
+            <Button asChild variant="outline" size="lg" className="group">
               <Link href="/blog">
                 View All Posts
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
