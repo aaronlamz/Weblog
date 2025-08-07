@@ -46,65 +46,69 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-foreground">I'm </span>
-            <span className="text-rainbow animate-pulse">
-              {siteConfig.author.name}
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-            a <span className="text-foreground font-semibold">
-              <TypewriterText 
-                texts={['Full Stack Engineer', 'Web Developer', 'UI/UX Designer', 'Problem Solver']}
-                speed={120}
-                deleteSpeed={80}
-                pauseTime={1500}
-              />
-            </span>
-          </p>
-          <p className="text-lg text-muted-foreground mb-8">
-            building{' '}
-            <AnimatedText 
-              words={['Amazing', 'Beautiful', 'Modern', 'Interactive', 'Responsive', 'Dynamic']}
-              className="font-bold text-xl"
-              animationType="slide"
-            />{' '}
-            websites using{' '}
-            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded font-mono text-sm hover:scale-105 transition-transform cursor-pointer">
-              React
-            </span>
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button asChild size="lg" className="group">
-              <Link href="/blog">
-                Read My Blog
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/about">
-                About Me
-              </Link>
-            </Button>
+      <section className="container mx-auto px-4 py-20 text-center relative">
+        <div className="max-w-4xl mx-auto relative">
+          <div className="relative z-10">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="text-foreground">I'm </span>
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                {siteConfig.author.name}
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+              a <span className="text-foreground font-semibold">
+                <TypewriterText 
+                  texts={['Full Stack Engineer', 'Web Developer', 'UI/UX Designer', 'Problem Solver']}
+                  speed={120}
+                  deleteSpeed={80}
+                  pauseTime={1500}
+                />
+              </span>
+            </p>
+            <p className="text-lg text-muted-foreground mb-8">
+              building{' '}
+              <AnimatedText 
+                words={['Amazing', 'Beautiful', 'Modern', 'Interactive', 'Responsive', 'Dynamic']}
+                className="font-bold text-xl"
+                animationType="slide"
+              />{' '}
+              websites using{' '}
+              <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded font-mono text-sm hover:scale-105 transition-transform cursor-pointer">
+                React
+              </span>
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button asChild size="lg" className="group">
+                <Link href="/blog">
+                  Read My Blog
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/about">
+                  About Me
+                </Link>
+              </Button>
+            </div>
           </div>
 
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto relative z-10">
             {skills.map((skill, index) => {
               const Icon = skill.icon
               return (
                 <div 
                   key={skill.name}
                   className={`
-                    p-6 rounded-2xl border 
-                    hover:bg-card/80 hover:scale-105 hover:shadow-xl
+                    p-6 rounded-2xl border backdrop-blur-sm
+                    bg-card/20 hover:bg-card/40 hover:scale-105 hover:shadow-xl
                     transition-all duration-300 group cursor-pointer
-                    ${skill.bgColor}
+                    ${skill.bgColor} hover:${skill.bgColor.replace('bg-', 'bg-').replace('/30', '/50')}
+                    border-border/20 hover:border-${skill.color.split(' ')[0].replace('text-', '')}-300
                   `}
                   style={{
                     animationDelay: `${index * 200}ms`
@@ -141,7 +145,7 @@ export default function HomePage() {
                 className={`group ${index === 0 ? 'lg:row-span-2' : ''}`}
               >
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 h-full border hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group-hover:scale-[1.02]">
+                  <div className="bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm rounded-2xl p-8 h-full border border-border/40 hover:shadow-xl hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                       <Calendar className="w-4 h-4" />
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -189,7 +193,7 @@ export default function HomePage() {
           {recentPosts.map((post) => (
             <article key={post.slug} className="group">
               <Link href={`/blog/${post.slug}`}>
-                <div className="bg-card rounded-xl p-6 h-full border hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group-hover:scale-[1.02]">
+                <div className="bg-card/40 backdrop-blur-sm rounded-xl p-6 h-full border border-border/40 hover:shadow-lg hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <Calendar className="w-4 h-4" />
                     <time dateTime={post.date}>{formatDate(post.date)}</time>

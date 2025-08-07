@@ -43,12 +43,12 @@ export function Header() {
         <div className="flex justify-center pt-6 px-4">
           <nav className={`
             pointer-events-auto
-            bg-background/80 backdrop-blur-md 
-            border border-border/40
+            bg-background/60 backdrop-blur-lg 
+            border border-border/30
             rounded-full px-6 py-3
-            shadow-lg shadow-black/5
+            shadow-lg shadow-black/10
             transition-all duration-500 ease-out
-            ${isScrolled ? 'scale-95 shadow-xl' : 'scale-100'}
+            ${isScrolled ? 'scale-95 shadow-xl bg-background/80' : 'scale-100'}
           `}>
             <div className="flex items-center space-x-8">
               {/* Logo */}

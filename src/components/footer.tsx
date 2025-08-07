@@ -67,7 +67,7 @@ export function Footer() {
       {/* 悬浮式底部社交链接栏 */}
       <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
         <div className="flex justify-center pb-6 px-4">
-          <div className="pointer-events-auto bg-background/80 backdrop-blur-md border border-border/40 rounded-full px-6 py-3 shadow-lg shadow-black/5">
+          <div className="pointer-events-auto bg-background/60 backdrop-blur-lg border border-border/30 rounded-full px-6 py-3 shadow-lg shadow-black/10">
             <div className="flex items-center space-x-4">
               {/* 社交链接 */}
               {socialLinks.map((link) => {

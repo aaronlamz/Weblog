@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { AnimatedBackground } from '@/components/animated-background'
 import { siteConfig } from '@/config/site.config'
 import '@/styles/globals.css'
 
@@ -67,6 +68,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <AnimatedBackground />
           <div className="relative min-h-screen">
             <Header />
             <main className="pt-24 pb-32">
