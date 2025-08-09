@@ -23,7 +23,8 @@ export default async function BlogPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations()
+  const t = await getTranslations({ locale })
+  const tPosts = await getTranslations({ locale, namespace: 'posts' })
   const posts = getAllPosts(locale)
 
   return (
@@ -49,7 +50,7 @@ export default async function BlogPage({
                       {post.featured && (
                         <>
                           <span>•</span>
-                          <span className="text-primary font-medium">{t('featured')}</span>
+                          <span className="text-primary font-medium">{tPosts('featured')}</span>
                         </>
                       )}
                     </div>
@@ -83,7 +84,7 @@ export default async function BlogPage({
 
         {posts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">{t('posts.empty')}</p>
+            <p className="text-muted-foreground">{tPosts('empty')}</p>
           </div>
         )}
       </div>

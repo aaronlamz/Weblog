@@ -3,6 +3,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { PageTransition } from '@/components/page-transition';
 import { HtmlLangSetter } from '@/components/html-lang-setter';
 import { locales } from '@/i18n/config';
 import type { Metadata } from 'next';
@@ -52,7 +53,9 @@ export default async function LocaleLayout({
       <div className="relative min-h-screen">
         <Header />
         <main className="pt-24 pb-32">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
         <Footer />
       </div>

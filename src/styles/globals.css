@@ -49,6 +49,35 @@
   }
 }
 
+/* Page transition */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.page-transition.page-enter h1,
+.page-transition.page-enter h2 {
+  animation: jitter 0.18s ease-in-out 1;
+}
+
+@keyframes jitter {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-1px); }
+  50% { transform: translateY(0.5px); }
+  75% { transform: translateY(-0.5px); }
+  100% { transform: translateY(0); }
+}
+
 @layer base {
   * {
     @apply border-border;
