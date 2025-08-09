@@ -49,7 +49,7 @@ export default async function BlogPage({
                       {post.featured && (
                         <>
                           <span>•</span>
-                          <span className="text-primary font-medium">{t('posts.featured')}</span>
+                          <span className="text-primary font-medium">{t('featured')}</span>
                         </>
                       )}
                     </div>
