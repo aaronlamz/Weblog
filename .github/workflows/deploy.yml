@@ -56,6 +56,12 @@ jobs:
           # 根域名（不含子路径），用于生成 RSS/OG 等绝对链接
           NEXT_PUBLIC_SITE_URL: https://www.ultimate-kernel.fun
         run: pnpm run build
+
+      - name: Prepare artifact under subfolder
+        run: |
+          rm -rf dist
+          mkdir -p dist/${{ github.event.repository.name }}
+          cp -r out/* dist/${{ github.event.repository.name }}/
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -65,7 +71,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          # 发布整个站点，其中我们的导出内容位于 /<repo>/ 下
+          path: ./dist
 
   deploy:
     environment:

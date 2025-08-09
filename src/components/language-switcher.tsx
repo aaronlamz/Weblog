@@ -19,9 +19,9 @@ export function LanguageSwitcher() {
     const pathnameWithoutLocale = pathname.replace(/^\/(zh|en)(?=\/|$)/, '') || '/';
 
     // as-needed: en no prefix, zh with /zh
-    const newPath = newLocale === 'en'
-      ? pathnameWithoutLocale
-      : `/zh${pathnameWithoutLocale === '/' ? '' : pathnameWithoutLocale}`;
+    const base = (process.env.BASE_PATH || '') as string;
+    const localePrefix = newLocale === 'en' ? '' : '/zh';
+    const newPath = `${base}${localePrefix}${pathnameWithoutLocale === '/' ? '' : pathnameWithoutLocale}`;
     
     router.push(newPath as any);
     setIsOpen(false);
