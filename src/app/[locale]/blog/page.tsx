@@ -38,7 +38,7 @@ export default async function BlogPage({
         <div className="space-y-8">
           {posts.map((post) => (
             <article key={post.slug} className="group">
-              <Link href={post.url as any}>
+              <Link href={`${process.env.BASE_PATH || ''}${post.url}` as any}>
                 <div className="bg-card rounded-lg p-6 border hover:shadow-md transition-all duration-200">
                   <div className="flex flex-col space-y-3">
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground">

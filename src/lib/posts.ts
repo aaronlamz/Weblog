@@ -45,7 +45,8 @@ export function getAllPosts(locale: string = 'zh'): Post[] {
         const { data, content } = matter(fileContents)
 
         // as-needed: en 无前缀，zh 使用 /zh
-        const baseUrl = locale === 'zh' ? '/zh' : ''
+        const basePath = process.env.BASE_PATH || ''
+        const baseUrl = `${basePath}${locale === 'zh' ? '/zh' : ''}`
         
         return {
           slug,
@@ -80,7 +81,8 @@ export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null 
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
 
-    const baseUrl = locale === 'zh' ? '/zh' : ''
+    const basePath = process.env.BASE_PATH || ''
+    const baseUrl = `${basePath}${locale === 'zh' ? '/zh' : ''}`
 
     return {
       slug,

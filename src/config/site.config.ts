@@ -63,7 +63,12 @@ export const siteConfig: SiteConfig = {
   name: 'Weblog',
   title: 'Personal Blog & Portfolio',
   description: 'A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.',
-  url: 'https://your-project.vercel.app', // 部署后替换为实际的 Vercel 域名
+  // 站点基础 URL：支持 GitHub Pages 子路径 (BASE_PATH) 和自定义域
+  // 例如：
+  // - 自定义域 + 子路径: https://www.ultimate-kernel.fun/Weblog
+  // - GitHub Pages 用户页（无子路径）: https://<user>.github.io
+  // - 本地开发: http://localhost:3000
+  url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${process.env.BASE_PATH || ''}`,
   
   author: {
     name: 'Aaron', // 用户需要修改

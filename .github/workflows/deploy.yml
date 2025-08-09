@@ -51,8 +51,10 @@ jobs:
 
       - name: Build
         env:
-          # 将 BASE_PATH 设置为仓库名，用于 Next.js 静态导出在 GitHub Pages 下的子路径
+          # 多仓库共用同一域名时，使用仓库名作为子路径
           BASE_PATH: /${{ github.event.repository.name }}
+          # 根域名（不含子路径），用于生成 RSS/OG 等绝对链接
+          NEXT_PUBLIC_SITE_URL: https://www.ultimate-kernel.fun
         run: pnpm run build
         
       - name: Setup Pages
