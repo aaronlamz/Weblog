@@ -50,6 +50,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
+        env:
+          # 将 BASE_PATH 设置为仓库名，用于 Next.js 静态导出在 GitHub Pages 下的子路径
+          BASE_PATH: /${{ github.event.repository.name }}
         run: pnpm run build
         
       - name: Setup Pages
