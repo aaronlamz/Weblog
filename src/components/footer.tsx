@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { siteConfig } from '@/config/site.config'
 import { 
   Github, 
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react'
 
 export function Footer() {
+  const t = useTranslations('footer')
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
@@ -94,7 +96,7 @@ export function Footer() {
                 <button
                   onClick={scrollToTop}
                   className="p-2 rounded-full text-foreground/60 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
-                  title="回到顶部"
+                  title={t('scrollToTop')}
                 >
                   <ArrowUp className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </button>
@@ -109,10 +111,10 @@ export function Footer() {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+              © {new Date().getFullYear()} {siteConfig.name}. {t('copyright')}
             </div>
             <div className="text-xs text-muted-foreground/60">
-              Built with Next.js, TypeScript, and Tailwind CSS
+              {t('builtWith')}
             </div>
           </div>
         </div>

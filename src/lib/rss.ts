@@ -25,7 +25,7 @@ export function generateRSSFeed() {
     },
   })
 
-  const posts = getAllPosts()
+  const posts = getAllPosts('en')
 
   posts.forEach((post) => {
     feed.addItem({

@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { readingTime } from './reading-time'
+import { locales } from '@/i18n/config'
 
 export interface Post {
   slug: string
@@ -19,25 +20,37 @@ export interface Post {
     words: number
   }
   url: string
+  locale: string
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
-export function getAllPosts(): Post[] {
+export function getAllPosts(locale: string = 'zh'): Post[] {
   try {
-    const fileNames = fs.readdirSync(postsDirectory)
+    const localePostsDir = path.join(postsDirectory, locale)
+    
+    // Check if locale directory exists
+    if (!fs.existsSync(localePostsDir)) {
+      console.warn(`Posts directory for locale '${locale}' does not exist`)
+      return []
+    }
+
+    const fileNames = fs.readdirSync(localePostsDir)
     const allPostsData = fileNames
       .filter((name) => name.endsWith('.mdx'))
       .map((fileName) => {
         const slug = fileName.replace(/\.mdx$/, '')
-        const fullPath = path.join(postsDirectory, fileName)
+        const fullPath = path.join(localePostsDir, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
+        // as-needed: en 无前缀，zh 使用 /zh
+        const baseUrl = locale === 'zh' ? '/zh' : ''
+        
         return {
           slug,
           title: data.title || '',
-          description: data.description || '',
+          description: data.description || data.summary || '',
           date: data.date || '',
           published: data.published !== false,
           featured: data.featured || false,
@@ -45,7 +58,8 @@ export function getAllPosts(): Post[] {
           author: data.author || 'Admin',
           content,
           readingTime: readingTime(content),
-          url: `/blog/${slug}`,
+          url: `${baseUrl}/blog/${slug}`,
+          locale,
           ...data,
         } as Post
       })
@@ -59,16 +73,19 @@ export function getAllPosts(): Post[] {
   }
 }
 
-export function getPostBySlug(slug: string): Post | null {
+export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+    const localePostsDir = path.join(postsDirectory, locale)
+    const fullPath = path.join(localePostsDir, `${slug}.mdx`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
+
+    const baseUrl = locale === 'zh' ? '/zh' : ''
 
     return {
       slug,
       title: data.title || '',
-      description: data.description || '',
+      description: data.description || data.summary || '',
       date: data.date || '',
       published: data.published !== false,
       featured: data.featured || false,
@@ -76,7 +93,8 @@ export function getPostBySlug(slug: string): Post | null {
       author: data.author || 'Admin',
       content,
       readingTime: readingTime(content),
-      url: `/blog/${slug}`,
+      url: `${baseUrl}/blog/${slug}`,
+      locale,
       ...data,
     } as Post
   } catch (error) {

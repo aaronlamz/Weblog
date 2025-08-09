@@ -2,8 +2,11 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { LanguageSwitcher } from '@/components/language-switcher'
 import { siteConfig } from '@/config/site.config'
 import { 
   Home, 
@@ -18,15 +21,30 @@ import {
 } from 'lucide-react'
 
 const navIcons = {
-  'Home': Home,
-  'Blog': FileText,
-  'About': User,
-  'Contact': MessageCircle,
+  home: Home,
+  blog: FileText,
+  about: User,
+  contact: MessageCircle,
 }
 
 export function Header() {
+  const t = useTranslations('navigation')
+  const tSite = useTranslations('site')
+  const locale = useLocale()
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Navigation items with translations - use pathname to determine locale reliably
+  const isZh = pathname.startsWith('/zh') || locale === 'zh'
+  
+  // Navigation items that work consistently in SSR and client
+  const navItems = [
+    { key: 'home', href: isZh ? '/zh' : '/' },
+    { key: 'blog', href: isZh ? '/zh/blog' : '/blog' },
+    { key: 'about', href: isZh ? '/zh/about' : '/about' },
+    { key: 'contact', href: isZh ? '/zh/contact' : '/contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,26 +71,26 @@ export function Header() {
             <div className="flex items-center space-x-8">
               {/* Logo */}
               <Link 
-                href="/" 
+                href={navItems[0].href as any} 
                 className="font-bold text-lg hover:text-primary transition-colors"
               >
-                {siteConfig.name}
+                {tSite('name')}
               </Link>
               
               {/* 桌面导航链接 */}
               <div className="hidden md:flex items-center space-x-6">
-                {siteConfig.nav.main.map((item) => {
-                  const Icon = navIcons[item.title as keyof typeof navIcons]
+                {navItems.map((item) => {
+                  const Icon = navIcons[item.key as keyof typeof navIcons]
                   return (
                     <Link 
-                      key={item.href}
+                      key={item.key}
                       href={item.href as any}
                       className="flex items-center space-x-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors group"
                     >
                       {Icon && (
                         <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                       )}
-                      <span>{item.title}</span>
+                      <span>{t(item.key as any)}</span>
                     </Link>
                   )
                 })}
@@ -80,6 +98,7 @@ export function Header() {
 
               {/* 操作按钮 */}
               <div className="flex items-center space-x-3">
+                <LanguageSwitcher />
                 <ThemeToggle />
                 
                 {/* 移动端菜单按钮 */}
@@ -106,17 +125,17 @@ export function Header() {
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="fixed inset-0 bg-background/95 backdrop-blur-sm">
             <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {siteConfig.nav.main.map((item) => {
-                const Icon = navIcons[item.title as keyof typeof navIcons]
+              {navItems.map((item) => {
+                const Icon = navIcons[item.key as keyof typeof navIcons]
                 return (
                   <Link
-                    key={item.href}
+                    key={item.key}
                     href={item.href as any}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center space-x-3 text-2xl font-medium hover:text-primary transition-colors"
                   >
                     {Icon && <Icon className="w-6 h-6" />}
-                    <span>{item.title}</span>
+                    <span>{t(item.key as any)}</span>
                   </Link>
                 )
               })}

@@ -1,0 +1,94 @@
+{
+  "site": {
+    "name": "Weblog"
+  },
+  "navigation": {
+    "home": "首页",
+    "blog": "博客",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "hero": {
+    "greeting": "我是",
+    "introduction": "一名",
+    "roles": {
+      "fullstack": "全栈工程师",
+      "web": "Web 开发者", 
+      "ui": "UI/UX 设计师",
+      "solver": "问题解决者"
+    },
+    "description": "专注于构建现代化的 Web 应用程序"
+  },
+  "skills": {
+    "title": "技能",
+    "frontend": "前端开发",
+    "backend": "后端开发",
+    "mobile": "移动开发",
+    "design": "设计"
+  },
+  "skillsDesc": {
+    "frontend": "现代 Web 技术栈",
+    "design": "UI/UX 与视觉设计",
+    "backend": "高性能与优化方案"
+  },
+  "posts": {
+    "blog": "博客",
+    "featured": "精选文章",
+    "latest": "最新文章",
+    "readMore": "阅读全文",
+    "publishedOn": "发布于",
+    "readingTime": "阅读时间",
+    "empty": "暂无文章，敬请期待！"
+  },
+  "footer": {
+    "scrollToTop": "回到顶部",
+    "copyright": "版权所有",
+    "builtWith": "基于 Next.js、TypeScript 与 Tailwind CSS 构建"
+  },
+  "contact": {
+    "title": "联系我",
+    "getInTouch": "保持联系",
+    "subtitle": "很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。",
+    "name": "姓名",
+    "email": "邮箱",
+    "subject": "主题",
+    "message": "消息",
+    "send": "发送",
+    "sending": "发送中...",
+    "success": "消息发送成功！",
+    "error": "发送失败，请重试",
+    "methods": {
+      "email": {
+        "name": "邮箱",
+        "desc": "用于工作或合作，欢迎邮件联系"
+      },
+      "github": {
+        "name": "GitHub",
+        "desc": "查看我的代码与项目"
+      },
+      "twitter": {
+        "name": "Twitter",
+        "desc": "关注最新动态与技术交流"
+      }
+    },
+    "sendMessage": "发送消息",
+    "responseTime": "响应时间",
+    "responseTip": "我通常会在 24-48 小时内回复你的邮件，期待与你交流！"
+  },
+  "about": {
+    "title": "关于我",
+    "description": "欢迎来到我的个人博客",
+    "intro": "我是一名来自香港的全栈工程师。",
+    "bio": "热爱构建体验优秀、性能出色的现代 Web 应用。",
+    "workingOnTitle": "我在做什么",
+    "currentWork": "专注于现代 React 技术与提升开发者体验。",
+    "beyondCodeTitle": "代码之外",
+    "beyondCode": "我也热爱设计、写作与知识分享。",
+    "connectTitle": "联系我",
+    "connect": "如果你愿意合作或交流，欢迎随时联系。",
+    "quote": "简单是终极的复杂。"
+  },
+  "meta": {
+    "description": "Aaron Lam 的个人博客 - 分享技术见解和开发经验"
+  }
+}

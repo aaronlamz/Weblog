@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { getAllPosts } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -16,30 +17,36 @@ import {
   FileText
 } from 'lucide-react'
 
-export default function HomePage() {
-  const posts = getAllPosts().slice(0, 6)
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale })
+  const posts = getAllPosts(locale).slice(0, 6)
   const featuredPosts = posts.filter(post => post.featured).slice(0, 3)
   const recentPosts = posts.slice(0, 3)
 
   const skills = [
     { 
-      name: 'Development', 
+      name: t('skills.frontend'), 
       icon: Code, 
-      description: 'Modern web technologies',
+      description: t('skillsDesc.frontend'),
       color: 'text-blue-600 dark:text-blue-400',
       bgColor: 'bg-blue-100 dark:bg-blue-900/30'
     },
     { 
-      name: 'Design', 
+      name: t('skills.design'), 
       icon: Palette, 
-      description: 'UI/UX and visual design',
+      description: t('skillsDesc.design'),
       color: 'text-purple-600 dark:text-purple-400',
       bgColor: 'bg-purple-100 dark:bg-purple-900/30'
     },
     { 
-      name: 'Performance', 
+      name: t('skills.backend'), 
       icon: Zap, 
-      description: 'Fast and optimized solutions',
+      description: t('skillsDesc.backend'),
       color: 'text-yellow-600 dark:text-yellow-400',
       bgColor: 'bg-yellow-100 dark:bg-yellow-900/30'
     },
@@ -53,15 +60,20 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto relative">
           <div className="relative z-10">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-foreground">I'm </span>
+              <span className="text-foreground">{t('hero.greeting')} </span>
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 {siteConfig.author.name}
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-              a <span className="text-foreground font-semibold">
+              {t('hero.introduction')} <span className="text-foreground font-semibold">
                 <TypewriterText 
-                  texts={['Full Stack Engineer', 'Web Developer', 'UI/UX Designer', 'Problem Solver']}
+                  texts={[
+                    t('hero.roles.fullstack'), 
+                    t('hero.roles.web'), 
+                    t('hero.roles.ui'), 
+                    t('hero.roles.solver')
+                  ]}
                   speed={120}
                   deleteSpeed={80}
                   pauseTime={1500}
@@ -69,28 +81,19 @@ export default function HomePage() {
               </span>
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              building{' '}
-              <AnimatedText 
-                words={['Amazing', 'Beautiful', 'Modern', 'Interactive', 'Responsive', 'Dynamic']}
-                className="font-bold text-xl"
-                animationType="slide"
-              />{' '}
-              websites using{' '}
-              <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded font-mono text-sm hover:scale-105 transition-transform cursor-pointer">
-                React
-              </span>
+              {t('hero.description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg" className="group">
-                <Link href="/blog">
-                  Read My Blog
+                <Link href={`${locale === 'zh' ? '/zh' : ''}/blog`}>
+                  {t('navigation.blog')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/about">
-                  About Me
+                <Link href={`${locale === 'zh' ? '/zh' : ''}/about`}>
+                  {t('navigation.about')}
                 </Link>
               </Button>
             </div>
@@ -135,7 +138,7 @@ export default function HomePage() {
         <section className="container mx-auto px-4 py-16">
           <div className="flex items-center gap-2 mb-8">
             <Star className="w-5 h-5 text-yellow-500" />
-            <h2 className="text-3xl font-bold">Featured Articles</h2>
+            <h2 className="text-3xl font-bold">{t('posts.featured')}</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -144,7 +147,7 @@ export default function HomePage() {
                 key={post.slug} 
                 className={`group ${index === 0 ? 'lg:row-span-2' : ''}`}
               >
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={post.url as any}>
                   <div className="bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm rounded-2xl p-8 h-full border border-border/40 hover:shadow-xl hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                       <Calendar className="w-4 h-4" />
@@ -187,12 +190,12 @@ export default function HomePage() {
 
       {/* Latest Posts Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
+        <h2 className="text-3xl font-bold mb-8">{t('posts.latest')}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentPosts.map((post) => (
             <article key={post.slug} className="group">
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={post.url as any}>
                 <div className="bg-card/40 backdrop-blur-sm rounded-xl p-6 h-full border border-border/40 hover:shadow-lg hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <Calendar className="w-4 h-4" />
@@ -240,8 +243,8 @@ export default function HomePage() {
         {posts.length > 0 && (
           <div className="text-center mt-12">
             <Button asChild variant="outline" size="lg" className="group">
-              <Link href="/blog">
-                View All Posts
+              <Link href={`${locale === 'zh' ? '/zh' : ''}/blog`}>
+                {t('posts.readMore')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

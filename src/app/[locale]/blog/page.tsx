@@ -1,19 +1,35 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { getAllPosts } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 
-export const metadata = {
-  title: 'Blog',
-  description: 'Read my latest blog posts about web development, technology, and more.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'posts' });
+  
+  return {
+    title: t('blog'),
+    description: 'Read my latest blog posts about web development, technology, and more.',
+  };
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations()
+  const posts = getAllPosts(locale)
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">Blog</h1>
+        <h1 className="text-4xl font-bold mb-8">{t('navigation.blog')}</h1>
         <p className="text-xl text-muted-foreground mb-12">
           Thoughts, ideas, and insights about web development and technology.
         </p>
@@ -21,7 +37,7 @@ export default function BlogPage() {
         <div className="space-y-8">
           {posts.map((post) => (
             <article key={post.slug} className="group">
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={post.url as any}>
                 <div className="bg-card rounded-lg p-6 border hover:shadow-md transition-all duration-200">
                   <div className="flex flex-col space-y-3">
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground">
@@ -33,7 +49,7 @@ export default function BlogPage() {
                       {post.featured && (
                         <>
                           <span>•</span>
-                          <span className="text-primary font-medium">Featured</span>
+                          <span className="text-primary font-medium">{t('posts.featured')}</span>
                         </>
                       )}
                     </div>
@@ -67,9 +83,7 @@ export default function BlogPage() {
 
         {posts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">
-              No posts published yet. Check back soon!
-            </p>
+            <p className="text-muted-foreground">{t('posts.empty')}</p>
           </div>
         )}
       </div>

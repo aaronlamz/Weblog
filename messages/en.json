@@ -1,0 +1,94 @@
+{
+  "site": {
+    "name": "Weblog"
+  },
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "I'm",
+    "introduction": "a",
+    "roles": {
+      "fullstack": "Full Stack Engineer",
+      "web": "Web Developer",
+      "ui": "UI/UX Designer", 
+      "solver": "Problem Solver"
+    },
+    "description": "Focused on building modern web applications"
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "mobile": "Mobile Development",
+    "design": "Design"
+  },
+  "skillsDesc": {
+    "frontend": "Modern web technologies",
+    "design": "UI/UX and visual design",
+    "backend": "Fast and optimized solutions"
+  },
+  "posts": {
+    "blog": "Blog",
+    "featured": "Featured Posts",
+    "latest": "Latest Posts",
+    "readMore": "Read More",
+    "publishedOn": "Published on",
+    "readingTime": "min read",
+    "empty": "No posts yet. Check back soon!"
+  },
+  "footer": {
+    "scrollToTop": "Scroll to top",
+    "copyright": "All rights reserved",
+    "builtWith": "Built with Next.js, TypeScript and Tailwind CSS"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "getInTouch": "Get In Touch",
+    "subtitle": "I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send, please try again",
+    "methods": {
+      "email": {
+        "name": "Email",
+        "desc": "Send me an email for work inquiries or collaboration"
+      },
+      "github": {
+        "name": "GitHub",
+        "desc": "Check out my code and projects"
+      },
+      "twitter": {
+        "name": "Twitter",
+        "desc": "Follow me for updates and tech discussions"
+      }
+    },
+    "sendMessage": "Send a Message",
+    "responseTime": "Response Time",
+    "responseTip": "I typically respond to emails within 24-48 hours. Looking forward to connecting with you!"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Welcome to my personal blog",
+    "intro": "I am a full-stack engineer based in Hong Kong.",
+    "bio": "I love building modern web applications with great UX and performance.",
+    "workingOnTitle": "What I'm Working On",
+    "currentWork": "Exploring modern React and building delightful developer experiences.",
+    "beyondCodeTitle": "Beyond Code",
+    "beyondCode": "I enjoy design, writing and sharing knowledge.",
+    "connectTitle": "Let's Connect",
+    "connect": "Feel free to reach out if you'd like to collaborate.",
+    "quote": "Simplicity is the ultimate sophistication."
+  },
+  "meta": {
+    "description": "Aaron Lam's personal blog - sharing tech insights and development experiences"
+  }
+}

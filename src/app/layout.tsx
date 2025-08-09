@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { AnimatedBackground } from '@/components/animated-background'
 import { siteConfig } from '@/config/site.config'
 import '@/styles/globals.css'
@@ -60,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -69,13 +67,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AnimatedBackground />
-          <div className="relative min-h-screen">
-            <Header />
-            <main className="pt-24 pb-32">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>

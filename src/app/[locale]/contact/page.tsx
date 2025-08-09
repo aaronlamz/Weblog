@@ -2,34 +2,36 @@
 
 import { useState, useRef } from 'react'
 import { siteConfig } from '@/config/site.config'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Mail, Github, MessageCircle, Send, Loader2 } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
+  const t = useTranslations('contact')
   const formRef = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [statusMessage, setStatusMessage] = useState('')
   const contactMethods = [
     {
-      name: 'Email',
-      description: 'Send me an email for work inquiries or collaboration',
+      name: t('methods.email.name'),
+      description: t('methods.email.desc'),
       href: `mailto:${siteConfig.social.email}`,
       icon: Mail,
       value: siteConfig.social.email,
     },
     {
-      name: 'GitHub',
-      description: 'Check out my code and projects',
+      name: t('methods.github.name'),
+      description: t('methods.github.desc'),
       href: siteConfig.social.github,
       icon: Github,
       value: '@' + siteConfig.social.github?.split('/').pop(),
       external: true,
     },
     {
-      name: 'Twitter',
-      description: 'Follow me for updates and tech discussions',
+      name: t('methods.twitter.name'),
+      description: t('methods.twitter.desc'),
       href: siteConfig.social.twitter,
       icon: MessageCircle,
       value: '@' + siteConfig.social.twitter?.split('/').pop(),
@@ -94,11 +96,10 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Get In Touch
+            {t('getInTouch')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            I'd love to hear from you! Whether you have a question, want to collaborate, 
-            or just want to say hi, feel free to reach out.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -123,7 +124,7 @@ export default function ContactPage() {
                       target={method.external ? "_blank" : undefined}
                       rel={method.external ? "noopener noreferrer" : undefined}
                     >
-                      {method.name === 'Email' ? 'Send Email' : `Visit ${method.name}`}
+                      {method.name}
                     </a>
                   </Button>
                 </div>
@@ -135,7 +136,7 @@ export default function ContactPage() {
         {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
           <div className="p-8 rounded-lg border bg-card">
-            <h2 className="text-2xl font-bold mb-6 text-center">Send a Message</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">{t('sendMessage')}</h2>
             
             {/* Status Messages */}
             {status === 'success' && (
@@ -154,7 +155,7 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name
+                    {t('name')}
                   </label>
                   <input
                     type="text"
@@ -168,7 +169,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
+                    {t('email')}
                   </label>
                   <input
                     type="email"
@@ -182,8 +183,8 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    {t('subject')}
                 </label>
                 <input
                   type="text"
@@ -196,8 +197,8 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    {t('message')}
                 </label>
                 <textarea
                   id="message"
@@ -213,18 +214,18 @@ export default function ContactPage() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Sending...
+                    {t('sending')}
                   </>
                 ) : (
                   <>
                     <Send className="h-4 w-4 mr-2" />
-                    Send Message
+                    {t('send')}
                   </>
                 )}
               </Button>
             </form>
             <p className="text-sm text-muted-foreground text-center mt-4">
-              You can also email me directly at{' '}
+              {/* You can also email me directly at */}
               <a 
                 href={`mailto:${siteConfig.social.email}`}
                 className="text-primary hover:underline"
@@ -237,9 +238,9 @@ export default function ContactPage() {
 
         {/* Additional Info */}
         <div className="text-center mt-12 p-6 rounded-lg bg-muted">
-          <h3 className="text-lg font-semibold mb-2">Response Time</h3>
+          <h3 className="text-lg font-semibold mb-2">{t('responseTime')}</h3>
           <p className="text-muted-foreground">
-            I typically respond to emails within 24-48 hours. Looking forward to connecting with you!
+            {t('responseTip')}
           </p>
         </div>
       </div>

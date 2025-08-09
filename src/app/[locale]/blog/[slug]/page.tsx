@@ -1,24 +1,36 @@
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
+import { locales } from '@/i18n/config'
+import { getTranslations } from 'next-intl/server'
 import ReactMarkdown from 'react-markdown'
 
 interface PostPageProps {
   params: Promise<{
     slug: string
+    locale: string
   }>
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  const allParams: Array<{ slug: string; locale: string }> = []
+  
+  for (const locale of locales) {
+    const posts = getAllPosts(locale)
+    posts.forEach((post) => {
+      allParams.push({
+        slug: post.slug,
+        locale: locale,
+      })
+    })
+  }
+  
+  return allParams
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     return {}
@@ -43,8 +55,9 @@ export async function generateMetadata({ params }: PostPageProps) {
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
+  const t = await getTranslations('posts')
 
   if (!post) {
     notFound()
@@ -63,7 +76,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {post.featured && (
               <>
                 <span>•</span>
-                <span className="text-primary font-medium">Featured</span>
+                <span className="text-primary font-medium">{t('posts.featured')}</span>
               </>
             )}
           </div>
