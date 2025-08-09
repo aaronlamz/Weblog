@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { siteConfig } from '@/config/site.config'
 import { 
@@ -15,13 +15,32 @@ import {
 export function Footer() {
   const t = useTranslations('footer')
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [showFloatingBar, setShowFloatingBar] = useState(false)
+  const idleTimer = useRef<number | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400)
+      const y = window.scrollY
+      setShowScrollTop(y > 400)
+
+      // 显示浮动条，停止滚动后延迟隐藏
+      if (y <= 8) {
+        setShowFloatingBar(false)
+        if (idleTimer.current) window.clearTimeout(idleTimer.current)
+        return
+      }
+
+      setShowFloatingBar(true)
+      if (idleTimer.current) window.clearTimeout(idleTimer.current)
+      idleTimer.current = window.setTimeout(() => {
+        setShowFloatingBar(false)
+      }, 1200)
     }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (idleTimer.current) window.clearTimeout(idleTimer.current)
+    }
   }, [])
 
   const scrollToTop = () => {
@@ -66,10 +85,21 @@ export function Footer() {
 
   return (
     <>
-      {/* 悬浮式底部社交链接栏 */}
+      {/* 悬浮式底部社交链接栏（滚动时淡入，静止时淡出） */}
       <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
         <div className="flex justify-center pb-6 px-4">
-          <div className="pointer-events-auto bg-background/60 backdrop-blur-lg border border-border/30 rounded-full px-6 py-3 shadow-lg shadow-black/10">
+          <div
+            className={
+              `rounded-full px-6 py-3
+               transition-all duration-300 ease-out transform
+               ${showFloatingBar ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
+               bg-white/8 dark:bg-black/25
+               border border-white/10 dark:border-white/5
+               ring-1 ring-white/5 dark:ring-white/0
+               backdrop-blur-2xl backdrop-saturate-150
+               shadow-xl shadow-black/20`
+            }
+          >
             <div className="flex items-center space-x-4">
               {/* 社交链接 */}
               {socialLinks.map((link) => {
@@ -80,7 +110,7 @@ export function Footer() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="p-2 rounded-full text-foreground/60 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
+                    className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
                     title={link.name}
                   >
                     <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -95,7 +125,7 @@ export function Footer() {
               {showScrollTop && (
                 <button
                   onClick={scrollToTop}
-                  className="p-2 rounded-full text-foreground/60 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
+                  className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
                   title={t('scrollToTop')}
                 >
                   <ArrowUp className="w-4 h-4 group-hover:scale-110 transition-transform" />

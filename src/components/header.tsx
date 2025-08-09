@@ -61,18 +61,22 @@ export function Header() {
         <div className="flex justify-center pt-6 px-4">
           <nav className={`
             pointer-events-auto
-            bg-background/60 backdrop-blur-lg 
-            border border-border/30
-            rounded-full px-6 py-3
-            shadow-lg shadow-black/10
+            rounded-full px-8 py-3.5
+            bg-white/5 dark:bg-black/20
+            border border-white/10 dark:border-white/5
+            ring-1 ring-white/5 dark:ring-white/0
+            backdrop-blur-2xl backdrop-saturate-150
+            shadow-xl shadow-black/20
             transition-all duration-500 ease-out
-            ${isScrolled ? 'scale-95 shadow-xl bg-background/80' : 'scale-100'}
+            ${isScrolled 
+              ? 'scale-95 bg-white/8 dark:bg-black/25 backdrop-blur-2xl shadow-2xl' 
+              : 'scale-100'}
           `}>
             <div className="flex items-center space-x-8">
               {/* Logo */}
               <Link 
                 href={navItems[0].href as any} 
-                className="font-bold text-lg hover:text-primary transition-colors"
+                className="font-bold text-lg transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground hover:text-primary dark:text-white dark:hover:text-primary"
               >
                 {tSite('name')}
               </Link>
@@ -85,10 +89,10 @@ export function Header() {
                     <Link 
                       key={item.key}
                       href={item.href as any}
-                      className="flex items-center space-x-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors group"
+                      className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-foreground dark:text-white/85 dark:hover:text-white"
                     >
                       {Icon && (
-                        <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                        <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />
                       )}
                       <span>{t(item.key as any)}</span>
                     </Link>
