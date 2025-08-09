@@ -72,7 +72,7 @@ export default async function PostPage({ params }: PostPageProps) {
               {formatDate(post.date)}
             </time>
             <span>•</span>
-            <span>{post.readingTime?.text}</span>
+            <span>{t('readingTime', { minutes: post.readingTime?.minutes })}</span>
             {post.featured && (
               <>
                 <span>•</span>

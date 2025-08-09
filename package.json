@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm install && next dev",
+    "dev": "pnpm install && BASE_PATH= NEXT_PUBLIC_SITE_URL=http://localhost:3000 NODE_ENV=development next dev",
     "build": "next build --no-lint",
     "export": "next build",
     "start": "next start",
@@ -56,8 +56,8 @@
   "devDependencies": {
     "@playwright/test": "^1.47.0",
     "@types/better-sqlite3": "^7.6.0",
-    "@types/node": "^22.0.0",
-    "@types/react": "^18.3.0",
+    "@types/node": "^22.15.34",
+    "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
@@ -71,7 +71,7 @@
     "postcss": "^8.4.0",
     "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.6.0",
-    "typescript": "^5.6.0",
+    "typescript": "^5.8.3",
     "vitest": "^2.1.0"
   },
   "engines": {

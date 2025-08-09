@@ -32,7 +32,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const t = await getTranslations('about')
+  const t = await getTranslations({ locale, namespace: 'about' })
 
   return (
     <div className="container mx-auto px-4 py-8">

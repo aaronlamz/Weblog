@@ -46,7 +46,7 @@ export default async function BlogPage({
                         {formatDate(post.date)}
                       </time>
                       <span>•</span>
-                      <span>{post.readingTime?.text}</span>
+                      <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>
                       {post.featured && (
                         <>
                           <span>•</span>

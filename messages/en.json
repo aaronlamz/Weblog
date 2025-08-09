@@ -37,7 +37,7 @@
     "latest": "Latest Posts",
     "readMore": "Read More",
     "publishedOn": "Published on",
-    "readingTime": "min read",
+    "readingTime": "{minutes} min read",
     "empty": "No posts yet. Check back soon!"
   },
   "footer": {

@@ -154,7 +154,7 @@ export default async function HomePage({
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                       <span>•</span>
                       <Clock className="w-4 h-4" />
-                      <span>{post.readingTime?.text}</span>
+                      <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>
                       <Star className="w-4 h-4 text-yellow-500 ml-auto" />
                     </div>
                     
@@ -202,7 +202,7 @@ export default async function HomePage({
                     <time dateTime={post.date}>{formatDate(post.date)}</time>
                     <span>•</span>
                     <Clock className="w-4 h-4" />
-                    <span>{post.readingTime?.text}</span>
+                    <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>
                   </div>
                   
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">

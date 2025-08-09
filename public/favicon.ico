@@ -1,0 +1,3 @@
+// placeholder. Next.js will prefer app/icon.tsx for modern browsers,
+// but this .ico prevents 404 requests to /favicon.ico in some environments.
+
