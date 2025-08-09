@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to gh-pages
 
 on:
   push:
@@ -6,21 +6,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout (current repo)
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -35,8 +29,7 @@ jobs:
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Setup pnpm cache
         uses: actions/cache@v4
@@ -46,48 +39,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
+      - name: Install deps
         run: pnpm install --frozen-lockfile
 
-      - name: Build
+      - name: Build (Next export with base path)
         env:
-          # 多仓库共用同一域名时，使用仓库名作为子路径
           BASE_PATH: /${{ github.event.repository.name }}
-          # 根域名（不含子路径），用于生成 RSS/OG 等绝对链接
-          NEXT_PUBLIC_SITE_URL: https://www.ultimate-kernel.fun
+          NEXT_PUBLIC_SITE_URL: https://aaronlamz.github.io
         run: pnpm run build
 
-      - name: Prepare artifact under subfolder
+      - name: Post-export fixes (index + nojekyll)
         run: |
-          rm -rf dist
-          mkdir -p dist/${{ github.event.repository.name }}
-          cp -r out/* dist/${{ github.event.repository.name }}/
-          # 兼容静态导出不生成默认根路径的问题：将 /en 下的页面复制为无前缀路径
-          if [ -d "out/en" ]; then
-            cp -r out/en/* dist/${{ github.event.repository.name }}/
+          # 若没有根首页，用英文首页作为根首页，避免 /Weblog/ 404
+          if [ -f "out/en/index.html" ] && [ ! -f "out/index.html" ]; then
+            cp -f out/en/index.html out/index.html
           fi
+          touch out/.nojekyll
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # 发布整个站点，其中我们的导出内容位于 /<repo>/ 下
-          path: ./dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
