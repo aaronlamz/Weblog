@@ -78,7 +78,7 @@
   "about": {
     "title": "About Me",
     "description": "Welcome to my personal blog",
-    "intro": "I am a full-stack engineer based in Hong Kong.",
+    "intro": "I am a full-stack engineer.",
     "bio": "I love building modern web applications with great UX and performance.",
     "workingOnTitle": "What I'm Working On",
     "currentWork": "Exploring modern React and building delightful developer experiences.",
