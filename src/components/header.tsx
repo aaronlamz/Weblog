@@ -38,13 +38,12 @@ export function Header() {
   // Navigation items with translations - use pathname to determine locale reliably
   const isZh = pathname.startsWith('/zh') || locale === 'zh'
   
-  // Navigation items that work consistently in SSR and client
-  const base = (process.env.BASE_PATH || '') as string
+  // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
-    { key: 'home', href: `${base}${isZh ? '/zh' : ''}` || '/' },
-    { key: 'blog', href: `${base}${isZh ? '/zh/blog' : '/blog'}` },
-    { key: 'about', href: `${base}${isZh ? '/zh/about' : '/about'}` },
-    { key: 'contact', href: `${base}${isZh ? '/zh/contact' : '/contact'}` },
+    { key: 'home', href: isZh ? '/zh' : '/' },
+    { key: 'blog', href: isZh ? '/zh/blog' : '/blog' },
+    { key: 'about', href: isZh ? '/zh/about' : '/about' },
+    { key: 'contact', href: isZh ? '/zh/contact' : '/contact' },
   ]
 
   useEffect(() => {

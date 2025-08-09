@@ -86,13 +86,13 @@ export default async function HomePage({
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg" className="group">
-                <Link href={`${process.env.BASE_PATH || ''}${locale === 'zh' ? '/zh' : ''}/blog` as any}>
+                <Link href={`${locale === 'zh' ? '/zh' : ''}/blog` as any}>
                   {t('navigation.blog')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href={`${process.env.BASE_PATH || ''}${locale === 'zh' ? '/zh' : ''}/about` as any}>
+                <Link href={`${locale === 'zh' ? '/zh' : ''}/about` as any}>
                   {t('navigation.about')}
                 </Link>
               </Button>

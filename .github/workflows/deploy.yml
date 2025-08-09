@@ -48,12 +48,15 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://aaronlamz.github.io
         run: pnpm run build
 
-      - name: Post-export fixes (index + nojekyll)
+      - name: Post-export fixes (EN at root + nojekyll)
         run: |
-          # 若没有根首页，用英文首页作为根首页，避免 /Weblog/ 404
-          if [ -f "out/en/index.html" ] && [ ! -f "out/index.html" ]; then
-            cp -f out/en/index.html out/index.html
+          # 将英文版本（/en/*）复制到根目录，作为默认英语路径（无 /en 前缀）
+          if [ -d "out/en" ]; then
+            rsync -a out/en/ out/
           fi
+          # 可选：减少体积，删除 /en 目录（保留也不影响访问）
+          # rm -rf out/en
+          # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
           touch out/.nojekyll
 
       - name: Deploy to gh-pages
