@@ -62,7 +62,11 @@ jobs:
           rm -rf dist
           mkdir -p dist/${{ github.event.repository.name }}
           cp -r out/* dist/${{ github.event.repository.name }}/
-        
+          # 兼容静态导出不生成默认根路径的问题：将 /en 下的页面复制为无前缀路径
+          if [ -d "out/en" ]; then
+            cp -r out/en/* dist/${{ github.event.repository.name }}/
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
