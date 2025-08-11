@@ -6,17 +6,26 @@ import { useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { locales, type Locale } from '@/i18n/config';
 import { Languages, Check } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale() as Locale;
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   // Derive active locale robustly with pathname fallback (as-needed strategy)
   const isZhFromPath = pathname?.startsWith('/zh');
   const activeLocale = (isZhFromPath ? 'zh' : locale) as Locale;
+
+  const closeMenu = () => {
+    if (menuRef.current && document.activeElement && menuRef.current.contains(document.activeElement)) {
+      triggerRef.current?.focus();
+    }
+    setIsOpen(false);
+  };
 
   const switchLanguage = (newLocale: Locale) => {
     // Remove current locale prefix if exists (handles /zh or /en)
@@ -27,19 +36,46 @@ export function LanguageSwitcher() {
     const newPath = `${localePrefix}${pathnameWithoutLocale === '/' ? '' : pathnameWithoutLocale}`;
     
     router.push(newPath as any);
-    setIsOpen(false);
+    closeMenu();
   };
+
+  // Manage inert to prevent focus when closed and avoid aria-hidden issues
+  useEffect(() => {
+    if (!menuRef.current) return;
+    if (!isOpen) {
+      menuRef.current.setAttribute('inert', '');
+    } else {
+      menuRef.current.removeAttribute('inert');
+    }
+  }, [isOpen]);
+
+  // Close on Escape
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeMenu();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
 
   return (
     <div className="relative">
       <Button
         variant="outline"
         size="icon"
+        ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
         className={`bg-background/60 backdrop-blur-sm border-border/30 hover:bg-background/80 w-9 h-9 group ${
           isOpen ? 'ring-2 ring-primary/40' : ''
         }`}
         aria-label="Change language"
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
+        aria-controls="lang-menu"
       >
         <span className="relative inline-flex items-center justify-center">
           <Languages className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
@@ -58,7 +94,9 @@ export function LanguageSwitcher() {
             ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
         }`}
-        aria-hidden={!isOpen}
+        id="lang-menu"
+        role="menu"
+        ref={menuRef}
       >
         {locales.map((localeOption, index) => {
           const isActive = activeLocale === localeOption;
@@ -71,6 +109,8 @@ export function LanguageSwitcher() {
                 ${isActive ? 'bg-muted/30 text-primary' : 'text-foreground hover:bg-muted/50'}
               `}
               style={{ transitionDelay: isOpen ? `${index * 30}ms` : '0ms' }}
+              role="menuitemradio"
+              aria-checked={isActive}
             >
               <span
                 className={`inline-flex items-center justify-center transition-all ${
@@ -92,9 +132,10 @@ export function LanguageSwitcher() {
       </div>
 
       {isOpen && (
-        <div
+        <button
+          aria-label="Close language menu"
           className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
+          onClick={closeMenu}
         />
       )}
     </div>

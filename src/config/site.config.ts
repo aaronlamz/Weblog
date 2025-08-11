@@ -77,7 +77,7 @@ export const siteConfig: SiteConfig = {
   },
   
   social: {
-    github: 'https://github.com/aaronlamz', // 用户需要修改
+    github: 'https://github.com/aaronlamz/Weblog', // 用户需要修改
     twitter: 'https://x.com/aaronlamz', // 用户需要修改
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
   },
