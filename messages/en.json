@@ -35,6 +35,7 @@
     "blog": "Blog",
     "featured": "Featured Posts",
     "latest": "Latest Posts",
+    "description": "Thoughts, ideas, and insights about web development and technology.",
     "readMore": "Read More",
     "publishedOn": "Published on",
     "readingTime": "{minutes} min read",

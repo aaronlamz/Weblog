@@ -13,7 +13,7 @@ export async function generateMetadata({
   
   return {
     title: t('blog'),
-    description: 'Read my latest blog posts about web development, technology, and more.',
+    description: t('description'),
   };
 }
 
@@ -32,7 +32,7 @@ export default async function BlogPage({
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">{t('navigation.blog')}</h1>
         <p className="text-xl text-muted-foreground mb-12">
-          Thoughts, ideas, and insights about web development and technology.
+          {tPosts('description')}
         </p>
 
         <div className="space-y-8">

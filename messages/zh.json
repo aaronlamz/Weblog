@@ -35,6 +35,7 @@
     "blog": "博客",
     "featured": "精选文章",
     "latest": "最新文章",
+    "description": "关于 Web 开发与技术的思考、想法与见解。",
     "readMore": "阅读全文",
     "publishedOn": "发布于",
     "readingTime": "约 {minutes} 分钟",
