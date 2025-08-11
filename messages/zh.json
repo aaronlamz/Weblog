@@ -5,8 +5,7 @@
   "navigation": {
     "home": "首页",
     "blog": "博客",
-    "about": "关于",
-    "contact": "联系"
+    "about": "关于"
   },
   "hero": {
     "greeting": "我是",

@@ -24,7 +24,7 @@ const navIcons = {
   home: Home,
   blog: FileText,
   about: User,
-  contact: MessageCircle,
+  // contact: MessageCircle,
 }
 
 export function Header() {
@@ -43,7 +43,6 @@ export function Header() {
     { key: 'home', href: isZh ? '/zh' : '/' },
     { key: 'blog', href: isZh ? '/zh/blog' : '/blog' },
     { key: 'about', href: isZh ? '/zh/about' : '/about' },
-    { key: 'contact', href: isZh ? '/zh/contact' : '/contact' },
   ]
 
   useEffect(() => {

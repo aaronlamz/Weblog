@@ -5,8 +5,7 @@
   "navigation": {
     "home": "Home",
     "blog": "Blog",
-    "about": "About",
-    "contact": "Contact"
+    "about": "About"
   },
   "hero": {
     "greeting": "I'm",
