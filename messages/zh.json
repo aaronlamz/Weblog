@@ -40,6 +40,9 @@
     "readingTime": "约 {minutes} 分钟",
     "empty": "暂无文章，敬请期待！"
   },
+  "common": {
+    "onThisPage": "本页导读"
+  },
   "footer": {
     "scrollToTop": "回到顶部",
     "copyright": "版权所有",

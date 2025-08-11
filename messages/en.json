@@ -40,6 +40,9 @@
     "readingTime": "{minutes} min read",
     "empty": "No posts yet. Check back soon!"
   },
+  "common": {
+    "onThisPage": "On this page"
+  },
   "footer": {
     "scrollToTop": "Scroll to top",
     "copyright": "All rights reserved",
