@@ -22,13 +22,16 @@
     "title": "Skills",
     "frontend": "Frontend Development",
     "backend": "Backend Development",
-    "mobile": "Mobile Development",
-    "design": "Design"
+    "mobile": "Mobile Development"
   },
   "skillsDesc": {
     "frontend": "Modern web technologies",
     "design": "UI/UX and visual design",
-    "backend": "Fast and optimized solutions"
+    "backend": "Fast and optimized solutions",
+    "mobile": "iOS/Android with React Native and PWA"
+  },
+  "tech": {
+    "title": "Tech Stack"
   },
   "posts": {
     "blog": "Blog",

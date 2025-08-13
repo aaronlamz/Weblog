@@ -29,13 +29,13 @@ export function LanguageSwitcher() {
 
   const switchLanguage = (newLocale: Locale) => {
     // Remove current locale prefix if exists (handles /zh or /en)
-    const pathnameWithoutLocale = pathname.replace(/^\/(zh|en)(?=\/|$)/, '') || '/';
+    const pathnameWithoutLocale = (pathname?.replace(/^\/(zh|en)(?=\/|$)/, '') || '/');
 
-    // as-needed: en no prefix, zh with /zh. Do not prepend basePath manually.
+    // as-needed: en no prefix, zh with /zh. Always append normalized path
     const localePrefix = newLocale === 'en' ? '' : '/zh';
-    const newPath = `${localePrefix}${pathnameWithoutLocale === '/' ? '' : pathnameWithoutLocale}`;
-    
-    router.push(newPath as any);
+    const newPath = `${localePrefix}${pathnameWithoutLocale}`;
+
+    router.push((newPath || '/') as any);
     closeMenu();
   };
 

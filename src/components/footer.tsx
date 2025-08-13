@@ -16,6 +16,7 @@ export function Footer() {
   const t = useTranslations('footer')
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showFloatingBar, setShowFloatingBar] = useState(false)
+  const [isHoveringBar, setIsHoveringBar] = useState(false)
   const idleTimer = useRef<number | null>(null)
 
   useEffect(() => {
@@ -33,7 +34,9 @@ export function Footer() {
       setShowFloatingBar(true)
       if (idleTimer.current) window.clearTimeout(idleTimer.current)
       idleTimer.current = window.setTimeout(() => {
-        setShowFloatingBar(false)
+        if (!isHoveringBar) {
+          setShowFloatingBar(false)
+        }
       }, 1200)
     }
     window.addEventListener('scroll', handleScroll)
@@ -41,7 +44,7 @@ export function Footer() {
       window.removeEventListener('scroll', handleScroll)
       if (idleTimer.current) window.clearTimeout(idleTimer.current)
     }
-  }, [])
+  }, [isHoveringBar])
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -82,59 +85,78 @@ export function Footer() {
       external: false 
     },
   ].filter(link => link.href) // 只显示配置了的链接
+  const hasSocial = socialLinks.length > 0
 
   return (
     <>
-      {/* 悬浮式底部社交链接栏（滚动时淡入，静止时淡出） */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
-        <div className="flex justify-center pb-6 px-4">
-          <div
-            className={
-              `rounded-full px-6 py-3
-               transition-all duration-300 ease-out transform
-               ${showFloatingBar ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
-               bg-white/8 dark:bg-black/25
-               border border-white/10 dark:border-white/5
-               ring-1 ring-white/5 dark:ring-white/0
-               backdrop-blur-2xl backdrop-saturate-150
-               shadow-xl shadow-black/20`
-            }
-          >
-            <div className="flex items-center space-x-4">
-              {/* 社交链接 */}
-              {socialLinks.map((link) => {
-                const Icon = link.icon
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
+      {/* 悬浮式底部工具条（无内容时不渲染） */}
+      {(hasSocial || showScrollTop) && (
+        <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
+          <div className="flex justify-center pb-6 px-4">
+            <div
+              className={
+                `rounded-full px-6 py-3
+                 transition-all duration-300 ease-out transform
+                 ${showFloatingBar ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
+                 bg-white/8 dark:bg-black/25
+                 border border-white/10 dark:border-white/5
+                 ring-1 ring-white/5 dark:ring-white/0
+                 backdrop-blur-2xl backdrop-saturate-150
+                 shadow-xl shadow-black/20`
+              }
+              onMouseEnter={() => {
+                setIsHoveringBar(true)
+                if (idleTimer.current) window.clearTimeout(idleTimer.current)
+                setShowFloatingBar(true)
+              }}
+              onMouseLeave={() => {
+                setIsHoveringBar(false)
+                if (idleTimer.current) window.clearTimeout(idleTimer.current)
+                idleTimer.current = window.setTimeout(() => {
+                  if (!isHoveringBar && window.scrollY > 8) {
+                    setShowFloatingBar(false)
+                  }
+                }, 800)
+              }}
+            >
+              <div className="flex items-center space-x-4">
+                {/* 社交链接（可为空） */}
+                {hasSocial && socialLinks.map((link) => {
+                  const Icon = link.icon
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
+                      title={link.name}
+                    >
+                      <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    </a>
+                  )
+                })}
+                
+                {/* 分隔线：仅当左右两侧都有内容时显示 */}
+                {hasSocial && showScrollTop && (
+                  <div className="w-px h-4 bg-border/60" />
+                )}
+                
+                {/* 回到顶部按钮（可单独显示） */}
+                {showScrollTop && (
+                  <button
+                    onClick={scrollToTop}
                     className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
-                    title={link.name}
+                    title={t('scrollToTop')}
                   >
-                    <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  </a>
-                )
-              })}
-              
-              {/* 分隔线 */}
-              <div className="w-px h-4 bg-border/60" />
-              
-              {/* 回到顶部按钮 */}
-              {showScrollTop && (
-                <button
-                  onClick={scrollToTop}
-                  className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
-                  title={t('scrollToTop')}
-                >
-                  <ArrowUp className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                </button>
-              )}
+                    <ArrowUp className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* 传统底部 - 版权信息 */}
       <footer className="mt-20 border-t bg-background/50">

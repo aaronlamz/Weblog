@@ -12,9 +12,15 @@ import {
   Clock, 
   Star,
   Code,
-  Palette,
   Zap,
-  FileText
+  FileText,
+  Smartphone,
+  BookOpen,
+  Music,
+  Camera,
+  Gamepad2,
+  Plane,
+  Coffee
 } from 'lucide-react'
 
 export default async function HomePage({
@@ -37,19 +43,43 @@ export default async function HomePage({
       bgColor: 'bg-blue-100 dark:bg-blue-900/30'
     },
     { 
-      name: t('skills.design'), 
-      icon: Palette, 
-      description: t('skillsDesc.design'),
-      color: 'text-purple-600 dark:text-purple-400',
-      bgColor: 'bg-purple-100 dark:bg-purple-900/30'
-    },
-    { 
       name: t('skills.backend'), 
       icon: Zap, 
       description: t('skillsDesc.backend'),
       color: 'text-yellow-600 dark:text-yellow-400',
       bgColor: 'bg-yellow-100 dark:bg-yellow-900/30'
     },
+    { 
+      name: t('skills.mobile'), 
+      icon: Smartphone, 
+      description: t('skillsDesc.mobile'),
+      color: 'text-green-600 dark:text-green-400',
+      bgColor: 'bg-green-100 dark:bg-green-900/30'
+    },
+  ]
+
+  // Tech stack icons and names
+  const techRow1 = [
+    { key: 'JavaScript', label: 'JavaScript' },
+    { key: 'TypeScript', label: 'TypeScript' },
+    { key: 'React', label: 'React' },
+    { key: 'Next.js', label: 'Next.js' },
+    { key: 'Tailwind CSS', label: 'Tailwind CSS' },
+    { key: 'Vue.js', label: 'Vue.js' },
+    { key: 'Vuex', label: 'Vuex' },
+    { key: 'Vue Router', label: 'Vue Router' },
+    { key: 'Vue I18n', label: 'Vue I18n' },
+    { key: 'Vuex', label: 'Vuex' },
+    { key: 'Vue Router', label: 'Vue Router' },
+  ]
+  const techRow2 = [
+    { key: 'Vite', label: 'Vite' },
+    { key: 'Vercel', label: 'Vercel' },
+    { key: 'Cloudflare', label: 'Cloudflare' },
+    { key: 'Markdown', label: 'Markdown' },
+    { key: 'Vitest', label: 'Vitest' },
+    { key: 'Node.js', label: 'Node.js' },
+    { key: 'React Native', label: 'React Native' },
   ]
 
   return (
@@ -71,7 +101,6 @@ export default async function HomePage({
                   texts={[
                     t('hero.roles.fullstack'), 
                     t('hero.roles.web'), 
-                    t('hero.roles.ui'), 
                     t('hero.roles.solver')
                   ]}
                   speed={120}
@@ -129,6 +158,44 @@ export default async function HomePage({
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="container mx-auto px-4 pb-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <Zap className="w-5 h-5" />
+            <h2 className="text-2xl font-bold">{t('tech.title')}</h2>
+          </div>
+          <div className="rounded-2xl border bg-card/30 backdrop-blur-sm p-4 overflow-hidden">
+            {/* Row 1: LTR marquee */}
+            <div className="relative overflow-hidden py-3">
+              <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{ animation: 'marquee 22s linear infinite' }}>
+                {[...techRow1, ...techRow1].map((item, i) => (
+                  <div key={`${item.key}-${i}`} className="flex items-center gap-3 min-w-fit">
+                    <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center">
+                      <span className="text-xs font-semibold">{item.label[0]}</span>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Row 2: RTL marquee */}
+            <div className="relative overflow-hidden py-3">
+              <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{ animation: 'marqueeRtl 24s linear infinite' }}>
+                {[...techRow2, ...techRow2].map((item, i) => (
+                  <div key={`${item.key}-${i}`} className="flex items-center gap-3 min-w-fit">
+                    <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center">
+                      <span className="text-xs font-semibold">{item.label[0]}</span>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

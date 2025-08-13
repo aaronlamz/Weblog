@@ -13,7 +13,6 @@
     "roles": {
       "fullstack": "全栈工程师",
       "web": "Web 开发者", 
-      "ui": "UI/UX 设计师",
       "solver": "问题解决者"
     },
     "description": "专注于构建现代化的 Web 应用程序"
@@ -22,13 +21,16 @@
     "title": "技能",
     "frontend": "前端开发",
     "backend": "后端开发",
-    "mobile": "移动开发",
-    "design": "设计"
+    "mobile": "移动开发"
   },
   "skillsDesc": {
     "frontend": "现代 Web 技术栈",
     "design": "UI/UX 与视觉设计",
-    "backend": "高性能与优化方案"
+    "backend": "高性能与优化方案",
+    "mobile": "使用 React Native 与 PWA 的移动端开发"
+  },
+  "tech": {
+    "title": "技术栈"
   },
   "posts": {
     "blog": "博客",
