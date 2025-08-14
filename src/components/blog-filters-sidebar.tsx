@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useMemo } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import type { Post } from '@/lib/posts'
 
 export interface BlogFiltersSidebarProps {
@@ -12,6 +12,7 @@ export interface BlogFiltersSidebarProps {
 
 export function BlogFiltersSidebar({ posts }: BlogFiltersSidebarProps) {
   const tPosts = useTranslations('posts')
+  const locale = useLocale()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -159,10 +160,18 @@ export function BlogFiltersSidebar({ posts }: BlogFiltersSidebarProps) {
               .map((ym) => {
                 const selected = activeMonth === ym
                 const count = monthCounts[ym]
+                const [yStr, mStr] = ym.split('-')
+                const y = Number(yStr)
+                const m = Number(mStr)
+                const label = locale.startsWith('zh')
+                  ? `${String(m).padStart(2, '0')}月`
+                  : new Date(y, m - 1, 1).toLocaleString('en-US', { month: 'short', year: 'numeric' })
+                const title = locale.startsWith('zh') ? `${y}年${String(m).padStart(2, '0')}月` : `${ym}`
                 return (
                   <Link
                     key={ym}
                     href={buildHref({ tag: activeTag, month: ym }) as any}
+                    title={title}
                     className={
                       `inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                         selected
@@ -171,7 +180,7 @@ export function BlogFiltersSidebar({ posts }: BlogFiltersSidebarProps) {
                       }`
                     }
                   >
-                    <span>{ym}</span>
+                    <span>{label}</span>
                     <span className={selected ? 'opacity-90' : 'text-muted-foreground'}>({count})</span>
                   </Link>
                 )

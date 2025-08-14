@@ -39,7 +39,7 @@
     "description": "关于 Web 开发与技术的思考、想法与见解。",
     "readMore": "阅读全文",
     "publishedOn": "发布于",
-    "readingTime": "约 {minutes} 分钟",
+    "readingTime": "阅读约 {minutes} 分钟",
     "empty": "暂无文章，敬请期待！",
     "tags": "标签",
     "archive": "时间归档",

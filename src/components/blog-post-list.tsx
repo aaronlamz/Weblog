@@ -52,7 +52,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
               <div className="flex flex-col space-y-3">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <time dateTime={post.date}>
-                    {formatDate(post.date)}
+                    {formatDate(post.date, post.locale)}
                   </time>
                   <span>•</span>
                   <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>

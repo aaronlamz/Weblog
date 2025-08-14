@@ -218,7 +218,7 @@ export default async function HomePage({
                   <div className="bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm rounded-2xl p-8 h-full border border-border/40 hover:shadow-xl hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                       <Calendar className="w-4 h-4" />
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                   <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                       <span>•</span>
                       <Clock className="w-4 h-4" />
                       <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>
@@ -266,7 +266,7 @@ export default async function HomePage({
                 <div className="bg-card/40 backdrop-blur-sm rounded-xl p-6 h-full border border-border/40 hover:shadow-lg hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <Calendar className="w-4 h-4" />
-                    <time dateTime={post.date}>{formatDate(post.date)}</time>
+                    <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                     <span>•</span>
                     <Clock className="w-4 h-4" />
                     <span>{t('posts.readingTime', { minutes: post.readingTime?.minutes })}</span>

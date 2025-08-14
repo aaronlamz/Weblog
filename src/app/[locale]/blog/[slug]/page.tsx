@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PostPageProps) {
 export default async function PostPage({ params }: PostPageProps) {
   const { slug, locale } = await params
   const post = getPostBySlug(slug, locale)
-  const t = await getTranslations('posts')
+  const t = await getTranslations({ locale, namespace: 'posts' })
 
   if (!post) {
     notFound()
@@ -69,7 +69,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <header className="mb-12">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">
             <time dateTime={post.date}>
-              {formatDate(post.date)}
+              {formatDate(post.date, locale)}
             </time>
             <span>•</span>
             <span>{t('readingTime', { minutes: post.readingTime?.minutes })}</span>
