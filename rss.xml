@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Weblog</title>
+        <link>https://aaronlamz.github.io/Weblog</link>
+        <description>A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.</description>
+        <lastBuildDate>Thu, 14 Aug 2025 13:08:11 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>Weblog</title>
+            <url>https://aaronlamz.github.io/Weblog/images/og-image.png</url>
+            <link>https://aaronlamz.github.io/Weblog</link>
+        </image>
+        <copyright>© 2025 Aaron. All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[Hello World - Welcome to My Blog]]></title>
+            <link>https://aaronlamz.github.io/Weblog/blog/hello-world</link>
+            <guid>https://aaronlamz.github.io/Weblog/blog/hello-world</guid>
+            <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to my personal blog! This is my first post where I introduce myself and share what you can expect from this blog.]]></description>
+            <content:encoded><![CDATA[
+# Hello World! 👋
+
+Welcome to my personal blog! I'm Aaron Lam, a full-stack engineer based in Hong Kong.
+
+## About This Blog
+
+This blog is where I'll be sharing:
+
+- **Technical insights** from my development journey
+- **Project showcases** and case studies  
+- **Learning notes** on new technologies
+- **Industry thoughts** and trends
+
+## What to Expect
+
+You can expect posts about:
+
+- Modern web development (React, Next.js, TypeScript)
+- Backend technologies (Node.js, Python, databases)
+- DevOps and deployment strategies
+- UI/UX design principles
+- Personal projects and experiments
+
+## Let's Connect
+
+Feel free to reach out if you have any questions or want to discuss technology! You can find me on various platforms or use the contact form on this site.
+
+Thanks for visiting, and I hope you find the content useful! 🚀
+]]></content:encoded>
+            <author>aaronlamz2022@gmail.com (Admin)</author>
+            <category>welcome</category>
+            <category>introduction</category>
+            <category>blog</category>
+        </item>
+    </channel>
+</rss>

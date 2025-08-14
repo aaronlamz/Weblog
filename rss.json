@@ -1,0 +1,31 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Weblog",
+    "home_page_url": "https://aaronlamz.github.io/Weblog",
+    "feed_url": "https://aaronlamz.github.io/Weblog/rss.json",
+    "description": "A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.",
+    "icon": "https://aaronlamz.github.io/Weblog/images/og-image.png",
+    "author": {
+        "name": "Aaron",
+        "url": "https://aaronlamz.github.io/Weblog"
+    },
+    "items": [
+        {
+            "id": "https://aaronlamz.github.io/Weblog/blog/hello-world",
+            "content_html": "\n# Hello World! 👋\n\nWelcome to my personal blog! I'm Aaron Lam, a full-stack engineer based in Hong Kong.\n\n## About This Blog\n\nThis blog is where I'll be sharing:\n\n- **Technical insights** from my development journey\n- **Project showcases** and case studies  \n- **Learning notes** on new technologies\n- **Industry thoughts** and trends\n\n## What to Expect\n\nYou can expect posts about:\n\n- Modern web development (React, Next.js, TypeScript)\n- Backend technologies (Node.js, Python, databases)\n- DevOps and deployment strategies\n- UI/UX design principles\n- Personal projects and experiments\n\n## Let's Connect\n\nFeel free to reach out if you have any questions or want to discuss technology! You can find me on various platforms or use the contact form on this site.\n\nThanks for visiting, and I hope you find the content useful! 🚀\n",
+            "url": "https://aaronlamz.github.io/Weblog/blog/hello-world",
+            "title": "Hello World - Welcome to My Blog",
+            "summary": "Welcome to my personal blog! This is my first post where I introduce myself and share what you can expect from this blog.",
+            "date_modified": "2025-01-01T00:00:00.000Z",
+            "author": {
+                "name": "Admin",
+                "url": "https://aaronlamz.github.io/Weblog"
+            },
+            "tags": [
+                "welcome",
+                "introduction",
+                "blog"
+            ]
+        }
+    ]
+}
