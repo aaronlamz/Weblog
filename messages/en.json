@@ -41,7 +41,12 @@
     "readMore": "Read More",
     "publishedOn": "Published on",
     "readingTime": "{minutes} min read",
-    "empty": "No posts yet. Check back soon!"
+    "empty": "No posts yet. Check back soon!",
+    "tags": "Tags",
+    "archive": "Archive",
+    "monthlyArchive": "Monthly Archive",
+    "popularTags": "Popular Tags",
+    "clearFilters": "Clear Filters"
   },
   "common": {
     "onThisPage": "On this page"

@@ -40,7 +40,12 @@
     "readMore": "阅读全文",
     "publishedOn": "发布于",
     "readingTime": "约 {minutes} 分钟",
-    "empty": "暂无文章，敬请期待！"
+    "empty": "暂无文章，敬请期待！",
+    "tags": "标签",
+    "archive": "时间归档",
+    "monthlyArchive": "月份归档",
+    "popularTags": "热门标签",
+    "clearFilters": "清除筛选"
   },
   "common": {
     "onThisPage": "本页导读"
