@@ -1,0 +1,202 @@
+---
+title: "Getting Started with Weblog"
+description: "A comprehensive guide to setting up and configuring your Weblog site"
+date: "2025-08-24"
+featured: true
+tags: ["guide", "configuration", "setup", "nextjs", "i18n", "giscus"]
+---
+
+# Getting Started with Weblog
+
+Welcome to Weblog! This guide will walk you through the process of setting up and configuring your own blog using this template.
+
+## Live Demo
+
+You can check out the live demo at [ultimate-kernel.fun/Weblog](https://www.ultimate-kernel.fun/Weblog/)
+
+![Weblog Preview](https://api.microlink.io?url=https://www.ultimate-kernel.fun/Weblog/&screenshot=true&meta=false&embed=screenshot.url)
+
+This demo showcases:
+- Clean and modern design
+- Dark/Light mode support
+- Bilingual support (English/Chinese)
+- Responsive layout
+- Frosted glass navigation
+- Tech stack carousel
+- Blog with tags and archive
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (v8 or higher)
+- [Git](https://git-scm.com/)
+
+## Quick Start
+
+1. Clone the repository:
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Start the development server:
+```bash
+pnpm dev
+```
+
+Your site should now be running at `http://localhost:3000`!
+
+## Configuration
+
+### Basic Site Configuration
+
+The main configuration file is located at `src/config/site.config.ts`. Here are the key sections you'll want to customize:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Site Name',
+  title: 'Your Site Title',
+  description: 'Your site description',
+  
+  author: {
+    name: 'Your Name',
+    email: 'your.email@example.com',
+    avatar: 'https://github.com/yourusername.png', // GitHub avatar or any image URL
+    bio: 'Your short bio',
+  },
+  
+  social: {
+    github: 'https://github.com/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+    email: 'your.email@example.com',
+  }
+}
+```
+
+### Setting Up Comments with Giscus
+
+Weblog uses [Giscus](https://giscus.app) for comments, which is powered by GitHub Discussions. Here's how to set it up:
+
+1. Make sure your repository is public
+2. Enable GitHub Discussions in your repository:
+   - Go to your repository settings
+   - Scroll down to "Features"
+   - Check "Discussions"
+
+3. Install the [Giscus GitHub App](https://github.com/apps/giscus)
+   - Visit the Giscus app page
+   - Click "Install"
+   - Select your repository
+
+4. Get your Giscus configuration:
+   - Visit [giscus.app](https://giscus.app)
+   - Enter your repository information
+   - Copy the generated configuration
+
+5. Update the Giscus configuration in `src/components/comments.tsx`:
+```typescript
+<Giscus
+  repo="yourusername/yourrepo"
+  repoId="your-repo-id"
+  category="Announcements"
+  categoryId="your-category-id"
+  mapping="pathname"
+  theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
+  lang={locale === 'zh' ? 'zh-CN' : 'en'}
+/>
+```
+
+### Internationalization (i18n)
+
+Weblog supports both English and Chinese out of the box. The translations are stored in:
+- `messages/en.json` for English
+- `messages/zh.json` for Chinese
+
+To add or modify translations:
+
+1. Add your text to both language files
+2. Use the translation keys in your components:
+```typescript
+const t = useTranslations('namespace')
+// ...
+<div>{t('key')}</div>
+```
+
+### Writing Blog Posts
+
+Blog posts are written in MDX and stored in:
+- `content/blog/en/` for English posts
+- `content/blog/zh/` for Chinese posts
+
+Each post should include frontmatter:
+```mdx
+---
+title: "Your Post Title"
+description: "A brief description"
+date: "2024-03-20"
+featured: false
+---
+
+Your content here...
+```
+
+## Deployment
+
+### GitHub Pages
+
+1. Update `next.config.js`:
+```javascript
+const basePath = process.env.BASE_PATH || ''
+const isProduction = process.env.NODE_ENV === 'production'
+
+const nextConfig = {
+  output: isProduction ? 'export' : undefined,
+  basePath: isProduction ? basePath : '',
+}
+```
+
+2. Configure GitHub Actions:
+   - The workflow file is already set up in `.github/workflows/deploy.yml`
+   - Enable GitHub Pages in your repository settings
+   - Set the source to "GitHub Actions"
+
+3. Push your changes:
+```bash
+git add .
+git commit -m "Configure for deployment"
+git push
+```
+
+Your site will be automatically deployed to GitHub Pages!
+
+## Customization
+
+### Styling
+
+Weblog uses Tailwind CSS for styling. The main configuration files are:
+- `tailwind.config.ts` - Tailwind configuration
+- `src/styles/globals.css` - Global styles
+- Individual component styles are written using Tailwind classes
+
+### Components
+
+Key components you might want to customize:
+- `src/components/header.tsx` - Navigation and site header
+- `src/components/footer.tsx` - Site footer
+- `src/components/theme-toggle.tsx` - Dark/light mode toggle
+- `src/components/language-switcher.tsx` - Language switcher
+
+## Need Help?
+
+If you run into any issues:
+- Check the [GitHub Issues](https://github.com/aaronlamz/Weblog/issues)
+- Create a new issue if you can't find a solution
+- Join the discussion in GitHub Discussions
+
+Happy blogging! 🎉

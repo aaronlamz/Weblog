@@ -212,11 +212,11 @@ export default async function HomePage({
             {featuredPosts.map((post, index) => (
               <article 
                 key={post.slug} 
-                className={`group ${index === 0 ? 'lg:row-span-2' : ''}`}
+                className={`group ${index === 0 ? 'lg:row-span-2 lg:h-full' : ''}`}
               >
                 <Link href={post.url as any}>
-                  <div className="bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm rounded-2xl p-8 h-full border border-border/40 hover:shadow-xl hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                  <div className="bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-sm rounded-xl p-5 h-[180px] border border-border/40 hover:shadow-xl hover:shadow-primary/5 hover:bg-card/60 transition-all duration-300 group-hover:scale-[1.02]">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                       <Calendar className="w-4 h-4" />
                    <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                       <span>•</span>
@@ -225,13 +225,13 @@ export default async function HomePage({
                       <Star className="w-4 h-4 text-yellow-500 ml-auto" />
                     </div>
                     
-                    <h3 className={`font-bold mb-4 group-hover:text-primary transition-colors ${
+                    <h3 className={`font-bold mb-2 group-hover:text-primary transition-colors ${
                       index === 0 ? 'text-2xl lg:text-3xl' : 'text-xl'
                     }`}>
                       {post.title}
                     </h3>
                     
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
                       {post.description}
                     </p>
                     
@@ -240,7 +240,7 @@ export default async function HomePage({
                         {post.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 bg-secondary/50 text-secondary-foreground text-xs rounded-full"
+                            className="px-2 py-0.5 bg-secondary/50 text-secondary-foreground text-xs rounded-full"
                           >
                             {tag}
                           </span>

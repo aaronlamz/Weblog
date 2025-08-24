@@ -1,0 +1,202 @@
+---
+title: "Weblog 使用指南"
+description: "Weblog 博客系统配置和使用教程"
+date: "2025-08-24"
+featured: true
+tags: ["教程", "配置", "部署", "nextjs", "国际化", "评论系统"]
+---
+
+# Weblog 使用指南
+
+欢迎使用 Weblog！本指南将帮助你使用这个模板搭建和配置属于自己的博客。
+
+## 在线演示
+
+你可以访问在线演示站点：[ultimate-kernel.fun/Weblog](https://www.ultimate-kernel.fun/Weblog/)
+
+![Weblog 预览](https://api.microlink.io?url=https://www.ultimate-kernel.fun/Weblog/&screenshot=true&meta=false&embed=screenshot.url)
+
+演示站点展示了以下特性：
+- 清新现代的设计风格
+- 深色/浅色主题支持
+- 中英文双语支持
+- 响应式布局
+- 毛玻璃导航效果
+- 技术栈轮播展示
+- 带标签和归档的博客系统
+
+## 前置要求
+
+开始之前，请确保你已安装以下工具：
+- [Node.js](https://nodejs.org/) (v18 或更高版本)
+- [pnpm](https://pnpm.io/) (v8 或更高版本)
+- [Git](https://git-scm.com/)
+
+## 快速开始
+
+1. 克隆仓库：
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+2. 安装依赖：
+```bash
+pnpm install
+```
+
+3. 启动开发服务器：
+```bash
+pnpm dev
+```
+
+现在你的站点应该运行在 `http://localhost:3000` 了！
+
+## 配置说明
+
+### 基础站点配置
+
+主要配置文件位于 `src/config/site.config.ts`。以下是你需要自定义的关键部分：
+
+```typescript
+export const siteConfig = {
+  name: '你的站点名称',
+  title: '你的站点标题',
+  description: '你的站点描述',
+  
+  author: {
+    name: '你的名字',
+    email: 'your.email@example.com',
+    avatar: 'https://github.com/你的用户名.png', // GitHub 头像或其他图片链接
+    bio: '个人简介',
+  },
+  
+  social: {
+    github: 'https://github.com/你的用户名',
+    twitter: 'https://twitter.com/你的用户名',
+    email: 'your.email@example.com',
+  }
+}
+```
+
+### 配置 Giscus 评论系统
+
+Weblog 使用 [Giscus](https://giscus.app) 作为评论系统，它基于 GitHub Discussions。以下是配置步骤：
+
+1. 确保你的仓库是公开的
+2. 在仓库中启用 GitHub Discussions：
+   - 进入仓库设置
+   - 滚动到 "Features" 部分
+   - 勾选 "Discussions"
+
+3. 安装 [Giscus GitHub App](https://github.com/apps/giscus)
+   - 访问 Giscus app 页面
+   - 点击 "Install"
+   - 选择你的仓库
+
+4. 获取 Giscus 配置：
+   - 访问 [giscus.app](https://giscus.app)
+   - 输入你的仓库信息
+   - 复制生成的配置
+
+5. 更新 `src/components/comments.tsx` 中的 Giscus 配置：
+```typescript
+<Giscus
+  repo="你的用户名/仓库名"
+  repoId="你的仓库ID"
+  category="Announcements"
+  categoryId="分类ID"
+  mapping="pathname"
+  theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
+  lang={locale === 'zh' ? 'zh-CN' : 'en'}
+/>
+```
+
+### 国际化配置
+
+Weblog 默认支持中文和英文。翻译文件存储在：
+- `messages/en.json` - 英文翻译
+- `messages/zh.json` - 中文翻译
+
+添加或修改翻译：
+
+1. 在两个语言文件中添加你的文本
+2. 在组件中使用翻译键：
+```typescript
+const t = useTranslations('namespace')
+// ...
+<div>{t('key')}</div>
+```
+
+### 写作博客文章
+
+博客文章使用 MDX 格式，存储在：
+- `content/blog/en/` - 英文文章
+- `content/blog/zh/` - 中文文章
+
+每篇文章都需要包含前置元数据：
+```mdx
+---
+title: "文章标题"
+description: "简短描述"
+date: "2024-03-20"
+featured: false
+---
+
+你的文章内容...
+```
+
+## 部署说明
+
+### GitHub Pages 部署
+
+1. 更新 `next.config.js`：
+```javascript
+const basePath = process.env.BASE_PATH || ''
+const isProduction = process.env.NODE_ENV === 'production'
+
+const nextConfig = {
+  output: isProduction ? 'export' : undefined,
+  basePath: isProduction ? basePath : '',
+}
+```
+
+2. 配置 GitHub Actions：
+   - 工作流文件已在 `.github/workflows/deploy.yml` 中设置
+   - 在仓库设置中启用 GitHub Pages
+   - 将源设置为 "GitHub Actions"
+
+3. 推送你的更改：
+```bash
+git add .
+git commit -m "配置部署"
+git push
+```
+
+你的站点将自动部署到 GitHub Pages！
+
+## 自定义设置
+
+### 样式定制
+
+Weblog 使用 Tailwind CSS 进行样式设置。主要配置文件：
+- `tailwind.config.ts` - Tailwind 配置
+- `src/styles/globals.css` - 全局样式
+- 各组件样式使用 Tailwind 类名编写
+
+### 组件定制
+
+你可能想要自定义的关键组件：
+- `src/components/header.tsx` - 导航和站点头部
+- `src/components/footer.tsx` - 站点底部
+- `src/components/theme-toggle.tsx` - 暗/亮模式切换
+- `src/components/language-switcher.tsx` - 语言切换器
+
+## 需要帮助？
+
+如果遇到问题：
+- 查看 [GitHub Issues](https://github.com/aaronlamz/Weblog/issues)
+- 如果找不到解决方案，创建新的 issue
+- 在 GitHub Discussions 中参与讨论
+
+祝你使用愉快！🎉
