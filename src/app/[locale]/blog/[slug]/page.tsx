@@ -4,6 +4,7 @@ import { formatDate } from '@/lib/utils'
 import { locales } from '@/i18n/config'
 import { getTranslations } from 'next-intl/server'
 import ArticleWithTOC from '@/components/article-with-toc'
+import Comments from '@/components/comments'
 
 interface PostPageProps {
   params: Promise<{
@@ -104,6 +105,9 @@ export default async function PostPage({ params }: PostPageProps) {
         </header>
 
         <ArticleWithTOC content={post.content} />
+        
+        {/* 添加评论系统 */}
+        <Comments locale={locale} />
       </article>
     </div>
   )
