@@ -75,9 +75,19 @@ export function Header() {
               {/* Logo */}
               <Link 
                 href={navItems[0].href as any} 
-                className="font-bold text-lg transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground hover:text-primary dark:text-white dark:hover:text-primary"
+                className="flex items-center"
               >
-                {tSite('name')}
+                {siteConfig.author.avatar ? (
+                  <img
+                    src={siteConfig.author.avatar}
+                    alt={`${siteConfig.author.name}'s avatar`}
+                    className="w-8 h-8 rounded-full ring-2 ring-white/10 dark:ring-white/20 hover:ring-primary/30 dark:hover:ring-primary/30 transition-all duration-300"
+                  />
+                ) : (
+                  <span className="font-bold text-lg transition-colors drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground hover:text-primary dark:text-white dark:hover:text-primary">
+                    {tSite('name')}
+                  </span>
+                )}
               </Link>
               
               {/* 桌面导航链接 */}

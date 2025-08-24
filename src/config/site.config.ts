@@ -73,6 +73,7 @@ export const siteConfig: SiteConfig = {
   author: {
     name: 'Aaron', // 用户需要修改
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
+    avatar: 'https://github.com/aaronlamz.png', // 用户需要修改：可以是 GitHub 头像或其他图片链接
     bio: 'Developer, writer, and tech enthusiast',
   },
   
