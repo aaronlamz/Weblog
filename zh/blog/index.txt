@@ -1,0 +1,226 @@
+1:"$Sreact.fragment"
+2:I[7157,["177","static/chunks/app/layout-acfbbf2da762a65f.js"],"ThemeProvider"]
+3:I[2130,["177","static/chunks/app/layout-acfbbf2da762a65f.js"],"AnimatedBackground"]
+4:I[1850,[],""]
+5:I[1640,[],""]
+8:I[9762,[],"OutletBoundary"]
+b:I[7874,[],"AsyncMetadataOutlet"]
+d:I[9762,[],"ViewportBoundary"]
+f:I[9762,[],"MetadataBoundary"]
+11:I[157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/0b42d0fa19a399d6.css","style"]
+0:{"P":null,"b":"4Pl7xGpncI11_YUYr_NHp","p":"/Weblog","c":["","zh","blog",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["blog",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/0b42d0fa19a399d6.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_0a64d2 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L6"]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L7",null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","QSTwIgjl6Bpy35CFSPCDmv",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Lf",null,{"children":"$L10"}]]}],false]],"m":"$undefined","G":["$11","$undefined"],"s":false,"S":true}
+12:"$Sreact.suspense"
+13:I[7874,[],"AsyncMetadata"]
+10:["$","div",null,{"hidden":true,"children":["$","$12",null,{"fallback":null,"children":["$","$L13",null,{"promise":"$@14"}]}]}]
+a:null
+15:I[8082,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","454","static/chunks/app/%5Blocale%5D/blog/page-1488c679f6f54d72.js"],"BlogPostList"]
+17:I[6011,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","454","static/chunks/app/%5Blocale%5D/blog/page-1488c679f6f54d72.js"],"BlogFiltersSidebar"]
+16:T123a,
+# Weblog 使用指南
+
+欢迎使用 Weblog！本指南将帮助你使用这个模板搭建和配置属于自己的博客。
+
+## 在线演示
+
+你可以访问在线演示站点：[ultimate-kernel.fun/Weblog](https://www.ultimate-kernel.fun/Weblog/)
+
+![Weblog 预览](https://api.microlink.io?url=https://www.ultimate-kernel.fun/Weblog/&screenshot=true&meta=false&embed=screenshot.url)
+
+演示站点展示了以下特性：
+- 清新现代的设计风格
+- 深色/浅色主题支持
+- 中英文双语支持
+- 响应式布局
+- 毛玻璃导航效果
+- 技术栈轮播展示
+- 带标签和归档的博客系统
+
+## 前置要求
+
+开始之前，请确保你已安装以下工具：
+- [Node.js](https://nodejs.org/) (v18 或更高版本)
+- [pnpm](https://pnpm.io/) (v8 或更高版本)
+- [Git](https://git-scm.com/)
+
+## 快速开始
+
+1. 克隆仓库：
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+2. 安装依赖：
+```bash
+pnpm install
+```
+
+3. 启动开发服务器：
+```bash
+pnpm dev
+```
+
+现在你的站点应该运行在 `http://localhost:3000` 了！
+
+## 配置说明
+
+### 基础站点配置
+
+主要配置文件位于 `src/config/site.config.ts`。以下是你需要自定义的关键部分：
+
+```typescript
+export const siteConfig = {
+  name: '你的站点名称',
+  title: '你的站点标题',
+  description: '你的站点描述',
+  
+  author: {
+    name: '你的名字',
+    email: 'your.email@example.com',
+    avatar: 'https://github.com/你的用户名.png', // GitHub 头像或其他图片链接
+    bio: '个人简介',
+  },
+  
+  social: {
+    github: 'https://github.com/你的用户名',
+    twitter: 'https://twitter.com/你的用户名',
+    email: 'your.email@example.com',
+  }
+}
+```
+
+### 配置 Giscus 评论系统
+
+Weblog 使用 [Giscus](https://giscus.app) 作为评论系统，它基于 GitHub Discussions。以下是配置步骤：
+
+1. 确保你的仓库是公开的
+2. 在仓库中启用 GitHub Discussions：
+   - 进入仓库设置
+   - 滚动到 "Features" 部分
+   - 勾选 "Discussions"
+
+3. 安装 [Giscus GitHub App](https://github.com/apps/giscus)
+   - 访问 Giscus app 页面
+   - 点击 "Install"
+   - 选择你的仓库
+
+4. 获取 Giscus 配置：
+   - 访问 [giscus.app](https://giscus.app)
+   - 输入你的仓库信息
+   - 复制生成的配置
+
+5. 更新 `src/components/comments.tsx` 中的 Giscus 配置：
+```typescript
+<Giscus
+  repo="你的用户名/仓库名"
+  repoId="你的仓库ID"
+  category="Announcements"
+  categoryId="分类ID"
+  mapping="pathname"
+  theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
+  lang={locale === 'zh' ? 'zh-CN' : 'en'}
+/>
+```
+
+### 国际化配置
+
+Weblog 默认支持中文和英文。翻译文件存储在：
+- `messages/en.json` - 英文翻译
+- `messages/zh.json` - 中文翻译
+
+添加或修改翻译：
+
+1. 在两个语言文件中添加你的文本
+2. 在组件中使用翻译键：
+```typescript
+const t = useTranslations('namespace')
+// ...
+<div>{t('key')}</div>
+```
+
+### 写作博客文章
+
+博客文章使用 MDX 格式，存储在：
+- `content/blog/en/` - 英文文章
+- `content/blog/zh/` - 中文文章
+
+每篇文章都需要包含前置元数据：
+```mdx
+---
+title: "文章标题"
+description: "简短描述"
+date: "2024-03-20"
+featured: false
+---
+
+你的文章内容...
+```
+
+## 部署说明
+
+### GitHub Pages 部署
+
+1. 更新 `next.config.js`：
+```javascript
+const basePath = process.env.BASE_PATH || ''
+const isProduction = process.env.NODE_ENV === 'production'
+
+const nextConfig = {
+  output: isProduction ? 'export' : undefined,
+  basePath: isProduction ? basePath : '',
+}
+```
+
+2. 配置 GitHub Actions：
+   - 工作流文件已在 `.github/workflows/deploy.yml` 中设置
+   - 在仓库设置中启用 GitHub Pages
+   - 将源设置为 "GitHub Actions"
+
+3. 推送你的更改：
+```bash
+git add .
+git commit -m "配置部署"
+git push
+```
+
+你的站点将自动部署到 GitHub Pages！
+
+## 自定义设置
+
+### 样式定制
+
+Weblog 使用 Tailwind CSS 进行样式设置。主要配置文件：
+- `tailwind.config.ts` - Tailwind 配置
+- `src/styles/globals.css` - 全局样式
+- 各组件样式使用 Tailwind 类名编写
+
+### 组件定制
+
+你可能想要自定义的关键组件：
+- `src/components/header.tsx` - 导航和站点头部
+- `src/components/footer.tsx` - 站点底部
+- `src/components/theme-toggle.tsx` - 暗/亮模式切换
+- `src/components/language-switcher.tsx` - 语言切换器
+
+## 需要帮助？
+
+如果遇到问题：
+- 查看 [GitHub Issues](https://github.com/aaronlamz/Weblog/issues)
+- 如果找不到解决方案，创建新的 issue
+- 在 GitHub Discussions 中参与讨论
+
+祝你使用愉快！🎉
+7:["$","div",null,{"className":"container mx-auto px-4 py-8","children":["$","div",null,{"className":"max-w-4xl mx-auto","children":[["$","h1",null,{"className":"text-4xl font-bold mb-8","children":"博客"}],["$","p",null,{"className":"text-xl text-muted-foreground mb-8","children":"关于 Web 开发与技术的思考、想法与见解。"}],["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-4 gap-8","children":[["$","div",null,{"className":"lg:col-span-3","children":["$","$12",null,{"fallback":["$","div",null,{"className":"text-sm text-muted-foreground","children":"Loading…"}],"children":["$","$L15",null,{"posts":[{"slug":"getting-started","title":"Weblog 使用指南","description":"Weblog 博客系统配置和使用教程","date":"2025-08-24","published":true,"featured":true,"tags":["教程","配置","部署","nextjs","国际化","评论系统"],"author":"Admin","content":"$16","readingTime":{"words":369,"minutes":2,"text":"2 min read"},"url":"/zh/blog/getting-started","locale":"zh"},{"slug":"hello-world","title":"你好 - 欢迎来到我的博客","description":"这是我的第一篇博客。在这里我会分享关于 Web 开发、技术与生活的思考。","date":"2025-01-01","published":true,"featured":true,"tags":["欢迎","博客","第一篇"],"author":"管理员","content":"\n# 欢迎来到我的博客！\n\n你好！👋 欢迎来到我的个人博客。我会在这里分享关于 Web 开发、技术趋势以及一些个人项目与生活日常。\n\n## 你可以在这里看到\n\n- **Web 开发**：现代前端/全栈技术的经验与实践\n- **技术趋势**：工具与生态的观察\n- **个人项目**：我正在做/做过的项目分享\n- **生活感悟**：在工作与生活中的一些思考\n\n## 关于本博客\n\n这个博客使用了以下技术：\n\n- **Next.js 15** - 可靠的 React 应用框架\n- **TypeScript** - 类型安全与更好的开发体验\n- **Tailwind CSS** - 快速构建现代 UI\n- **MDX** - 在文章中使用 React 组件\n\n## 联系我\n\n如果你有任何建议或想法，欢迎联系我。感谢你的到访，祝你阅读愉快！🚀","readingTime":{"words":46,"minutes":1,"text":"1 min read"},"url":"/zh/blog/hello-world","locale":"zh"}]}]}]}],["$","div",null,{"className":"lg:col-span-1","children":["$","$12",null,{"fallback":["$","div",null,{"className":"text-sm text-muted-foreground","children":"Loading…"}],"children":["$","$L17",null,{"posts":"$7:props:children:props:children:2:props:children:0:props:children:props:children:props:posts"}]}]}]]}]]}]}]
+18:I[8164,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","649","static/chunks/649-9e0342d3c6bd5e42.js","450","static/chunks/app/%5Blocale%5D/layout-9e8375c0adbe1445.js"],"default"]
+19:I[3614,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","649","static/chunks/649-9e0342d3c6bd5e42.js","450","static/chunks/app/%5Blocale%5D/layout-9e8375c0adbe1445.js"],"HtmlLangSetter"]
+1a:I[8101,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","649","static/chunks/649-9e0342d3c6bd5e42.js","450","static/chunks/app/%5Blocale%5D/layout-9e8375c0adbe1445.js"],"Header"]
+1b:I[4793,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","649","static/chunks/649-9e0342d3c6bd5e42.js","450","static/chunks/app/%5Blocale%5D/layout-9e8375c0adbe1445.js"],"PageTransition"]
+1c:I[5055,["952","static/chunks/952-904ac1190a5cfb61.js","79","static/chunks/79-e9bcceef06e222dd.js","949","static/chunks/949-21c274ae480b49bf.js","649","static/chunks/649-9e0342d3c6bd5e42.js","450","static/chunks/app/%5Blocale%5D/layout-9e8375c0adbe1445.js"],"Footer"]
+6:["$","$L18",null,{"formats":"$undefined","locale":"en","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","about":"关于"},"hero":{"greeting":"我是","introduction":"一名","roles":{"fullstack":"全栈工程师","web":"Web 开发者","solver":"问题解决者"},"description":"专注于构建现代化的 Web 应用程序"},"skills":{"title":"技能","frontend":"前端开发","backend":"后端开发","mobile":"移动开发"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","backend":"高性能与优化方案","mobile":"使用 React Native 与 PWA 的移动端开发"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"关于 Web 开发与技术的思考、想法与见解。","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"基于 Next.js、TypeScript 与 Tailwind CSS 构建"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"欢迎来到我的个人博客","intro":"我是一名全栈工程师。","bio":"热爱构建体验优秀、性能出色的现代 Web 应用。","workingOnTitle":"我在做什么","currentWork":"专注于现代 Web 技术与提升开发者体验。","beyondCodeTitle":"代码之外","beyondCode":"热衷于探索技术之外的世界，记录生活感悟，分享阅读心得，思考与成长。","connectTitle":"联系我","connect":"如果你愿意合作或交流，欢迎随时联系。","quote":"简单是终极的复杂。"},"meta":{"description":"探索技术与生活，分享见解与思考的个人空间"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","div",null,{"className":"relative min-h-screen","children":[["$","$L1a",null,{}],["$","main",null,{"className":"pt-24 pb-32","children":["$","$L1b",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1c",null,{}]]}]]}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+c:{"metadata":[["$","title","0",{"children":"博客 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"关于 Web 开发与技术的思考、想法与见解。"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"Weblog"}],["$","meta","8",{"property":"og:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","meta","9",{"property":"og:url","content":"https://aaronlamz.github.io/Weblog/"}],["$","meta","10",{"property":"og:site_name","content":"Weblog"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"Weblog"}],["$","meta","15",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","16",{"rel":"icon","href":"/Weblog/icon.svg?28651f21ffcc553d","type":"image/svg+xml","sizes":"any"}],["$","link","17",{"rel":"apple-touch-icon","href":"/Weblog/apple-icon?6253794e84500bda","alt":"$undefined","type":"image/png","sizes":"180x180"}]],"error":null,"digest":"$undefined"}
+14:{"metadata":"$c:metadata","error":null,"digest":"$undefined"}
