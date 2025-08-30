@@ -48,14 +48,24 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://aaronlamz.github.io
         run: pnpm run build
 
-      - name: Post-export fixes (EN at root + nojekyll)
+      - name: Post-export fixes (Default locale at root + nojekyll)
         run: |
-          # 将英文版本（/en/*）复制到根目录，作为默认英语路径（无 /en 前缀）
-          if [ -d "out/en" ]; then
-            rsync -a out/en/ out/
+          # 从配置文件中读取默认语言设置
+          DEFAULT_LOCALE=$(node -e "
+            const siteConfig = require('./src/config/site.config.ts');
+            console.log(siteConfig.siteConfig.i18n.defaultLocale);
+          " 2>/dev/null || echo "zh")
+          
+          echo "Default locale detected: $DEFAULT_LOCALE"
+          
+          # 将默认语言版本复制到根目录（无语言前缀）
+          if [ -d "out/$DEFAULT_LOCALE" ]; then
+            echo "Copying $DEFAULT_LOCALE version to root directory..."
+            rsync -a out/$DEFAULT_LOCALE/ out/
+          else
+            echo "Warning: Default locale directory out/$DEFAULT_LOCALE not found"
           fi
-          # 可选：减少体积，删除 /en 目录（保留也不影响访问）
-          # rm -rf out/en
+          
           # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
           touch out/.nojekyll
 
