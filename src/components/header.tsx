@@ -46,7 +46,8 @@ export function Header() {
   
   // Check if current page is a blog post (hide navigation for article pages)
   // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
-  const isBlogPost = mounted && /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
+  // Also handles BASE_PATH like /Weblog/blog/[slug] or /Weblog/en/blog/[slug]
+  const isBlogPost = mounted && /\/blog\/[^\/]+\/?$/.test(pathname)
   
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
