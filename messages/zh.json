@@ -5,7 +5,8 @@
   "navigation": {
     "home": "首页",
     "blog": "博客",
-    "about": "关于"
+    "about": "关于",
+    "back": "返回"
   },
   "hero": {
     "greeting": "我是",
@@ -20,14 +21,14 @@
   "skills": {
     "title": "技能",
     "frontend": "前端开发",
-    "backend": "后端开发",
-    "mobile": "移动开发"
+    "mobile": "移动开发",
+    "beyond": "代码之外"
   },
   "skillsDesc": {
     "frontend": "现代 Web 技术栈",
     "design": "UI/UX 与视觉设计",
-    "backend": "高性能与优化方案",
-    "mobile": "使用 React Native 与 PWA 的移动端开发"
+    "mobile": "使用 React Native 与 PWA 的移动端开发",
+    "beyond": "阅读、思考、记录生活的美好时刻"
   },
   "tech": {
     "title": "技术栈"

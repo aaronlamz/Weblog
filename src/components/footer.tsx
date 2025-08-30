@@ -121,8 +121,15 @@ export function Footer() {
     <>
       {/* 文章页面专用的返回按钮 */}
       {isBlogPost && (
-        <div className="fixed bottom-24 right-6 z-50">
-          <div className="flex flex-col items-end gap-3">
+        <div className={`
+          fixed top-6 left-4 z-50
+          transition-all duration-300 ease-out
+          ${showScrollTop 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-100 -translate-y-4'
+          }
+        `}>
+          <div className="flex items-center gap-3">
             {/* 返回按钮 */}
             <button
               onClick={goBack}

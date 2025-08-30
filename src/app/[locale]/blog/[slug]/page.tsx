@@ -65,7 +65,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 pt-4 pb-8">
       <article className="mx-auto max-w-6xl">
         <header className="mb-12">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">

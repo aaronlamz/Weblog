@@ -5,6 +5,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { PageTransition } from '@/components/page-transition';
 import { HtmlLangSetter } from '@/components/html-lang-setter';
+import { DynamicMain } from '@/components/dynamic-main';
 import { locales } from '@/i18n/config';
 import type { Metadata } from 'next';
 
@@ -52,11 +53,11 @@ export default async function LocaleLayout({
       <HtmlLangSetter locale={locale} />
       <div className="relative min-h-screen">
         <Header />
-        <main className="pt-24 pb-32">
+        <DynamicMain>
           <PageTransition>
             {children}
           </PageTransition>
-        </main>
+        </DynamicMain>
         <Footer />
       </div>
     </NextIntlClientProvider>

@@ -44,18 +44,18 @@ export default async function HomePage({
       bgColor: 'bg-blue-100 dark:bg-blue-900/30'
     },
     { 
-      name: t('skills.backend'), 
-      icon: Zap, 
-      description: t('skillsDesc.backend'),
-      color: 'text-yellow-600 dark:text-yellow-400',
-      bgColor: 'bg-yellow-100 dark:bg-yellow-900/30'
-    },
-    { 
       name: t('skills.mobile'), 
       icon: Smartphone, 
       description: t('skillsDesc.mobile'),
       color: 'text-green-600 dark:text-green-400',
       bgColor: 'bg-green-100 dark:bg-green-900/30'
+    },
+    { 
+      name: t('skills.beyond'), 
+      icon: Coffee, 
+      description: t('skillsDesc.beyond'),
+      color: 'text-purple-600 dark:text-purple-400',
+      bgColor: 'bg-purple-100 dark:bg-purple-900/30'
     },
   ]
 
