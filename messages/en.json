@@ -54,7 +54,7 @@
   "footer": {
     "scrollToTop": "Scroll to top",
     "copyright": "All rights reserved",
-    "builtWith": "Built with Next.js, TypeScript and Tailwind CSS"
+    "builtWith": "Built with Next.js, TypeScript and Tailwind CSS, ClaudeCode"
   },
   "contact": {
     "title": "Contact Me",

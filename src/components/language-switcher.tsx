@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { locales, type Locale } from '@/i18n/config';
 import { Languages, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { detectLocaleFromPath, getSwitchLocalePath } from '@/lib/i18n-utils';
 
 export function LanguageSwitcher() {
   const router = useRouter();
@@ -17,8 +18,7 @@ export function LanguageSwitcher() {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   // Derive active locale robustly with pathname fallback (as-needed strategy)
-  const isZhFromPath = pathname?.startsWith('/zh');
-  const activeLocale = (isZhFromPath ? 'zh' : locale) as Locale;
+  const activeLocale = detectLocaleFromPath(pathname || '') as Locale;
 
   const closeMenu = () => {
     if (menuRef.current && document.activeElement && menuRef.current.contains(document.activeElement)) {
@@ -28,13 +28,7 @@ export function LanguageSwitcher() {
   };
 
   const switchLanguage = (newLocale: Locale) => {
-    // Remove current locale prefix if exists (handles /zh or /en)
-    const pathnameWithoutLocale = (pathname?.replace(/^\/(zh|en)(?=\/|$)/, '') || '/');
-
-    // as-needed: en no prefix, zh with /zh. Always append normalized path
-    const localePrefix = newLocale === 'en' ? '' : '/zh';
-    const newPath = `${localePrefix}${pathnameWithoutLocale}`;
-
+    const newPath = getSwitchLocalePath(pathname || '/', newLocale);
     router.push((newPath || '/') as any);
     closeMenu();
   };

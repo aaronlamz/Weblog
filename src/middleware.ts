@@ -4,7 +4,7 @@ import { locales, defaultLocale } from './i18n/config';
 export default createMiddleware({
   locales,
   defaultLocale,
-  // 默认语言 en 无前缀，中文 /zh
+  // 默认语言 zh 无前缀，英文 /en
   localePrefix: 'as-needed',
   // 禁用基于浏览器语言的自动重定向，始终使用默认语言
   localeDetection: false

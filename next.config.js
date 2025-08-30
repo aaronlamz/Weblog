@@ -31,12 +31,12 @@ const nextConfig = {
     async redirects() {
       return [
         {
-          source: '/en',
+          source: '/zh',
           destination: '/',
           permanent: false,
         },
         {
-          source: '/en/:path*',
+          source: '/zh/:path*',
           destination: '/:path*',
           permanent: false,
         },

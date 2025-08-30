@@ -1,14 +1,10 @@
-export const locales = ['en', 'zh'] as const;
-export const defaultLocale = 'en' as const;
+import { siteConfig } from '@/config/site.config';
 
-export type Locale = typeof locales[number];
+export const locales = siteConfig.i18n.locales;
+export const defaultLocale = siteConfig.i18n.defaultLocale;
 
-export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  zh: '中文'
-};
+export type Locale = 'zh' | 'en';
 
-export const localeFlags: Record<Locale, string> = {
-  en: '🇺🇸',
-  zh: '🇨🇳'
-};
+export const localeNames: Record<Locale, string> = siteConfig.i18n.localeNames;
+
+export const localeFlags: Record<Locale, string> = siteConfig.i18n.localeFlags;

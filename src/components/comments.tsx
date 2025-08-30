@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import Giscus from '@giscus/react'
+import { defaultLocale } from '@/i18n/config'
 
 export default function Comments({ locale }: { locale: string }) {
   const { theme } = useTheme()
@@ -9,7 +10,7 @@ export default function Comments({ locale }: { locale: string }) {
   return (
     <div className="mt-16 pt-8 border-t border-border/30">
       <h3 className="text-xl font-semibold mb-6">
-        {locale === 'zh' ? '评论' : 'Comments'}
+        {locale === defaultLocale ? '评论' : 'Comments'}
       </h3>
       {/* power by https://giscus.app/zh-CN */}
       <Giscus
@@ -23,7 +24,7 @@ export default function Comments({ locale }: { locale: string }) {
         emitMetadata="0"
         inputPosition="top"
         theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
-        lang={locale === 'zh' ? 'zh-CN' : 'en'}
+        lang={locale === defaultLocale ? 'zh-CN' : 'en'}
         loading="lazy"
       />
     </div>

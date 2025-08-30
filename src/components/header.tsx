@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { siteConfig } from '@/config/site.config'
+import { buildLocalizedPath, detectLocaleFromPath } from '@/lib/i18n-utils'
 import { 
   Home, 
   FileText, 
@@ -36,13 +37,13 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Navigation items with translations - use pathname to determine locale reliably
-  const isZh = pathname.startsWith('/zh') || locale === 'zh'
+  const currentLocale = detectLocaleFromPath(pathname)
   
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
-    { key: 'home', href: isZh ? '/zh' : '/' },
-    { key: 'blog', href: isZh ? '/zh/blog' : '/blog' },
-    { key: 'about', href: isZh ? '/zh/about' : '/about' },
+    { key: 'home', href: buildLocalizedPath('/', currentLocale) },
+    { key: 'blog', href: buildLocalizedPath('/blog', currentLocale) },
+    { key: 'about', href: buildLocalizedPath('/about', currentLocale) },
   ]
 
   useEffect(() => {

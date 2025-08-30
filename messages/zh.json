@@ -53,7 +53,7 @@
   "footer": {
     "scrollToTop": "回到顶部",
     "copyright": "版权所有",
-    "builtWith": "基于 Next.js、TypeScript 与 Tailwind CSS 构建"
+    "builtWith": "基于 Next.js、TypeScript 与 Tailwind CSS 、ClaudeCode构建"
   },
   "contact": {
     "title": "联系我",

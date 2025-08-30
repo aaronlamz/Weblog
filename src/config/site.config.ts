@@ -5,6 +5,14 @@ export interface SiteConfig {
   description: string
   url: string
   
+  // 国际化配置
+  i18n: {
+    defaultLocale: 'zh' | 'en'
+    locales: ('zh' | 'en')[]
+    localeNames: Record<'zh' | 'en', string>
+    localeFlags: Record<'zh' | 'en', string>
+  }
+  
   // 作者信息
   author: {
     name: string
@@ -69,6 +77,20 @@ export const siteConfig: SiteConfig = {
   // - GitHub Pages 用户页（无子路径）: https://<user>.github.io
   // - 本地开发: http://localhost:3000
   url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${process.env.BASE_PATH || ''}`,
+  
+  // 国际化配置 - 可以在这里轻松切换默认语言
+  i18n: {
+    defaultLocale: 'zh', // 修改这里可以切换默认语言：'zh' 或 'en'
+    locales: ['zh', 'en'], // 支持的语言列表
+    localeNames: {
+      zh: '中文',
+      en: 'English'
+    },
+    localeFlags: {
+      zh: '🇨🇳',
+      en: '🇺🇸'
+    }
+  },
   
   author: {
     name: 'Aaron', // 用户需要修改

@@ -10,8 +10,9 @@ The main configuration file is located at: **`src/config/site.config.ts`**
 
 1. **Clone the repository**
 2. **Edit `src/config/site.config.ts`** with your information
-3. **Install dependencies**: `pnpm install`
-4. **Start development**: `pnpm dev`
+3. **Configure language settings** in the `i18n` section (Chinese is default)
+4. **Install dependencies**: `pnpm install`
+5. **Start development**: `pnpm dev`
 
 ## ⚙️ Configuration Options
 
@@ -53,6 +54,48 @@ The main configuration file is located at: **`src/config/site.config.ts`**
 ```
 
 > **Note**: Only configured social links will be displayed in the footer and header.
+
+### Internationalization (i18n)
+
+```typescript
+{
+  // 国际化配置 - 可以在这里轻松切换默认语言
+  i18n: {
+    defaultLocale: 'zh',      // 默认语言：'zh' 中文 或 'en' 英文
+    locales: ['zh', 'en'],    // 支持的语言列表
+    localeNames: {
+      zh: '中文',
+      en: 'English'
+    },
+    localeFlags: {
+      zh: '🇨🇳',
+      en: '🇺🇸'
+    }
+  }
+}
+```
+
+> **Language Configuration**: 
+> - **Default Language**: Set `defaultLocale` to `'zh'` for Chinese or `'en'` for English
+> - **URL Structure**: Default language has no prefix (`/`), secondary language uses prefix (`/en` or `/zh`)
+> - **Switching Languages**: To change the default language, simply modify `defaultLocale` and reorder the `locales` array
+
+#### Examples:
+
+**Chinese as Default (current setup):**
+- `/` → Chinese content
+- `/en` → English content
+
+**English as Default:**
+```typescript
+i18n: {
+  defaultLocale: 'en',      // English as default
+  locales: ['en', 'zh'],    // English first in array
+  // ... other settings remain the same
+}
+```
+- `/` → English content  
+- `/zh` → Chinese content
 
 ### SEO Configuration
 
@@ -130,6 +173,20 @@ export const siteConfig: SiteConfig = {
   description: 'Exploring the latest in web development, React, TypeScript, and modern tech stack.',
   url: 'https://devtech-blog.com',
   
+  // English as default for international tech blog
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh'],
+    localeNames: {
+      zh: '中文',
+      en: 'English'
+    },
+    localeFlags: {
+      zh: '🇨🇳',
+      en: '🇺🇸'
+    }
+  },
+  
   author: {
     name: 'Alex Developer',
     email: 'alex@devtech-blog.com',
@@ -166,6 +223,20 @@ export const siteConfig: SiteConfig = {
   title: 'Personal Blog & Life Adventures',
   description: 'A personal blog about life, travel, and creative projects.',
   url: 'https://sarahsjourney.com',
+  
+  // Chinese as default for personal blog targeting Chinese audience
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+    localeNames: {
+      zh: '中文',
+      en: 'English'
+    },
+    localeFlags: {
+      zh: '🇨🇳',
+      en: '🇺🇸'
+    }
+  },
   
   author: {
     name: 'Sarah Wilson',

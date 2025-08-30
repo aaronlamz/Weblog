@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { readingTime } from './reading-time'
 import { locales } from '@/i18n/config'
+import { buildLocalizedPath } from './i18n-utils'
 
 export interface Post {
   slug: string
@@ -44,8 +45,7 @@ export function getAllPosts(locale: string = 'zh'): Post[] {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const { data, content } = matter(fileContents)
 
-        // as-needed: en 无前缀，zh 使用 /zh。不要手动拼接 basePath，交给 Next.js 处理
-        const baseUrl = `${locale === 'zh' ? '/zh' : ''}`
+        // 使用统一的国际化路由工具
         
         return {
           slug,
@@ -58,7 +58,7 @@ export function getAllPosts(locale: string = 'zh'): Post[] {
           author: data.author || 'Admin',
           content,
           readingTime: readingTime(content),
-          url: `${baseUrl}/blog/${slug}`,
+          url: buildLocalizedPath(`/blog/${slug}`, locale as any),
           locale,
           ...data,
         } as Post
@@ -80,7 +80,7 @@ export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null 
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
 
-    const baseUrl = `${locale === 'zh' ? '/zh' : ''}`
+    // 使用统一的国际化路由工具
 
     return {
       slug,
@@ -93,7 +93,7 @@ export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null 
       author: data.author || 'Admin',
       content,
       readingTime: readingTime(content),
-      url: `${baseUrl}/blog/${slug}`,
+      url: buildLocalizedPath(`/blog/${slug}`, locale as any),
       locale,
       ...data,
     } as Post

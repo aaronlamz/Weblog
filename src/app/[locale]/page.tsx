@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site.config'
 import { AnimatedText } from '@/components/animated-text'
 import { TypewriterText } from '@/components/typewriter-text'
+import { buildLocalizedPath } from '@/lib/i18n-utils'
 import { 
   ArrowRight, 
   Calendar, 
@@ -115,13 +116,13 @@ export default async function HomePage({
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button asChild size="lg" className="group">
-                <Link href={`${locale === 'zh' ? '/zh' : ''}/blog` as any}>
+                <Link href={buildLocalizedPath('/blog', locale as any) as any}>
                   {t('navigation.blog')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href={`${locale === 'zh' ? '/zh' : ''}/about` as any}>
+                <Link href={buildLocalizedPath('/about', locale as any) as any}>
                   {t('navigation.about')}
                 </Link>
               </Button>
@@ -310,7 +311,7 @@ export default async function HomePage({
         {posts.length > 0 && (
           <div className="text-center mt-12">
             <Button asChild variant="outline" size="lg" className="group">
-              <Link href={`${locale === 'zh' ? '/zh' : ''}/blog`}>
+              <Link href={buildLocalizedPath('/blog', locale as any) as any}>
                 {t('posts.readMore')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
