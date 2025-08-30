@@ -39,6 +39,10 @@ export function Header() {
   // Navigation items with translations - use pathname to determine locale reliably
   const currentLocale = detectLocaleFromPath(pathname)
   
+  // Check if current page is a blog post (hide navigation for article pages)
+  // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
+  const isBlogPost = /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
+  
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
     { key: 'home', href: buildLocalizedPath('/', currentLocale) },
@@ -53,6 +57,11 @@ export function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Don't render navigation on blog post pages
+  if (isBlogPost) {
+    return null
+  }
 
   return (
     <>

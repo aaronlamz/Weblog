@@ -2,22 +2,33 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
+import { useRouter, usePathname } from 'next/navigation'
 import { siteConfig } from '@/config/site.config'
+import { buildLocalizedPath, detectLocaleFromPath } from '@/lib/i18n-utils'
 import { 
   Github, 
   Twitter, 
   Mail, 
   Rss, 
   ArrowUp,
+  ArrowLeft,
+  Home,
   Linkedin
 } from 'lucide-react'
 
 export function Footer() {
   const t = useTranslations('footer')
+  const router = useRouter()
+  const pathname = usePathname()
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showFloatingBar, setShowFloatingBar] = useState(false)
   const [isHoveringBar, setIsHoveringBar] = useState(false)
   const idleTimer = useRef<number | null>(null)
+
+  // Check if current page is a blog post
+  // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
+  const isBlogPost = /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
+  const currentLocale = detectLocaleFromPath(pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +62,19 @@ export function Footer() {
       top: 0,
       behavior: 'smooth'
     })
+  }
+
+  const goBack = () => {
+    if (window.history.length > 1) {
+      router.back()
+    } else {
+      // Fallback to blog list
+      router.push(buildLocalizedPath('/blog', currentLocale) as any)
+    }
+  }
+
+  const goHome = () => {
+    router.push(buildLocalizedPath('/', currentLocale) as any)
   }
 
   const socialLinks = [
@@ -89,6 +113,31 @@ export function Footer() {
 
   return (
     <>
+      {/* 文章页面专用的返回按钮 */}
+      {isBlogPost && (
+        <div className="fixed bottom-24 right-6 z-50">
+          <div className="flex flex-col items-end gap-3">
+            {/* 返回按钮 */}
+            <button
+              onClick={goBack}
+              className="rounded-full p-3 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              title="返回"
+            >
+              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+            
+            {/* 首页按钮 */}
+            <button
+              onClick={goHome}
+              className="rounded-full p-3 bg-background/90 backdrop-blur-lg border border-border/30 hover:bg-background/95 text-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              title="首页"
+            >
+              <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* 悬浮式底部工具条（无内容时不渲染） */}
       {(hasSocial || showScrollTop) && (
         <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
