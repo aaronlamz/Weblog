@@ -37,7 +37,7 @@
     "blog": "Blog",
     "featured": "Featured Posts",
     "latest": "Latest Posts",
-    "description": "Thoughts, ideas, and insights about web development and technology.",
+    "description": "Writing code, sharing life, documenting some tech learning and daily thoughts.",
     "readMore": "Read More",
     "publishedOn": "Published on",
     "readingTime": "{minutes} min read",
@@ -89,17 +89,17 @@
   "about": {
     "title": "About Me",
     "description": "Welcome to my personal blog",
-    "intro": "I am a full-stack engineer.",
-    "bio": "I love building modern web applications with great UX and performance.",
+    "intro": "I'm a full-stack engineer who loves tinkering with new tech and documenting life.",
+    "bio": "I enjoy building interesting products and writing down thoughts and small observations from life.",
     "workingOnTitle": "What I'm Working On",
-    "currentWork": "Exploring modern Web and building delightful developer experiences.",
+    "currentWork": "Focused on frontend tech, recently learning AI stuff to see how it can help with development.",
     "beyondCodeTitle": "Beyond Code",
-    "beyondCode": "Passionate about exploring beyond technology, documenting life's insights, sharing reading reflections, and growing through contemplation.",
+    "beyondCode": "Beyond code, I like reading, thinking, and jotting down bits and pieces of life.",
     "connectTitle": "Let's Connect",
-    "connect": "Feel free to reach out if you'd like to collaborate.",
+    "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
     "quote": "Simplicity is the ultimate sophistication."
   },
   "meta": {
-    "description": "A personal space for exploring technology and life, sharing insights and reflections"
+    "description": "Personal blog about coding, learning tech, and life moments"
   }
 }

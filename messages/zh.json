@@ -36,7 +36,7 @@
     "blog": "博客",
     "featured": "精选文章",
     "latest": "最新文章",
-    "description": "关于 Web 开发与技术的思考、想法与见解。",
+    "description": "写写代码，聊聊生活，记录一些技术学习和日常感悟。",
     "readMore": "阅读全文",
     "publishedOn": "发布于",
     "readingTime": "阅读约 {minutes} 分钟",
@@ -88,17 +88,17 @@
   "about": {
     "title": "关于我",
     "description": "欢迎来到我的个人博客",
-    "intro": "我是一名全栈工程师。",
-    "bio": "热爱构建体验优秀、性能出色的现代 Web 应用。",
+    "intro": "我是一名全栈工程师，喜欢折腾新技术，也爱记录生活。",
+    "bio": "喜欢做有意思的产品，平时也会写写想法，记录生活中的小思考。",
     "workingOnTitle": "我在做什么",
-    "currentWork": "专注于现代 Web 技术与提升开发者体验。",
+    "currentWork": "专注于前端技术，最近在学习 AI 相关的东西，看看能怎么帮助开发。",
     "beyondCodeTitle": "代码之外",
-    "beyondCode": "热衷于探索技术之外的世界，记录生活感悟，分享阅读心得，思考与成长。",
+    "beyondCode": "代码之外，喜欢看书、思考、记录生活的点点滴滴。",
     "connectTitle": "联系我",
-    "connect": "如果你愿意合作或交流，欢迎随时联系。",
+    "connect": "如果你也喜欢技术或者想聊聊天，欢迎随时联系。",
     "quote": "简单是终极的复杂。"
   },
   "meta": {
-    "description": "探索技术与生活，分享见解与思考的个人空间"
+    "description": "个人博客，写代码、学技术、记录生活"
   }
 }
