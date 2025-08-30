@@ -23,12 +23,17 @@ export function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showFloatingBar, setShowFloatingBar] = useState(false)
   const [isHoveringBar, setIsHoveringBar] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const idleTimer = useRef<number | null>(null)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Check if current page is a blog post
   // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
-  const isBlogPost = /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
-  const currentLocale = detectLocaleFromPath(pathname)
+  const isBlogPost = mounted && /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
+  const currentLocale = mounted ? detectLocaleFromPath(pathname) : 'zh'
 
   useEffect(() => {
     const handleScroll = () => {

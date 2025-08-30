@@ -1,14 +1,20 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { AnimatedBackground } from './animated-background'
 
 export function SmartBackground() {
   const pathname = usePathname()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   // Only show animated background on home page
   // Home page patterns: /, /zh, /en
-  const isHomePage = pathname === '/' || pathname === '/zh' || pathname === '/en'
+  const isHomePage = mounted && (pathname === '/' || pathname === '/zh' || pathname === '/en')
   
   if (isHomePage) {
     return <AnimatedBackground />

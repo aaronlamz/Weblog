@@ -35,19 +35,24 @@ export function Header() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Navigation items with translations - use pathname to determine locale reliably
-  const currentLocale = detectLocaleFromPath(pathname)
+  const currentLocale = mounted ? detectLocaleFromPath(pathname) : locale
   
   // Check if current page is a blog post (hide navigation for article pages)
   // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
-  const isBlogPost = /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
+  const isBlogPost = mounted && /\/(?:en\/)?blog\/[^\/]+$/.test(pathname)
   
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
-    { key: 'home', href: buildLocalizedPath('/', currentLocale) },
-    { key: 'blog', href: buildLocalizedPath('/blog', currentLocale) },
-    { key: 'about', href: buildLocalizedPath('/about', currentLocale) },
+    { key: 'home', href: buildLocalizedPath('/', currentLocale as any) },
+    { key: 'blog', href: buildLocalizedPath('/blog', currentLocale as any) },
+    { key: 'about', href: buildLocalizedPath('/about', currentLocale as any) },
   ]
 
   useEffect(() => {

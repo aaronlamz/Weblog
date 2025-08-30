@@ -14,11 +14,16 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
   const locale = useLocale() as Locale;
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Derive active locale robustly with pathname fallback (as-needed strategy)
-  const activeLocale = detectLocaleFromPath(pathname || '') as Locale;
+  const activeLocale = (mounted ? detectLocaleFromPath(pathname || '') : locale) as Locale;
 
   const closeMenu = () => {
     if (menuRef.current && document.activeElement && menuRef.current.contains(document.activeElement)) {
