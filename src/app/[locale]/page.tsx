@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site.config'
 import { AnimatedText } from '@/components/animated-text'
 import { TypewriterText } from '@/components/typewriter-text'
+import { TechStack } from '@/components/tech-stack'
 import { buildLocalizedPath } from '@/lib/i18n-utils'
 import { 
   ArrowRight, 
@@ -59,29 +60,6 @@ export default async function HomePage({
     },
   ]
 
-  // Tech stack icons and names
-  const techRow1 = [
-    { key: 'JavaScript', label: 'JavaScript' },
-    { key: 'TypeScript', label: 'TypeScript' },
-    { key: 'React', label: 'React' },
-    { key: 'Next.js', label: 'Next.js' },
-    { key: 'Tailwind CSS', label: 'Tailwind CSS' },
-    { key: 'Vue.js', label: 'Vue.js' },
-    { key: 'Vuex', label: 'Vuex' },
-    { key: 'Vue Router', label: 'Vue Router' },
-    { key: 'Vue I18n', label: 'Vue I18n' },
-    { key: 'Vuex', label: 'Vuex' },
-    { key: 'Vue Router', label: 'Vue Router' },
-  ]
-  const techRow2 = [
-    { key: 'Vite', label: 'Vite' },
-    { key: 'Vercel', label: 'Vercel' },
-    { key: 'Cloudflare', label: 'Cloudflare' },
-    { key: 'Markdown', label: 'Markdown' },
-    { key: 'Vitest', label: 'Vitest' },
-    { key: 'Node.js', label: 'Node.js' },
-    { key: 'React Native', label: 'React Native' },
-  ]
 
   return (
     <div className="min-h-screen relative">
@@ -164,42 +142,7 @@ export default async function HomePage({
       </section>
 
       {/* Tech Stack Section */}
-      <section className="container mx-auto px-4 pb-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <Zap className="w-5 h-5" />
-            <h2 className="text-2xl font-bold">{t('tech.title')}</h2>
-          </div>
-          <div className="rounded-2xl border bg-card/30 backdrop-blur-sm p-4 overflow-hidden">
-            {/* Row 1: LTR marquee */}
-            <div className="relative overflow-hidden py-3">
-              <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{ animation: 'marquee 22s linear infinite' }}>
-                {[...techRow1, ...techRow1].map((item, i) => (
-                  <div key={`${item.key}-${i}`} className="flex items-center gap-3 min-w-fit">
-                    <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center">
-                      <span className="text-xs font-semibold">{item.label[0]}</span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Row 2: RTL marquee */}
-            <div className="relative overflow-hidden py-3">
-              <div className="flex gap-8 whitespace-nowrap will-change-transform" style={{ animation: 'marqueeRtl 24s linear infinite' }}>
-                {[...techRow2, ...techRow2].map((item, i) => (
-                  <div key={`${item.key}-${i}`} className="flex items-center gap-3 min-w-fit">
-                    <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center">
-                      <span className="text-xs font-semibold">{item.label[0]}</span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TechStack />
 
       {/* Featured Posts Section */}
       {featuredPosts.length > 0 && (
