@@ -7,7 +7,7 @@
 ## ✨ 特性亮点
 
 - **单文件配置**：`src/config/site.config.ts`
-- **内置国际化**：英文（`/`）与中文（`/zh`）
+- **内置国际化**：可配置默认语言，默认中文（`/`）与英文（`/en`）
 - **MDX 内容**：`content/blog/<locale>/*.mdx`
 - **默认静态导出**：生产构建生成 `out/`，适合静态托管
 - **开箱即用**：RSS/Atom/JSON 订阅、暗黑模式、动画、阅读时长
@@ -59,11 +59,12 @@ pnpm dev
 - **导航**：`nav.main`
 - **页面**：`pages.home`、`pages.about`
 
-国际化配置在 `src/i18n/config.ts`：
+国际化配置在 `src/config/site.config.ts`：
 
-- `locales`: `['en', 'zh']`
-- `defaultLocale`: `'en'`
-- URL 风格：英文无前缀，中文前缀为 `/zh`
+- `locales`: `['zh', 'en']`（可配置顺序）
+- `defaultLocale`: `'zh'`（可配置：'zh' 或 'en'）
+- URL 风格：默认语言无前缀，第二语言有前缀
+- **自动部署**：GitHub Actions 自动使用你配置的默认语言
 
 ## 🌍 写作与内容
 
@@ -142,14 +143,23 @@ pnpm format       # 代码格式化
 
 本模版生产环境默认采用静态导出。执行 `pnpm build` 后，把 `out/` 目录部署到任意静态托管平台即可。
 
-- Vercel：导入仓库 → 构建命令 `pnpm build` → 输出目录 `out/`（Vercel 会自动识别）。
-- Netlify：构建命令 `pnpm build` → 发布目录 `out/`。
-- GitHub Pages：构建产物 `out/` 并发布（可使用 Actions）。确保 `BASE_PATH` 配置正确。
+### 部署选项：
+- **Vercel**：导入仓库 → 构建命令 `pnpm build` → 输出目录 `out/`（自动识别）
+- **Netlify**：构建命令 `pnpm build` → 发布目录 `out/`
+- **GitHub Pages**：内置工作流自动处理部署
+
+### GitHub Pages 配置：
+内置的 `.github/workflows/deploy.yml` 自动：
+1. 从 `site.config.ts` 读取你的 `defaultLocale` 配置
+2. 将默认语言内容放置在根路径（`/`）
+3. 处理子路径部署的 `BASE_PATH` 配置
+
+**无需手动配置** - 只需推送到 main 分支！
 
 常见问题：
-
-- 子路径资源丢失或链接 404 → 检查 `BASE_PATH`（如 `/Weblog`）。
-- 访问 `/zh` 404 → 确保 `content/blog/zh` 目录存在且至少有一篇 `.mdx`。
+- 链接 404 → 检查环境变量中的 `BASE_PATH`
+- 默认语言错误 → 检查 `site.config.ts` 中的 `defaultLocale`
+- 404 错误 → 确保两种语言的内容都存在
 
 ## 📖 更多文档
 

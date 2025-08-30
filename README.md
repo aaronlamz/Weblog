@@ -7,7 +7,7 @@ A modern, fully configurable blog template built with Next.js 15, TypeScript, Ta
 ## ✨ Highlights
 
 - **Single config file**: `src/config/site.config.ts`
-- **i18n-ready**: English (`/`) and Chinese (`/zh`) out of the box
+- **i18n-ready**: Configurable default language, Chinese (`/`) and English (`/en`) by default
 - **MDX content**: `content/blog/<locale>/*.mdx`
 - **Static export by default**: production builds generate `out/` for static hosting
 - **Built-ins**: RSS/Atom/JSON feeds, dark mode, animated UI, reading time
@@ -59,11 +59,12 @@ Edit `src/config/site.config.ts`:
 - **Nav**: `nav.main`
 - **Pages**: `pages.home`, `pages.about`
 
-i18n settings are in `src/i18n/config.ts`:
+i18n settings are in `src/config/site.config.ts`:
 
-- `locales`: `['en', 'zh']`
-- `defaultLocale`: `'en'`
-- URL style: English has no prefix, Chinese uses `/zh`
+- `locales`: `['zh', 'en']` (configurable order)
+- `defaultLocale`: `'zh'` (configurable: 'zh' or 'en')
+- URL style: Default language has no prefix, secondary language uses prefix
+- **Auto-deployment**: GitHub Actions automatically uses your configured default language
 
 ## 🌍 Content
 
@@ -142,14 +143,23 @@ Set `author` and `seo.ogImage` in `site.config.ts` for correct feed metadata.
 
 This template defaults to static export in production. After `pnpm build`, deploy the `out/` directory.
 
-- Vercel: Import repo → Build command `pnpm build` → Output `out/` (Vercel auto-detects).
-- Netlify: Build command `pnpm build` → Publish directory `out/`.
-- GitHub Pages: Build `out/` and publish it (e.g. via Actions). Ensure `BASE_PATH` is set correctly.
+### Deployment Options:
+- **Vercel**: Import repo → Build command `pnpm build` → Output `out/` (auto-detects)
+- **Netlify**: Build command `pnpm build` → Publish directory `out/`
+- **GitHub Pages**: Included workflow automatically handles deployment
+
+### GitHub Pages Configuration:
+The included `.github/workflows/deploy.yml` automatically:
+1. Reads your `defaultLocale` from `site.config.ts`
+2. Places the default language content at the root (`/`)
+3. Handles `BASE_PATH` configuration for subpath deployments
+
+**No manual configuration needed** - just push to main branch!
 
 Troubleshooting:
-
-- Broken links or missing assets on subpaths → set `BASE_PATH` correctly (e.g. `/Weblog`).
-- 404 on `/zh` → make sure `content/blog/zh` exists and has at least one `.mdx`.
+- Broken links → verify `BASE_PATH` in environment variables
+- Wrong default language → check `defaultLocale` in `site.config.ts`
+- 404 errors → ensure content exists for both languages
 
 ## 📖 More Docs
 

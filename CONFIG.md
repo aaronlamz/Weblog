@@ -78,7 +78,8 @@ The main configuration file is located at: **`src/config/site.config.ts`**
 > **Language Configuration**: 
 > - **Default Language**: Set `defaultLocale` to `'zh'` for Chinese or `'en'` for English
 > - **URL Structure**: Default language has no prefix (`/`), secondary language uses prefix (`/en` or `/zh`)
-> - **Switching Languages**: To change the default language, simply modify `defaultLocale` and reorder the `locales` array
+> - **Switching Languages**: Simply modify `defaultLocale` - deployment automatically adapts
+> - **GitHub Pages**: Deployment script reads your config and uses the correct default language
 
 #### Examples:
 
@@ -361,9 +362,20 @@ pnpm format
 
 ## 📦 Deployment
 
+### GitHub Pages (Automatic)
+1. **Configure your site** in `src/config/site.config.ts` (including `defaultLocale`)
+2. **Push to main branch** - GitHub Actions handles the rest
+3. **Automatic language handling** - deployment reads your config and sets the correct default language
+
+### Manual Deployment
 1. **Configure your domain** in `src/config/site.config.ts`
 2. **Build the project**: `pnpm build`
-3. **Deploy** to your preferred platform (Vercel, Netlify, etc.)
+3. **Deploy** the `out/` directory to your platform
+
+### Deployment Features:
+- **Smart language routing**: Default language serves from `/`, others from `/[locale]`
+- **Automatic configuration reading**: No need to manually specify which language goes where
+- **Environment handling**: Correctly sets `BASE_PATH` for subpath deployments
 
 ### Environment Variables
 
