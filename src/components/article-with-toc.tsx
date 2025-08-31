@@ -1,9 +1,16 @@
 'use client'
 
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { List, X, ArrowUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { oneLight, vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { useTheme } from 'next-themes'
+import { CopyCodeButton } from './copy-code-button'
 
 type TocItem = {
   id: string
@@ -19,8 +26,10 @@ function slugify(input: string): string {
     .replace(/\s+/g, '-')
 }
 
+
 export function ArticleWithTOC({ content }: { content: string }) {
   const t = useTranslations('common')
+  const { theme } = useTheme()
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [toc, setToc] = useState<TocItem[]>([])
   const [activeId, setActiveId] = useState<string>('')
@@ -157,7 +166,66 @@ export function ArticleWithTOC({ content }: { content: string }) {
       <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] gap-8">
         <div>
           <div ref={contentRef} className="prose prose-gray dark:prose-invert max-w-none">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[
+                rehypeSlug,
+                [rehypeAutolinkHeadings, { behavior: 'wrap' }]
+              ]}
+              components={{
+                // 自定义代码块样式
+                code: ({ node, inline, className, children, ...props }: any) => {
+                  const match = /language-(\w+)/.exec(className || '')
+                  const language = match ? match[1] : 'javascript'
+                  const codeString = String(children).replace(/\n$/, '')
+
+                  if (inline || !match) {
+                    return <code {...props}>{children}</code>
+                  }
+
+                  return (
+                    <div className="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background">
+                      {/* 头部信息栏 */}
+                      <div className="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20">
+                        <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">
+                          {language}
+                        </span>
+                        <CopyCodeButton code={codeString} />
+                      </div>
+                      
+                      {/* 代码高亮 */}
+                      <SyntaxHighlighter
+                        language={language}
+                        style={theme === 'dark' ? vscDarkPlus : oneLight}
+                        customStyle={{
+                          margin: 0,
+                          borderRadius: 0,
+                          padding: '1rem',
+                          fontSize: '14px',
+                          lineHeight: '1.5',
+                        }}
+                        codeTagProps={{
+                          style: {
+                            fontFamily: "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
+                          }
+                        }}
+                        showLineNumbers={true}
+                        wrapLines={true}
+                        lineNumberStyle={{
+                          minWidth: '3em',
+                          paddingRight: '1em',
+                          fontSize: '12px',
+                        }}
+                      >
+                        {codeString}
+                      </SyntaxHighlighter>
+                    </div>
+                  )
+                },
+              }}
+            >
+              {content}
+            </ReactMarkdown>
           </div>
         </div>
 

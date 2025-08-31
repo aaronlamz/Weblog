@@ -87,13 +87,9 @@
   }
 }
 
-/* Code highlighting styles */
-.line--highlighted {
-  @apply bg-yellow-200/20 px-4 -mx-4;
-}
 
-.word--highlighted {
-  @apply bg-yellow-200/30 px-1 rounded;
+.prose :not(pre) > code {
+  @apply bg-primary/10 text-primary px-2 py-0.5 rounded-md text-sm font-medium border border-primary/20 dark:bg-primary/20 dark:text-primary;
 }
 
 /* Custom scrollbar */
@@ -118,23 +114,7 @@
   @apply max-w-none;
 }
 
-.prose pre {
-  @apply bg-gray-200 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto border border-gray-300 dark:border-gray-700;
-  color: #1f2937 !important; /* gray-800 */
-}
 
-.prose pre:is(.dark *) {
-  color: #f9fafb !important; /* gray-50 */
-}
-
-.prose pre code {
-  @apply bg-transparent p-0 border-0;
-  color: inherit !important;
-}
-
-.prose code {
-  @apply bg-gray-200 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm border border-gray-300 dark:border-gray-700;
-}
 
 
 
@@ -150,18 +130,11 @@
   @apply scroll-mt-20;
 }
 
-.prose .subheading-anchor {
-  @apply opacity-0 ml-2 text-muted-foreground hover:opacity-100 transition-opacity;
+
+.prose h1 a, .prose h2 a, .prose h3 a, .prose h4 a, .prose h5 a, .prose h6 a {
+  @apply no-underline hover:no-underline text-inherit;
 }
 
-.prose h1:hover .subheading-anchor,
-.prose h2:hover .subheading-anchor,
-.prose h3:hover .subheading-anchor,
-.prose h4:hover .subheading-anchor,
-.prose h5:hover .subheading-anchor,
-.prose h6:hover .subheading-anchor {
-  @apply opacity-100;
-}
 
 /* Glassmorphism effects */
 .glass {
@@ -339,47 +312,13 @@
   animation: rainbow 3s ease-in-out infinite;
 }
 
-/* Typing animation */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: currentColor; }
-}
-
-.typing-animation {
-  overflow: hidden;
-  border-right: 2px solid;
-  white-space: nowrap;
-  animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
-}
+/* 移除了未使用的 typing-animation */
 
 /* Glowing text effect */
 .text-glow {
   text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
 }
 
-/* Shimmer effect */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.text-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-} 
 
 /* Marquee animations for tech stack scrollers */
 @keyframes marquee {

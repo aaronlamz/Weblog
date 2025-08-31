@@ -25,7 +25,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
       {posts.map((post) => (
         <article key={post.slug}>
           <Link href={post.url as any}>
-            <div className="group bg-card border border-border/40 rounded-xl p-4 hover:border-border hover:shadow-sm hover:bg-card/80 transition-all duration-200 hover:scale-[0.998] active:scale-[0.995]">
+            <div className="group bg-card border border-border/60 rounded-xl p-4 hover:border-border hover:shadow-md hover:bg-card/80 transition-all duration-200 hover:scale-[0.998] active:scale-[0.995]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3 min-w-0 flex-1">
                   <h2 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">

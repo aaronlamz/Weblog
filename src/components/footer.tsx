@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import { siteConfig } from '@/config/site.config'
 import { buildLocalizedPath, detectLocaleFromPath } from '@/lib/i18n-utils'
+import { useTheme } from 'next-themes'
 import { 
   Github, 
   Twitter, 
@@ -13,12 +14,15 @@ import {
   ArrowUp,
   ArrowLeft,
   Home,
-  Linkedin
+  Linkedin,
+  Sun,
+  Moon
 } from 'lucide-react'
 
 export function Footer() {
   const t = useTranslations('footer')
   const router = useRouter()
+  const { theme, setTheme } = useTheme()
   const pathname = usePathname()
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showFloatingBar, setShowFloatingBar] = useState(false)
@@ -146,6 +150,16 @@ export function Footer() {
               title="首页"
             >
               <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </button>
+            
+            {/* 主题切换按钮 */}
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="rounded-full p-3 bg-background/90 backdrop-blur-lg border border-border/30 hover:bg-background/95 text-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              title="切换主题"
+            >
+              <Sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />
+              <Moon className="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 group-hover:scale-110" />
             </button>
           </div>
         </div>
