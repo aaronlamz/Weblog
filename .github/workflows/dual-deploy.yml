@@ -1,0 +1,128 @@
+name: Dual Deploy (Sub-path + Root)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dual-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (current repo)
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      # 构建子路径版本（现有的 /Weblog 路径）
+      - name: Build Sub-path Version (with BASE_PATH)
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_SITE_URL: https://aaronlamz.github.io
+        run: |
+          echo "Building sub-path version with BASE_PATH: $BASE_PATH"
+          pnpm run build
+          mv out out-subpath
+
+      # 构建根路径版本（无 BASE_PATH）
+      - name: Build Root Version (without BASE_PATH)
+        env:
+          BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://www.ultimate-kernel.fun
+        run: |
+          echo "Building root version without BASE_PATH"
+          # 清理之前的构建
+          rm -rf .next
+          pnpm run build
+          mv out out-root
+
+      # 处理子路径版本的后期修复
+      - name: Post-export fixes for Sub-path Version
+        run: |
+          # 从配置文件中读取默认语言设置
+          DEFAULT_LOCALE=$(node -e "
+            const siteConfig = require('./src/config/site.config.ts');
+            console.log(siteConfig.siteConfig.i18n.defaultLocale);
+          " 2>/dev/null || echo "zh")
+          
+          echo "Default locale detected: $DEFAULT_LOCALE"
+          
+          # 将默认语言版本复制到根目录（无语言前缀）
+          if [ -d "out-subpath/$DEFAULT_LOCALE" ]; then
+            echo "Copying $DEFAULT_LOCALE version to root directory..."
+            rsync -a out-subpath/$DEFAULT_LOCALE/ out-subpath/
+          else
+            echo "Warning: Default locale directory out-subpath/$DEFAULT_LOCALE not found"
+          fi
+          
+          # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
+          touch out-subpath/.nojekyll
+
+      # 处理根路径版本的后期修复
+      - name: Post-export fixes for Root Version
+        run: |
+          # 从配置文件中读取默认语言设置
+          DEFAULT_LOCALE=$(node -e "
+            const siteConfig = require('./src/config/site.config.ts');
+            console.log(siteConfig.siteConfig.i18n.defaultLocale);
+          " 2>/dev/null || echo "zh")
+          
+          echo "Default locale detected: $DEFAULT_LOCALE"
+          
+          # 将默认语言版本复制到根目录（无语言前缀）
+          if [ -d "out-root/$DEFAULT_LOCALE" ]; then
+            echo "Copying $DEFAULT_LOCALE version to root directory..."
+            rsync -a out-root/$DEFAULT_LOCALE/ out-root/
+          else
+            echo "Warning: Default locale directory out-root/$DEFAULT_LOCALE not found"
+          fi
+          
+          # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
+          touch out-root/.nojekyll
+
+      # 部署子路径版本到当前仓库的 gh-pages 分支
+      - name: Deploy Sub-path Version to Current Repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out-subpath
+          publish_branch: gh-pages
+          force_orphan: true
+
+      # 部署根路径版本到 aaronlamz.github.io 仓库
+      - name: Deploy Root Version to GitHub.io Repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          external_repository: aaronlamz/aaronlamz.github.io
+          publish_dir: ./out-root
+          publish_branch: master
+          force_orphan: true
