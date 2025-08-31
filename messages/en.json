@@ -13,8 +13,7 @@
     "introduction": "a",
     "roles": {
       "fullstack": "Full Stack Engineer",
-      "web": "Web Developer",
-      "ui": "UI/UX Designer", 
+      "web": "Web Developer", 
       "solver": "Problem Solver"
     },
     "description": "Focused on building modern web applications"
@@ -55,7 +54,7 @@
   "footer": {
     "scrollToTop": "Scroll to top",
     "copyright": "All rights reserved",
-    "builtWith": "Built with Next.js, TypeScript and Tailwind CSS, ClaudeCode"
+    "builtWith": "Built with Next.js, TypeScript, Tailwind CSS, and Claude Code"
   },
   "contact": {
     "title": "Contact Me",
@@ -93,9 +92,9 @@
     "intro": "I'm a full-stack engineer who loves tinkering with new tech and documenting life.",
     "bio": "I enjoy building interesting products and writing down thoughts and small observations from life.",
     "workingOnTitle": "What I'm Working On",
-    "currentWork": "Focused on frontend tech, recently learning AI stuff to see how it can help with development.",
+    "currentWork": "Currently focused on frontend technologies for a living, recently learning AI-related topics to see how they can assist with development.",
     "beyondCodeTitle": "Beyond Code",
-    "beyondCode": "Beyond code, I like reading, thinking, and jotting down bits and pieces of life.",
+    "beyondCode": "Beyond code, I enjoy reading, fitness, outdoors, documenting life's little moments, and exploring the unknown world.",
     "connectTitle": "Let's Connect",
     "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
     "quote": "Simplicity is the ultimate sophistication."
