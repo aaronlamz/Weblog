@@ -1,0 +1,81 @@
+name: Deploy Sub-path Only (Backup)
+
+# 这个工作流只部署到子路径，不需要 PERSONAL_ACCESS_TOKEN
+# 如果你暂时不想配置跨仓库权限，可以使用这个
+
+on:
+  # 默认不自动触发，只能手动执行
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-subpath:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (with BASE_PATH)
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_SITE_URL: https://aaronlamz.github.io
+        run: pnpm run build
+
+      - name: Post-export fixes
+        run: |
+          DEFAULT_LOCALE=$(node -e "
+            const siteConfig = require('./src/config/site.config.ts');
+            console.log(siteConfig.siteConfig.i18n.defaultLocale);
+          " 2>/dev/null || echo "zh")
+          
+          echo "Default locale: $DEFAULT_LOCALE"
+          
+          if [ -d "out/$DEFAULT_LOCALE" ]; then
+            rsync -a out/$DEFAULT_LOCALE/ out/
+          fi
+          
+          touch out/.nojekyll
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
+
+      - name: Success Message
+        run: |
+          echo "🎉 Sub-path deployment completed!"
+          echo "🔗 Your site is available at: https://www.ultimate-kernel.fun/Weblog/"
+          echo ""
+          echo "💡 To enable root deployment, configure PERSONAL_ACCESS_TOKEN and use the dual-deploy workflow."

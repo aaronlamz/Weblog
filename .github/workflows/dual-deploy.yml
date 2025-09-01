@@ -118,7 +118,20 @@ jobs:
           force_orphan: true
 
       # 部署根路径版本到 aaronlamz.github.io 仓库
+      - name: Check if PERSONAL_ACCESS_TOKEN is configured
+        run: |
+          if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
+            echo "❌ PERSONAL_ACCESS_TOKEN is not configured!"
+            echo "📋 Please follow the instructions in SETUP-SECRETS.md to configure it."
+            echo "⏭️  Skipping root deployment for now..."
+            echo "SKIP_ROOT_DEPLOY=true" >> $GITHUB_ENV
+          else
+            echo "✅ PERSONAL_ACCESS_TOKEN is configured"
+            echo "SKIP_ROOT_DEPLOY=false" >> $GITHUB_ENV
+          fi
+
       - name: Deploy Root Version to GitHub.io Repo
+        if: env.SKIP_ROOT_DEPLOY == 'false'
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -126,3 +139,15 @@ jobs:
           publish_dir: ./out-root
           publish_branch: master
           force_orphan: true
+
+      - name: Root Deployment Skipped
+        if: env.SKIP_ROOT_DEPLOY == 'true'
+        run: |
+          echo "🚨 Root deployment was skipped because PERSONAL_ACCESS_TOKEN is not configured."
+          echo ""
+          echo "📋 To enable root deployment (https://www.ultimate-kernel.fun/):"
+          echo "1. Follow the steps in SETUP-SECRETS.md"
+          echo "2. Configure PERSONAL_ACCESS_TOKEN in repository secrets"
+          echo "3. Re-run this workflow"
+          echo ""
+          echo "✅ Sub-path deployment (https://www.ultimate-kernel.fun/Weblog/) completed successfully!"
