@@ -137,7 +137,7 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           external_repository: aaronlamz/aaronlamz.github.io
           publish_dir: ./out-root
-          publish_branch: master
+          publish_branch: gh-pages
           force_orphan: true
 
       - name: Root Deployment Skipped
