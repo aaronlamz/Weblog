@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -26,6 +26,155 @@ const navIcons = {
   blog: FileText,
   about: User,
   // contact: MessageCircle,
+}
+
+// macOS Dock风格导航组件 - 放大镜效果
+function DockNavigation({ navItems, currentLocale }: { navItems: any[], currentLocale: string }) {
+  const t = useTranslations('navigation')
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
+  const navRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<(HTMLElement | null)[]>([])
+
+  // 计算每个导航项的缩放值，基于鼠标距离
+  const getScale = (index: number) => {
+    if (!isHovering || !navRef.current || !itemRefs.current[index]) return 1
+
+    // 首先找出距离鼠标最近的项目
+    let closestIndex = -1
+    let closestDistance = Infinity
+
+    itemRefs.current.forEach((item, i) => {
+      if (!item) return
+      const rect = item.getBoundingClientRect()
+      const itemCenter = {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+      }
+      const distance = Math.sqrt(
+        Math.pow(mousePosition.x - itemCenter.x, 2) + 
+        Math.pow(mousePosition.y - itemCenter.y, 2)
+      )
+      if (distance < closestDistance) {
+        closestDistance = distance
+        closestIndex = i
+      }
+    })
+
+    const item = itemRefs.current[index]
+    const rect = item.getBoundingClientRect()
+    const itemCenter = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    }
+
+    // 计算当前项目到鼠标的距离
+    const distance = Math.sqrt(
+      Math.pow(mousePosition.x - itemCenter.x, 2) + 
+      Math.pow(mousePosition.y - itemCenter.y, 2)
+    )
+
+    // 放大镜效果配置
+    const maxDistance = 60 // 减少影响范围
+    const maxScale = 1.25 // 最大缩放值
+    const minScale = 1.0 // 最小缩放值
+
+    // 只有最近的项目才能获得最大缩放
+    if (index === closestIndex && distance <= maxDistance) {
+      const normalizedDistance = distance / maxDistance
+      const easeOut = 1 - Math.pow(normalizedDistance, 2)
+      return minScale + (maxScale - minScale) * easeOut
+    }
+
+    // 相邻项目获得轻微缩放
+    if (Math.abs(index - closestIndex) === 1 && distance <= maxDistance * 1.5) {
+      const adjacentScale = 1.05 // 相邻项目的轻微缩放
+      const normalizedDistance = distance / (maxDistance * 1.5)
+      const easeOut = 1 - Math.pow(normalizedDistance, 2)
+      return minScale + (adjacentScale - minScale) * easeOut
+    }
+
+    return minScale
+  }
+
+  // 处理鼠标移动
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY })
+  }
+
+  const handleMouseEnter = () => {
+    setIsHovering(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovering(false)
+  }
+
+  return (
+    <div 
+      ref={navRef}
+      className="flex items-center space-x-1 px-4 py-1"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {navItems.map((item, index) => {
+        const Icon = navIcons[item.key as keyof typeof navIcons]
+        const scale = getScale(index)
+        
+        return (
+          <Link 
+            key={item.key}
+            href={item.href as any}
+            ref={(el) => {
+              itemRefs.current[index] = el
+            }}
+            className="relative flex items-center space-x-2 px-3 py-2 transition-all duration-300 ease-out cursor-pointer"
+            style={{
+              transform: `scale(${scale}) translateZ(0)`,
+              transformOrigin: 'center center',
+              zIndex: Math.floor(scale * 10),
+            }}
+          >
+            {/* 图标 */}
+            {Icon && (
+              <Icon 
+                className="w-4 h-4 transition-all duration-300 text-foreground/70 dark:text-white/80"
+                style={{
+                  color: scale > 1.05 ? 'rgb(var(--foreground))' : undefined,
+                  filter: scale > 1.15 ? `drop-shadow(0 0 ${(scale - 1) * 12}px rgba(99, 102, 241, 0.4)) brightness(${1 + (scale - 1) * 0.2})` : 'none',
+                }}
+              />
+            )}
+            
+            {/* 文字标签 */}
+            <span 
+              className="text-sm font-medium transition-all duration-300 text-foreground/85 dark:text-white/85"
+              style={{
+                color: scale > 1.05 ? 'rgb(var(--foreground))' : undefined,
+                textShadow: scale > 1.15 ? `0 0 ${(scale - 1) * 16}px rgba(99, 102, 241, 0.3)` : 'none',
+                fontWeight: scale > 1.1 ? '600' : '500',
+              }}
+            >
+              {t(item.key as any)}
+            </span>
+
+            {/* 纯净的底部光点指示器 */}
+            <div 
+              className="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 rounded-full transition-all duration-300"
+              style={{
+                width: `${Math.max(0, (scale - 1.05) * 16)}px`,
+                height: `${Math.max(0, (scale - 1.05) * 1.5)}px`,
+                background: scale > 1.05 ? `radial-gradient(ellipse, rgba(99, 102, 241, ${(scale - 1) * 1.5}) 0%, rgba(99, 102, 241, ${(scale - 1) * 0.8}) 50%, transparent 100%)` : 'transparent',
+                opacity: Math.max(0, (scale - 1.05) * 2),
+                boxShadow: scale > 1.15 ? `0 0 ${(scale - 1) * 12}px rgba(99, 102, 241, 0.5)` : 'none',
+              }}
+            />
+          </Link>
+        )
+      })}
+    </div>
+  )
 }
 
 export function Header() {
@@ -107,22 +256,28 @@ export function Header() {
               </Link>
               
               {/* 桌面导航链接 */}
-              <div className="hidden md:flex items-center space-x-6">
-                {navItems.map((item) => {
-                  const Icon = navIcons[item.key as keyof typeof navIcons]
-                  return (
-                    <Link 
-                      key={item.key}
-                      href={item.href as any}
-                      className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-foreground dark:text-white/85 dark:hover:text-white"
-                    >
-                      {Icon && (
-                        <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />
-                      )}
-                      <span>{t(item.key as any)}</span>
-                    </Link>
-                  )
-                })}
+              <div className="hidden md:flex">
+                {siteConfig.ui.navigation.enableDockEffect ? (
+                  <DockNavigation navItems={navItems} currentLocale={currentLocale} />
+                ) : (
+                  <div className="flex items-center space-x-6">
+                    {navItems.map((item) => {
+                      const Icon = navIcons[item.key as keyof typeof navIcons]
+                      return (
+                        <Link 
+                          key={item.key}
+                          href={item.href as any}
+                          className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-foreground dark:text-white/85 dark:hover:text-white"
+                        >
+                          {Icon && (
+                            <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />
+                          )}
+                          <span>{t(item.key as any)}</span>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
 
               {/* 操作按钮 */}

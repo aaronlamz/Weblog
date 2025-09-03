@@ -44,6 +44,14 @@ export interface SiteConfig {
     }>
   }
   
+  // UI/UX配置
+  ui: {
+    // 导航栏配置
+    navigation: {
+      enableDockEffect: boolean // 是否启用macOS Dock风格的放大效果
+    }
+  }
+  
   // 页面配置
   pages: {
     home: {
@@ -117,6 +125,12 @@ export const siteConfig: SiteConfig = {
       { title: 'About', href: '/about' },
       { title: 'Contact', href: '/contact' },
     ],
+  },
+  
+  ui: {
+    navigation: {
+      enableDockEffect: true, // 默认启用macOS Dock效果，可以设置为false禁用
+    },
   },
   
   pages: {
