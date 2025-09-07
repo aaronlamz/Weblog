@@ -80,6 +80,18 @@
       "twitter": {
         "name": "Twitter",
         "desc": "Follow me for updates and tech discussions"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "desc": "View my professional profile and network"
+      },
+      "x": {
+        "name": "X",
+        "desc": "Get my latest updates and tech shares"
+      },
+      "wechat": {
+        "name": "WeChat",
+        "desc": "Add me or view my QR code"
       }
     },
     "sendMessage": "Send a Message",

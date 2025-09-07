@@ -80,6 +80,18 @@
       "twitter": {
         "name": "Twitter",
         "desc": "关注最新动态与技术交流"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "desc": "查看我的职业档案与人脉"
+      },
+      "x": {
+        "name": "X",
+        "desc": "获取最新动态与技术分享"
+      },
+      "wechat": {
+        "name": "微信",
+        "desc": "添加我为好友或查看二维码"
       }
     },
     "sendMessage": "发送消息",

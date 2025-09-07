@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { siteConfig } from '@/config/site.config'
+import { ContactLinks } from '@/components/contact-links'
 
 export async function generateMetadata({
   params,
@@ -67,6 +68,8 @@ export default async function AboutPage({
           <p>
             {t('connect')}
           </p>
+
+          <ContactLinks />
 
           <div className="mt-12 p-6 bg-secondary rounded-lg">
             <p className="mb-0 text-center italic">

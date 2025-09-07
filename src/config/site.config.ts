@@ -25,8 +25,10 @@ export interface SiteConfig {
   social: {
     github?: string
     twitter?: string
+    x?: string
     linkedin?: string
     email?: string
+    wechat?: string
   }
   
   // SEO配置
@@ -109,8 +111,11 @@ export const siteConfig: SiteConfig = {
   
   social: {
     github: 'https://github.com/aaronlamz/Weblog', // 用户需要修改
-    twitter: 'https://x.com/aaronlamz', // 用户需要修改
+    twitter: 'https://x.com/aaronlamz', // 用户需要修改（与 X 同步）
+    x: 'https://x.com/aaronlamz', // 可选：也可使用 twitter 字段
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
+    // linkedin: 'https://www.linkedin.com/in/your-id', // 可选
+    // wechat: 'your-wechat-id-or-link', // 可选：可填写微信号或二维码链接
   },
   
   seo: {
