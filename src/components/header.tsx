@@ -141,7 +141,7 @@ function DockNavigation({ navItems, currentLocale }: { navItems: any[], currentL
               <Icon 
                 className="w-4 h-4 transition-all duration-300 text-foreground/70 dark:text-white/80"
                 style={{
-                  color: scale > 1.05 ? 'rgb(var(--foreground))' : undefined,
+                  color: scale > 1.05 ? 'hsl(var(--primary))' : undefined,
                   filter: scale > 1.15 ? `drop-shadow(0 0 ${(scale - 1) * 12}px rgba(99, 102, 241, 0.4)) brightness(${1 + (scale - 1) * 0.2})` : 'none',
                 }}
               />
@@ -151,7 +151,7 @@ function DockNavigation({ navItems, currentLocale }: { navItems: any[], currentL
             <span 
               className="text-sm font-medium transition-all duration-300 text-foreground/85 dark:text-white/85"
               style={{
-                color: scale > 1.05 ? 'rgb(var(--foreground))' : undefined,
+                color: scale > 1.05 ? 'hsl(var(--primary))' : undefined,
                 textShadow: scale > 1.15 ? `0 0 ${(scale - 1) * 16}px rgba(99, 102, 241, 0.3)` : 'none',
                 fontWeight: scale > 1.1 ? '600' : '500',
               }}
@@ -226,14 +226,14 @@ export function Header() {
           <nav className={`
             pointer-events-auto
             rounded-full px-8 py-3.5
-            bg-white/5 dark:bg-black/20
-            border border-white/10 dark:border-white/5
-            ring-1 ring-white/5 dark:ring-white/0
+            bg-white/[0.03] dark:bg-black/[0.15]
+            border border-white/[0.08] dark:border-white/[0.04]
+            ring-1 ring-white/[0.03] dark:ring-white/0
             backdrop-blur-2xl backdrop-saturate-150
             shadow-xl shadow-black/20
             transition-all duration-500 ease-out
             ${isScrolled 
-              ? 'scale-95 bg-white/8 dark:bg-black/25 backdrop-blur-2xl shadow-2xl' 
+              ? 'scale-95 bg-white/[0.06] dark:bg-black/[0.18] backdrop-blur-2xl shadow-2xl' 
               : 'scale-100'}
           `}>
             <div className="flex items-center space-x-8">
@@ -267,7 +267,7 @@ export function Header() {
                         <Link 
                           key={item.key}
                           href={item.href as any}
-                          className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-foreground dark:text-white/85 dark:hover:text-white"
+                          className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-primary dark:text-white/85 dark:hover:text-primary"
                         >
                           {Icon && (
                             <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />

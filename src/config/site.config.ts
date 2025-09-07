@@ -52,6 +52,10 @@ export interface SiteConfig {
     navigation: {
       enableDockEffect: boolean // 是否启用macOS Dock风格的放大效果
     }
+    // 底部配置
+    footer?: {
+      enableFloatingBar: boolean // 是否启用底部滚动悬浮社交模块
+    }
   }
   
   // 页面配置
@@ -135,6 +139,9 @@ export const siteConfig: SiteConfig = {
   ui: {
     navigation: {
       enableDockEffect: true, // 默认启用macOS Dock效果，可以设置为false禁用
+    },
+    footer: {
+      enableFloatingBar: false, // 关闭全局底部滚动悬浮社交模块
     },
   },
   

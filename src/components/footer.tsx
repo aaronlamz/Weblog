@@ -121,6 +121,8 @@ export function Footer() {
   ].filter(link => link.href) // 只显示配置了的链接
   const hasSocial = socialLinks.length > 0
 
+  const enableFloatingBar = siteConfig.ui.footer?.enableFloatingBar !== false && siteConfig.ui.footer?.enableFloatingBar === true
+
   return (
     <>
       {/* 文章页面专用的返回按钮 */}
@@ -165,8 +167,8 @@ export function Footer() {
         </div>
       )}
 
-      {/* 悬浮式底部工具条（无内容时不渲染） */}
-      {(hasSocial || showScrollTop) && (
+      {/* 悬浮式底部工具条（按配置开关） */}
+      {enableFloatingBar && (hasSocial || showScrollTop) && (
         <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
           <div className="flex justify-center pb-6 px-4">
             <div
