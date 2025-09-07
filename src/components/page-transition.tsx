@@ -9,7 +9,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setIsEntering(true)
-    const timer = setTimeout(() => setIsEntering(false), 400)
+    const timer = setTimeout(() => setIsEntering(false), 160)
     return () => clearTimeout(timer)
   }, [pathname])
 

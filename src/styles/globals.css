@@ -62,13 +62,10 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.4s ease-out;
+  animation: fadeInUp 0.18s ease-out;
 }
 
-.page-transition.page-enter h1,
-.page-transition.page-enter h2 {
-  animation: jitter 0.18s ease-in-out 1;
-}
+/* 移除进入时的标题抖动，避免感知迟滞 */
 
 @keyframes jitter {
   0% { transform: translateY(0); }

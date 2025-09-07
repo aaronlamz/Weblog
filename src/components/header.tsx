@@ -268,6 +268,7 @@ export function Header() {
                           key={item.key}
                           href={item.href as any}
                           className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-primary dark:text-white/85 dark:hover:text-primary"
+                          prefetch
                         >
                           {Icon && (
                             <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />
