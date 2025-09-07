@@ -42,21 +42,36 @@ export default async function HomePage({
       icon: Code, 
       description: t('skillsDesc.frontend'),
       color: 'text-blue-600 dark:text-blue-400',
-      bgColor: 'bg-blue-100 dark:bg-blue-900/30'
+      bgColor: 'bg-blue-100 dark:bg-blue-900/30',
+      lightCardBg: 'bg-gradient-to-br from-blue-50/40 to-blue-100/20',
+      lightIconBg: 'bg-blue-100',
+      lightBorder: 'border-blue-200',
+      darkCardBg: 'bg-blue-900/30',
+      darkIconBg: 'bg-blue-900/30'
     },
     { 
       name: t('skills.mobile'), 
       icon: Smartphone, 
       description: t('skillsDesc.mobile'),
       color: 'text-green-600 dark:text-green-400',
-      bgColor: 'bg-green-100 dark:bg-green-900/30'
+      bgColor: 'bg-green-100 dark:bg-green-900/30',
+      lightCardBg: 'bg-gradient-to-br from-green-50/40 to-green-100/20',
+      lightIconBg: 'bg-green-100',
+      lightBorder: 'border-green-200',
+      darkCardBg: 'bg-green-900/30',
+      darkIconBg: 'bg-green-900/30'
     },
     { 
       name: t('skills.beyond'), 
       icon: Coffee, 
       description: t('skillsDesc.beyond'),
       color: 'text-purple-600 dark:text-purple-400',
-      bgColor: 'bg-purple-100 dark:bg-purple-900/30'
+      bgColor: 'bg-purple-100 dark:bg-purple-900/30',
+      lightCardBg: 'bg-gradient-to-br from-purple-50/40 to-purple-100/20',
+      lightIconBg: 'bg-purple-100',
+      lightBorder: 'border-purple-200',
+      darkCardBg: 'bg-purple-900/30',
+      darkIconBg: 'bg-purple-900/30'
     },
   ]
 
@@ -115,17 +130,15 @@ export default async function HomePage({
                 <div 
                   key={skill.name}
                   className={`
-                    p-6 rounded-2xl border backdrop-blur-sm
-                    bg-card/20 hover:bg-card/40 hover:scale-105 hover:shadow-xl
+                    p-6 rounded-2xl backdrop-blur-lg
+                    ${skill.lightCardBg} dark:bg-transparent hover:brightness-105 dark:hover:brightness-110 hover:scale-105 hover:shadow-xl
                     transition-all duration-300 group cursor-pointer
-                    ${skill.bgColor} hover:${skill.bgColor.replace('bg-', 'bg-').replace('/30', '/50')}
-                    border-border/20 hover:border-${skill.color.split(' ')[0].replace('text-', '')}-300
                   `}
                   style={{
                     animationDelay: `${index * 200}ms`
                   }}
                 >
-                  <div className={`w-12 h-12 rounded-xl ${skill.bgColor} flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300`}>
+                  <div className={`w-12 h-12 rounded-xl ${skill.lightIconBg.replace('bg-','bg-').replace('100','100/60')} dark:bg-gray-800/50 backdrop-blur-md flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300`}>
                     <Icon className={`w-6 h-6 ${skill.color} group-hover:scale-110 transition-transform`} />
                   </div>
                   <h3 className={`font-semibold mb-2 ${skill.color} group-hover:text-foreground transition-colors`}>
