@@ -6,6 +6,7 @@ import { Footer } from '@/components/footer';
 import { PageTransition } from '@/components/page-transition';
 import { HtmlLangSetter } from '@/components/html-lang-setter';
 import { DynamicMain } from '@/components/dynamic-main';
+import { SmartBackground } from '@/components/smart-background';
 import { locales } from '@/i18n/config';
 import type { Metadata } from 'next';
 
@@ -51,6 +52,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <HtmlLangSetter locale={locale} />
+      <SmartBackground />
       <div className="relative min-h-screen">
         <Header />
         <DynamicMain>
