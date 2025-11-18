@@ -101,12 +101,12 @@
   "about": {
     "title": "About Me",
     "description": "Welcome to my personal blog",
-    "intro": "I'm a full-stack engineer who loves tinkering with new tech and documenting life.",
-    "bio": "I enjoy building interesting products and writing down thoughts and small observations from life.",
+    "intro": "I'm an ordinary web engineer.",
+    "bio": "I also write thoughts and record small reflections from life.",
     "workingOnTitle": "What I'm Working On",
     "currentWork": "Currently focused on frontend technologies for a living, recently learning AI-related topics to see how they can assist with development.",
     "beyondCodeTitle": "Beyond Code",
-    "beyondCode": "Beyond code, I enjoy reading, fitness, outdoors, documenting life's little moments, and exploring the unknown world.",
+    "beyondCode": "Beyond code, I enjoy fitness, outdoors, documenting life, and exploring the unknown.",
     "connectTitle": "Let's Connect",
     "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
     "quote": "Simplicity is the ultimate sophistication."
