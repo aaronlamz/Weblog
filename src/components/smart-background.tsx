@@ -16,26 +16,21 @@ export function SmartBackground({ maxCreatures }: SmartBackgroundProps) {
     setMounted(true)
   }, [])
   
-  // Only show animated background on home page
-  // More flexible home page detection for both dev and production
+  // Only show animated background on home page (/ or /en)
   const isHomePage = mounted && (() => {
     // Clean the pathname by removing trailing slashes
     const cleanPath = pathname.replace(/\/$/, '') || '/'
-    
+
     // Split into segments
     const segments = cleanPath.split('/').filter(Boolean)
-    
+
     // Home page scenarios:
     // 1. Root: / -> segments: []
     // 2. English locale: /en -> segments: ['en']
-    // 3. With base path: /basepath/ -> segments: ['basepath']  
-    // 4. With base path + locale: /basepath/en/ -> segments: ['basepath', 'en']
-    
+
     if (segments.length === 0) return true // Root path
     if (segments.length === 1 && segments[0] === 'en') return true // English locale
-    if (segments.length === 1) return true // Likely base path only
-    if (segments.length === 2 && segments[1] === 'en') return true // Base path + English locale
-    
+
     return false
   })()
   
