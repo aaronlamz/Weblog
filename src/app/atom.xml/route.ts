@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { generateRSSFeed } from '@/lib/rss'
 
 export const dynamic = 'force-static'
+export const revalidate = false
 
 export async function GET() {
   try {

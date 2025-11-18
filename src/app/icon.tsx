@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
+export const revalidate = false
 export const size = {
   width: 512,
   height: 512,
