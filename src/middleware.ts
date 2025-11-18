@@ -11,6 +11,6 @@ export default createMiddleware({
 });
 
 export const config = {
-  // 让中间件匹配并处理所有页面（排除 _next、api 和静态资源）
-  matcher: ['/((?!api|_next|.*\\..*).*)']
+  // 让中间件匹配并处理所有页面（排除 _next、api、icon、favicon 和静态资源）
+  matcher: ['/((?!api|_next|icon|favicon|.*\\..*).*)']
 };
