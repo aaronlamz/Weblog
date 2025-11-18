@@ -4,7 +4,11 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { SeaCreatures } from './sea-creatures'
 
-export function AnimatedBackground() {
+interface AnimatedBackgroundProps {
+  maxCreatures?: number // 可配置的最大动物数量
+}
+
+export function AnimatedBackground({ maxCreatures = 3 }: AnimatedBackgroundProps) {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -25,7 +29,7 @@ export function AnimatedBackground() {
       />
 
       {/* 海洋生物动效（替换网格与点） */}
-      <SeaCreatures />
+      <SeaCreatures maxCreatures={maxCreatures} />
       
       {/* 静态装饰形状 */}
       <div className="floating-shapes">

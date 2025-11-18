@@ -56,6 +56,10 @@ export interface SiteConfig {
     footer?: {
       enableFloatingBar: boolean // 是否启用底部滚动悬浮社交模块
     }
+    // 背景动画配置
+    background?: {
+      maxCreatures: number // 首页动画背景的动物数量，最多7种（每种动物一个）
+    }
   }
   
   // 页面配置
@@ -142,6 +146,9 @@ export const siteConfig: SiteConfig = {
     },
     footer: {
       enableFloatingBar: false, // 关闭全局底部滚动悬浮社交模块
+    },
+    background: {
+      maxCreatures: 3, // 首页动画背景的动物数量，每种动物最多一个，总共7种动物类型 - 临时改为3来测试
     },
   },
   

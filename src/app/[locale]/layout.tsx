@@ -8,6 +8,7 @@ import { HtmlLangSetter } from '@/components/html-lang-setter';
 import { DynamicMain } from '@/components/dynamic-main';
 import { SmartBackground } from '@/components/smart-background';
 import { locales } from '@/i18n/config';
+import { siteConfig } from '@/config/site.config';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -52,7 +53,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <HtmlLangSetter locale={locale} />
-      <SmartBackground />
+      <SmartBackground maxCreatures={siteConfig.ui.background?.maxCreatures} />
       <div className="relative min-h-screen">
         <Header />
         <DynamicMain>

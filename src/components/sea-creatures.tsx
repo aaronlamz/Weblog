@@ -17,16 +17,20 @@ interface Creature {
   wobbleT: number
 }
 
+interface SeaCreaturesProps {
+  maxCreatures?: number // 可配置的最大动物数量，默认为7（每种动物一个）
+}
+
 interface Ripple {
   x: number
   y: number
   start: number
 }
 
-export function SeaCreatures() {
+export function SeaCreatures({ maxCreatures = 3 }: SeaCreaturesProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const { theme } = useTheme()
-
+  
   useEffect(() => {
     const canvasMaybe = canvasRef.current
     if (!canvasMaybe) return
@@ -54,8 +58,7 @@ export function SeaCreatures() {
     const W = () => window.innerWidth
     const H = () => window.innerHeight
 
-    // Populate creatures
-    const count = Math.min(35, Math.floor((W() * H()) / 35000))
+    // Populate creatures with configurable count
     const types: CreatureType[] = ['fish', 'jelly', 'ray', 'angelfish', 'clownfish', 'shark', 'seahorse']
     const creatures: Creature[] = []
     const ripples: Ripple[] = []
@@ -68,54 +71,69 @@ export function SeaCreatures() {
       return Math.random() * (max - min) + min
     }
 
-    for (let i = 0; i < count; i++) {
-      const type = types[Math.floor(Math.random() * types.length)]
+    // Create creatures - only one of each type, limited by maxCreatures
+    const actualCount = Math.min(maxCreatures, types.length) // 最多只能是动物类型数量
+    
+    for (let i = 0; i < actualCount; i++) {
+      const type = types[i] // 确保每种动物只有一个
+      const index = i
       let size: number
       let speed: number
       let baseHue: number
       
       switch (type) {
         case 'jelly':
-          size = rand(10, 18)
-          speed = rand(0.15, 0.4)
-          baseHue = theme === 'dark' ? rand(280, 320) : rand(290, 310) // purple/pink
+          size = rand(12, 16)
+          speed = rand(0.2, 0.35)
+          baseHue = theme === 'dark' ? rand(290, 310) : rand(295, 305) // purple/pink
           break
         case 'ray':
-          size = rand(16, 26)
-          speed = rand(0.3, 0.6)
-          baseHue = theme === 'dark' ? rand(200, 220) : rand(210, 230) // blue
+          size = rand(18, 24)
+          speed = rand(0.35, 0.5)
+          baseHue = theme === 'dark' ? rand(205, 215) : rand(215, 225) // blue
           break
         case 'angelfish':
-          size = rand(14, 22)
-          speed = rand(0.25, 0.5)
-          baseHue = theme === 'dark' ? rand(45, 65) : rand(50, 70) // yellow/orange
+          size = rand(16, 20)
+          speed = rand(0.3, 0.45)
+          baseHue = theme === 'dark' ? rand(50, 60) : rand(55, 65) // yellow/orange
           break
         case 'clownfish':
-          size = rand(10, 16)
-          speed = rand(0.3, 0.6)
-          baseHue = theme === 'dark' ? rand(15, 35) : rand(20, 40) // orange/red
+          size = rand(12, 16)
+          speed = rand(0.4, 0.55)
+          baseHue = theme === 'dark' ? rand(20, 30) : rand(25, 35) // orange/red
           break
         case 'shark':
-          size = rand(20, 32)
-          speed = rand(0.4, 0.8)
-          baseHue = theme === 'dark' ? rand(200, 220) : rand(210, 230) // blue-gray
+          size = rand(22, 28)
+          speed = rand(0.5, 0.7)
+          baseHue = theme === 'dark' ? rand(205, 215) : rand(215, 225) // blue-gray
           break
         case 'seahorse':
-          size = rand(8, 14)
-          speed = rand(0.1, 0.3)
-          baseHue = theme === 'dark' ? rand(120, 160) : rand(130, 170) // green/teal
+          size = rand(10, 14)
+          speed = rand(0.15, 0.25)
+          baseHue = theme === 'dark' ? rand(130, 150) : rand(140, 160) // green/teal
           break
         default: // fish
-          size = rand(12, 20)
-          speed = rand(0.2, 0.7)
-          baseHue = theme === 'dark' ? rand(185, 205) : rand(195, 215) // cyan/blue
+          size = rand(14, 18)
+          speed = rand(0.25, 0.6)
+          baseHue = theme === 'dark' ? rand(190, 200) : rand(200, 210) // cyan/blue
       }
       
       const dir = rand(-Math.PI, Math.PI)
+      
+      // Distribute creatures more evenly across the screen
+      const cols = Math.ceil(Math.sqrt(actualCount))
+      const rows = Math.ceil(actualCount / cols)
+      const areaW = W() / cols
+      const areaH = H() / rows
+      const col = index % cols
+      const row = Math.floor(index / cols)
+      const areaX = col * areaW
+      const areaY = row * areaH
+      
       creatures.push({
         type,
-        x: rand(0, W()),
-        y: rand(0, H()),
+        x: rand(areaX + areaW * 0.1, areaX + areaW * 0.9),
+        y: rand(areaY + areaH * 0.1, areaY + areaH * 0.9),
         vx: Math.cos(dir) * speed,
         vy: Math.sin(dir) * speed,
         baseSpeed: speed,
@@ -136,66 +154,85 @@ export function SeaCreatures() {
 
     function drawFish(c: Creature) {
       const angle = Math.atan2(c.vy, c.vx)
-      const wobble = Math.sin(c.wobbleT * 0.8) * (c.size * 0.12)
+      const wobble = Math.sin(c.wobbleT * 0.8) * (c.size * 0.08)
       const bodyWobble = Math.sin(c.wobbleT * 0.6) * 0.02
       
       ctx.save()
       ctx.translate(c.x, c.y)
       ctx.rotate(angle)
       
-      const bodyL = c.size * 1.8
-      const bodyH = c.size * 0.6
-      const headW = bodyH * 0.9
+      const bodyL = c.size * 2.0
+      const bodyH = c.size * 0.7
       
-      // Main body - more fish-like oval shape
-      ctx.fillStyle = color(theme === 'dark' ? 0.45 : 0.35, c.hue)
-      ctx.shadowColor = color(theme === 'dark' ? 0.35 : 0.25, c.hue)
-      ctx.shadowBlur = theme === 'dark' ? 12 : 8
+      // Main streamlined fish body - more torpedo-like
+      ctx.fillStyle = color(theme === 'dark' ? 0.5 : 0.4, c.hue)
+      ctx.shadowColor = color(theme === 'dark' ? 0.4 : 0.3, c.hue)
+      ctx.shadowBlur = theme === 'dark' ? 10 : 6
       
+      // Body shape - streamlined fish silhouette
       ctx.beginPath()
-      // Head (front)
-      ctx.ellipse(bodyL * 0.25, 0, headW, bodyH, 0, 0, Math.PI * 2)
-      ctx.fill()
-      
-      // Body (middle section) - slightly tapered
-      ctx.beginPath()
-      ctx.ellipse(-bodyL * 0.1, 0, bodyL * 0.6, bodyH * (0.85 + bodyWobble), 0, 0, Math.PI * 2)
-      ctx.fill()
-      
-      // Tail fin - more realistic V-shape
-      ctx.shadowBlur = theme === 'dark' ? 8 : 5
-      ctx.fillStyle = color(theme === 'dark' ? 0.4 : 0.3, c.hue)
-      ctx.beginPath()
-      ctx.moveTo(-bodyL * 0.7, 0)
-      ctx.lineTo(-bodyL * 0.95, -bodyH * 0.8 + wobble)
-      ctx.lineTo(-bodyL * 0.85, 0)
-      ctx.lineTo(-bodyL * 0.95, bodyH * 0.8 + wobble)
+      ctx.moveTo(bodyL * 0.4, 0) // pointed nose
+      ctx.quadraticCurveTo(bodyL * 0.2, -bodyH * 0.5, -bodyL * 0.1, -bodyH * 0.6) // top curve
+      ctx.quadraticCurveTo(-bodyL * 0.3, -bodyH * 0.4, -bodyL * 0.5, 0) // back to center
+      ctx.quadraticCurveTo(-bodyL * 0.3, bodyH * 0.4, -bodyL * 0.1, bodyH * 0.6) // bottom curve
+      ctx.quadraticCurveTo(bodyL * 0.2, bodyH * 0.5, bodyL * 0.4, 0) // back to nose
       ctx.closePath()
       ctx.fill()
       
-      // Dorsal fin (top)
-      ctx.fillStyle = color(theme === 'dark' ? 0.35 : 0.25, c.hue + 10)
+      // Tail fin - forked like a real fish
+      ctx.fillStyle = color(theme === 'dark' ? 0.45 : 0.35, c.hue)
+      ctx.shadowBlur = theme === 'dark' ? 8 : 5
+      
+      // Upper tail fin
+      ctx.beginPath()
+      ctx.moveTo(-bodyL * 0.5, -bodyH * 0.2)
+      ctx.quadraticCurveTo(-bodyL * 0.8, -bodyH * 0.8 + wobble, -bodyL * 0.9, -bodyH * 0.6)
+      ctx.quadraticCurveTo(-bodyL * 0.7, -bodyH * 0.3, -bodyL * 0.5, -bodyH * 0.2)
+      ctx.fill()
+      
+      // Lower tail fin
+      ctx.beginPath()
+      ctx.moveTo(-bodyL * 0.5, bodyH * 0.2)
+      ctx.quadraticCurveTo(-bodyL * 0.8, bodyH * 0.8 + wobble, -bodyL * 0.9, bodyH * 0.6)
+      ctx.quadraticCurveTo(-bodyL * 0.7, bodyH * 0.3, -bodyL * 0.5, bodyH * 0.2)
+      ctx.fill()
+      
+      // Dorsal fin (top fin)
+      ctx.fillStyle = color(theme === 'dark' ? 0.4 : 0.3, c.hue + 15)
       ctx.shadowBlur = theme === 'dark' ? 6 : 4
       ctx.beginPath()
-      ctx.moveTo(bodyL * 0.1, -bodyH * 0.6)
-      ctx.quadraticCurveTo(bodyL * 0.05, -bodyH * 1.1, -bodyL * 0.2, -bodyH * 0.8)
-      ctx.quadraticCurveTo(-bodyL * 0.1, -bodyH * 0.6, bodyL * 0.1, -bodyH * 0.6)
+      ctx.moveTo(bodyL * 0.1, -bodyH * 0.5)
+      ctx.quadraticCurveTo(0, -bodyH * 1.0, -bodyL * 0.2, -bodyH * 0.6)
+      ctx.quadraticCurveTo(-bodyL * 0.1, -bodyH * 0.5, bodyL * 0.1, -bodyH * 0.5)
       ctx.fill()
       
-      // Pectoral fin (side)
-      ctx.fillStyle = color(theme === 'dark' ? 0.3 : 0.2, c.hue + 5)
+      // Pectoral fin (side fin)
+      ctx.fillStyle = color(theme === 'dark' ? 0.35 : 0.25, c.hue + 10)
       ctx.shadowBlur = theme === 'dark' ? 4 : 3
       ctx.beginPath()
-      ctx.moveTo(bodyL * 0.15, bodyH * 0.3)
-      ctx.quadraticCurveTo(bodyL * 0.25, bodyH * 0.7, bodyL * 0.05, bodyH * 0.8)
-      ctx.quadraticCurveTo(bodyL * 0.1, bodyH * 0.5, bodyL * 0.15, bodyH * 0.3)
+      ctx.moveTo(bodyL * 0.2, bodyH * 0.3)
+      ctx.quadraticCurveTo(bodyL * 0.3, bodyH * 0.8, bodyL * 0.1, bodyH * 0.9)
+      ctx.quadraticCurveTo(bodyL * 0.15, bodyH * 0.5, bodyL * 0.2, bodyH * 0.3)
       ctx.fill()
       
-      // Simple eye
+      // Eye with more detail
       ctx.shadowBlur = 0
-      ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.6)'
+      // Eye white
+      ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.8)'
       ctx.beginPath()
-      ctx.arc(bodyL * 0.3, -bodyH * 0.15, c.size * 0.08, 0, Math.PI * 2)
+      ctx.arc(bodyL * 0.25, -bodyH * 0.1, c.size * 0.1, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Eye pupil
+      ctx.fillStyle = theme === 'dark' ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.9)'
+      ctx.beginPath()
+      ctx.arc(bodyL * 0.27, -bodyH * 0.1, c.size * 0.06, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Eye highlight
+      ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.8)'
+      ctx.beginPath()
+      ctx.arc(bodyL * 0.28, -bodyH * 0.12, c.size * 0.02, 0, Math.PI * 2)
       ctx.fill()
       
       ctx.restore()
@@ -234,15 +271,78 @@ export function SeaCreatures() {
       ctx.save()
       ctx.translate(x, y)
       ctx.rotate(angle)
+      
+      const bodyW = c.size * 2.2
+      const bodyH = c.size * 1.5
+      const wobble = Math.sin(c.wobbleT * 0.3) * (c.size * 0.05)
+      
+      // Main ray body - diamond/kite shape
+      ctx.fillStyle = color(theme === 'dark' ? 0.4 : 0.3, c.hue)
+      ctx.shadowColor = color(theme === 'dark' ? 0.3 : 0.2, c.hue)
+      ctx.shadowBlur = theme === 'dark' ? 12 : 8
+      
       ctx.beginPath()
-      ctx.moveTo(-c.size * 1.4, 0)
-      ctx.quadraticCurveTo(0, -c.size * 0.8, c.size * 1.8, 0)
-      ctx.quadraticCurveTo(0, c.size * 0.8, -c.size * 1.4, 0)
+      // Diamond/kite-like body shape typical of rays
+      ctx.moveTo(bodyW * 0.4, 0) // nose
+      ctx.quadraticCurveTo(bodyW * 0.2, -bodyH * 0.6, -bodyW * 0.2, -bodyH * 0.8) // left wing
+      ctx.quadraticCurveTo(-bodyW * 0.5, -bodyH * 0.3, -bodyW * 0.6, 0) // back left
+      ctx.quadraticCurveTo(-bodyW * 0.5, bodyH * 0.3, -bodyW * 0.2, bodyH * 0.8) // right wing  
+      ctx.quadraticCurveTo(bodyW * 0.2, bodyH * 0.6, bodyW * 0.4, 0) // back to nose
       ctx.closePath()
-      ctx.fillStyle = color(theme === 'dark' ? 0.35 : 0.25, c.hue - 10)
-      ctx.shadowColor = color(theme === 'dark' ? 0.25 : 0.2, c.hue - 10)
-      ctx.shadowBlur = theme === 'dark' ? 10 : 6
       ctx.fill()
+      
+      // Body markings - spots typical of rays
+      ctx.fillStyle = color(theme === 'dark' ? 0.25 : 0.15, c.hue + 20)
+      ctx.shadowBlur = 0
+      
+      // Central body spots
+      for (let i = 0; i < 3; i++) {
+        const spotX = -bodyW * (0.1 + i * 0.15)
+        const spotY = (i % 2 === 0 ? -1 : 1) * bodyH * (0.1 + i * 0.1)
+        ctx.beginPath()
+        ctx.arc(spotX, spotY, c.size * 0.08, 0, Math.PI * 2)
+        ctx.fill()
+      }
+      
+      // Tail - long and thin like a real ray
+      ctx.strokeStyle = color(theme === 'dark' ? 0.35 : 0.25, c.hue)
+      ctx.lineWidth = c.size * 0.15
+      ctx.lineCap = 'round'
+      
+      ctx.beginPath()
+      ctx.moveTo(-bodyW * 0.6, 0)
+      ctx.quadraticCurveTo(-bodyW * 0.9, bodyH * 0.2 + wobble, -bodyW * 1.2, bodyH * 0.1)
+      ctx.stroke()
+      
+      // Eyes on top of head
+      ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.7)'
+      ctx.shadowBlur = 0
+      
+      // Left eye
+      ctx.beginPath()
+      ctx.arc(bodyW * 0.25, -bodyH * 0.15, c.size * 0.06, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Right eye  
+      ctx.beginPath()
+      ctx.arc(bodyW * 0.25, bodyH * 0.15, c.size * 0.06, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Wing edges - slight undulation for movement effect
+      ctx.strokeStyle = color(theme === 'dark' ? 0.3 : 0.2, c.hue + 10)
+      ctx.lineWidth = 1
+      ctx.shadowBlur = theme === 'dark' ? 4 : 2
+      
+      ctx.beginPath()
+      ctx.moveTo(-bodyW * 0.2, -bodyH * 0.8)
+      ctx.quadraticCurveTo(0, -bodyH * 0.9 + wobble, bodyW * 0.2, -bodyH * 0.6)
+      ctx.stroke()
+      
+      ctx.beginPath()
+      ctx.moveTo(-bodyW * 0.2, bodyH * 0.8)
+      ctx.quadraticCurveTo(0, bodyH * 0.9 + wobble, bodyW * 0.2, bodyH * 0.6)
+      ctx.stroke()
+      
       ctx.restore()
     }
 
@@ -646,7 +746,7 @@ export function SeaCreatures() {
       window.removeEventListener('pointerdown', onPointerDown)
       window.removeEventListener('pointermove', onPointerMove)
     }
-  }, [theme])
+  }, [theme, maxCreatures]) // 添加 maxCreatures 到依赖项
 
   return (
     <canvas
