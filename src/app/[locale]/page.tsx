@@ -77,19 +77,19 @@ export default async function HomePage({
 
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-[calc(100vh-4rem-8rem)] relative flex items-center">
       
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center relative">
-        <div className="max-w-4xl mx-auto relative">
+      <section className="container mx-auto px-4 py-8 text-center relative w-full">
+        <div className="max-w-3xl mx-auto">
           <div className="relative z-10">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold mb-3">
               <span className="text-foreground">{t('hero.greeting')} </span>
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 {siteConfig.author.name}
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+            <p className="text-base md:text-lg text-muted-foreground mb-2">
               {t('hero.introduction')} <span className="text-foreground font-semibold">
                 <TypewriterText 
                   texts={[
@@ -103,18 +103,18 @@ export default async function HomePage({
                 />
               </span>
             </p>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-sm md:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
               {t('hero.description')}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button asChild size="lg" className="group">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild size="lg" className="group shadow-lg hover:shadow-xl transition-all">
                 <Link href={buildLocalizedPath('/blog', locale as any) as any}>
                   {t('navigation.blog')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-all">
                 <Link href={buildLocalizedPath('/about', locale as any) as any}>
                   {t('navigation.about')}
                 </Link>
@@ -122,8 +122,8 @@ export default async function HomePage({
             </div>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto relative z-10">
+          {/* Skills Grid - Commented for simplicity */}
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto relative z-10">
             {skills.map((skill, index) => {
               const Icon = skill.icon
               return (
@@ -150,15 +150,15 @@ export default async function HomePage({
                 </div>
               )
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 
-      {/* Tech Stack Section */}
-      <TechStack />
+      {/* Tech Stack Section - Commented for simplicity */}
+      {/* <TechStack /> */}
 
-      {/* Featured Posts Section */}
-      {featuredPosts.length > 0 && (
+      {/* Featured Posts Section - Commented for simplicity */}
+      {/* {featuredPosts.length > 0 && (
         <section className="container mx-auto px-4 py-16">
           <div className="flex items-center gap-2 mb-8">
             <Star className="w-5 h-5 text-yellow-500" />
@@ -210,11 +210,11 @@ export default async function HomePage({
             ))}
           </div>
         </section>
-      )}
+      )} */}
 
-      {/* Latest Posts Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">{t('posts.latest')}</h2>
+      {/* Latest Posts Section - Commented for simplicity */}
+      {/* <section className="container mx-auto px-4 py-8 md:py-12">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('posts.latest')}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentPosts.map((post) => (
@@ -265,7 +265,7 @@ export default async function HomePage({
         )}
         
         {posts.length > 0 && (
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Button asChild variant="outline" size="lg" className="group">
               <Link href={buildLocalizedPath('/blog', locale as any) as any}>
                 {t('posts.readMore')}
@@ -274,7 +274,7 @@ export default async function HomePage({
             </Button>
           </div>
         )}
-      </section>
+      </section> */}
     </div>
   )
 } 

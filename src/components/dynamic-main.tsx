@@ -13,9 +13,15 @@ export function DynamicMain({ children }: { children: React.ReactNode }) {
 
   // Check if current page is a blog post
   const isBlogPost = mounted && /\/blog\/[^\/]+\/?$/.test(pathname)
+  // Check if current page is home page (/ or /en or /zh)
+  const isHomePage = mounted && /^\/(en|zh)?\/?$/.test(pathname)
   
   return (
-    <main className={isBlogPost ? "pb-32" : "pt-24 pb-32"}>
+    <main className={
+      isBlogPost ? "pb-32" : 
+      isHomePage ? "" : 
+      "pt-24 pb-32"
+    }>
       {children}
     </main>
   )
