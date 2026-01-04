@@ -237,7 +237,7 @@ export function Footer() {
       )}
 
       {/* 传统底部 - 版权信息 */}
-      <footer className="mt-20 border-t bg-background/50">
+      <footer className="mt-auto border-t bg-background/50">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="text-sm text-muted-foreground">

@@ -3,7 +3,13 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-export function DynamicMain({ children }: { children: React.ReactNode }) {
+export function DynamicMain({ 
+  children, 
+  className = "" 
+}: { 
+  children: React.ReactNode
+  className?: string
+}) {
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
@@ -17,11 +23,11 @@ export function DynamicMain({ children }: { children: React.ReactNode }) {
   const isHomePage = mounted && /^\/(en|zh)?\/?$/.test(pathname)
   
   return (
-    <main className={
+    <main className={`${
       isBlogPost ? "pb-32" : 
-      isHomePage ? "" : 
+      isHomePage ? "flex items-center justify-center" : 
       "pt-24 pb-32"
-    }>
+    } ${className}`}>
       {children}
     </main>
   )

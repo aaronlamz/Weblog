@@ -54,9 +54,9 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <HtmlLangSetter locale={locale} />
       <SmartBackground maxCreatures={siteConfig.ui.background?.maxCreatures} />
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen flex flex-col">
         <Header />
-        <DynamicMain>
+        <DynamicMain className="flex-1">
           <PageTransition>
             {children}
           </PageTransition>

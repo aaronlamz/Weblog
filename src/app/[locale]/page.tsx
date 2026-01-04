@@ -77,12 +77,12 @@ export default async function HomePage({
 
 
   return (
-    <div className="min-h-[calc(100vh-4rem-8rem)] relative flex items-center">
+    <div className="w-full">
       
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8 text-center relative w-full">
+      <section className="container mx-auto px-4 text-center w-full">
         <div className="max-w-3xl mx-auto">
-          <div className="relative z-10">
+          <div>
             <h1 className="text-3xl md:text-5xl font-bold mb-3">
               <span className="text-foreground">{t('hero.greeting')} </span>
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
