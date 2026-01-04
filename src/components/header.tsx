@@ -184,6 +184,7 @@ export function Header() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -291,7 +292,18 @@ export function Header() {
                   variant="ghost"
                   size="sm"
                   className="md:hidden"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  onClick={() => {
+                    if (isMobileMenuOpen) {
+                      setIsClosing(true)
+                      setTimeout(() => {
+                        setIsMobileMenuOpen(false)
+                        setIsClosing(false)
+                      }, 300)
+                    } else {
+                      setIsMobileMenuOpen(true)
+                      setIsClosing(false)
+                    }
+                  }}
                 >
                   {isMobileMenuOpen ? (
                     <X className="w-4 h-4" />
@@ -307,32 +319,59 @@ export function Header() {
 
       {/* 移动端全屏菜单 */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div 
+          className={`fixed inset-0 z-40 md:hidden ${isClosing ? 'mobile-menu-exit' : 'mobile-menu-enter'}`}
+          onClick={() => {
+            setIsClosing(true)
+            setTimeout(() => {
+              setIsMobileMenuOpen(false)
+              setIsClosing(false)
+            }, 300)
+          }}
+        >
           <div className="fixed inset-0 bg-background/95 backdrop-blur-sm">
             <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {navItems.map((item) => {
+              {navItems.map((item, index) => {
                 const Icon = navIcons[item.key as keyof typeof navIcons]
                 return (
                   <Link
                     key={item.key}
                     href={item.href as any}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center space-x-3 text-2xl font-medium hover:text-primary transition-colors"
+                    onClick={() => {
+                      setIsClosing(true)
+                      setTimeout(() => {
+                        setIsMobileMenuOpen(false)
+                        setIsClosing(false)
+                      }, 200)
+                    }}
+                    className={`flex items-center space-x-3 text-2xl font-medium hover:text-primary transition-all duration-300 transform hover:scale-110 ${
+                      isClosing ? 'mobile-menu-item-exit' : 'mobile-menu-item-enter'
+                    }`}
+                    style={{
+                      animationDelay: isClosing ? `${(navItems.length - index - 1) * 40}ms` : `${index * 80}ms`
+                    }}
                   >
-                    {Icon && <Icon className="w-6 h-6" />}
+                    {Icon && <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />}
                     <span>{t(item.key as any)}</span>
                   </Link>
                 )
               })}
               
               {/* 社交链接 */}
-              <div className="flex items-center space-x-6 mt-8">
+              <div 
+                className={`flex items-center space-x-6 mt-8 ${
+                  isClosing ? 'mobile-menu-item-exit' : 'mobile-menu-item-enter'
+                }`}
+                style={{
+                  animationDelay: isClosing ? '0ms' : `${navItems.length * 80}ms`
+                }}
+              >
                 {siteConfig.social.github && (
                   <a
                     href={siteConfig.social.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-foreground transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-all duration-300 transform hover:scale-125"
                   >
                     <Github className="w-6 h-6" />
                   </a>
@@ -342,7 +381,7 @@ export function Header() {
                     href={siteConfig.social.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-foreground transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-all duration-300 transform hover:scale-125"
                   >
                     <Twitter className="w-6 h-6" />
                   </a>
@@ -350,7 +389,7 @@ export function Header() {
                 {siteConfig.social.email && (
                   <a
                     href={`mailto:${siteConfig.social.email}`}
-                    className="text-foreground/60 hover:text-foreground transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-all duration-300 transform hover:scale-125"
                   >
                     <Mail className="w-6 h-6" />
                   </a>
