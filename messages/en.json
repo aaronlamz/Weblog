@@ -92,6 +92,10 @@
       "wechat": {
         "name": "WeChat",
         "desc": "Add me or view my QR code"
+      },
+      "wechatOfficialAccount": {
+        "name": "WeChat Official Account",
+        "desc": "Follow my official account for latest content"
       }
     },
     "sendMessage": "Send a Message",
@@ -104,9 +108,9 @@
     "intro": "I'm an ordinary web engineer.",
     "bio": "I also write thoughts and record small reflections from life.",
     "workingOnTitle": "What I'm Working On",
-    "currentWork": "An amateur frontend developer, recently diving into AI to see if it can make development easier or help build something interesting.",
+    "currentWork": "Recently diving into AI to see if it can make development easier or help build something interesting.",
     "beyondCodeTitle": "Beyond Code",
-    "beyondCode": "I enjoy working out, hiking outdoors, photography, and skiing in winter. Sometimes I also document life moments.",
+    "beyondCode": "I enjoy working out, hiking outdoors, photography, and recently learning to ski. Sometimes I also document life moments.",
     "connectTitle": "Let's Connect",
     "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
     "quote": "Simplicity is the ultimate sophistication."

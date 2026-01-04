@@ -29,6 +29,7 @@ export interface SiteConfig {
     linkedin?: string
     email?: string
     wechat?: string
+    wechatOfficialAccount?: string // 微信公众号，格式：名称（微信号）
   }
   
   // SEO配置
@@ -124,6 +125,7 @@ export const siteConfig: SiteConfig = {
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
     // linkedin: 'https://www.linkedin.com/in/your-id', // 可选
     // wechat: 'your-wechat-id-or-link', // 可选：可填写微信号或二维码链接
+    wechatOfficialAccount: '微信公众号：小林光合（gh_e55b5317b107）', // 微信公众号
   },
   
   seo: {
