@@ -9,14 +9,14 @@
     "back": "返回"
   },
   "hero": {
-    "greeting": "我是",
-    "introduction": "一名",
+    "greeting": "Hi, I'm",
+    "introduction": "a",
     "roles": {
-      "fullstack": "全栈工程师",
-      "web": "Web 开发者", 
-      "solver": "问题解决者"
+      "fullstack": "Full Stack Engineer",
+      "web": "Web Developer", 
+      "solver": "Problem Solver"
     },
-    "description": "专注于构建现代化的 Web 应用程序"
+    "description": "The unexamined life is not worth living."
   },
   "skills": {
     "title": "技能",
@@ -37,7 +37,7 @@
     "blog": "博客",
     "featured": "精选文章",
     "latest": "最新文章",
-    "description": "记录一些想法和生活碎片。",
+    "description": "记录一些想法和生活碎片",
     "readMore": "阅读全文",
     "publishedOn": "发布于",
     "readingTime": "阅读约 {minutes} 分钟",
@@ -113,7 +113,7 @@
     "beyondCode": "喜欢健身、户外走走、拍拍照，最近学滑雪，偶尔也记录下生活。",
     "connectTitle": "联系我",
     "connect": "如果你也喜欢技术或者想聊聊天，欢迎随时联系。",
-    "quote": "简单是终极的复杂。"
+    "quote": "大道至简。"
   },
   "meta": {
     "description": "个人博客，写代码、学技术、记录生活"

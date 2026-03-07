@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
-import { SmartBackground } from '@/components/smart-background'
 import { siteConfig } from '@/config/site.config'
 import '@/styles/globals.css'
 
@@ -66,7 +65,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmartBackground />
           {children}
         </ThemeProvider>
       </body>

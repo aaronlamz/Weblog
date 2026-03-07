@@ -9,14 +9,14 @@
     "back": "Back"
   },
   "hero": {
-    "greeting": "I'm",
+    "greeting": "Hi, I'm",
     "introduction": "a",
     "roles": {
       "fullstack": "Full Stack Engineer",
       "web": "Web Developer", 
       "solver": "Problem Solver"
     },
-    "description": "Focused on building modern web applications"
+    "description": "The unexamined life is not worth living."
   },
   "skills": {
     "title": "Skills",
@@ -113,7 +113,7 @@
     "beyondCode": "I enjoy working out, hiking outdoors, photography, and recently learning to ski. Sometimes I also document life moments.",
     "connectTitle": "Let's Connect",
     "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
-    "quote": "Simplicity is the ultimate sophistication."
+    "quote": "The Great Way is simple."
   },
   "meta": {
     "description": "Personal blog about coding, learning tech, and life moments"

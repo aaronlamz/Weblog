@@ -24,9 +24,9 @@ export function DynamicMain({
   
   return (
     <main className={`${
-      isBlogPost ? "pb-32" : 
+      isBlogPost ? "pb-16" : 
       isHomePage ? "flex items-center justify-center" : 
-      "pt-24 pb-32"
+      "pt-20 pb-8"
     } ${className}`}>
       {children}
     </main>

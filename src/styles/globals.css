@@ -79,6 +79,9 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground;
   }
@@ -89,21 +92,10 @@
   @apply bg-primary/10 text-primary px-2 py-0.5 rounded-md text-sm font-medium border border-primary/20 dark:bg-primary/20 dark:text-primary;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-border rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/50;
+/* Custom scrollbar - thin style, only appears when content actually overflows */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 /* Prose styles for blog content */
