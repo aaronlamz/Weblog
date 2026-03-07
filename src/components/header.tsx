@@ -13,7 +13,6 @@ import {
   Home, 
   FileText, 
   User, 
-  MessageCircle, 
   Menu, 
   X,
   Github,
@@ -28,148 +27,87 @@ const navIcons = {
   // contact: MessageCircle,
 }
 
-// macOS Dock风格导航组件 - 放大镜效果
-function DockNavigation({ navItems, currentLocale }: { navItems: any[], currentLocale: string }) {
+// 滑动高亮块导航组件 — 鼠标悬停时玻璃胶囊流畅滑过
+function SliderNavigation({ navItems, currentLocale }: { navItems: any[], currentLocale: string }) {
   const t = useTranslations('navigation')
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isHovering, setIsHovering] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 })
   const navRef = useRef<HTMLDivElement>(null)
-  const itemRefs = useRef<(HTMLElement | null)[]>([])
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
-  // 计算每个导航项的缩放值，基于鼠标距离
-  const getScale = (index: number) => {
-    if (!isHovering || !navRef.current || !itemRefs.current[index]) return 1
-
-    // 首先找出距离鼠标最近的项目
-    let closestIndex = -1
-    let closestDistance = Infinity
-
-    itemRefs.current.forEach((item, i) => {
-      if (!item) return
-      const rect = item.getBoundingClientRect()
-      const itemCenter = {
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2
-      }
-      const distance = Math.sqrt(
-        Math.pow(mousePosition.x - itemCenter.x, 2) + 
-        Math.pow(mousePosition.y - itemCenter.y, 2)
-      )
-      if (distance < closestDistance) {
-        closestDistance = distance
-        closestIndex = i
-      }
+  const updatePill = (index: number | null) => {
+    if (index === null || !navRef.current || !itemRefs.current[index]) {
+      setPillStyle(s => ({ ...s, opacity: 0 }))
+      return
+    }
+    const nav = navRef.current.getBoundingClientRect()
+    const item = itemRefs.current[index]!.getBoundingClientRect()
+    setPillStyle({
+      left: item.left - nav.left,
+      width: item.width,
+      opacity: 1,
     })
-
-    const item = itemRefs.current[index]
-    const rect = item.getBoundingClientRect()
-    const itemCenter = {
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2
-    }
-
-    // 计算当前项目到鼠标的距离
-    const distance = Math.sqrt(
-      Math.pow(mousePosition.x - itemCenter.x, 2) + 
-      Math.pow(mousePosition.y - itemCenter.y, 2)
-    )
-
-    // 放大镜效果配置
-    const maxDistance = 60 // 减少影响范围
-    const maxScale = 1.25 // 最大缩放值
-    const minScale = 1.0 // 最小缩放值
-
-    // 只有最近的项目才能获得最大缩放
-    if (index === closestIndex && distance <= maxDistance) {
-      const normalizedDistance = distance / maxDistance
-      const easeOut = 1 - Math.pow(normalizedDistance, 2)
-      return minScale + (maxScale - minScale) * easeOut
-    }
-
-    // 相邻项目获得轻微缩放
-    if (Math.abs(index - closestIndex) === 1 && distance <= maxDistance * 1.5) {
-      const adjacentScale = 1.05 // 相邻项目的轻微缩放
-      const normalizedDistance = distance / (maxDistance * 1.5)
-      const easeOut = 1 - Math.pow(normalizedDistance, 2)
-      return minScale + (adjacentScale - minScale) * easeOut
-    }
-
-    return minScale
-  }
-
-  // 处理鼠标移动
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY })
-  }
-
-  const handleMouseEnter = () => {
-    setIsHovering(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovering(false)
   }
 
   return (
-    <div 
+    <div
       ref={navRef}
-      className="flex items-center space-x-1 px-4 py-1"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="relative flex items-center gap-1 px-2 py-1"
+      onMouseLeave={() => {
+        setHoveredIndex(null)
+        updatePill(null)
+      }}
     >
+      {/* 滑动玻璃胶囊 */}
+      <span
+        aria-hidden
+        className="liquid-pill pointer-events-none absolute top-1 bottom-1 rounded-full"
+        style={{
+          left: pillStyle.left,
+          width: pillStyle.width,
+          opacity: pillStyle.opacity,
+          transition: 'left 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease',
+        }}
+      />
+
       {navItems.map((item, index) => {
         const Icon = navIcons[item.key as keyof typeof navIcons]
-        const scale = getScale(index)
-        
+        const isActive = hoveredIndex === index
+
         return (
-          <Link 
+          <Link
             key={item.key}
             href={item.href as any}
-            ref={(el) => {
-              itemRefs.current[index] = el
+            ref={el => { itemRefs.current[index] = el }}
+            onMouseEnter={() => {
+              setHoveredIndex(index)
+              updatePill(index)
             }}
-            className="relative flex items-center space-x-2 px-3 py-2 transition-all duration-300 ease-out cursor-pointer"
+            className="relative z-10 flex items-center gap-1.5 px-3.5 py-2 rounded-full cursor-pointer select-none"
             style={{
-              transform: `scale(${scale}) translateZ(0)`,
-              transformOrigin: 'center center',
-              zIndex: Math.floor(scale * 10),
+              transition: 'color 0.2s ease',
+              color: isActive ? 'hsl(var(--primary))' : undefined,
             }}
           >
-            {/* 图标 */}
             {Icon && (
-              <Icon 
-                className="w-4 h-4 transition-all duration-300 text-foreground/70 dark:text-white/80"
+              <Icon
+                className="w-4 h-4 transition-all duration-200"
                 style={{
-                  color: scale > 1.05 ? 'hsl(var(--primary))' : undefined,
-                  filter: scale > 1.15 ? `drop-shadow(0 0 ${(scale - 1) * 12}px rgba(99, 102, 241, 0.4)) brightness(${1 + (scale - 1) * 0.2})` : 'none',
+                  color: isActive ? 'hsl(var(--primary))' : undefined,
+                  filter: isActive ? 'drop-shadow(0 0 4px rgba(99,102,241,0.45))' : 'none',
+                  transform: isActive ? 'scale(1.12)' : 'scale(1)',
                 }}
               />
             )}
-            
-            {/* 文字标签 */}
-            <span 
-              className="text-sm font-medium transition-all duration-300 text-foreground/85 dark:text-white/85"
+            <span
+              className="text-sm font-medium text-foreground/80 dark:text-white/80 transition-all duration-200"
               style={{
-                color: scale > 1.05 ? 'hsl(var(--primary))' : undefined,
-                textShadow: scale > 1.15 ? `0 0 ${(scale - 1) * 16}px rgba(99, 102, 241, 0.3)` : 'none',
-                fontWeight: scale > 1.1 ? '600' : '500',
+                color: isActive ? 'hsl(var(--primary))' : undefined,
+                fontWeight: isActive ? 600 : 500,
               }}
             >
               {t(item.key as any)}
             </span>
-
-            {/* 纯净的底部光点指示器 */}
-            <div 
-              className="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 rounded-full transition-all duration-300"
-              style={{
-                width: `${Math.max(0, (scale - 1.05) * 16)}px`,
-                height: `${Math.max(0, (scale - 1.05) * 1.5)}px`,
-                background: scale > 1.05 ? `radial-gradient(ellipse, rgba(99, 102, 241, ${(scale - 1) * 1.5}) 0%, rgba(99, 102, 241, ${(scale - 1) * 0.8}) 50%, transparent 100%)` : 'transparent',
-                opacity: Math.max(0, (scale - 1.05) * 2),
-                boxShadow: scale > 1.15 ? `0 0 ${(scale - 1) * 12}px rgba(99, 102, 241, 0.5)` : 'none',
-              }}
-            />
           </Link>
         )
       })}
@@ -227,17 +165,15 @@ export function Header() {
           <nav className={`
             pointer-events-auto
             rounded-full px-8 py-3.5
-            bg-white/[0.03] dark:bg-black/[0.15]
-            border border-white/[0.08] dark:border-white/[0.04]
-            ring-1 ring-white/[0.03] dark:ring-white/0
-            backdrop-blur-2xl backdrop-saturate-150
-            shadow-xl shadow-black/20
+            liquid-glass
             transition-all duration-500 ease-out
             ${isScrolled 
-              ? 'scale-95 bg-white/[0.06] dark:bg-black/[0.18] backdrop-blur-2xl shadow-2xl' 
+              ? 'scale-95 liquid-glass-scrolled' 
               : 'scale-100'}
           `}>
-            <div className="flex items-center space-x-8">
+            {/* 光带动画层，独立 overflow:hidden 不影响下拉菜单 */}
+            <div className="liquid-glass-fx" aria-hidden />
+            <div className="flex items-center space-x-8 relative z-10">
               {/* Logo */}
               <Link 
                 href={navItems[0].href as any} 
@@ -258,28 +194,7 @@ export function Header() {
               
               {/* 桌面导航链接 */}
               <div className="hidden md:flex">
-                {siteConfig.ui.navigation.enableDockEffect ? (
-                  <DockNavigation navItems={navItems} currentLocale={currentLocale} />
-                ) : (
-                  <div className="flex items-center space-x-6">
-                    {navItems.map((item) => {
-                      const Icon = navIcons[item.key as keyof typeof navIcons]
-                      return (
-                        <Link 
-                          key={item.key}
-                          href={item.href as any}
-                          className="flex items-center space-x-2 text-sm font-medium transition-colors group drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] text-foreground/85 hover:text-primary dark:text-white/85 dark:hover:text-primary"
-                          prefetch
-                        >
-                          {Icon && (
-                            <Icon className="w-4 h-4 group-hover:scale-110 transition-transform text-foreground/70 dark:text-white/80" />
-                          )}
-                          <span>{t(item.key as any)}</span>
-                        </Link>
-                      )
-                    })}
-                  </div>
-                )}
+                <SliderNavigation navItems={navItems} currentLocale={currentLocale} />
               </div>
 
               {/* 操作按钮 */}
