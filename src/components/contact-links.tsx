@@ -120,27 +120,42 @@ export function ContactLinks() {
   }
 
   return (
-    <div className="mt-6">
-      <ul className="space-y-2">
+    <div className="mt-4">
+      <ul className="space-y-1.5">
         {items.map((item) => {
           const Icon = item.icon
           const isLink = Boolean(item.href)
           const showPreview = previewKey === item.name
           return (
-            <li key={item.name} className="relative group flex items-center gap-3 rounded-md px-3 py-2 hover:bg-accent/20 border border-transparent hover:border-border/50 hover:shadow-sm transition-colors">
-              <div className="flex items-center gap-3">
-                <Icon className="w-4 h-4 text-foreground/80" />
+            <li
+              key={item.name}
+              className="relative group flex items-center gap-3 rounded-xl px-3 py-2.5 lg-card cursor-default transition-all"
+            >
+              {/* 图标 */}
+              <div
+                className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                style={{
+                  background: 'rgba(255,255,255,0.55)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 3px rgba(0,0,0,0.08)',
+                  border: '1px solid rgba(200,210,230,0.5)',
+                }}
+              >
+                <Icon className="w-3.5 h-3.5 text-foreground/70" />
+              </div>
+
+              {/* 标签 */}
+              <div className="flex-1 min-w-0">
                 {isLink ? (
                   <a
                     href={item.href}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
-                    className="text-foreground transition-colors no-underline"
+                    className="text-sm text-foreground hover:text-primary transition-colors no-underline truncate block"
                   >
                     {t(item.labelKey as any)}
                   </a>
                 ) : (
-                  <span className="text-foreground/90">
+                  <span className="text-sm text-foreground/80 truncate block">
                     {item.name === 'WeChatOfficialAccount' && siteConfig.social.wechatOfficialAccount
                       ? siteConfig.social.wechatOfficialAccount
                       : t(item.labelKey as any)}
@@ -148,54 +163,50 @@ export function ContactLinks() {
                 )}
               </div>
 
-              <div className="ml-auto flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                {/* WeChat preview button when it is an image link */}
+              {/* 操作按钮 */}
+              <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
                 {item.name === 'WeChat' && item.isImageLink && (
                   <button
                     type="button"
                     title="预览二维码"
                     onClick={() => setPreviewKey(showPreview ? null : item.name)}
-                    className="p-1.5 rounded hover:bg-muted/50 text-foreground/60 hover:text-foreground/80 transition-colors"
+                    className="lg-btn-ghost p-1.5 rounded-lg text-foreground/50 hover:text-foreground/80 transition-colors"
                   >
                     <Eye className="w-3.5 h-3.5" />
                   </button>
                 )}
-
-                {/* Copy button */}
                 {item.copyValue && (
                   <button
                     type="button"
                     title="复制"
                     onClick={() => handleCopy(item.name, item.copyValue)}
-                    className="p-1.5 rounded hover:bg-muted/50 text-foreground/60 hover:text-foreground/80 transition-colors"
+                    className="lg-btn-ghost p-1.5 rounded-lg text-foreground/50 hover:text-foreground/80 transition-colors"
                   >
                     {copiedKey === item.name ? (
-                      <Check className="w-3.5 h-3.5" />
+                      <Check className="w-3.5 h-3.5 text-primary" />
                     ) : (
                       <Copy className="w-3.5 h-3.5" />
                     )}
                   </button>
                 )}
-
-                {/* Open link */}
                 {isLink && (
                   <a
                     href={item.href}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
                     title="打开"
-                    className="p-1.5 rounded hover:bg-muted/50 text-foreground/60 hover:text-foreground/80 transition-colors no-underline"
+                    className="lg-btn-ghost p-1.5 rounded-lg text-foreground/50 hover:text-foreground/80 transition-colors no-underline"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>
 
-              {/* WeChat QR preview panel */}
+              {/* WeChat 二维码预览 */}
               {item.name === 'WeChat' && item.isImageLink && showPreview && (
-                <div className="absolute z-20 top-full left-10 mt-2 rounded-lg border border-border/60 bg-background p-2 shadow-xl">
+                <div className="absolute z-20 top-full left-10 mt-2 lg-dropdown rounded-xl p-2">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.href} alt="WeChat QR" className="max-w-[200px] max-h-[200px] rounded" />
+                  <img src={item.href} alt="WeChat QR" className="max-w-[180px] max-h-[180px] rounded-lg" />
                 </div>
               )}
             </li>

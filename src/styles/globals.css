@@ -362,6 +362,281 @@
   border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
+/* ============================================================
+   全站通用 Liquid Glass 工具类
+   ============================================================ */
+
+/* 通用玻璃卡片 — 博客列表项、内容块 */
+.lg-card {
+  position: relative;
+  background: rgba(235, 240, 248, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  border-top:    1px solid rgba(255, 255, 255, 0.80);
+  border-left:   1px solid rgba(255, 255, 255, 0.60);
+  border-right:  1px solid rgba(180, 195, 215, 0.30);
+  border-bottom: 1px solid rgba(160, 180, 205, 0.25);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.08),
+    0 1px  4px rgba(0, 0, 0, 0.05),
+    inset 0  1px  0 rgba(255, 255, 255, 0.90),
+    inset 0 -1px  0 rgba(100, 120, 160, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.lg-card:hover {
+  background: rgba(225, 233, 245, 0.70);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.12),
+    0 2px  8px rgba(0, 0, 0, 0.07),
+    inset 0  1px  0 rgba(255, 255, 255, 1.0),
+    inset 0 -1px  0 rgba(100, 120, 160, 0.10);
+}
+
+.dark .lg-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-top:    1px solid rgba(255, 255, 255, 0.14);
+  border-left:   1px solid rgba(255, 255, 255, 0.10);
+  border-right:  1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.35),
+    0 1px  6px rgba(0, 0, 0, 0.20),
+    inset 0  1px  0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px  0 rgba(0, 0, 0, 0.15);
+}
+
+.dark .lg-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 6px 28px rgba(0, 0, 0, 0.50),
+    0 2px 10px rgba(0, 0, 0, 0.30),
+    inset 0  1px  0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px  0 rgba(0, 0, 0, 0.20);
+}
+
+/* 主按钮 — 玻璃彩色版（primary） */
+.lg-btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    rgba(99, 130, 240, 0.90) 0%,
+    rgba(109, 72, 220, 0.88) 50%,
+    rgba(130, 60, 210, 0.85) 100%
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-top:    1px solid rgba(180, 180, 255, 0.55);
+  border-left:   1px solid rgba(180, 180, 255, 0.40);
+  border-right:  1px solid rgba(100, 80, 200, 0.30);
+  border-bottom: 1px solid rgba(80,  60, 180, 0.25);
+  box-shadow:
+    0 4px 20px rgba(99, 102, 241, 0.45),
+    0 2px  8px rgba(99, 102, 241, 0.25),
+    inset 0  1px  0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px  0 rgba(0,   0,   0,   0.15);
+  color: #fff;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lg-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.5s ease;
+}
+
+.lg-btn-primary:hover::before {
+  transform: translateX(200%) skewX(-15deg);
+}
+
+.lg-btn-primary:hover {
+  box-shadow:
+    0 8px 32px rgba(99, 102, 241, 0.55),
+    0 4px 12px rgba(99, 102, 241, 0.35),
+    inset 0  1px  0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px  0 rgba(0,   0,   0,   0.10);
+  transform: translateY(-1px);
+}
+
+.lg-btn-primary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* 次要按钮 — 透明玻璃轮廓版（outline） */
+.lg-btn-outline {
+  position: relative;
+  overflow: hidden;
+  background: rgba(235, 240, 248, 0.45);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border-top:    1px solid rgba(255, 255, 255, 0.80);
+  border-left:   1px solid rgba(255, 255, 255, 0.60);
+  border-right:  1px solid rgba(160, 180, 210, 0.35);
+  border-bottom: 1px solid rgba(140, 165, 200, 0.30);
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.10),
+    0 1px  4px rgba(0, 0, 0, 0.06),
+    inset 0  1px  0 rgba(255, 255, 255, 0.90),
+    inset 0 -1px  0 rgba(100, 120, 160, 0.10);
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lg-btn-outline:hover {
+  background: rgba(220, 228, 242, 0.65);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.14),
+    0 2px  6px rgba(0, 0, 0, 0.08),
+    inset 0  1px  0 rgba(255, 255, 255, 1.0),
+    inset 0 -1px  0 rgba(100, 120, 160, 0.12);
+  transform: translateY(-1px);
+}
+
+.lg-btn-outline:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.dark .lg-btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border-top:    1px solid rgba(255, 255, 255, 0.22);
+  border-left:   1px solid rgba(255, 255, 255, 0.16);
+  border-right:  1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.40),
+    inset 0  1px  0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px  0 rgba(0, 0, 0, 0.20);
+}
+
+.dark .lg-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.55),
+    inset 0  1px  0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px  0 rgba(0, 0, 0, 0.25);
+}
+
+/* Ghost 图标按钮 — 圆形玻璃 */
+.lg-btn-ghost {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.20s ease;
+}
+
+.lg-btn-ghost:hover {
+  background: rgba(235, 240, 248, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.80);
+}
+
+.dark .lg-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* 标签 / badge — 小型玻璃胶囊 */
+.lg-tag {
+  background: rgba(220, 230, 248, 0.60);
+  border-top:  1px solid rgba(255, 255, 255, 0.80);
+  border-left: 1px solid rgba(255, 255, 255, 0.60);
+  border-right:   1px solid rgba(160, 180, 215, 0.25);
+  border-bottom:  1px solid rgba(140, 165, 200, 0.20);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.dark .lg-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* 玻璃下拉面板 */
+.lg-dropdown {
+  background: rgba(235, 242, 252, 0.88);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  border-top:    1px solid rgba(255, 255, 255, 0.90);
+  border-left:   1px solid rgba(255, 255, 255, 0.70);
+  border-right:  1px solid rgba(170, 190, 220, 0.35);
+  border-bottom: 1px solid rgba(150, 175, 210, 0.30);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.14),
+    0 2px  8px rgba(0, 0, 0, 0.08),
+    inset 0  1px  0 rgba(255, 255, 255, 1.0);
+}
+
+.dark .lg-dropdown {
+  background: rgba(20, 25, 40, 0.85);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  backdrop-filter: blur(32px) saturate(200%);
+  border-top:    1px solid rgba(255, 255, 255, 0.18);
+  border-left:   1px solid rgba(255, 255, 255, 0.12);
+  border-right:  1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.55),
+    0 2px 12px rgba(0, 0, 0, 0.35),
+    inset 0  1px  0 rgba(255, 255, 255, 0.15);
+}
+
+/* 浮动底栏 — 与导航栏同款但更纤薄 */
+.lg-floating-bar {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(215, 225, 240, 0.58) 0%,
+      rgba(205, 216, 232, 0.48) 100%
+    );
+  -webkit-backdrop-filter: blur(32px) saturate(160%) brightness(1.02);
+  backdrop-filter: blur(32px) saturate(160%) brightness(1.02);
+  border-top:    1px solid rgba(255, 255, 255, 0.78);
+  border-left:   1px solid rgba(255, 255, 255, 0.58);
+  border-right:  1px solid rgba(180, 195, 215, 0.32);
+  border-bottom: 1px solid rgba(160, 180, 205, 0.28);
+  box-shadow:
+    0 -2px 20px rgba(0, 0, 0, 0.10),
+    0  4px 24px rgba(0, 0, 0, 0.12),
+    inset 0  1px  0 rgba(255, 255, 255, 0.88),
+    inset 0 -1px  0 rgba(100, 120, 160, 0.10);
+}
+
+.dark .lg-floating-bar {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.10) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(0.90);
+  backdrop-filter: blur(40px) saturate(200%) brightness(0.90);
+  border-top:    1px solid rgba(255, 255, 255, 0.20);
+  border-left:   1px solid rgba(255, 255, 255, 0.14);
+  border-right:  1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 -2px 20px rgba(0, 0, 0, 0.30),
+    0  4px 32px rgba(0, 0, 0, 0.50),
+    inset 0  1px  0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px  0 rgba(0, 0, 0, 0.20);
+}
+
 /* Line clamp utility */
 .line-clamp-3 {
   display: -webkit-box;

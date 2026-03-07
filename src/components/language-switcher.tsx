@@ -68,7 +68,7 @@ export function LanguageSwitcher() {
         size="icon"
         ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
-        className={`bg-background/60 backdrop-blur-sm border-border/30 hover:bg-background/80 w-9 h-9 group ${
+        className={`lg-btn-outline text-foreground w-9 h-9 group ${
           isOpen ? 'ring-2 ring-primary/40' : ''
         }`}
         aria-label="Change language"
@@ -88,7 +88,7 @@ export function LanguageSwitcher() {
       </Button>
 
       <div
-        className={`absolute top-full mt-2 right-0 origin-top-right bg-background/90 backdrop-blur-lg border border-border/30 rounded-lg shadow-lg overflow-hidden z-50 transform transition-all duration-200 ease-out ${
+        className={`absolute top-full mt-2 right-0 origin-top-right lg-dropdown rounded-xl overflow-hidden z-50 transform transition-all duration-200 ease-out ${
           isOpen
             ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
@@ -105,7 +105,7 @@ export function LanguageSwitcher() {
               onClick={() => switchLanguage(localeOption)}
               className={`
                 w-full px-3 py-2 text-left transition-colors text-sm flex items-center gap-2
-                ${isActive ? 'bg-muted/30 text-primary' : 'text-foreground hover:bg-muted/50'}
+                ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-white/30 dark:hover:bg-white/8'}
               `}
               style={{ transitionDelay: isOpen ? `${index * 30}ms` : '0ms' }}
               role="menuitemradio"

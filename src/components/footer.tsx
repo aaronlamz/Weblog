@@ -139,7 +139,7 @@ export function Footer() {
             {/* 返回按钮 */}
             <button
               onClick={goBack}
-              className="rounded-full p-3 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              className="lg-btn-primary rounded-full p-3 group transition-all duration-200 hover:scale-105"
               title="返回"
             >
               <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
@@ -148,7 +148,7 @@ export function Footer() {
             {/* 首页按钮 */}
             <button
               onClick={goHome}
-              className="rounded-full p-3 bg-background/90 backdrop-blur-lg border border-border/30 hover:bg-background/95 text-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              className="lg-btn-outline rounded-full p-3 text-foreground group transition-all duration-200 hover:scale-105"
               title="首页"
             >
               <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -157,7 +157,7 @@ export function Footer() {
             {/* 主题切换按钮 */}
             <button
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              className="rounded-full p-3 bg-background/90 backdrop-blur-lg border border-border/30 hover:bg-background/95 text-foreground shadow-lg group transition-all duration-200 hover:scale-105"
+              className="lg-btn-outline rounded-full p-3 text-foreground group transition-all duration-200 hover:scale-105"
               title="切换主题"
             >
               <Sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />
@@ -176,11 +176,7 @@ export function Footer() {
                 `rounded-full px-6 py-3
                  transition-all duration-300 ease-out transform
                  ${showFloatingBar ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}
-                 bg-white/8 dark:bg-black/25
-                 border border-white/10 dark:border-white/5
-                 ring-1 ring-white/5 dark:ring-white/0
-                 backdrop-blur-2xl backdrop-saturate-150
-                 shadow-xl shadow-black/20`
+                 lg-floating-bar`
               }
               onMouseEnter={() => {
                 setIsHoveringBar(true)
@@ -207,7 +203,7 @@ export function Footer() {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
+                      className="lg-btn-ghost p-2 rounded-full text-foreground/70 hover:text-foreground transition-all duration-200 group"
                       title={link.name}
                     >
                       <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -224,7 +220,7 @@ export function Footer() {
                 {showScrollTop && (
                   <button
                     onClick={scrollToTop}
-                    className="p-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-accent/50 transition-all duration-200 group"
+                    className="lg-btn-ghost p-2 rounded-full text-foreground/70 hover:text-foreground transition-all duration-200 group"
                     title={t('scrollToTop')}
                   >
                     <ArrowUp className="w-4 h-4 group-hover:scale-110 transition-transform" />
