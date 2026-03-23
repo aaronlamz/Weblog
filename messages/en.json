@@ -5,7 +5,7 @@
   "navigation": {
     "home": "Home",
     "blog": "Blog",
-    "docs": "Docs",
+    "docs": "Docs Hub",
     "about": "About",
     "back": "Back"
   },
@@ -113,8 +113,8 @@
     "quote": "The Great Way is simple."
   },
   "docs": {
-    "title": "Docs",
-    "description": "Tutorials & Knowledge Sharing",
+    "title": "Docs Hub",
+    "description": "Tutorials, Booklets & Knowledge Sharing",
     "articles": "articles",
     "empty": "No docs yet. Check back soon!",
     "backToDocs": "Back to Docs"

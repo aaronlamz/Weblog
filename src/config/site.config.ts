@@ -4,6 +4,9 @@ export interface SiteConfig {
   title: string
   description: string
   url: string
+
+  // 自定义域名（用于 GitHub Pages CNAME，不含协议前缀）
+  customDomain?: string
   
   // 国际化配置
   i18n: {
@@ -92,10 +95,13 @@ export const siteConfig: SiteConfig = {
   description: 'A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.',
   // 站点基础 URL：支持 GitHub Pages 子路径 (BASE_PATH) 和自定义域
   // 例如：
-  // - 自定义域 + 子路径: https://www.ultimate-kernel.fun/Weblog
+  // - 自定义域 + 子路径: https://www.justexploring.fun/Weblog
   // - GitHub Pages 用户页（无子路径）: https://<user>.github.io
   // - 本地开发: http://localhost:3000
   url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${process.env.BASE_PATH || ''}`,
+
+  // 自定义域名 — 部署时自动生成 CNAME 文件
+  customDomain: 'www.justexploring.fun',
   
   // 国际化配置 - 可以在这里轻松切换默认语言
   i18n: {

@@ -56,7 +56,7 @@ jobs:
       - name: Build Root Version (without BASE_PATH)
         env:
           BASE_PATH: ""
-          NEXT_PUBLIC_SITE_URL: https://www.ultimate-kernel.fun
+          NEXT_PUBLIC_SITE_URL: https://www.justexploring.fun
         run: |
           echo "Building root version without BASE_PATH"
           # 清理之前的构建
@@ -85,6 +85,22 @@ jobs:
           
           # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
           touch out-subpath/.nojekyll
+
+      # 从 site.config.ts 读取 customDomain 并生成 CNAME
+      - name: Generate CNAME for Root Version
+        run: |
+          CUSTOM_DOMAIN=$(node -e "
+            const fs = require('fs');
+            const content = fs.readFileSync('./src/config/site.config.ts', 'utf8');
+            const match = content.match(/customDomain:\s*['\"]([^'\"]+)['\"]/);
+            if (match) console.log(match[1]);
+          ")
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "$CUSTOM_DOMAIN" > out-root/CNAME
+            echo "✅ Generated CNAME: $CUSTOM_DOMAIN"
+          else
+            echo "⚠️ No customDomain found in site.config.ts, skipping CNAME"
+          fi
 
       # 处理根路径版本的后期修复
       - name: Post-export fixes for Root Version
@@ -145,9 +161,9 @@ jobs:
         run: |
           echo "🚨 Root deployment was skipped because PERSONAL_ACCESS_TOKEN is not configured."
           echo ""
-          echo "📋 To enable root deployment (https://www.ultimate-kernel.fun/):"
+          echo "📋 To enable root deployment (https://www.justexploring.fun/):"
           echo "1. Follow the steps in SETUP-SECRETS.md"
           echo "2. Configure PERSONAL_ACCESS_TOKEN in repository secrets"
           echo "3. Re-run this workflow"
           echo ""
-          echo "✅ Sub-path deployment (https://www.ultimate-kernel.fun/Weblog/) completed successfully!"
+          echo "✅ Sub-path deployment (https://www.justexploring.fun/Weblog/) completed successfully!"

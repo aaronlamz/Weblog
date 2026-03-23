@@ -5,7 +5,7 @@
   "navigation": {
     "home": "首页",
     "blog": "博客",
-    "docs": "文档",
+    "docs": "文档中心",
     "about": "关于",
     "back": "返回"
   },
@@ -113,8 +113,8 @@
     "quote": "大道至简。"
   },
   "docs": {
-    "title": "文档",
-    "description": "教程与知识分享",
+    "title": "文档中心",
+    "description": "教程、小册与知识分享",
     "articles": "篇",
     "empty": "暂无文档，敬请期待！",
     "backToDocs": "返回文档"
