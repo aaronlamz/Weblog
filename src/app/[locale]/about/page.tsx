@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { siteConfig } from '@/config/site.config'
 import { ContactLinks } from '@/components/contact-links'
-import { Code2, Heart, Quote } from 'lucide-react'
+import { Quote } from 'lucide-react'
 import Image from 'next/image'
 
 export async function generateMetadata({
@@ -40,11 +40,8 @@ export default async function AboutPage({
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-2xl mx-auto space-y-5">
 
-        {/* ── 顶部 Hero 卡片 ── */}
-        <div
-          className="lg-card rounded-3xl p-8 flex flex-col items-center text-center gap-5"
-        >
-          {/* 头像 */}
+        {/* ── 头像 ── */}
+        <div className="flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 rounded-full blur-2xl opacity-25 bg-gradient-to-br from-sky-400 via-blue-500 to-cyan-400 scale-150" />
             <div
@@ -74,17 +71,6 @@ export default async function AboutPage({
               )}
             </div>
           </div>
-
-          {/* 姓名 + 描述 */}
-          <div className="space-y-2">
-            <h1
-              className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #38bdf8 0%, #60a5fa 40%, #22d3ee 100%)' }}
-            >
-              {t('title')}
-            </h1>
-            <p className="text-base text-muted-foreground max-w-md">{t('description')}</p>
-          </div>
         </div>
 
         {/* ── 简介卡 ── */}
@@ -92,46 +78,6 @@ export default async function AboutPage({
           <p className="text-base leading-relaxed text-foreground">{t('intro')}</p>
           <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           <p className="text-base leading-relaxed text-muted-foreground">{t('bio')}</p>
-        </div>
-
-        {/* ── 两列信息卡 ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
-          {/* Working On */}
-          <div className="lg-card rounded-2xl p-6 group space-y-3">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(59,130,246,0.20) 0%, rgba(37,99,235,0.18) 100%)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 8px rgba(59,130,246,0.20)',
-                  border: '1px solid rgba(147,197,253,0.35)',
-                }}
-              >
-                <Code2 className="w-4.5 h-4.5 text-blue-500 dark:text-blue-400" />
-              </div>
-              <h2 className="text-base font-semibold">{t('workingOnTitle')}</h2>
-            </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">{t('currentWork')}</p>
-          </div>
-
-          {/* Beyond Code */}
-          <div className="lg-card rounded-2xl p-6 group space-y-3">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(168,85,247,0.20) 0%, rgba(236,72,153,0.15) 100%)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 8px rgba(168,85,247,0.20)',
-                  border: '1px solid rgba(216,180,254,0.35)',
-                }}
-              >
-                <Heart className="w-4.5 h-4.5 text-purple-500 dark:text-purple-400" />
-              </div>
-              <h2 className="text-base font-semibold">{t('beyondCodeTitle')}</h2>
-            </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">{t('beyondCode')}</p>
-          </div>
         </div>
 
         {/* ── 联系方式卡 ── */}

@@ -104,15 +104,11 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Welcome to my personal blog",
-    "intro": "I'm an ordinary web engineer.",
-    "bio": "I also write thoughts and record small reflections from life.",
-    "workingOnTitle": "What I'm Working On",
-    "currentWork": "Recently diving into AI to see if it can make development easier or help build something interesting.",
-    "beyondCodeTitle": "Beyond Code",
-    "beyondCode": "I enjoy working out, hiking outdoors, photography, and recently learning to ski. Sometimes I also document life moments.",
+    "description": "Full-stack Developer · Securities Professional · Life Chronicler",
+    "intro": "I write code for a living, working in the securities industry. Outside of work, I like hitting the gym and getting outdoors.",
+    "bio": "Thoughts, life moments, investment insights, and the occasional tech post.",
     "connectTitle": "Let's Connect",
-    "connect": "If you also like tech or just want to chat, feel free to reach out anytime.",
+    "connect": "Investing, tech, or just life — always happy to chat.",
     "quote": "The Great Way is simple."
   },
   "meta": {
