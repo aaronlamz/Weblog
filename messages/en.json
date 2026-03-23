@@ -5,6 +5,7 @@
   "navigation": {
     "home": "Home",
     "blog": "Blog",
+    "docs": "Docs",
     "about": "About",
     "back": "Back"
   },
@@ -110,6 +111,13 @@
     "connectTitle": "Let's Connect",
     "connect": "Investing, tech, or just life — always happy to chat.",
     "quote": "The Great Way is simple."
+  },
+  "docs": {
+    "title": "Docs",
+    "description": "Tutorials & Knowledge Sharing",
+    "articles": "articles",
+    "empty": "No docs yet. Check back soon!",
+    "backToDocs": "Back to Docs"
   },
   "meta": {
     "description": "Personal blog about coding, learning tech, and life moments"

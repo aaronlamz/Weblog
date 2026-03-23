@@ -9,11 +9,12 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { siteConfig } from '@/config/site.config'
 import { buildLocalizedPath, detectLocaleFromPath } from '@/lib/i18n-utils'
-import { 
-  Home, 
-  FileText, 
-  User, 
-  Menu, 
+import {
+  Home,
+  FileText,
+  User,
+  BookOpen,
+  Menu,
   X,
   Github,
   Twitter,
@@ -23,8 +24,8 @@ import {
 const navIcons = {
   home: Home,
   blog: FileText,
+  docs: BookOpen,
   about: User,
-  // contact: MessageCircle,
 }
 
 // 滑动高亮块导航组件 — 鼠标悬停时玻璃胶囊流畅滑过
@@ -132,15 +133,16 @@ export function Header() {
   // Navigation items with translations - use pathname to determine locale reliably
   const currentLocale = mounted ? detectLocaleFromPath(pathname) : locale
   
-  // Check if current page is a blog post (hide navigation for article pages)
-  // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
-  // Also handles BASE_PATH like /Weblog/blog/[slug] or /Weblog/en/blog/[slug]
+  // Check if current page is a blog post or doc detail (hide navigation for article pages)
+  // Patterns: /blog/[slug] or /docs/[category]/[slug]
   const isBlogPost = mounted && /\/blog\/[^\/]+\/?$/.test(pathname)
+  const isDocDetail = mounted && /\/docs\/[^\/]+\/[^\/]+\/?$/.test(pathname)
   
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
     { key: 'home', href: buildLocalizedPath('/', currentLocale as any) },
     { key: 'blog', href: buildLocalizedPath('/blog', currentLocale as any) },
+    { key: 'docs', href: buildLocalizedPath('/docs', currentLocale as any) },
     { key: 'about', href: buildLocalizedPath('/about', currentLocale as any) },
   ]
 
@@ -152,8 +154,8 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Don't render navigation on blog post pages
-  if (isBlogPost) {
+  // Don't render navigation on blog post / doc detail pages
+  if (isBlogPost || isDocDetail) {
     return null
   }
 

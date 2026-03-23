@@ -5,6 +5,7 @@
   "navigation": {
     "home": "首页",
     "blog": "博客",
+    "docs": "文档",
     "about": "关于",
     "back": "返回"
   },
@@ -110,6 +111,13 @@
     "connectTitle": "联系我",
     "connect": "聊投资、聊技术、或者就聊聊生活，都欢迎。",
     "quote": "大道至简。"
+  },
+  "docs": {
+    "title": "文档",
+    "description": "教程与知识分享",
+    "articles": "篇",
+    "empty": "暂无文档，敬请期待！",
+    "backToDocs": "返回文档"
   },
   "meta": {
     "description": "个人博客，写代码、学技术、记录生活"

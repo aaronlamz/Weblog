@@ -24,6 +24,7 @@
     --input: 220 13% 91%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+    --docs-card-bg: #ffffff;
   }
 
   .dark {
@@ -46,6 +47,7 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 224.3 76.3% 94.1%;
+    --docs-card-bg: hsl(220 13% 14%);
   }
 }
 

@@ -137,6 +137,7 @@ export const siteConfig: SiteConfig = {
     main: [
       { title: 'Home', href: '/' },
       { title: 'Blog', href: '/blog' },
+      { title: 'Docs', href: '/docs' },
       { title: 'About', href: '/about' },
       { title: 'Contact', href: '/contact' },
     ],

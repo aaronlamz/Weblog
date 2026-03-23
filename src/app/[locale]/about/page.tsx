@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { siteConfig } from '@/config/site.config'
 import { ContactLinks } from '@/components/contact-links'
-import { Quote } from 'lucide-react'
 import Image from 'next/image'
 
 export async function generateMetadata({
@@ -85,22 +84,6 @@ export default async function AboutPage({
           <h2 className="text-base font-semibold mb-1">{t('connectTitle')}</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">{t('connect')}</p>
           <ContactLinks />
-        </div>
-
-        {/* ── 引言卡 ── */}
-        <div
-          className="lg-card rounded-2xl p-8 text-center space-y-4"
-          style={{
-            background: 'linear-gradient(145deg, rgba(251,191,36,0.08) 0%, rgba(249,115,22,0.06) 50%, rgba(234,179,8,0.08) 100%)',
-          }}
-        >
-          <Quote
-            className="w-7 h-7 mx-auto"
-            style={{ color: 'rgba(217,119,6,0.55)' }}
-          />
-          <p className="text-base italic leading-relaxed text-foreground/85">
-            &ldquo;{t('quote')}&rdquo;
-          </p>
         </div>
 
       </div>

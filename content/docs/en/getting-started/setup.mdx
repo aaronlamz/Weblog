@@ -1,0 +1,51 @@
+---
+title: "Setup & Configuration"
+description: "How to run and deploy the blog locally"
+order: 2
+---
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js 18+
+- pnpm (recommended) or npm
+
+## Quick Start
+
+### Clone the project
+
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Start the dev server
+
+```bash
+pnpm dev
+```
+
+Open your browser and visit `http://localhost:3000` to see the blog.
+
+## Configuration
+
+Edit `src/config/site.config.ts` to update your personal info:
+
+```typescript
+author: {
+  name: 'Your Name',
+  email: 'your@email.com',
+  avatar: 'https://your-avatar-url.png',
+}
+```
+
+## Deployment
+
+The project supports deployment to GitHub Pages, Vercel, and more. See the project README for details.

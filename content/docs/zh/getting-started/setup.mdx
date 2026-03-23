@@ -1,0 +1,51 @@
+---
+title: "安装与配置"
+description: "如何在本地运行和部署博客"
+order: 2
+---
+
+## 环境准备
+
+确保你已安装以下工具：
+
+- Node.js 18+
+- pnpm（推荐）或 npm
+
+## 快速开始
+
+### 克隆项目
+
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+### 安装依赖
+
+```bash
+pnpm install
+```
+
+### 启动开发服务器
+
+```bash
+pnpm dev
+```
+
+打开浏览器访问 `http://localhost:3000` 即可看到博客。
+
+## 配置
+
+编辑 `src/config/site.config.ts` 文件，修改你的个人信息：
+
+```typescript
+author: {
+  name: '你的名字',
+  email: 'your@email.com',
+  avatar: 'https://your-avatar-url.png',
+}
+```
+
+## 部署
+
+项目支持部署到 GitHub Pages、Vercel 等平台，具体配置请参考项目 README。
