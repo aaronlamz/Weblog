@@ -76,6 +76,6 @@ jobs:
       - name: Success Message
         run: |
           echo "🎉 Sub-path deployment completed!"
-          echo "🔗 Your site is available at: https://www.ultimate-kernel.fun/Weblog/"
+          echo "🔗 Your site is available at: https://aaronlamz.github.io/Weblog/"
           echo ""
           echo "💡 To enable root deployment, configure PERSONAL_ACCESS_TOKEN and use the dual-deploy workflow."

@@ -47,8 +47,8 @@
 
 成功配置后，每次推送都会自动部署到两个地址:
 
-- 🔗 子路径版本: https://www.ultimate-kernel.fun/Weblog/
-- 🔗 根路径版本: https://www.ultimate-kernel.fun/
+- 🔗 子路径版本: https://aaronlamz.github.io/Weblog/
+- 🔗 根路径版本: https://aaronlamz.github.io/
 
 ## 🔧 快速配置链接
 

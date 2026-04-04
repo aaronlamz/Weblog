@@ -4,12 +4,12 @@
 
 ## 部署目标
 
-1. **子路径部署**: https://www.ultimate-kernel.fun/Weblog/
+1. **子路径部署**: https://aaronlamz.github.io/Weblog/
    - 仓库: `aaronlamz/Weblog`
    - 分支: `gh-pages`
    - BASE_PATH: `/Weblog`
 
-2. **根路径部署**: https://www.ultimate-kernel.fun/
+2. **根路径部署**: https://aaronlamz.github.io/
    - 仓库: `aaronlamz/aaronlamz.github.io`
    - 分支: `master`
    - BASE_PATH: 空
@@ -33,7 +33,7 @@ NEXT_PUBLIC_SITE_URL=https://aaronlamz.github.io
 ### 根路径构建
 ```bash
 BASE_PATH=""
-NEXT_PUBLIC_SITE_URL=https://www.ultimate-kernel.fun
+NEXT_PUBLIC_SITE_URL=https://aaronlamz.github.io
 ```
 
 ## 所需的 GitHub Secrets
