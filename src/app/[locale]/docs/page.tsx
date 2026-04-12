@@ -53,7 +53,7 @@ export default async function DocsPage({
 
         {/* Category Cards Grid */}
         {categories.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {categories.map((category, index) => {
               const firstDoc = category.docs[0]
               const href = firstDoc
@@ -65,7 +65,7 @@ export default async function DocsPage({
                 <Link
                   key={category.slug}
                   href={href as any}
-                  className="group block rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                  className="group block w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                   style={{
                     boxShadow: '0 2px 16px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)',
                   }}
