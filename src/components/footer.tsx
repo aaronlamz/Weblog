@@ -2,43 +2,26 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { siteConfig } from '@/config/site.config'
-import { buildLocalizedPath, detectLocaleFromPath } from '@/lib/i18n-utils'
-import { useTheme } from 'next-themes'
-import { 
-  Github, 
-  Twitter, 
-  Mail, 
-  Rss, 
+import {
+  Github,
+  Twitter,
+  Mail,
+  Rss,
   ArrowUp,
-  ArrowLeft,
-  Home,
   Linkedin,
-  Sun,
-  Moon
 } from 'lucide-react'
 
 export function Footer() {
   const t = useTranslations('footer')
-  const router = useRouter()
-  const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+  const isHomePage = /^\/(en|zh)?\/?$/.test(pathname)
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [showFloatingBar, setShowFloatingBar] = useState(false)
   const [isHoveringBar, setIsHoveringBar] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const idleTimer = useRef<number | null>(null)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // Check if current page is a blog post
-  // Patterns: /blog/[slug] (zh default) or /en/blog/[slug] (en)
-  // Also handles BASE_PATH like /Weblog/blog/[slug] or /Weblog/en/blog/[slug]
-  const isBlogPost = mounted && /\/blog\/[^\/]+\/?$/.test(pathname)
-  const currentLocale = mounted ? detectLocaleFromPath(pathname) : 'zh'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,19 +55,6 @@ export function Footer() {
       top: 0,
       behavior: 'smooth'
     })
-  }
-
-  const goBack = () => {
-    if (window.history.length > 1) {
-      router.back()
-    } else {
-      // Fallback to blog list
-      router.push(buildLocalizedPath('/blog', currentLocale) as any)
-    }
-  }
-
-  const goHome = () => {
-    router.push(buildLocalizedPath('/', currentLocale) as any)
   }
 
   const socialLinks = [
@@ -123,9 +93,10 @@ export function Footer() {
 
   const enableFloatingBar = siteConfig.ui.footer?.enableFloatingBar !== false && siteConfig.ui.footer?.enableFloatingBar === true
 
+  if (!isHomePage) return null
+
   return (
     <>
-      {/* 文章页面专用的返回按钮已移至 DocsTopBar */}
 
       {/* 悬浮式底部工具条（按配置开关） */}
       {enableFloatingBar && (hasSocial || showScrollTop) && (
