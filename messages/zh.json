@@ -47,7 +47,8 @@
     "archive": "时间归档",
     "monthlyArchive": "月份归档",
     "popularTags": "热门标签",
-    "clearFilters": "清除筛选"
+    "clearFilters": "清除筛选",
+    "backToBlog": "返回博客"
   },
   "common": {
     "onThisPage": "本页导读"

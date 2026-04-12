@@ -128,7 +128,7 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
   )
 }
 
-export function ArticleWithTOC({ content }: { content: string }) {
+export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' }: { content: string; hideToc?: boolean; tocPosition?: 'left' | 'right' }) {
   const t = useTranslations('common')
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [toc, setToc] = useState<TocItem[]>([])
@@ -257,7 +257,44 @@ export function ArticleWithTOC({ content }: { content: string }) {
         />
       </div>
 
-      <div className="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-6">
+      <div className={`mx-auto ${!hideToc
+        ? tocPosition === 'left'
+          ? 'grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] gap-6'
+          : 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_200px] gap-6'
+        : ''}`}>
+        {/* TOC — 左侧 */}
+        {!hideToc && tocPosition === 'left' && (toc.length > 0 ? (
+          <aside className="hidden lg:block" aria-label="Table of contents">
+            <div className="sticky top-14 space-y-2 border-r pr-4 border-border/60">
+              <div className="pr-2 py-1">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</div>
+                <div className="h-px bg-border/60 mt-2" />
+              </div>
+              <nav className="flex flex-col gap-1 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-1" role="navigation">
+                {toc.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={handleClickToc(item.id)}
+                    className={`block py-1 transition-colors ${
+                      item.level === 3 ? 'pl-4 text-foreground/80' : 'pl-0'
+                    } ${
+                      activeId === item.id
+                        ? 'text-primary font-medium'
+                        : 'text-foreground/70 hover:text-foreground'
+                    }`}
+                  >
+                    {item.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+        ) : (
+          <div className="hidden lg:block" />
+        ))}
+
+        {/* 内容 */}
         <div>
           <div ref={contentRef} className="prose prose-gray dark:prose-invert max-w-none">
             <ReactMarkdown
@@ -285,11 +322,11 @@ export function ArticleWithTOC({ content }: { content: string }) {
           </div>
         </div>
 
-        {/* TOC */}
-        {toc.length > 0 && (
+        {/* TOC — 右侧 */}
+        {!hideToc && tocPosition === 'right' && toc.length > 0 && (
           <aside className="hidden lg:block" aria-label="Table of contents">
             <div className="sticky top-14 space-y-2 border-l pl-4 border-border/60">
-              <div className="sticky top-0 z-10 -ml-4 pl-4 pr-2 py-1 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              <div className="pl-0 py-1">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</div>
                 <div className="h-px bg-border/60 mt-2" />
               </div>
@@ -299,7 +336,7 @@ export function ArticleWithTOC({ content }: { content: string }) {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={handleClickToc(item.id)}
-                    className={`relative inline-block py-1 transition-colors ${
+                    className={`block py-1 transition-colors ${
                       item.level === 3 ? 'pl-4 text-foreground/80' : 'pl-0'
                     } ${
                       activeId === item.id
@@ -307,12 +344,6 @@ export function ArticleWithTOC({ content }: { content: string }) {
                         : 'text-foreground/70 hover:text-foreground'
                     }`}
                   >
-                    <span
-                      className={`absolute -left-4 top-0 bottom-0 w-0.5 rounded bg-primary/70 transition-opacity ${
-                        activeId === item.id ? 'opacity-100' : 'opacity-0'
-                      }`}
-                      aria-hidden
-                    />
                     {item.text}
                   </a>
                 ))}
@@ -323,11 +354,11 @@ export function ArticleWithTOC({ content }: { content: string }) {
       </div>
 
       {/* Mobile TOC trigger */}
-      {toc.length > 0 && (
+      {!hideToc && toc.length > 0 && (
         <button
           ref={mobileTriggerRef}
           type="button"
-          className="lg:hidden fixed bottom-20 right-4 z-50 inline-flex items-center gap-2 rounded-full px-4 py-2 bg-background/80 backdrop-blur border border-border/60 shadow-lg hover:bg-background transition-colors animate-[pulse_2s_ease-in-out_infinite]"
+          className="lg:hidden fixed bottom-20 right-4 z-50 inline-flex items-center gap-2 rounded-full px-4 py-2 bg-background/80 backdrop-blur border border-border/60 shadow-lg hover:bg-background transition-colors"
           aria-haspopup="dialog"
           aria-expanded={isMobileTocOpen}
           aria-controls="mobile-toc"

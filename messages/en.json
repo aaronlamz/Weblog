@@ -47,7 +47,8 @@
     "archive": "Archive",
     "monthlyArchive": "Monthly Archive",
     "popularTags": "Popular Tags",
-    "clearFilters": "Clear Filters"
+    "clearFilters": "Clear Filters",
+    "backToBlog": "Back to Blog"
   },
   "common": {
     "onThisPage": "On this page"

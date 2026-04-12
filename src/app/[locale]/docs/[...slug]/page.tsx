@@ -94,7 +94,7 @@ export default async function DocPage({ params }: DocPageProps) {
               )}
             </header>
 
-            <ArticleWithTOC content={doc.content} />
+            <ArticleWithTOC content={doc.content} tocPosition="right" />
           </article>
         </div>
       </div>

@@ -125,47 +125,7 @@ export function Footer() {
 
   return (
     <>
-      {/* 文章页面专用的返回按钮 */}
-      {isBlogPost && (
-        <div className={`
-          fixed top-6 left-4 z-50
-          transition-all duration-300 ease-out
-          ${showScrollTop 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-100 -translate-y-4'
-          }
-        `}>
-          <div className="flex items-center gap-3">
-            {/* 返回按钮 */}
-            <button
-              onClick={goBack}
-              className="lg-btn-primary rounded-full p-3 group transition-all duration-200 hover:scale-105"
-              title="返回"
-            >
-              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-            
-            {/* 首页按钮 */}
-            <button
-              onClick={goHome}
-              className="lg-btn-outline rounded-full p-3 text-foreground group transition-all duration-200 hover:scale-105"
-              title="首页"
-            >
-              <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </button>
-            
-            {/* 主题切换按钮 */}
-            <button
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              className="lg-btn-outline rounded-full p-3 text-foreground group transition-all duration-200 hover:scale-105"
-              title="切换主题"
-            >
-              <Sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />
-              <Moon className="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 group-hover:scale-110" />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* 文章页面专用的返回按钮已移至 DocsTopBar */}
 
       {/* 悬浮式底部工具条（按配置开关） */}
       {enableFloatingBar && (hasSocial || showScrollTop) && (
