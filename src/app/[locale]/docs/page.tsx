@@ -46,18 +46,10 @@ export default async function DocsPage({
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 space-y-3">
-          <h1
-            className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(135deg, #38bdf8 0%, #60a5fa 40%, #22d3ee 100%)' }}
-          >
-            {t('title')}
-          </h1>
-          <p className="text-base text-muted-foreground max-w-lg mx-auto">
-            {t('description')}
-          </p>
-        </div>
+        {/* Description */}
+        <p className="text-center text-base text-muted-foreground mb-10">
+          {t('description')}
+        </p>
 
         {/* Category Cards Grid */}
         {categories.length > 0 ? (

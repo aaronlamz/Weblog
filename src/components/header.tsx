@@ -31,18 +31,35 @@ const navIcons = {
 // 滑动高亮块导航组件 — 鼠标悬停时玻璃胶囊流畅滑过
 function SliderNavigation({ navItems, currentLocale }: { navItems: any[], currentLocale: string }) {
   const t = useTranslations('navigation')
+  const pathname = usePathname()
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 })
   const navRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
+  // 判断当前路由是否匹配导航项
+  const getActiveIndex = () => {
+    const cleanPath = pathname.replace(/\/$/, '') || '/'
+    for (let i = navItems.length - 1; i >= 0; i--) {
+      const href = (navItems[i].href as string).replace(/\/$/, '') || '/'
+      if (href === '/' || href === `/${currentLocale}`) {
+        if (cleanPath === '/' || cleanPath === `/${currentLocale}`) return i
+      } else if (cleanPath.startsWith(href)) {
+        return i
+      }
+    }
+    return -1
+  }
+  const activeIndex = getActiveIndex()
+
   const updatePill = (index: number | null) => {
-    if (index === null || !navRef.current || !itemRefs.current[index]) {
+    const target = index ?? activeIndex
+    if (target < 0 || !navRef.current || !itemRefs.current[target]) {
       setPillStyle(s => ({ ...s, opacity: 0 }))
       return
     }
     const nav = navRef.current.getBoundingClientRect()
-    const item = itemRefs.current[index]!.getBoundingClientRect()
+    const item = itemRefs.current[target]!.getBoundingClientRect()
     setPillStyle({
       left: item.left - nav.left,
       width: item.width,
@@ -50,13 +67,18 @@ function SliderNavigation({ navItems, currentLocale }: { navItems: any[], curren
     })
   }
 
+  // 初始化时显示 active pill
+  useEffect(() => {
+    if (activeIndex >= 0) updatePill(null)
+  }, [pathname])
+
   return (
     <div
       ref={navRef}
       className="relative flex items-center gap-1 px-2 py-1"
       onMouseLeave={() => {
         setHoveredIndex(null)
-        updatePill(null)
+        updatePill(null) // 回到 active 项
       }}
     >
       {/* 滑动玻璃胶囊 */}
@@ -73,7 +95,9 @@ function SliderNavigation({ navItems, currentLocale }: { navItems: any[], curren
 
       {navItems.map((item, index) => {
         const Icon = navIcons[item.key as keyof typeof navIcons]
-        const isActive = hoveredIndex === index
+        const isHovered = hoveredIndex === index
+        const isCurrent = activeIndex === index
+        const highlighted = isHovered || isCurrent
 
         return (
           <Link
@@ -87,24 +111,24 @@ function SliderNavigation({ navItems, currentLocale }: { navItems: any[], curren
             className="relative z-10 flex items-center gap-1.5 px-3.5 py-2 rounded-full cursor-pointer select-none"
             style={{
               transition: 'color 0.2s ease',
-              color: isActive ? 'hsl(var(--primary))' : undefined,
+              color: highlighted ? 'hsl(var(--primary))' : undefined,
             }}
           >
             {Icon && (
               <Icon
                 className="w-4 h-4 transition-all duration-200"
                 style={{
-                  color: isActive ? 'hsl(var(--primary))' : undefined,
-                  filter: isActive ? 'drop-shadow(0 0 4px rgba(99,102,241,0.45))' : 'none',
-                  transform: isActive ? 'scale(1.12)' : 'scale(1)',
+                  color: highlighted ? 'hsl(var(--primary))' : undefined,
+                  filter: highlighted ? 'drop-shadow(0 0 4px rgba(99,102,241,0.45))' : 'none',
+                  transform: highlighted ? 'scale(1.12)' : 'scale(1)',
                 }}
               />
             )}
             <span
               className="text-sm font-medium text-foreground/80 dark:text-white/80 transition-all duration-200"
               style={{
-                color: isActive ? 'hsl(var(--primary))' : undefined,
-                fontWeight: isActive ? 600 : 500,
+                color: highlighted ? 'hsl(var(--primary))' : undefined,
+                fontWeight: highlighted ? 600 : 500,
               }}
             >
               {t(item.key as any)}
