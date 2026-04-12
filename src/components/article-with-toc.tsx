@@ -1,21 +1,44 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { useTranslations } from 'next-intl'
 import { List, X, ArrowUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneLight, vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { useTheme } from 'next-themes'
 import { CopyCodeButton } from './copy-code-button'
+
+// 懒加载代码高亮（~8MB），避免阻塞首屏
+const LazyHighlighter = lazy(() =>
+  import('react-syntax-highlighter/dist/cjs/prism-light').then(mod => ({ default: mod.default }))
+)
+const loadStyle = (isDark: boolean) =>
+  isDark
+    ? import('react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus').then(m => m.default)
+    : import('react-syntax-highlighter/dist/cjs/styles/prism/one-light').then(m => m.default)
+
+// 按需注册语言
+const langLoaders: Record<string, () => Promise<any>> = {
+  javascript: () => import('react-syntax-highlighter/dist/cjs/languages/prism/javascript'),
+  typescript: () => import('react-syntax-highlighter/dist/cjs/languages/prism/typescript'),
+  jsx: () => import('react-syntax-highlighter/dist/cjs/languages/prism/jsx'),
+  tsx: () => import('react-syntax-highlighter/dist/cjs/languages/prism/tsx'),
+  bash: () => import('react-syntax-highlighter/dist/cjs/languages/prism/bash'),
+  json: () => import('react-syntax-highlighter/dist/cjs/languages/prism/json'),
+  css: () => import('react-syntax-highlighter/dist/cjs/languages/prism/css'),
+  markdown: () => import('react-syntax-highlighter/dist/cjs/languages/prism/markdown'),
+  python: () => import('react-syntax-highlighter/dist/cjs/languages/prism/python'),
+  go: () => import('react-syntax-highlighter/dist/cjs/languages/prism/go'),
+  yaml: () => import('react-syntax-highlighter/dist/cjs/languages/prism/yaml'),
+  sql: () => import('react-syntax-highlighter/dist/cjs/languages/prism/sql'),
+}
 
 type TocItem = {
   id: string
   text: string
-  level: number // 2 or 3
+  level: number
 }
 
 function slugify(input: string): string {
@@ -26,10 +49,87 @@ function slugify(input: string): string {
     .replace(/\s+/g, '-')
 }
 
+/** 代码块组件 — 懒加载高亮 */
+function CodeBlock({ language, code }: { language: string; code: string }) {
+  const { theme } = useTheme()
+  const [highlighterStyle, setHighlighterStyle] = useState<any>(null)
+  const [langReady, setLangReady] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    // 并行加载样式和语言
+    Promise.all([
+      loadStyle(theme === 'dark'),
+      langLoaders[language]?.().then(mod => {
+        import('react-syntax-highlighter/dist/cjs/prism-light').then(SyntaxHighlighter => {
+          SyntaxHighlighter.default.registerLanguage(language, mod.default)
+        })
+      }),
+    ]).then(([style]) => {
+      if (!cancelled) {
+        setHighlighterStyle(style)
+        setLangReady(true)
+      }
+    })
+    return () => { cancelled = true }
+  }, [language, theme])
+
+  // 在高亮加载前先用 <pre> 展示纯文本
+  if (!langReady || !highlighterStyle) {
+    return (
+      <div className="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background">
+        <div className="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20">
+          <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">
+            {language}
+          </span>
+          <CopyCodeButton code={code} />
+        </div>
+        <pre className="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>{code}</code></pre>
+      </div>
+    )
+  }
+
+  return (
+    <div className="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background">
+      <div className="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20">
+        <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">
+          {language}
+        </span>
+        <CopyCodeButton code={code} />
+      </div>
+      <Suspense fallback={<pre className="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>{code}</code></pre>}>
+        <LazyHighlighter
+          language={language}
+          style={highlighterStyle}
+          customStyle={{
+            margin: 0,
+            borderRadius: 0,
+            padding: '1rem',
+            fontSize: '14px',
+            lineHeight: '1.5',
+          }}
+          codeTagProps={{
+            style: {
+              fontFamily: "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
+            }
+          }}
+          showLineNumbers={true}
+          wrapLines={true}
+          lineNumberStyle={{
+            minWidth: '3em',
+            paddingRight: '1em',
+            fontSize: '12px',
+          }}
+        >
+          {code}
+        </LazyHighlighter>
+      </Suspense>
+    </div>
+  )
+}
 
 export function ArticleWithTOC({ content }: { content: string }) {
   const t = useTranslations('common')
-  const { theme } = useTheme()
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [toc, setToc] = useState<TocItem[]>([])
   const [activeId, setActiveId] = useState<string>('')
@@ -67,12 +167,10 @@ export function ArticleWithTOC({ content }: { content: string }) {
       if (level === 2 || level === 3) {
         items.push({ id: el.id, text, level })
       }
-      // Improve scroll target offset to account for fixed header
       el.style.scrollMarginTop = '7rem'
     }
     setToc(items)
 
-    // Observe headings for active state
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -91,7 +189,7 @@ export function ArticleWithTOC({ content }: { content: string }) {
     }
   }, [content])
 
-  // Reading progress for the article only
+  // Reading progress
   useEffect(() => {
     const onScroll = () => {
       const root = contentRef.current
@@ -106,13 +204,12 @@ export function ArticleWithTOC({ content }: { content: string }) {
       setProgress(p)
       setShowDesktopTop(window.scrollY > 400)
     }
-    const onResize = () => onScroll()
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onResize)
+    window.addEventListener('resize', onScroll)
     return () => {
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onResize)
+      window.removeEventListener('resize', onScroll)
     }
   }, [])
 
@@ -120,16 +217,14 @@ export function ArticleWithTOC({ content }: { content: string }) {
     e.preventDefault()
     const target = document.getElementById(id)
     if (!target) return
-    const y = target.getBoundingClientRect().top + window.scrollY - 96 // ~24*4 header offset
+    const y = target.getBoundingClientRect().top + window.scrollY - 96
     window.scrollTo({ top: y, behavior: 'smooth' })
     if (isMobileTocOpen) {
       setIsMobileTocOpen(false)
-      // Return focus to trigger after closing
       setTimeout(() => mobileTriggerRef.current?.focus(), 0)
     }
   }
 
-  // Manage inert on mobile drawer when closed
   useEffect(() => {
     if (!mobileDrawerRef.current) return
     if (!isMobileTocOpen) {
@@ -139,7 +234,6 @@ export function ArticleWithTOC({ content }: { content: string }) {
     }
   }, [isMobileTocOpen])
 
-  // Close drawer on Escape
   useEffect(() => {
     if (!isMobileTocOpen) return
     const onKeyDown = (e: KeyboardEvent) => {
@@ -163,7 +257,7 @@ export function ArticleWithTOC({ content }: { content: string }) {
         />
       </div>
 
-      <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_260px] gap-8">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-6">
         <div>
           <div ref={contentRef} className="prose prose-gray dark:prose-invert max-w-none">
             <ReactMarkdown
@@ -173,7 +267,6 @@ export function ArticleWithTOC({ content }: { content: string }) {
                 [rehypeAutolinkHeadings, { behavior: 'wrap' }]
               ]}
               components={{
-                // 自定义代码块样式
                 code: ({ node, inline, className, children, ...props }: any) => {
                   const match = /language-(\w+)/.exec(className || '')
                   const language = match ? match[1] : 'javascript'
@@ -183,44 +276,7 @@ export function ArticleWithTOC({ content }: { content: string }) {
                     return <code {...props}>{children}</code>
                   }
 
-                  return (
-                    <div className="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background">
-                      {/* 头部信息栏 */}
-                      <div className="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20">
-                        <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">
-                          {language}
-                        </span>
-                        <CopyCodeButton code={codeString} />
-                      </div>
-                      
-                      {/* 代码高亮 */}
-                      <SyntaxHighlighter
-                        language={language}
-                        style={theme === 'dark' ? vscDarkPlus : oneLight}
-                        customStyle={{
-                          margin: 0,
-                          borderRadius: 0,
-                          padding: '1rem',
-                          fontSize: '14px',
-                          lineHeight: '1.5',
-                        }}
-                        codeTagProps={{
-                          style: {
-                            fontFamily: "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
-                          }
-                        }}
-                        showLineNumbers={true}
-                        wrapLines={true}
-                        lineNumberStyle={{
-                          minWidth: '3em',
-                          paddingRight: '1em',
-                          fontSize: '12px',
-                        }}
-                      >
-                        {codeString}
-                      </SyntaxHighlighter>
-                    </div>
-                  )
+                  return <CodeBlock language={language} code={codeString} />
                 },
               }}
             >
@@ -232,7 +288,7 @@ export function ArticleWithTOC({ content }: { content: string }) {
         {/* TOC */}
         {toc.length > 0 && (
           <aside className="hidden lg:block" aria-label="Table of contents">
-            <div className="sticky top-28 space-y-2 border-l pl-4 border-border/60">
+            <div className="sticky top-14 space-y-2 border-l pl-4 border-border/60">
               <div className="sticky top-0 z-10 -ml-4 pl-4 pr-2 py-1 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</div>
                 <div className="h-px bg-border/60 mt-2" />
@@ -352,5 +408,3 @@ export function ArticleWithTOC({ content }: { content: string }) {
 }
 
 export default ArticleWithTOC
-
-

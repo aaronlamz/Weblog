@@ -13,8 +13,8 @@ interface DocsTopBarProps {
 export function DocsTopBar({ backHref, backLabel, homeHref }: DocsTopBarProps) {
   return (
     <div className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between h-12">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
+        <div className="flex items-center justify-between h-12">
           {/* Left: back */}
           <Link
             href={backHref as any}

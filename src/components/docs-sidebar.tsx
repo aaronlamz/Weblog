@@ -36,23 +36,31 @@ export function DocsSidebar({ categories }: DocsSidebarProps) {
     })
   }
 
+  const isSingleCategory = categories.length === 1
+
   return (
     <nav className="space-y-1">
       {categories.map(category => {
-        const isExpanded = expandedCategories.has(category.slug)
+        const isExpanded = isSingleCategory || expandedCategories.has(category.slug)
         return (
           <div key={category.slug}>
-            <button
-              onClick={() => toggleCategory(category.slug)}
-              className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-foreground/90 hover:text-foreground rounded-lg hover:bg-muted/50 transition-colors"
-            >
-              <span>{category.title}</span>
-              <ChevronRight
-                className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
-                  isExpanded ? 'rotate-90' : ''
-                }`}
-              />
-            </button>
+            {!isSingleCategory ? (
+              <button
+                onClick={() => toggleCategory(category.slug)}
+                className="w-full flex items-center justify-between px-3 py-2 text-sm font-semibold text-foreground/90 hover:text-foreground rounded-lg hover:bg-muted/50 transition-colors"
+              >
+                <span>{category.title}</span>
+                <ChevronRight
+                  className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
+                    isExpanded ? 'rotate-90' : ''
+                  }`}
+                />
+              </button>
+            ) : (
+              <div className="px-3 py-2 text-sm font-semibold text-foreground/90">
+                {category.title}
+              </div>
+            )}
             {isExpanded && (
               <div className="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5">
                 {category.docs.map(doc => {

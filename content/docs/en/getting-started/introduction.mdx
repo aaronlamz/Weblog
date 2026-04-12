@@ -1,12 +1,24 @@
 ---
-title: "Introduction"
-description: "Learn about the basic architecture and features of this blog"
+title: "Weblog Setup Guide"
+description: "Set up and configure your own Weblog blog system from scratch"
 order: 1
 ---
 
 ## Welcome
 
-This is a modern blog system built with Next.js, featuring MDX content, internationalization, dark mode, and more.
+Weblog is a modern blog system built with Next.js, featuring MDX content, internationalization, dark mode, documentation center, and more.
+
+Check out the live demo: [aaronlamz.github.io/Weblog](https://aaronlamz.github.io/Weblog/)
+
+### Key Features
+
+- Clean, modern design
+- Dark/light theme support
+- Chinese and English bilingual support
+- Responsive layout
+- Glassmorphism navigation effects
+- Blog system with tags and archives
+- Documentation center with category organization and sidebar navigation
 
 ## Tech Stack
 
@@ -14,17 +26,201 @@ This is a modern blog system built with Next.js, featuring MDX content, internat
 - **TypeScript** — Type safety
 - **Tailwind CSS** — Styling solution
 - **MDX** — Markdown + JSX content format
+- **next-intl** — Internationalization support
 
-## Key Features
+## Prerequisites
 
-### Blog System
+Make sure you have the following tools installed:
 
-Write articles in MDX format with automatic table of contents, syntax highlighting, and reading time estimation.
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (v8 or higher)
+- [Git](https://git-scm.com/)
+
+## Quick Start
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Start the development server:
+
+```bash
+pnpm dev
+```
+
+Your site should now be running at `http://localhost:3000`!
+
+## Configuration
+
+### Basic Site Configuration
+
+The main configuration file is located at `src/config/site.config.ts`:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Site Name',
+  title: 'Your Site Title',
+  description: 'Your site description',
+
+  author: {
+    name: 'Your Name',
+    email: 'your.email@example.com',
+    avatar: 'https://github.com/yourusername.png',
+    bio: 'Your bio',
+  },
+
+  social: {
+    github: 'https://github.com/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+    email: 'your.email@example.com',
+  }
+}
+```
+
+### Setting Up Giscus Comments
+
+Weblog uses [Giscus](https://giscus.app) as its comment system, powered by GitHub Discussions:
+
+1. Make sure your repository is public
+2. Enable GitHub Discussions: Repository Settings → Features → Check Discussions
+3. Install the [Giscus GitHub App](https://github.com/apps/giscus) for your repository
+4. Visit [giscus.app](https://giscus.app), enter your repository info, and copy the generated config
+5. Update the Giscus config in `src/components/comments.tsx`:
+
+```typescript
+<Giscus
+  repo="yourusername/reponame"
+  repoId="your-repo-id"
+  category="Announcements"
+  categoryId="category-id"
+  mapping="pathname"
+  theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
+  lang={locale === 'zh' ? 'zh-CN' : 'en'}
+/>
+```
 
 ### Internationalization
 
-Built-in Chinese and English support, easily extendable to more languages.
+Weblog supports Chinese and English by default. Translation files are located at:
 
-### Documentation Center
+- `messages/en.json` — English translations
+- `messages/zh.json` — Chinese translations
 
-What you're reading right now — organized by categories with sidebar navigation.
+Using translations in components:
+
+```typescript
+const t = useTranslations('namespace')
+// ...
+<div>{t('key')}</div>
+```
+
+### Writing Blog Posts
+
+Blog posts use MDX format and are stored in:
+
+- `content/blog/en/` — English posts
+- `content/blog/zh/` — Chinese posts
+
+Each post requires frontmatter:
+
+```mdx
+---
+title: "Post Title"
+description: "A short description"
+date: "2024-03-20"
+featured: false
+tags: ["tag1", "tag2"]
+---
+
+Your post content...
+```
+
+### Writing Documentation
+
+Documentation uses MDX format, organized by category under `content/docs/`:
+
+```
+content/docs/
+└── en/
+    └── category-slug/
+        ├── _meta.json        # Category metadata
+        ├── article-slug.mdx  # Document file
+        └── ...
+```
+
+Each category needs a `_meta.json` file:
+
+```json
+{
+  "title": "Category Title",
+  "description": "Category description",
+  "icon": "BookOpen",
+  "order": 1
+}
+```
+
+Document frontmatter:
+
+```mdx
+---
+title: "Document Title"
+description: "Document description"
+order: 1
+---
+```
+
+## Deployment
+
+### GitHub Pages
+
+1. GitHub Actions workflows are already configured in `.github/workflows/`
+2. Enable GitHub Pages in repository settings, set source to "GitHub Actions"
+3. Push your code to deploy automatically:
+
+```bash
+git add .
+git commit -m "configure deployment"
+git push
+```
+
+### Custom Domain
+
+Set `customDomain` in `src/config/site.config.ts` to auto-generate a CNAME file during deployment:
+
+```typescript
+customDomain: 'www.yourdomain.com',
+```
+
+## Customization
+
+### Styling
+
+Weblog uses Tailwind CSS. Key config files:
+
+- `tailwind.config.ts` — Tailwind configuration
+- `src/styles/globals.css` — Global styles
+
+### Components
+
+Key components you may want to customize:
+
+- `src/components/header.tsx` — Navigation and site header
+- `src/components/footer.tsx` — Site footer
+- `src/components/theme-toggle.tsx` — Dark/light mode toggle
+- `src/components/language-switcher.tsx` — Language switcher
+
+## Need Help?
+
+If you run into issues:
+
+- Check [GitHub Issues](https://github.com/aaronlamz/Weblog/issues)
+- Create a new issue if you can't find a solution

@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   keywords: siteConfig.seo.keywords,
   authors: [{ name: siteConfig.author.name }],
   creator: siteConfig.author.name,

@@ -54,6 +54,9 @@ export default async function DocPage({ params }: DocPageProps) {
   }
 
   const categories = getAllDocCategories(locale)
+  // 只取当前文档所在的分类
+  const currentCategory = categories.find(cat => cat.slug === doc.category)
+  const currentCategoryDocs = currentCategory ? [currentCategory] : []
   const docsHref = buildLocalizedPath('/docs', locale as any)
   const homeHref = buildLocalizedPath('/', locale as any)
 
@@ -66,35 +69,33 @@ export default async function DocPage({ params }: DocPageProps) {
         homeHref={homeHref}
       />
 
-      <div className="container mx-auto px-4 pt-4 pb-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-8">
-            {/* Sidebar */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-20">
-                <DocsSidebar categories={categories} />
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] gap-6">
+          {/* Sidebar: only current category */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-14">
+              <DocsSidebar categories={currentCategoryDocs} />
+            </div>
+          </aside>
+
+          {/* Content */}
+          <article>
+            <header className="mb-4">
+              <div className="text-sm text-primary/80 font-medium mb-1">
+                {doc.categoryTitle}
               </div>
-            </aside>
+              <h1 className="text-2xl md:text-3xl font-bold mb-2">
+                {doc.title}
+              </h1>
+              {doc.description && (
+                <p className="text-lg text-muted-foreground">
+                  {doc.description}
+                </p>
+              )}
+            </header>
 
-            {/* Content */}
-            <article>
-              <header className="mb-8">
-                <div className="text-sm text-primary/80 font-medium mb-2">
-                  {doc.categoryTitle}
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold mb-3">
-                  {doc.title}
-                </h1>
-                {doc.description && (
-                  <p className="text-lg text-muted-foreground">
-                    {doc.description}
-                  </p>
-                )}
-              </header>
-
-              <ArticleWithTOC content={doc.content} />
-            </article>
-          </div>
+            <ArticleWithTOC content={doc.content} />
+          </article>
         </div>
       </div>
     </>

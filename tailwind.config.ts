@@ -65,8 +65,13 @@ const config = {
         'fade-out': 'fade-out 0.5s ease-in-out',
         'slide-in': 'slide-in 0.3s ease-out',
         'slide-out': 'slide-out 0.3s ease-out',
+        'page-fade-in': 'page-fade-in 0.15s ease-out',
       },
       keyframes: {
+        'page-fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         'fade-in': {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },

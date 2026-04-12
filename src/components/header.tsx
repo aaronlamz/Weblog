@@ -124,19 +124,13 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   // Navigation items with translations - use pathname to determine locale reliably
-  const currentLocale = mounted ? detectLocaleFromPath(pathname) : locale
-  
+  const currentLocale = detectLocaleFromPath(pathname)
+
   // Check if current page is a blog post or doc detail (hide navigation for article pages)
-  // Patterns: /blog/[slug] or /docs/[category]/[slug]
-  const isBlogPost = mounted && /\/blog\/[^\/]+\/?$/.test(pathname)
-  const isDocDetail = mounted && /\/docs\/[^\/]+\/[^\/]+\/?$/.test(pathname)
+  const isBlogPost = /\/blog\/[^\/]+\/?$/.test(pathname)
+  const isDocDetail = /\/docs\/[^\/]+\/[^\/]+\/?$/.test(pathname)
   
   // Navigation items without manual basePath; Next.js handles basePath automatically
   const navItems = [
