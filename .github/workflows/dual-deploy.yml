@@ -83,6 +83,10 @@ jobs:
             echo "Warning: Default locale directory out-subpath/$DEFAULT_LOCALE not found"
           fi
           
+          # 删除 Next.js RSC payload 文件，避免 CDN 缓存冲突
+          find out-subpath -name "*.txt" -not -name "robots.txt" -delete
+          echo "✅ Cleaned up RSC payload .txt files from sub-path build"
+
           # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
           touch out-subpath/.nojekyll
 
@@ -121,6 +125,10 @@ jobs:
             echo "Warning: Default locale directory out-root/$DEFAULT_LOCALE not found"
           fi
           
+          # 删除 Next.js RSC payload 文件，避免 CDN 缓存冲突
+          find out-root -name "*.txt" -not -name "robots.txt" -delete
+          echo "✅ Cleaned up RSC payload .txt files from root build"
+
           # 避免 GitHub Pages 的 Jekyll 忽略下划线目录
           touch out-root/.nojekyll
 
