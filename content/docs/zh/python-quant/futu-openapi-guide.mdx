@@ -1,0 +1,665 @@
+---
+title: "富途 OpenAPI 完整指南"
+description: "架构、订阅额度、限频、权限、错误码、交易接口最佳实践"
+order: 3
+---
+
+上一篇我们用富途 OpenAPI 拉了点行情数据，能跑就行。但实际用富途做量化，**有一堆"看起来简单实则坑很多"的概念**：订阅额度、限频规则、行情权限、错误码、交易接口……新手不搞清楚就会反复踩坑。
+
+这一篇是**富途 OpenAPI 的系统手册**，建议收藏后随时查阅。官方文档：[openapi.futunn.com/futu-api-doc](https://openapi.futunn.com/futu-api-doc/intro/intro.html)
+
+## 一、架构详解
+
+富途 OpenAPI 不是直接 HTTP 调用，而是**三层架构**：
+
+```
+┌─────────────────┐    ┌──────────────┐    ┌──────────────┐
+│  你的策略代码   │ →  │  FutuOpenD   │ →  │  富途服务器  │
+│  (Python/Java) │    │  (本地网关)  │    │              │
+└─────────────────┘    └──────────────┘    └──────────────┘
+        ↑                     ↑
+        │                     │
+   通过 socket            富途账号登录
+   与本地通信
+```
+
+### 为什么这么设计
+
+1. **账号安全** — 你的账号密码只在本地的 FutuOpenD 输入，第三方代码看不到
+2. **统一连接** — 多个策略可以共用一个 FutuOpenD 连接，节省连接数
+3. **跨语言** — Python、Java、C++、C# 都可以连同一个 FutuOpenD
+4. **协议封装** — SDK 帮你处理底层 protobuf，你只用看 API
+
+### 三种部署方式
+
+| 方式 | 适合 |
+|---|---|
+| **本地运行 FutuOpenD** | 开发、测试、个人量化（最常见） |
+| **云服务器运行 FutuOpenD** | 24 小时实盘策略 |
+| **公司内网部署** | 团队使用，多人共享 |
+
+## 二、FutuOpenD 安装与启动
+
+### 下载
+
+[官方下载页](https://www.futunn.com/download/openAPI)，选择你的系统：
+- macOS（dmg）
+- Windows（exe）
+- Linux（zip / tar.gz）
+- Docker 镜像
+
+### 启动模式
+
+**1. 图形界面模式**（新手推荐）
+
+双击启动，弹出登录窗口：
+- 输入富途账号密码
+- 完成短信验证
+- 启动成功后状态栏会显示 "已连接"
+
+**2. 命令行模式**（服务器部署）
+
+```bash
+# Linux / macOS
+./FutuOpenD -login_account=你的账号 -login_pwd_md5=密码MD5
+
+# 后台运行
+nohup ./FutuOpenD -login_account=xxx -login_pwd_md5=xxx > opend.log 2>&1 &
+```
+
+### 配置文件
+
+FutuOpenD 启动后会读取 `FutuOpenD.xml`（在程序同目录），常用配置：
+
+```xml
+<config>
+  <!-- 监听端口 -->
+  <api_port>11111</api_port>
+
+  <!-- 监听 IP，0.0.0.0 表示接受所有连接 -->
+  <api_ip>127.0.0.1</api_ip>
+
+  <!-- 行情推送 -->
+  <push_proto_fmt>0</push_proto_fmt>
+
+  <!-- 日志级别 -->
+  <log_level>info</log_level>
+</config>
+```
+
+> ⚠️ **服务器部署安全**
+> 如果把 FutuOpenD 装在云服务器，**千万不要**把 `api_ip` 设成 `0.0.0.0` 还开放公网端口。要么走 VPN，要么用 SSH 隧道转发。
+
+## 三、行情订阅额度系统（重要）
+
+这是新手最容易踩的坑。
+
+### 什么是订阅
+
+获取**实时**行情数据前，必须先**订阅**这只股票。订阅后，富途服务器才会推送实时数据给你。
+
+```python
+# 订阅 = 建立长连接的"通道"
+quote_ctx.subscribe(['HK.00700'], ['QUOTE'])
+```
+
+### 订阅的类型
+
+每只股票可以订阅多种**数据类型**，每种数据类型**单独占用一个额度**：
+
+| 订阅类型 | 含义 | 占用额度 |
+|---|---|---|
+| **QUOTE** | 实时报价 | 1 |
+| **TICKER** | 逐笔成交 | 1 |
+| **K_DAY** | 日 K 线 | 1 |
+| **K_5M** | 5 分钟 K 线 | 1 |
+| **K_1M** | 1 分钟 K 线 | 1 |
+| **ORDER_BOOK** | 买卖盘 | 1 |
+| **RT_DATA** | 分时数据 | 1 |
+| **BROKER** | 经纪商队列 | 1 |
+
+> 💡 **关键**：订阅"腾讯的 QUOTE + K_DAY + K_5M" = 占用 3 个额度，不是 1 个。
+
+### 总额度上限
+
+| 行情权限 | 总订阅额度 |
+|---|---|
+| Lv1（免费） | 100 |
+| BMP / 港股 Lv2 | 300 |
+| 美股 Lv2 | 500 |
+
+**额度共享**：所有连接到同一个 FutuOpenD 的客户端共享额度。
+
+### 查询当前订阅
+
+```python
+ret, data = quote_ctx.query_subscription()
+if ret == 0:
+    print(data)
+```
+
+### 取消订阅
+
+```python
+# 取消单只
+quote_ctx.unsubscribe(['HK.00700'], ['QUOTE'])
+
+# 取消所有
+quote_ctx.unsubscribe_all()
+```
+
+### 最佳实践
+
+```python
+# ❌ 错误：每次获取数据都订阅一次
+for code in stock_list:
+    quote_ctx.subscribe([code], ['QUOTE'])
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 正确：批量订阅一次
+quote_ctx.subscribe(stock_list, ['QUOTE'])
+ret, data = quote_ctx.get_market_snapshot(stock_list)
+
+# ✅ 用完释放
+quote_ctx.unsubscribe(stock_list, ['QUOTE'])
+```
+
+## 四、接口限频规则
+
+富途对每个接口都有**调用频率限制**，超频会被限流。
+
+### 常见接口的限频
+
+| 接口 | 限频 |
+|---|---|
+| `get_market_snapshot` | 60 次/30 秒 |
+| `request_history_kline` | 30 次/30 秒 |
+| `subscribe / unsubscribe` | 100 次/30 秒 |
+| `get_cur_kline` | 60 次/30 秒 |
+| `place_order` | 15 次/30 秒 |
+| `position_list_query` | 10 次/30 秒 |
+
+### 全局限频
+
+每个连接每秒最多 **10 次** 协议请求。
+
+### 怎么判断被限频
+
+返回的 `ret` 码会是 `RET_ERROR`，错误信息包含 "frequency limit"。
+
+### 应对方法
+
+**1. 主动 sleep**
+
+```python
+import time
+
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+    time.sleep(0.6)  # 每秒不超过 2 次
+```
+
+**2. 批量调用**（最优）
+
+```python
+# ❌ 100 次单只查询 = 限频
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 1 次批量查询
+quote_ctx.get_market_snapshot(stock_list)  # 一次最多 400 只
+```
+
+**3. 异步限流装饰器**
+
+```python
+from functools import wraps
+import time
+
+class RateLimiter:
+    def __init__(self, max_calls, period):
+        self.max_calls = max_calls
+        self.period = period
+        self.calls = []
+
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            now = time.time()
+            self.calls = [t for t in self.calls if now - t < self.period]
+            if len(self.calls) >= self.max_calls:
+                sleep_time = self.period - (now - self.calls[0])
+                time.sleep(sleep_time)
+            self.calls.append(time.time())
+            return func(*args, **kwargs)
+        return wrapper
+
+@RateLimiter(max_calls=30, period=30)
+def fetch_kline(code):
+    return quote_ctx.request_history_kline(code, ...)
+```
+
+## 五、行情权限层级
+
+不同权限能拿到的数据不一样。
+
+### 港股
+
+| 权限 | 数据深度 | 价格 |
+|---|---|---|
+| **Lv1** | 1 档买卖盘 | 免费 |
+| **BMP** | 10 档买卖盘 + 经纪队列 | 免费（需开通） |
+| **Lv2** | 10 档 + 经纪队列 + 逐笔 | 月费 |
+
+### 美股
+
+| 权限 | 数据深度 | 价格 |
+|---|---|---|
+| **OTC（延迟）** | 延迟 15 分钟 | 免费 |
+| **Lv1（实时）** | 实时 1 档 | 免费（个人投资者） |
+| **Nasdaq TotalView** | 10 档 + 完整深度 | 月费 |
+
+### A 股
+
+| 权限 | 价格 |
+|---|---|
+| **Lv1** | 月费 |
+| **Lv2** | 月费 |
+
+> 💡 **散户提示**
+> 港股 Lv1 + 美股 Lv1 已经够 90% 量化策略用了。Lv2 主要是高频和盘口策略需要。
+
+### 查询当前权限
+
+在 FutuOpenD 的 GUI 里能看到，或者通过 API：
+
+```python
+ret, data = quote_ctx.get_user_security_group(group_type=1)
+```
+
+## 六、错误码与异常处理
+
+### 通用返回值
+
+所有 API 的返回值都是 `(ret, data)` 元组：
+
+```python
+ret, data = quote_ctx.get_market_snapshot(['US.AAPL'])
+
+if ret == 0:  # 等价于 RET_OK
+    # 成功，data 是结果
+    print(data)
+else:
+    # 失败，data 是错误信息字符串
+    print(f'Error: {data}')
+```
+
+### 常见错误码
+
+| 错误 | 含义 | 解决 |
+|---|---|---|
+| **未连接** | FutuOpenD 没运行或端口错 | 检查 FutuOpenD 状态、端口 |
+| **未订阅** | 没订阅就请求实时数据 | 先 `subscribe` |
+| **订阅额度不足** | 超过订阅上限 | 取消旧订阅 |
+| **频率限制** | 调用太快 | 加 sleep 或批量请求 |
+| **权限不足** | 没有该数据的权限 | 升级权限 / 改用免费数据 |
+| **代码错误** | 股票代码格式错 | 检查 `US./HK./SH./SZ.` 前缀 |
+| **未解锁交易** | 调交易接口前没解锁 | `unlock_trade` |
+| **MD5 不匹配** | 交易密码 MD5 错 | 重新计算 MD5 |
+
+### 健壮的请求封装
+
+```python
+from futu import OpenQuoteContext, RET_OK
+import time
+import logging
+
+class FutuClient:
+    def __init__(self, host='127.0.0.1', port=11111, max_retry=3):
+        self.host = host
+        self.port = port
+        self.max_retry = max_retry
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host=self.host, port=self.port)
+
+    def safe_request(self, func, *args, **kwargs):
+        """带重试的请求"""
+        for i in range(self.max_retry):
+            try:
+                ret, data = func(*args, **kwargs)
+                if ret == RET_OK:
+                    return data
+                logging.warning(f'Request failed: {data}, retry {i+1}/{self.max_retry}')
+                if 'frequency' in str(data).lower():
+                    time.sleep(2 ** i)  # 指数退避
+            except Exception as e:
+                logging.error(f'Exception: {e}, retry {i+1}/{self.max_retry}')
+                self._connect()  # 重连
+            time.sleep(1)
+        return None
+
+    def get_kline(self, code, **kwargs):
+        return self.safe_request(self.ctx.request_history_kline, code, **kwargs)
+
+    def close(self):
+        if self.ctx:
+            self.ctx.close()
+```
+
+## 七、交易接口
+
+### 解锁交易
+
+调交易接口前必须解锁：
+
+```python
+from futu import OpenSecTradeContext, TrdMarket, TrdEnv
+import hashlib
+
+# 计算交易密码 MD5
+password = 'your_password'
+password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host='127.0.0.1',
+    port=11111
+)
+
+# 解锁
+ret, data = trd_ctx.unlock_trade(password_md5=password_md5)
+if ret != 0:
+    print(f'解锁失败: {data}')
+```
+
+> ⚠️ **环境隔离**
+> - `TrdEnv.SIMULATE` = 模拟环境
+> - `TrdEnv.REAL` = 实盘环境
+> - **永远先在模拟环境验证后再切换到实盘**
+
+### 查询账户
+
+```python
+# 账户列表
+ret, data = trd_ctx.get_acc_list()
+print(data)
+
+# 资金状况
+ret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：现金、可用资金、总资产、持仓市值等
+
+# 持仓
+ret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：股票代码、持仓数量、成本价、市值、盈亏等
+```
+
+### 下单
+
+```python
+from futu import OrderType, TrdSide
+
+# 限价单
+ret, data = trd_ctx.place_order(
+    price=180.0,                      # 价格
+    qty=10,                           # 数量
+    code='US.AAPL',                   # 代码
+    trd_side=TrdSide.BUY,             # 买/卖
+    order_type=OrderType.NORMAL,      # 普通限价单
+    trd_env=TrdEnv.SIMULATE,
+)
+
+if ret == 0:
+    order_id = data['order_id'].iloc[0]
+    print(f'下单成功: {order_id}')
+
+# 市价单
+ret, data = trd_ctx.place_order(
+    price=0,                          # 市价单 price 设 0
+    qty=10,
+    code='US.AAPL',
+    trd_side=TrdSide.BUY,
+    order_type=OrderType.MARKET,
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 订单类型对照
+
+| 类型 | 含义 | 适用 |
+|---|---|---|
+| **NORMAL** | 普通限价单 | 大部分场景 |
+| **MARKET** | 市价单 | 立即成交（注意滑点） |
+| **ABSOLUTE_LIMIT** | 绝对限价 | 港股 |
+| **AUCTION** | 竞价 | 港股集合竞价 |
+| **AUCTION_LIMIT** | 竞价限价 | 港股 |
+
+### 查询订单状态
+
+```python
+# 当日订单
+ret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+
+# 历史订单
+ret, data = trd_ctx.history_order_list_query(
+    start='2024-01-01',
+    end='2024-12-31',
+    trd_env=TrdEnv.SIMULATE
+)
+```
+
+### 撤单
+
+```python
+from futu import ModifyOrderOp
+
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.CANCEL,
+    order_id=order_id,
+    qty=0,
+    price=0,
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 改单（改价 / 改量）
+
+```python
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.NORMAL,  # 修改
+    order_id=order_id,
+    qty=20,         # 新数量
+    price=185.0,    # 新价格
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 订单成交推送
+
+如果需要实时知道订单状态变化：
+
+```python
+from futu import TradeOrderHandlerBase
+
+class OrderHandler(TradeOrderHandlerBase):
+    def on_recv_rsp(self, rsp_pb):
+        ret, data = super().on_recv_rsp(rsp_pb)
+        if ret == 0:
+            print(f'订单更新: {data}')
+        return ret, data
+
+trd_ctx.set_handler(OrderHandler())
+```
+
+## 八、最佳实践
+
+### 1. 单例连接
+
+不要在每个函数里都新建一个 `OpenQuoteContext`，开销很大。用单例模式：
+
+```python
+class QuoteSingleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = OpenQuoteContext(host='127.0.0.1', port=11111)
+        return cls._instance
+
+# 使用
+quote_ctx = QuoteSingleton()
+```
+
+### 2. 上下文管理器
+
+用 `with` 自动关闭连接：
+
+```python
+class FutuQuote:
+    def __enter__(self):
+        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+        return self.ctx
+
+    def __exit__(self, *args):
+        self.ctx.close()
+
+# 使用
+with FutuQuote() as ctx:
+    ret, data = ctx.get_market_snapshot(['US.AAPL'])
+```
+
+### 3. 数据缓存
+
+历史数据不变，缓存到本地（前面提过，这里强调重要性）：
+
+```python
+import os
+import pandas as pd
+
+def cached_kline(code, start, end, cache_dir='./data'):
+    os.makedirs(cache_dir, exist_ok=True)
+    fname = f'{cache_dir}/{code.replace(".", "_")}_{start}_{end}.parquet'
+    if os.path.exists(fname):
+        return pd.read_parquet(fname)
+
+    # 调 API
+    ret, df, _ = quote_ctx.request_history_kline(code, start=start, end=end)
+    if ret == 0:
+        df.to_parquet(fname)
+        return df
+    return None
+```
+
+### 4. 断线重连
+
+FutuOpenD 偶尔会断线，要有重连机制：
+
+```python
+class StableContext:
+    def __init__(self):
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+        # 注册系统通知 handler
+        from futu import SysNotifyHandlerBase
+        class NotifyHandler(SysNotifyHandlerBase):
+            def __init__(self, parent):
+                super().__init__()
+                self.parent = parent
+            def on_recv_rsp(self, rsp_pb):
+                ret, data = super().on_recv_rsp(rsp_pb)
+                if 'disconnect' in str(data).lower():
+                    print('Disconnected, reconnecting...')
+                    self.parent._connect()
+                return ret, data
+        self.ctx.set_handler(NotifyHandler(self))
+```
+
+### 5. 配额监控
+
+定期检查订阅额度，避免爆额度：
+
+```python
+def check_quota(quote_ctx):
+    ret, data = quote_ctx.query_subscription()
+    if ret == 0:
+        used = data['total_used']
+        total = data['remain'] + used
+        usage = used / total * 100
+        if usage > 80:
+            print(f'⚠️ 订阅额度告警: {used}/{total} ({usage:.1f}%)')
+```
+
+### 6. 日志记录
+
+策略上线前一定要记日志：
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler('strategy.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logging.info('策略启动')
+logging.info(f'下单成功: {order_id}')
+logging.error(f'API 错误: {e}')
+```
+
+## 九、Docker 部署 FutuOpenD
+
+如果要把策略上云 24 小时跑，推荐用 Docker：
+
+```bash
+# 拉取镜像
+docker pull futuopen/futu-opend:latest
+
+# 启动容器
+docker run -d \
+  --name futuopend \
+  -p 11111:11111 \
+  -e LOGIN_ACCOUNT=你的账号 \
+  -e LOGIN_PWD_MD5=你的密码MD5 \
+  futuopen/futu-opend:latest
+```
+
+然后你的策略代码连 `host=容器宿主机IP, port=11111` 即可。
+
+## 十、官方文档与资源
+
+| 资源 | 用途 |
+|---|---|
+| [OpenAPI 官方文档](https://openapi.futunn.com/futu-api-doc/intro/intro.html) | 最权威 |
+| [Python SDK GitHub](https://github.com/FutunnOpen/py-futu-api) | 源码 + Issue |
+| [接口列表](https://openapi.futunn.com/futu-api-doc/quote/get-history-kline.html) | 速查 |
+| [错误码列表](https://openapi.futunn.com/futu-api-doc/intro/error-code.html) | 排查问题 |
+| [社区 OpenAPI 板块](https://q.futunn.com/feed/openapi) | 提问 |
+
+## 小结
+
+走完这一篇你应该明白：
+
+- ✅ FutuOpenD 的三层架构和原理
+- ✅ 订阅额度系统的运作
+- ✅ 接口限频规则与应对
+- ✅ 行情权限层级
+- ✅ 错误码与健壮的请求封装
+- ✅ 交易接口的完整使用
+- ✅ 单例、缓存、重连等最佳实践
+
+下一篇 [Pandas 基础](/docs/python-quant/pandas-basics) 我们回到数据处理本身，开始把这些数据用起来。
+
+> 📌 **核心提醒**
+> 富途 OpenAPI 不是"接进来就能用"。**订阅额度** 和 **接口限频** 是新手最常踩的坑——一个策略写得再好，被限流后就跑不下去了。早点把这些基础设施做扎实，后面省心 100 倍。
