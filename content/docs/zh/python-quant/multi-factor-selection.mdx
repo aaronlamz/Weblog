@@ -1,0 +1,243 @@
+---
+title: "多因子选股入门"
+description: "因子定义、因子打分、组合构建"
+order: 9
+---
+
+前面几篇都在讲**单股票**的策略。但实战中，更常见的需求是：**从一堆股票里挑出最值得买的那几只**。这就是多因子选股。
+
+## 什么是因子
+
+因子是**预测股票未来收益**的某个指标。比如：
+
+- **价值因子**：市盈率（PE）、市净率（PB）—— 越低越便宜
+- **成长因子**：营收增速、净利润增速
+- **质量因子**：ROE、毛利率
+- **动量因子**：过去 1/3/6 个月的涨跌幅
+- **波动率因子**：过去 N 日的标准差
+
+**核心假设**：某个因子的高分股票，未来表现优于低分股票。
+
+举个例子：低 PE 的股票（价值股）长期来看跑赢高 PE 股票，这就是**价值因子有效**。
+
+## 因子选股的基本流程
+
+```
+1. 数据准备：拉取所有股票的因子值
+2. 因子计算：把原始数据变成可比较的分数
+3. 打分排名：根据因子值排序
+4. 组合构建：选 Top N 股票等权持有
+5. 定期调仓：每周/每月按新的排名调整
+6. 回测评估：看组合的表现
+```
+
+## 准备数据
+
+多因子选股需要**横截面数据**（多只股票同一时刻的数据）。这里用 akshare 拉取 A 股财务因子做演示：
+
+```python
+import akshare as ak
+import pandas as pd
+
+# 获取 A 股股票列表
+stocks = ak.stock_zh_a_spot_em()
+print(stocks.head())
+# 包含：代码、名称、最新价、涨跌幅、市盈率-动态、市净率、总市值 等
+```
+
+## 第一个因子：低市盈率策略
+
+最简单的因子选股，我们试一下"买市盈率最低的 20 只股票"。
+
+```python
+# 过滤掉 PE 异常的股票（亏损或极小）
+df = stocks[(stocks['市盈率-动态'] > 0) & (stocks['市盈率-动态'] < 100)].copy()
+
+# 按市盈率排序，取最低的 20 只
+top20 = df.nsmallest(20, '市盈率-动态')[['代码', '名称', '市盈率-动态', '市净率']]
+print(top20)
+```
+
+这就是一个最朴素的"价值组合"。
+
+## 因子标准化
+
+不同因子量纲不同，无法直接相加。常用做法是**Z-score 标准化**：
+
+```python
+def zscore(series):
+    return (series - series.mean()) / series.std()
+
+df['pe_zscore'] = zscore(df['市盈率-动态'])
+df['pb_zscore'] = zscore(df['市净率'])
+```
+
+Z-score 把所有因子拉到相同的"刻度"，平均值为 0，标准差为 1。
+
+## 多因子打分
+
+把多个因子加权综合：
+
+```python
+# 价值因子：PE 和 PB 越低越好，所以取负号
+df['value_score'] = -df['pe_zscore'] - df['pb_zscore']
+
+# 按总分排序
+df_sorted = df.sort_values('value_score', ascending=False)
+top20 = df_sorted.head(20)
+print(top20[['代码', '名称', '市盈率-动态', '市净率', 'value_score']])
+```
+
+## 因子的方向
+
+不同因子有不同的"好坏方向"：
+
+| 因子 | 方向 |
+|---|---|
+| 市盈率 PE | 越低越好 |
+| 市净率 PB | 越低越好 |
+| ROE | 越高越好 |
+| 营收增速 | 越高越好 |
+| 过去 1 月涨幅 | 反转：越低越好；动量：越高越好 |
+| 波动率 | 通常越低越好 |
+
+写代码时统一用"越大越好"的方向，反向因子加负号。
+
+## 实战：价值 + 质量组合
+
+```python
+# 假设我们有一个 DataFrame df，包含：
+# 代码、PE、PB、ROE、营收增速
+
+def calc_factor_score(df):
+    df = df.copy()
+
+    # 标准化
+    df['pe_z']      = zscore(df['PE'])
+    df['pb_z']      = zscore(df['PB'])
+    df['roe_z']     = zscore(df['ROE'])
+    df['growth_z']  = zscore(df['营收增速'])
+
+    # 价值（越低越好，取负）+ 质量（越高越好）
+    df['score'] = (
+        -0.3 * df['pe_z']
+        -0.2 * df['pb_z']
+        +0.3 * df['roe_z']
+        +0.2 * df['growth_z']
+    )
+
+    return df.sort_values('score', ascending=False)
+
+# 选前 20
+selected = calc_factor_score(df).head(20)
+print(selected[['代码', '名称', 'score']])
+```
+
+## 因子有效性检验
+
+光选股不够，要先验证因子是不是有效的。最常用的方法是**分组回测**：
+
+1. 把所有股票按因子值排序，分成 5 组（或 10 组）
+2. 每组等权持有
+3. 看哪一组未来收益最高
+
+```python
+import numpy as np
+
+def factor_grouped_return(df, factor_col, return_col, n_groups=5):
+    """
+    df: 包含因子值和未来收益的 DataFrame
+    factor_col: 因子列名
+    return_col: 未来收益列名
+    """
+    df = df.dropna(subset=[factor_col, return_col]).copy()
+    df['group'] = pd.qcut(df[factor_col], n_groups, labels=False)
+    return df.groupby('group')[return_col].mean()
+
+# 假设 df 有 'PE' 和 'next_month_return' 两列
+result = factor_grouped_return(df, 'PE', 'next_month_return')
+print(result)
+```
+
+如果第 1 组（PE 最低）的平均收益明显高于第 5 组（PE 最高），说明 PE 是有效的价值因子。
+
+## 因子相关性
+
+不要选一堆**高度相关**的因子，那样等于一个因子用了 3 次。
+
+```python
+factors = df[['PE', 'PB', 'ROE', '营收增速']]
+corr = factors.corr()
+print(corr)
+```
+
+经验：相关性 > 0.7 的因子，只保留一个最强的。
+
+## 一个完整的多因子回测框架
+
+简化版的月度调仓回测：
+
+```python
+def multi_factor_backtest(monthly_data, top_n=20):
+    """
+    monthly_data: dict, {month: DataFrame}
+                  每个 DataFrame 包含 [code, factor_score, next_return]
+    top_n: 每月选 N 只股票
+    """
+    portfolio_returns = []
+
+    for month, df in sorted(monthly_data.items()):
+        # 选 top_n
+        selected = df.nlargest(top_n, 'factor_score')
+
+        # 等权组合的收益
+        port_return = selected['next_return'].mean()
+        portfolio_returns.append({
+            'month': month,
+            'return': port_return,
+            'n_stocks': len(selected)
+        })
+
+    result = pd.DataFrame(portfolio_returns)
+    result['cum_return'] = (1 + result['return']).cumprod()
+    return result
+```
+
+## 多因子选股的注意事项
+
+1. **避免幸存者偏差**：回测时要包含已退市的股票，否则结果偏好
+2. **避免前视偏差**：财务数据要按公布日期使用，不能用未来季度的数据
+3. **小心过拟合**：太多因子 + 太多参数 = 100% 过拟合
+4. **市值中性化**：很多因子隐含小市值偏好，需要做市值中性化处理
+5. **行业中性化**：避免组合集中在某一行业（如全是地产股）
+
+## 常见因子库
+
+不想自己计算因子？可以用现成的：
+
+| 来源 | 特点 |
+|---|---|
+| **聚宽 jqdata** | A 股最全因子库，付费 |
+| **米筐 rqdata** | 类似聚宽，付费 |
+| **tushare pro** | 部分免费，部分付费 |
+| **akshare** | 完全免费，但需要自己处理 |
+
+## 小结
+
+到这里你已经掌握：
+
+- ✅ 因子的概念和分类
+- ✅ Z-score 标准化
+- ✅ 多因子打分
+- ✅ 分组回测验证因子有效性
+- ✅ 组合构建的基本流程
+
+下一篇 [从回测到实盘](/docs/python-quant/from-backtest-to-live)，我们讨论如何把策略真正跑起来。
+
+> 📌 **现实提醒**
+> 多因子选股是机构投资者的主战场，散户做这个有几个劣势：
+> 1. 数据质量比不上专业数据商
+> 2. 调仓成本（手续费）比机构高
+> 3. 没法做空对冲
+>
+> 我个人建议散户先把**简单的趋势策略**做好，再考虑多因子。这一篇就当做开拓视野。

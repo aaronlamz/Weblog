@@ -1,0 +1,184 @@
+---
+title: "环境搭建"
+description: "Python + Jupyter + 常用库，为什么选 Python 做量化"
+order: 1
+---
+
+## 为什么选 Python 做量化
+
+如果你刚接触量化交易，可能会问：为什么大家都用 Python？
+
+简单几个理由：
+
+- **生态丰富**：从数据获取（akshare、tushare）到回测（backtrader、vectorbt）再到机器学习（scikit-learn、PyTorch），Python 都有现成的轮子，几乎不需要自己造
+- **学习成本低**：语法接近自然语言，金融从业者也能快速上手
+- **数据处理强**：pandas + numpy 处理时间序列数据比 Excel 强百倍
+- **社区活跃**：遇到问题搜一下基本都有答案
+
+C++ 更快但门槛高，R 偏统计但工程能力弱，Python 是个均衡的选择。
+
+## 安装 Python
+
+推荐使用 **uv** 来管理 Python 环境，比传统的 conda/pip 快很多，也更现代。
+
+### macOS / Linux
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### Windows
+
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+安装完后验证一下：
+
+```bash
+uv --version
+```
+
+如果你不想折腾，也可以直接从 [python.org](https://www.python.org/downloads/) 下载安装包，选 Python 3.11 或 3.12 即可。
+
+## 创建你的第一个量化项目
+
+```bash
+# 创建项目目录
+mkdir my-quant && cd my-quant
+
+# 初始化 Python 项目
+uv init
+
+# 创建虚拟环境
+uv venv
+
+# 激活环境（macOS/Linux）
+source .venv/bin/activate
+
+# 激活环境（Windows）
+.venv\Scripts\activate
+```
+
+激活后，命令行前面会出现 `(my-quant)` 之类的标识，说明你已经在虚拟环境里了。
+
+> 💡 **为什么需要虚拟环境？**
+> 不同项目可能依赖不同版本的库，虚拟环境可以避免互相干扰。每个量化项目都建议用独立的环境。
+
+## 安装核心库
+
+```bash
+uv pip install jupyter pandas numpy matplotlib akshare
+```
+
+这五个库是量化入门的最小集合：
+
+| 库 | 用途 |
+|---|---|
+| `jupyter` | 交互式编程环境，量化研究的标配 |
+| `pandas` | 数据处理，DataFrame 是你以后最常打交道的对象 |
+| `numpy` | 数值计算，pandas 的底层依赖 |
+| `matplotlib` | 画图，可视化收益曲线、K 线 |
+| `akshare` | 免费的金融数据源，覆盖 A 股、港股、美股、期货等 |
+
+## Jupyter Notebook 入门
+
+启动 Jupyter：
+
+```bash
+jupyter notebook
+```
+
+浏览器会自动打开 `http://localhost:8888`。点击右上角 **New → Python 3**，新建一个 notebook。
+
+Jupyter 的核心概念是**单元格（cell）**：
+
+- 写一段代码 → 按 `Shift + Enter` → 立刻看到结果
+- 不需要每次都从头跑整个文件，特别适合数据分析这种需要反复试错的场景
+
+## 第一个量化程序：获取一只股票的数据
+
+在 Jupyter 中新建一个单元格，复制下面的代码：
+
+```python
+import akshare as ak
+import matplotlib.pyplot as plt
+
+# 获取贵州茅台（600519）最近的日 K 线
+df = ak.stock_zh_a_hist(
+    symbol="600519",
+    period="daily",
+    start_date="20240101",
+    end_date="20241231",
+    adjust="qfq"  # 前复权
+)
+
+print(df.head())
+```
+
+按 `Shift + Enter` 运行，你应该能看到类似这样的输出：
+
+```
+        日期    开盘    收盘    最高    最低     成交量  ...
+0  2024-01-02  1715.99  1685.00  1716.00  1681.99  31544  ...
+1  2024-01-03  1685.00  1694.61  1701.99  1681.30  20543  ...
+...
+```
+
+恭喜！你已经成功获取到真实的股票数据了。
+
+再加一个单元格画个图试试：
+
+```python
+df['日期'] = pd.to_datetime(df['日期'])
+df.set_index('日期', inplace=True)
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['收盘'], label='收盘价')
+plt.title('贵州茅台 2024 年走势')
+plt.xlabel('日期')
+plt.ylabel('价格')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+> ⚠️ **matplotlib 中文乱码？**
+> 如果图里中文显示成方块，加上这两行：
+> ```python
+> plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']  # macOS
+> # plt.rcParams['font.sans-serif'] = ['SimHei']  # Windows
+> plt.rcParams['axes.unicode_minus'] = False
+> ```
+
+## 推荐的项目结构
+
+随着学习深入，你的项目会越来越复杂。建议从一开始就用清晰的目录结构：
+
+```
+my-quant/
+├── .venv/              # 虚拟环境（不上传 git）
+├── data/               # 本地缓存的数据
+├── notebooks/          # Jupyter 探索性分析
+│   ├── 01-explore.ipynb
+│   └── 02-strategy.ipynb
+├── strategies/         # 策略代码
+├── utils/              # 工具函数
+├── pyproject.toml      # 项目配置
+└── README.md
+```
+
+不需要一开始就建得很复杂，等你有第一个能跑的策略时再来组织也不迟。
+
+## 小结
+
+到这里，你已经：
+
+- ✅ 安装好了 Python 和虚拟环境
+- ✅ 会用 Jupyter 写代码
+- ✅ 跑通了第一个获取股票数据的程序
+
+下一篇我们详细介绍 [行情数据获取](/docs/python-quant/data-fetching)，对比几个主流数据源，搞清楚什么场景用什么。
+
+> 📌 **小白提醒**
+> 如果以上有任何一步报错，不要慌。报错信息复制到 ChatGPT/Claude 里，让它帮你解释。学量化的第一课就是学会调试。

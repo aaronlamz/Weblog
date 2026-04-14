@@ -1,0 +1,252 @@
+---
+title: "行情数据获取"
+description: "富途 OpenAPI 实战 + 免费数据源对比"
+order: 2
+---
+
+数据是量化的起点。这一篇我们重点搞定**富途 OpenAPI**，因为它能拿到港美股的实时行情和历史数据，对于做港美股交易的人来说是最顺的选择。同时也会介绍几个免费数据源做补充。
+
+## 数据源选型
+
+| 数据源 | 覆盖市场 | 实时性 | 是否免费 | 优势 | 劣势 |
+|---|---|---|---|---|---|
+| **富途 OpenAPI** | 港美 A 股、期货、期权 | 实时 | 需要富途账号（基础免费） | 数据全、可下单 | 需要本地网关 |
+| **akshare** | A 股为主，部分港美 | 延迟 15min | 完全免费 | 无需账号 | 港美数据不全 |
+| **yfinance** | 美股为主 | 延迟 15min | 完全免费 | 简单易用 | 不稳定，偶尔被封 |
+| **tushare** | A 股 | 准实时 | 注册即用，部分付费 | A 股数据最全 | 港美股弱 |
+| **聚宽 / 米筐** | A 股 | 实时 | 付费 | 专业、稳定 | 价格高 |
+
+如果你跟我一样主要做港美股，**富途 OpenAPI 是最优选**。
+
+## 富途 OpenAPI 准备工作
+
+富途 OpenAPI 的架构跟其他数据源不太一样，它需要你本地跑一个**网关程序 FutuOpenD**，Python 通过 socket 跟这个网关通信，网关再去富途服务器拉数据。
+
+```
+你的 Python 代码  ←→  FutuOpenD（本地网关）  ←→  富途服务器
+```
+
+为什么这么设计？因为富途账号有交易权限，本地网关可以确保你的账号信息不会泄露给第三方。
+
+### Step 1: 下载 FutuOpenD
+
+去 [富途 OpenAPI 官网](https://openapi.futunn.com/futu-api-doc/intro/intro.html) 下载 FutuOpenD：
+
+- macOS / Windows / Linux 都有版本
+- 下载后是个独立的程序，不需要安装
+
+### Step 2: 启动 FutuOpenD 并登录
+
+启动 FutuOpenD，用你的富途账号登录。登录后会显示监听端口（默认 `11111`）。
+
+> ⚠️ **保持运行**
+> FutuOpenD 必须保持运行，Python 程序才能拿到数据。可以放在后台。
+
+### Step 3: 安装 Python SDK
+
+```bash
+uv pip install futu-api
+```
+
+## 获取行情数据
+
+新建一个 Jupyter notebook，先连接 FutuOpenD：
+
+```python
+from futu import OpenQuoteContext, RET_OK, KLType, AuType
+
+# 连接本地 FutuOpenD（默认端口 11111）
+quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+```
+
+### 1. 获取实时报价
+
+```python
+# 获取苹果股价
+ret, data = quote_ctx.get_market_snapshot(['US.AAPL'])
+
+if ret == RET_OK:
+    print(data)
+else:
+    print('error:', data)
+```
+
+港股代码格式是 `HK.00700`（腾讯），美股是 `US.AAPL`。
+
+### 2. 获取历史 K 线
+
+```python
+ret, data, page_req_key = quote_ctx.request_history_kline(
+    code='US.AAPL',
+    start='2024-01-01',
+    end='2024-12-31',
+    ktype=KLType.K_DAY,           # 日 K
+    autype=AuType.QFQ,            # 前复权
+    max_count=1000
+)
+
+if ret == RET_OK:
+    print(data.head())
+```
+
+返回的 `data` 是一个 pandas DataFrame，包含 `time_key`、`open`、`high`、`low`、`close`、`volume`、`turnover` 等字段。
+
+### 3. 订阅实时推送
+
+如果要做实盘策略，需要订阅实时推送：
+
+```python
+from futu import StockQuoteHandlerBase
+
+class StockQuoteHandler(StockQuoteHandlerBase):
+    def on_recv_rsp(self, rsp_pb):
+        ret, data = super().on_recv_rsp(rsp_pb)
+        if ret == RET_OK:
+            print(data)
+        return RET_OK, data
+
+# 注册 handler
+quote_ctx.set_handler(StockQuoteHandler())
+
+# 订阅腾讯的实时报价
+quote_ctx.subscribe(['HK.00700'], ['QUOTE'])
+```
+
+### 4. 获取股票列表
+
+```python
+from futu import Market, SecurityType
+
+# 获取美股所有 ETF
+ret, data = quote_ctx.get_stock_basicinfo(
+    market=Market.US,
+    stock_type=SecurityType.ETF
+)
+print(data.head())
+```
+
+### 5. 用完关闭连接
+
+```python
+quote_ctx.close()
+```
+
+> 💡 **数据权限**
+> - 港股 / 美股 Level 1 数据是免费的
+> - 港股 Level 2、美股 Nasdaq TotalView 等高级数据需要付费订阅
+> - A 股 Level 2 也需要付费
+
+## 封装一个简易的数据获取函数
+
+每次都写 `get_market_snapshot`、`request_history_kline` 太啰嗦，封装一下：
+
+```python
+from futu import OpenQuoteContext, RET_OK, KLType, AuType
+
+def fetch_kline(code: str, start: str, end: str, ktype=KLType.K_DAY):
+    """
+    获取历史 K 线
+    code: 'US.AAPL' / 'HK.00700' / 'SH.600519'
+    start, end: '2024-01-01' 格式
+    """
+    ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+    try:
+        ret, data, _ = ctx.request_history_kline(
+            code=code,
+            start=start,
+            end=end,
+            ktype=ktype,
+            autype=AuType.QFQ,
+            max_count=1000
+        )
+        if ret != RET_OK:
+            raise Exception(f'fetch failed: {data}')
+        return data
+    finally:
+        ctx.close()
+
+# 使用
+df = fetch_kline('US.AAPL', '2024-01-01', '2024-12-31')
+print(df.head())
+```
+
+## 数据缓存
+
+频繁请求行情数据既慢又浪费配额，建议把拉到的数据缓存到本地：
+
+```python
+import os
+import pandas as pd
+
+def fetch_kline_cached(code: str, start: str, end: str, cache_dir='./data'):
+    os.makedirs(cache_dir, exist_ok=True)
+    cache_file = f'{cache_dir}/{code.replace(".", "_")}_{start}_{end}.parquet'
+
+    if os.path.exists(cache_file):
+        return pd.read_parquet(cache_file)
+
+    df = fetch_kline(code, start, end)
+    df.to_parquet(cache_file)
+    return df
+```
+
+`parquet` 格式比 csv 小 5-10 倍，读写也快。
+
+## 备选方案：免费数据源
+
+如果你只是想学习回测，不需要实盘，免费数据源也够用了。
+
+### akshare 获取美股
+
+```python
+import akshare as ak
+
+# 获取苹果历史数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+print(df.head())
+```
+
+### akshare 获取港股
+
+```python
+df = ak.stock_hk_daily(symbol="00700", adjust="qfq")
+print(df.head())
+```
+
+### yfinance（备用）
+
+```python
+import yfinance as yf
+
+ticker = yf.Ticker("AAPL")
+df = ticker.history(start="2024-01-01", end="2024-12-31")
+print(df.head())
+```
+
+> ⚠️ yfinance 时不时会被 Yahoo 风控，不太适合生产环境。学习时凑合能用。
+
+## 富途 vs 免费数据源什么时候用什么
+
+| 场景 | 推荐 |
+|---|---|
+| 学习、回测、研究 | akshare（免费够用） |
+| 实盘策略、需要实时报价 | 富途 OpenAPI |
+| 需要下单交易 | 富途 OpenAPI |
+| 多市场对比研究 | 富途 OpenAPI（数据更全） |
+
+我自己的做法：**学习阶段用 akshare 免费数据，写完策略要实盘之前再切换到富途**。这样既省事又能快速验证想法。
+
+## 小结
+
+到这里你已经能：
+
+- ✅ 配好富途 OpenAPI 环境
+- ✅ 拉到港美股的实时和历史数据
+- ✅ 把数据缓存到本地
+
+下一篇我们用 [Pandas 处理金融时间序列数据](/docs/python-quant/pandas-basics)，学会怎么把这些原始数据变成可以分析的格式。
+
+> 📌 **常见坑**
+> - **连接失败** → 检查 FutuOpenD 是否运行，端口是否一致
+> - **数据为空** → 检查股票代码格式（要带 `US.` / `HK.` 前缀）
+> - **被限流** → 富途有频率限制，每秒最多 10 次请求，多了会拒绝

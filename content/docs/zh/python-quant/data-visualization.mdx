@@ -1,0 +1,368 @@
+---
+title: "数据可视化"
+description: "matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"
+order: 4
+---
+
+数据可视化是量化研究里非常重要的一环。一张图胜过千行 print —— 价格走势、信号触发、收益曲线，看一眼就明白。这一篇我们用三种工具搞定常见的金融图表。
+
+## 工具对比
+
+| 工具 | 适用场景 | 优点 | 缺点 |
+|---|---|---|---|
+| **matplotlib** | 通用绘图、收益曲线 | 灵活、可定制 | API 啰嗦 |
+| **mplfinance** | 专业 K 线图 | 一行画 K 线 | 只能画 K 线 |
+| **plotly** | 交互式图表 | 可缩放、悬停 | 文件大 |
+
+实战中三个一起用：研究阶段用 matplotlib + mplfinance，给别人展示用 plotly。
+
+## 准备工作
+
+```bash
+uv pip install matplotlib mplfinance plotly
+```
+
+中文字体配置（避免方块）：
+
+```python
+import matplotlib.pyplot as plt
+
+# macOS
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+# Windows / Linux 用下面这行
+# plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+```
+
+继续用上一篇的苹果数据：
+
+```python
+import akshare as ak
+import pandas as pd
+
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2024-01-01'].set_index('date')
+```
+
+## matplotlib：基础绘图
+
+### 收盘价折线
+
+```python
+plt.figure(figsize=(12, 5))
+plt.plot(df.index, df['close'], label='AAPL 收盘价', color='#3b82f6')
+plt.title('苹果 2024 年走势')
+plt.xlabel('日期')
+plt.ylabel('价格 (USD)')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+### 多线对比
+
+```python
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+df['MA60'] = df['close'].rolling(60).mean()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['close'], label='收盘价', color='black', linewidth=1.5)
+plt.plot(df['MA5'],   label='MA5',  color='#ef4444', linewidth=1)
+plt.plot(df['MA20'],  label='MA20', color='#3b82f6', linewidth=1)
+plt.plot(df['MA60'],  label='MA60', color='#8b5cf6', linewidth=1)
+plt.title('AAPL 价格 + 均线')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+### 双 Y 轴：价格 + 成交量
+
+```python
+fig, ax1 = plt.subplots(figsize=(12, 5))
+
+# 左 Y 轴：价格
+ax1.plot(df['close'], color='#3b82f6', label='收盘价')
+ax1.set_xlabel('日期')
+ax1.set_ylabel('价格', color='#3b82f6')
+ax1.tick_params(axis='y', labelcolor='#3b82f6')
+
+# 右 Y 轴：成交量
+ax2 = ax1.twinx()
+ax2.bar(df.index, df['volume'], alpha=0.3, color='gray', label='成交量')
+ax2.set_ylabel('成交量', color='gray')
+ax2.tick_params(axis='y', labelcolor='gray')
+
+plt.title('AAPL 价格与成交量')
+plt.tight_layout()
+plt.show()
+```
+
+## mplfinance：专业 K 线图
+
+`matplotlib` 画 K 线很麻烦，专门有个库叫 `mplfinance`，一行就能搞定。
+
+### 最简 K 线
+
+```python
+import mplfinance as mpf
+
+# mplfinance 要求列名是 Open / High / Low / Close / Volume
+df_mpf = df.rename(columns={
+    'open':'Open', 'high':'High', 'low':'Low',
+    'close':'Close', 'volume':'Volume'
+})
+
+mpf.plot(df_mpf, type='candle', style='yahoo', title='AAPL', volume=True)
+```
+
+### K 线 + 均线 + 成交量
+
+```python
+mpf.plot(
+    df_mpf,
+    type='candle',
+    style='yahoo',
+    title='AAPL 2024',
+    volume=True,
+    mav=(5, 20, 60),           # 5/20/60 日均线
+    figratio=(16, 9),
+    figscale=1.2,
+)
+```
+
+### 自定义颜色（红涨绿跌，A 股风格）
+
+mplfinance 默认是欧美风格（绿涨红跌），改成 A 股风格：
+
+```python
+mc = mpf.make_marketcolors(
+    up='red', down='green',
+    edge='inherit',
+    wick='inherit',
+    volume='inherit'
+)
+s = mpf.make_mpf_style(marketcolors=mc, base_mpf_style='yahoo')
+
+mpf.plot(df_mpf, type='candle', style=s, mav=(5, 20), volume=True)
+```
+
+### 在 K 线上标记买卖点
+
+```python
+# 假设有这样一个信号 DataFrame
+df_mpf['MA5']  = df_mpf['Close'].rolling(5).mean()
+df_mpf['MA20'] = df_mpf['Close'].rolling(20).mean()
+
+# 金叉点（MA5 上穿 MA20）
+buy = df_mpf['Close'].where(
+    (df_mpf['MA5'] > df_mpf['MA20']) & (df_mpf['MA5'].shift(1) <= df_mpf['MA20'].shift(1))
+)
+
+# 死叉点
+sell = df_mpf['Close'].where(
+    (df_mpf['MA5'] < df_mpf['MA20']) & (df_mpf['MA5'].shift(1) >= df_mpf['MA20'].shift(1))
+)
+
+apds = [
+    mpf.make_addplot(buy,  type='scatter', marker='^', color='red',   markersize=100),
+    mpf.make_addplot(sell, type='scatter', marker='v', color='green', markersize=100),
+]
+
+mpf.plot(df_mpf, type='candle', addplot=apds, mav=(5, 20), volume=True, style='yahoo')
+```
+
+## 收益曲线对比
+
+策略回测最常画的图就是**收益曲线对比**（策略 vs 基准）。
+
+```python
+import numpy as np
+
+# 计算策略收益（双均线为例）
+df['signal'] = np.where(df['MA5'] > df['MA20'], 1, 0)
+df['return'] = df['close'].pct_change()
+df['strategy_return'] = df['signal'].shift(1) * df['return']
+
+# 累计收益
+df['cum_market']   = (1 + df['return']).cumprod()
+df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['cum_market'],   label='Buy & Hold', color='#94a3b8', linewidth=1.5)
+plt.plot(df['cum_strategy'], label='双均线策略', color='#3b82f6', linewidth=2)
+plt.title('策略 vs 基准')
+plt.ylabel('累计净值')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.axhline(y=1, color='black', linestyle='--', alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+## 回撤图
+
+最大回撤是衡量风险的关键指标，常和收益曲线一起画。
+
+```python
+def drawdown(returns):
+    cum = (1 + returns).cumprod()
+    peak = cum.cummax()
+    return (cum - peak) / peak
+
+df['drawdown'] = drawdown(df['strategy_return'])
+
+fig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True,
+                          gridspec_kw={'height_ratios': [3, 1]})
+
+# 上方：净值曲线
+axes[0].plot(df['cum_strategy'], color='#3b82f6', linewidth=2)
+axes[0].set_title('策略表现')
+axes[0].set_ylabel('净值')
+axes[0].grid(True, alpha=0.3)
+
+# 下方：回撤
+axes[1].fill_between(df.index, df['drawdown'], 0, color='#ef4444', alpha=0.4)
+axes[1].set_ylabel('回撤')
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+## plotly：交互式图表
+
+`plotly` 画的图可以缩放、悬停查看数据，特别适合在 Jupyter 里探索数据，或者放到网页上展示。
+
+### 交互式 K 线
+
+```python
+import plotly.graph_objects as go
+
+fig = go.Figure(data=[go.Candlestick(
+    x=df.index,
+    open=df['open'],
+    high=df['high'],
+    low=df['low'],
+    close=df['close'],
+    name='AAPL'
+)])
+
+fig.update_layout(
+    title='AAPL 交互式 K 线',
+    xaxis_title='日期',
+    yaxis_title='价格',
+    xaxis_rangeslider_visible=False,  # 隐藏底部缩略图
+    template='plotly_white',
+)
+
+fig.show()
+```
+
+鼠标悬停在 K 线上会显示当天的开高低收，可以拖动缩放。
+
+### K 线 + 均线 + 成交量子图
+
+```python
+from plotly.subplots import make_subplots
+
+fig = make_subplots(
+    rows=2, cols=1,
+    shared_xaxes=True,
+    vertical_spacing=0.03,
+    row_heights=[0.7, 0.3],
+    subplot_titles=('AAPL', '成交量')
+)
+
+# K 线
+fig.add_trace(go.Candlestick(
+    x=df.index, open=df['open'], high=df['high'],
+    low=df['low'], close=df['close'], name='K线'
+), row=1, col=1)
+
+# 均线
+fig.add_trace(go.Scatter(x=df.index, y=df['MA5'],  name='MA5',  line=dict(color='red',  width=1)), row=1, col=1)
+fig.add_trace(go.Scatter(x=df.index, y=df['MA20'], name='MA20', line=dict(color='blue', width=1)), row=1, col=1)
+
+# 成交量
+colors = ['red' if c >= o else 'green' for o, c in zip(df['open'], df['close'])]
+fig.add_trace(go.Bar(x=df.index, y=df['volume'], marker_color=colors, name='成交量'), row=2, col=1)
+
+fig.update_layout(
+    height=700,
+    showlegend=True,
+    xaxis_rangeslider_visible=False,
+    template='plotly_white',
+)
+
+fig.show()
+```
+
+## 保存图片
+
+```python
+# matplotlib
+plt.savefig('output.png', dpi=150, bbox_inches='tight')
+
+# mplfinance
+mpf.plot(df_mpf, type='candle', savefig='kline.png')
+
+# plotly
+fig.write_image('plotly.png')   # 需要安装 kaleido: uv pip install kaleido
+fig.write_html('plotly.html')   # HTML 文件可以双击打开看交互
+```
+
+## 一个完整的策略可视化函数
+
+把上面学的封装成一个常用函数：
+
+```python
+def plot_strategy(df, title='Strategy'):
+    """
+    画策略表现：净值曲线 + 回撤
+    df 需要包含: cum_market, cum_strategy, drawdown 列
+    """
+    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True,
+                              gridspec_kw={'height_ratios': [3, 1]})
+
+    # 净值对比
+    axes[0].plot(df['cum_market'],   label='Buy & Hold', color='#94a3b8', linewidth=1.5)
+    axes[0].plot(df['cum_strategy'], label='策略',        color='#3b82f6', linewidth=2)
+    axes[0].set_title(title, fontsize=14, fontweight='bold')
+    axes[0].set_ylabel('净值')
+    axes[0].legend(loc='upper left')
+    axes[0].grid(True, alpha=0.3)
+    axes[0].axhline(y=1, color='black', linestyle='--', alpha=0.3)
+
+    # 回撤
+    axes[1].fill_between(df.index, df['drawdown'] * 100, 0, color='#ef4444', alpha=0.4)
+    axes[1].set_ylabel('回撤 (%)')
+    axes[1].set_xlabel('日期')
+    axes[1].grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()
+```
+
+后面写策略时直接调用这个函数就行。
+
+## 小结
+
+这一篇覆盖了量化研究 90% 的可视化需求：
+
+- ✅ matplotlib 基础绘图
+- ✅ mplfinance 专业 K 线图（含买卖点标注）
+- ✅ 收益曲线 + 回撤双图布局
+- ✅ plotly 交互式图表
+- ✅ 图表保存
+
+下一篇我们手撕 [常用技术指标](/docs/python-quant/technical-indicators)，把 MA、MACD、RSI、KDJ 这些指标的原理和实现都搞清楚。
+
+> 📌 **画图建议**
+> - **探索阶段**：用 plotly，方便缩放对比
+> - **正式输出**：用 matplotlib 控制细节，导出高清图
+> - **K 线相关**：直接上 mplfinance，省心

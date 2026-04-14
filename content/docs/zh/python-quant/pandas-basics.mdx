@@ -1,0 +1,311 @@
+---
+title: "Pandas 基础（金融场景）"
+description: "DataFrame 处理 K 线、时间序列、resample、滚动窗口"
+order: 3
+---
+
+Pandas 是量化里最重要的库，没有之一。这一篇不会从零教你 pandas 语法，而是聚焦在**金融数据分析最常用的几个操作**：处理 K 线、计算收益率、滚动窗口、频率转换。
+
+## 准备数据
+
+继续用上一篇的方法获取一段历史数据。这里用 akshare 演示，方便你在没有富途环境时也能跑：
+
+```python
+import akshare as ak
+import pandas as pd
+
+# 获取苹果的日 K 数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df = df[df['date'] >= '2023-01-01'].reset_index(drop=True)
+print(df.head())
+```
+
+输出大概长这样：
+
+```
+        date     open     high      low    close      volume
+0 2023-01-03  130.28   130.90   124.17   125.07  112117500
+1 2023-01-04  126.89   128.66   125.08   126.36   89113600
+...
+```
+
+## DataFrame 的两个核心概念
+
+```python
+print(type(df))          # pandas.DataFrame — 表格
+print(type(df['close'])) # pandas.Series — 一列
+```
+
+简单理解：
+- **DataFrame** = 二维表格（多列）
+- **Series** = 一列（一维数据 + 索引）
+
+大部分操作都是在这两者之间转换。
+
+## 时间序列索引：金融数据的灵魂
+
+K 线数据的索引一定要是**时间**，不然没法做时间序列分析。
+
+```python
+# 把 date 列转成 datetime 类型
+df['date'] = pd.to_datetime(df['date'])
+
+# 把 date 设置为索引
+df.set_index('date', inplace=True)
+
+print(df.head())
+```
+
+设好索引后，你可以用日期切片：
+
+```python
+# 取 2024 年的数据
+df_2024 = df.loc['2024']
+
+# 取 2024 年 3 月的数据
+df_mar = df.loc['2024-03']
+
+# 取一个区间
+df_q1 = df.loc['2024-01':'2024-03']
+```
+
+这种切片语法只有 DatetimeIndex 才支持，非常方便。
+
+## 计算收益率
+
+收益率是金融分析的基本单位。pandas 里一行代码搞定：
+
+```python
+# 简单收益率（日涨跌幅）
+df['return'] = df['close'].pct_change()
+
+# 对数收益率（更适合统计计算）
+import numpy as np
+df['log_return'] = np.log(df['close'] / df['close'].shift(1))
+
+print(df[['close', 'return', 'log_return']].head())
+```
+
+> 💡 **简单收益率 vs 对数收益率**
+> - 简单收益率直观，适合展示
+> - 对数收益率可加（多日累计直接相加），适合统计建模和计算波动率
+
+### 累计收益率
+
+```python
+# 累计收益率（基于简单收益率）
+df['cum_return'] = (1 + df['return']).cumprod() - 1
+
+# 或者直接用收盘价归一
+df['cum_return_v2'] = df['close'] / df['close'].iloc[0] - 1
+
+print(df[['close', 'cum_return']].tail())
+```
+
+## 滚动窗口：均线、波动率全靠它
+
+`rolling` 是金融场景出现频率最高的方法之一。
+
+### 移动平均线（MA）
+
+```python
+df['MA5']  = df['close'].rolling(window=5).mean()
+df['MA20'] = df['close'].rolling(window=20).mean()
+df['MA60'] = df['close'].rolling(window=60).mean()
+```
+
+5 日、20 日、60 日均线一行一个。
+
+### 滚动波动率
+
+```python
+# 20 日滚动标准差，乘以 sqrt(252) 年化
+df['volatility_20d'] = df['return'].rolling(20).std() * np.sqrt(252)
+```
+
+### 滚动最高 / 最低（用于止损或突破策略）
+
+```python
+df['high_20d'] = df['high'].rolling(20).max()
+df['low_20d']  = df['low'].rolling(20).min()
+```
+
+### 自定义滚动逻辑
+
+如果内置方法不够用，可以传一个函数：
+
+```python
+# 滚动 20 日的 25% 分位数
+df['p25_20d'] = df['close'].rolling(20).quantile(0.25)
+
+# 自定义函数：滚动 20 日的最大回撤
+def max_drawdown(s):
+    cum = (1 + s).cumprod()
+    return (cum / cum.cummax() - 1).min()
+
+df['mdd_20d'] = df['return'].rolling(20).apply(max_drawdown, raw=False)
+```
+
+## resample：频率转换
+
+实战中经常需要把日 K 转成周 K、月 K。`resample` 一句话搞定：
+
+```python
+# 日 K → 周 K
+weekly = df.resample('W').agg({
+    'open':   'first',
+    'high':   'max',
+    'low':    'min',
+    'close':  'last',
+    'volume': 'sum'
+})
+
+# 日 K → 月 K
+monthly = df.resample('ME').agg({  # ME = Month End
+    'open':   'first',
+    'high':   'max',
+    'low':    'min',
+    'close':  'last',
+    'volume': 'sum'
+})
+```
+
+常用频率字符串：
+
+| 字符串 | 含义 |
+|---|---|
+| `D` | 日 |
+| `W` | 周（默认周日结束） |
+| `ME` | 月末 |
+| `QE` | 季末 |
+| `YE` | 年末 |
+| `5min` | 5 分钟 |
+| `1h` | 1 小时 |
+
+## 处理多只股票
+
+实际研究经常要对比多只股票，常见做法是把它们拼成一个多列 DataFrame：
+
+```python
+def fetch_close(symbol):
+    df = ak.stock_us_daily(symbol=symbol, adjust="qfq")
+    df['date'] = pd.to_datetime(df['date'])
+    df.set_index('date', inplace=True)
+    return df['close'].rename(symbol)
+
+# 拉取苹果、微软、谷歌的收盘价
+prices = pd.concat([
+    fetch_close('AAPL'),
+    fetch_close('MSFT'),
+    fetch_close('GOOGL')
+], axis=1)
+
+prices = prices.loc['2023-01-01':]
+print(prices.head())
+```
+
+输出：
+
+```
+              AAPL    MSFT   GOOGL
+date
+2023-01-03  125.07  239.58   89.12
+2023-01-04  126.36  229.10   88.08
+...
+```
+
+### 一次性计算所有股票的收益率
+
+```python
+returns = prices.pct_change().dropna()
+print(returns.head())
+```
+
+### 计算相关性矩阵
+
+```python
+print(returns.corr())
+```
+
+输出：
+
+```
+         AAPL    MSFT   GOOGL
+AAPL   1.000   0.652   0.583
+MSFT   0.652   1.000   0.621
+GOOGL  0.583   0.621   1.000
+```
+
+这就是组合对冲 / 配对交易策略的基础。
+
+## 缺失值处理
+
+K 线数据偶尔会有缺失（停牌、节假日等），常见处理方式：
+
+```python
+# 用前一个值填充（最常用）
+df['close'].ffill()
+
+# 用后一个值填充
+df['close'].bfill()
+
+# 直接删除有缺失的行
+df.dropna()
+
+# 用 0 填充（一般不推荐）
+df['close'].fillna(0)
+```
+
+## 一个完整的小例子：双均线信号
+
+把上面学的串起来，写一个简单的双均线信号生成：
+
+```python
+import akshare as ak
+import pandas as pd
+import numpy as np
+
+# 1. 获取数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2023-01-01'].set_index('date')
+
+# 2. 计算均线
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+
+# 3. 生成信号：MA5 上穿 MA20 → 1（买入），下穿 → -1（卖出）
+df['signal'] = 0
+df.loc[df['MA5'] > df['MA20'], 'signal'] = 1
+df.loc[df['MA5'] < df['MA20'], 'signal'] = -1
+
+# 4. 计算策略收益
+df['return'] = df['close'].pct_change()
+df['strategy_return'] = df['signal'].shift(1) * df['return']  # shift 避免未来函数
+
+# 5. 累计收益对比
+df['cum_market']   = (1 + df['return']).cumprod()
+df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+print(df[['cum_market', 'cum_strategy']].tail())
+```
+
+> ⚠️ **避免未来函数**
+> 信号要 `shift(1)`，意思是"今天的信号根据昨天的均线产生，明天才能交易"。否则就是用未来数据预测过去，回测结果会假到离谱。这是新手最常犯的错误。
+
+## 小结
+
+这一篇覆盖了金融场景下 90% 的 pandas 操作：
+
+- ✅ DatetimeIndex 时间切片
+- ✅ 收益率计算（简单 / 对数 / 累计）
+- ✅ 滚动窗口（均线 / 波动率 / 最高最低）
+- ✅ resample 频率转换
+- ✅ 多股票对比与相关性
+- ✅ 缺失值处理
+- ✅ 一个完整的双均线策略雏形
+
+下一篇我们学 [数据可视化](/docs/python-quant/data-visualization)，把这些数字变成直观的图表。
+
+> 📌 **小白建议**
+> Pandas 函数太多记不住很正常，我自己写代码也经常查文档。学的方法是：**遇到一个具体问题 → 搜怎么解决 → 用一次记住**。比看教程死记硬背高效一百倍。

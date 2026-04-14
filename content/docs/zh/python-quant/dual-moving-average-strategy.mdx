@@ -1,0 +1,237 @@
+---
+title: "第一个策略：双均线"
+description: "策略逻辑、信号生成、仓位管理、回测对比"
+order: 6
+---
+
+终于到写策略的环节了。这一篇我们从零实现一个完整的**双均线策略**，包括信号生成、仓位管理、收益计算和绩效评估。这是你的第一个真正可执行的量化策略。
+
+## 双均线策略原理
+
+策略思想极其简单：
+
+- **MA5 上穿 MA20**（金叉）→ 买入
+- **MA5 下穿 MA20**（死叉）→ 卖出
+
+背后的逻辑：短期均线代表近期趋势，长期均线代表中期趋势。当短期向上突破长期，说明上涨动能增强；反之亦然。
+
+它的优点是**简单、易理解、能在趋势行情中赚钱**；缺点是**震荡行情中频繁打脸**。
+
+## 第一版：信号生成
+
+```python
+import akshare as ak
+import pandas as pd
+import numpy as np
+
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2022-01-01'].set_index('date')
+
+# 计算均线
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+
+# 生成持仓信号：MA5 > MA20 时持有，否则空仓
+df['position'] = (df['MA5'] > df['MA20']).astype(int)
+```
+
+`position` 列的含义：1 表示满仓持有，0 表示空仓。
+
+## 第二版：避免未来函数
+
+新手最常犯的错误是用**当天的均线**判断**当天的开仓**，但实际交易中你今天收盘后才知道均线值，最早只能明天开盘买。
+
+```python
+# 信号 shift(1)：今天的持仓基于昨天的信号
+df['position'] = (df['MA5'] > df['MA20']).astype(int).shift(1)
+```
+
+这一行 `shift(1)` 是回测真实性的关键。
+
+## 第三版：计算策略收益
+
+```python
+df['return'] = df['close'].pct_change()
+df['strategy_return'] = df['position'] * df['return']
+
+# 累计净值
+df['cum_market']   = (1 + df['return']).cumprod()
+df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+print(df[['cum_market', 'cum_strategy']].tail())
+```
+
+## 第四版：考虑交易成本
+
+实盘有手续费、印花税、滑点。简单起见，我们假设单边手续费 0.03%（万三）。
+
+```python
+COMMISSION = 0.0003
+
+# 持仓变化才扣手续费
+df['trade'] = df['position'].diff().abs()
+df['commission'] = df['trade'] * COMMISSION
+
+df['strategy_return_net'] = df['strategy_return'] - df['commission']
+df['cum_strategy_net'] = (1 + df['strategy_return_net']).cumprod()
+```
+
+## 第五版：绩效指标
+
+```python
+def performance_metrics(returns, periods_per_year=252):
+    """计算关键绩效指标"""
+    total_return = (1 + returns).prod() - 1
+    n_years = len(returns) / periods_per_year
+    annual_return = (1 + total_return) ** (1 / n_years) - 1
+    annual_vol = returns.std() * np.sqrt(periods_per_year)
+    sharpe = annual_return / annual_vol if annual_vol > 0 else 0
+
+    cum = (1 + returns).cumprod()
+    drawdown = (cum / cum.cummax() - 1).min()
+
+    win_rate = (returns > 0).sum() / (returns != 0).sum()
+
+    return {
+        '总收益':   f'{total_return:.2%}',
+        '年化收益': f'{annual_return:.2%}',
+        '年化波动': f'{annual_vol:.2%}',
+        '夏普比率': f'{sharpe:.2f}',
+        '最大回撤': f'{drawdown:.2%}',
+        '日胜率':   f'{win_rate:.2%}',
+    }
+
+# 对比基准和策略
+print('基准（Buy & Hold）:')
+print(performance_metrics(df['return'].dropna()))
+
+print('\n策略（含手续费）:')
+print(performance_metrics(df['strategy_return_net'].dropna()))
+```
+
+## 第六版：可视化
+
+```python
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']  # macOS
+plt.rcParams['axes.unicode_minus'] = False
+
+fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True,
+                          gridspec_kw={'height_ratios': [3, 1]})
+
+# 净值曲线
+axes[0].plot(df['cum_market'],       label='Buy & Hold', color='#94a3b8', linewidth=1.5)
+axes[0].plot(df['cum_strategy_net'], label='双均线策略', color='#3b82f6', linewidth=2)
+axes[0].set_title('双均线策略 vs Buy & Hold', fontsize=14, fontweight='bold')
+axes[0].set_ylabel('净值')
+axes[0].legend()
+axes[0].grid(True, alpha=0.3)
+axes[0].axhline(y=1, color='black', linestyle='--', alpha=0.3)
+
+# 回撤
+def drawdown(returns):
+    cum = (1 + returns).cumprod()
+    return (cum / cum.cummax() - 1)
+
+dd = drawdown(df['strategy_return_net'])
+axes[1].fill_between(df.index, dd * 100, 0, color='#ef4444', alpha=0.4)
+axes[1].set_ylabel('回撤 (%)')
+axes[1].set_xlabel('日期')
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+## 完整代码：封装成函数
+
+```python
+def backtest_dual_ma(df, fast=5, slow=20, commission=0.0003):
+    """
+    双均线策略回测
+    df: 包含 close 列的 DataFrame，索引是日期
+    fast / slow: 快慢线周期
+    commission: 单边手续费
+    """
+    df = df.copy()
+    df[f'MA{fast}'] = df['close'].rolling(fast).mean()
+    df[f'MA{slow}'] = df['close'].rolling(slow).mean()
+
+    # 生成持仓信号（避免未来函数）
+    df['position'] = (df[f'MA{fast}'] > df[f'MA{slow}']).astype(int).shift(1)
+
+    # 收益计算
+    df['return'] = df['close'].pct_change()
+    df['trade'] = df['position'].diff().abs()
+    df['commission'] = df['trade'] * commission
+    df['strategy_return'] = df['position'] * df['return'] - df['commission']
+
+    # 净值
+    df['cum_market']   = (1 + df['return']).cumprod()
+    df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+    return df
+
+# 使用
+result = backtest_dual_ma(df, fast=5, slow=20)
+print(performance_metrics(result['strategy_return'].dropna()))
+```
+
+## 参数优化
+
+不同的均线周期效果差异很大。可以做个简单的参数扫描：
+
+```python
+results = []
+for fast in [5, 10, 15]:
+    for slow in [20, 30, 60]:
+        if fast >= slow:
+            continue
+        result = backtest_dual_ma(df, fast=fast, slow=slow)
+        ret = result['strategy_return'].dropna()
+        total = (1 + ret).prod() - 1
+        sharpe = ret.mean() / ret.std() * np.sqrt(252)
+        results.append({
+            'fast': fast, 'slow': slow,
+            'total_return': total, 'sharpe': sharpe
+        })
+
+opt_df = pd.DataFrame(results).sort_values('sharpe', ascending=False)
+print(opt_df)
+```
+
+> ⚠️ **小心过拟合**
+> 不要光盯着夏普最高的参数。如果一组参数明显优于其他组合，很可能是过拟合到这段历史数据上。一个好的策略应该对参数变化**不敏感**。
+
+## 双均线策略的局限
+
+实际跑一下你会发现，这个策略在很多股票上**跑不赢 Buy & Hold**。原因：
+
+1. **震荡行情打脸严重** — 频繁金叉死叉，不停被止损
+2. **滞后性** — 等到信号出现，行情已经走了一半
+3. **没有止损止盈** — 趋势反转时可能交回所有利润
+
+改进方向（后续可以试）：
+- 加入 ATR 动态止损
+- 用 EMA 替代 SMA 减少滞后
+- 加入波动率过滤（震荡时不交易）
+- 多周期组合（日线 + 周线）
+
+## 小结
+
+你已经完整走过了一个量化策略的开发流程：
+
+- ✅ 信号生成
+- ✅ 避免未来函数
+- ✅ 考虑交易成本
+- ✅ 计算绩效指标
+- ✅ 可视化
+- ✅ 参数优化
+- ✅ 反思局限
+
+但我们目前是手撸回测，代码很啰嗦。下一篇 [回测框架入门](/docs/python-quant/backtest-framework)，我们用专业的回测框架 backtrader 让代码更规范。
+
+> 📌 **最重要的一课**
+> 不要拿着这个策略直接去实盘。它的目的是让你**理解策略开发的流程**，不是让你赚钱。真正能赚钱的策略需要更多的细节打磨和真实的市场理解。

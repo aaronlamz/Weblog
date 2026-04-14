@@ -1,0 +1,306 @@
+---
+title: "从回测到实盘"
+description: "模拟盘 → 实盘的注意事项、富途 API 下单实战"
+order: 10
+---
+
+回测里赚 100% 不代表实盘能赚 100%。这一篇我们讨论从纸上策略到真金白银交易的所有坑。
+
+## 回测 vs 实盘的本质区别
+
+| 维度 | 回测 | 实盘 |
+|---|---|---|
+| 数据 | 完整、整理过 | 实时、可能延迟、可能错误 |
+| 成交 | 假设按收盘价成交 | 滑点、流动性、撮合规则 |
+| 资金 | 无限假设 | 真实资金，有承受底线 |
+| 心理 | 看历史无压力 | 真亏钱时手抖 |
+| 时间 | 几秒跑完 | 实时等待 |
+
+很多回测看起来很美的策略，实盘第一天就挂了。原因往往是：
+
+1. **未来函数** — 用了回测时才能看到的数据
+2. **滑点过乐观** — 实际成交价 ≠ 信号价
+3. **流动性陷阱** — 小盘股根本买不到那么多
+4. **手续费没算够** — 高频策略尤其敏感
+5. **心理崩溃** — 第一笔大亏就割肉了
+
+## 实盘前必做的检查
+
+### 1. 走纸上交易（Paper Trading）
+
+策略上线前，先用**实时数据 + 假账户**跑一段时间。富途 OpenAPI 支持模拟交易：
+
+```python
+from futu import OpenSecTradeContext, TrdEnv, TrdMarket
+
+# SIMULATE 表示模拟环境
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host='127.0.0.1',
+    port=11111
+)
+
+# 解锁交易（模拟环境也需要）
+ret, data = trd_ctx.unlock_trade(password_md5='your_password_md5')
+```
+
+模拟跑 1-2 个月，看看：
+- 信号触发是否符合预期
+- 成交价和信号价的偏差
+- 系统稳定性（断网怎么办？程序挂了怎么办？）
+
+### 2. 小资金试水
+
+模拟 OK 后，**不要立刻全仓**。先用 1-5% 的资金跑一个月，确认没有 bug 再加仓。
+
+### 3. 准备应急方案
+
+提前想清楚：
+- 程序崩了怎么手动平仓？
+- 网络断了仓位怎么处理？
+- 策略亏到 X% 时强制停止？
+
+## 富途 API 下单实战
+
+### 解锁交易
+
+```python
+from futu import OpenSecTradeContext, TrdEnv, TrdMarket
+import hashlib
+
+# 你的交易密码 MD5
+password = '123456'  # 替换为你的密码
+password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host='127.0.0.1',
+    port=11111
+)
+
+# 解锁交易
+ret, data = trd_ctx.unlock_trade(password_md5=password_md5)
+if ret != 0:
+    print('解锁失败:', data)
+```
+
+### 查询账户
+
+```python
+# 查询账户资金
+ret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+
+# 查询持仓
+ret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+```
+
+### 下单
+
+```python
+from futu import OrderType, TrdSide
+
+# 限价买入
+ret, data = trd_ctx.place_order(
+    price=180.0,
+    qty=10,
+    code='US.AAPL',
+    trd_side=TrdSide.BUY,
+    order_type=OrderType.NORMAL,
+    trd_env=TrdEnv.SIMULATE,
+)
+
+if ret == 0:
+    order_id = data['order_id'].iloc[0]
+    print(f'下单成功，订单ID: {order_id}')
+else:
+    print('下单失败:', data)
+```
+
+### 查询订单状态
+
+```python
+ret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+```
+
+### 撤单
+
+```python
+from futu import ModifyOrderOp
+
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.CANCEL,
+    order_id=order_id,
+    qty=0, price=0,
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+## 一个完整的实盘策略框架
+
+把所有部分整合起来：
+
+```python
+import time
+from futu import (
+    OpenQuoteContext, OpenSecTradeContext,
+    RET_OK, KLType, AuType, TrdMarket, TrdEnv,
+    OrderType, TrdSide, ModifyOrderOp
+)
+
+class DualMALiveStrategy:
+    def __init__(self, code, fast=5, slow=20, env=TrdEnv.SIMULATE):
+        self.code = code
+        self.fast = fast
+        self.slow = slow
+        self.env = env
+
+        self.quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+        self.trd_ctx = OpenSecTradeContext(
+            filter_trdmarket=TrdMarket.US,
+            host='127.0.0.1',
+            port=11111
+        )
+
+    def get_signal(self):
+        """获取最新信号"""
+        ret, df, _ = self.quote_ctx.request_history_kline(
+            code=self.code,
+            ktype=KLType.K_DAY,
+            autype=AuType.QFQ,
+            max_count=self.slow + 5,
+        )
+        if ret != RET_OK:
+            return None
+
+        df['ma_fast'] = df['close'].rolling(self.fast).mean()
+        df['ma_slow'] = df['close'].rolling(self.slow).mean()
+
+        latest = df.iloc[-1]
+        prev = df.iloc[-2]
+
+        # 金叉
+        if prev['ma_fast'] <= prev['ma_slow'] and latest['ma_fast'] > latest['ma_slow']:
+            return 'BUY'
+        # 死叉
+        if prev['ma_fast'] >= prev['ma_slow'] and latest['ma_fast'] < latest['ma_slow']:
+            return 'SELL'
+        return None
+
+    def get_position(self):
+        """获取当前持仓数量"""
+        ret, data = self.trd_ctx.position_list_query(trd_env=self.env)
+        if ret != RET_OK or len(data) == 0:
+            return 0
+        pos = data[data['code'] == self.code]
+        return int(pos['qty'].sum()) if len(pos) > 0 else 0
+
+    def execute(self, signal, qty=10):
+        """执行交易"""
+        side = TrdSide.BUY if signal == 'BUY' else TrdSide.SELL
+        ret, data = self.trd_ctx.place_order(
+            price=0,                           # 市价单
+            qty=qty,
+            code=self.code,
+            trd_side=side,
+            order_type=OrderType.MARKET,
+            trd_env=self.env,
+        )
+        if ret == 0:
+            print(f'{signal} 下单成功')
+        else:
+            print(f'下单失败: {data}')
+
+    def run_once(self):
+        """跑一次策略"""
+        signal = self.get_signal()
+        position = self.get_position()
+
+        if signal == 'BUY' and position == 0:
+            self.execute('BUY', qty=10)
+        elif signal == 'SELL' and position > 0:
+            self.execute('SELL', qty=position)
+
+    def close(self):
+        self.quote_ctx.close()
+        self.trd_ctx.close()
+
+
+# 主循环
+if __name__ == '__main__':
+    strategy = DualMALiveStrategy('US.AAPL', fast=5, slow=20)
+
+    try:
+        while True:
+            strategy.run_once()
+            time.sleep(300)  # 每 5 分钟检查一次
+    except KeyboardInterrupt:
+        print('策略停止')
+    finally:
+        strategy.close()
+```
+
+## 上线前 Checklist
+
+```
+□ 在模拟环境跑通了完整流程
+□ 模拟运行至少 2 周
+□ 盈亏符合回测预期
+□ 异常处理完备（断网、API 错误、数据缺失）
+□ 有止损止盈机制
+□ 有手动停止开关
+□ 有日志记录每次决策
+□ 准备了应急平仓方案
+□ 用小资金（≤5%）真实跑了 1 周
+□ 想清楚最坏情况能承受多少损失
+```
+
+每一条都通过了，再考虑加大资金。
+
+## 实盘心态建设
+
+代码完成只是开始。真正的挑战是**心理**：
+
+1. **第一次大亏不要慌** — 任何策略都有回撤期，看看回测里历史最大回撤多少天
+2. **不要在亏损时改策略** — 这是过拟合的开始
+3. **不要随便加仓** — 牛市追加仓位、熊市死扛是散户最容易犯的错
+4. **定期评估，但不要天天看** — 日内波动会扰乱判断
+
+## 持续学习的方向
+
+走完这 10 篇，你已经入门了。下一步可以：
+
+- **读经典书**：《Quantitative Trading》（Ernie Chan）、《Active Portfolio Management》
+- **关注社区**：聚宽、米筐、QuantStart 等
+- **参加竞赛**：Kaggle、聚宽算法大赛
+- **研究论文**：SSRN 上的金融工程论文
+- **关注因子**：MSCI Barra 模型、Fama-French 五因子
+
+## 小结
+
+到这里整个 Python 量化入门系列就结束了。你已经会：
+
+- ✅ 搭建 Python 量化环境
+- ✅ 获取行情数据（富途 + 免费源）
+- ✅ 用 Pandas 处理金融时间序列
+- ✅ 数据可视化
+- ✅ 实现常用技术指标
+- ✅ 写完整的策略
+- ✅ 用 backtrader / vectorbt 回测
+- ✅ 评估策略风险与绩效
+- ✅ 多因子选股入门
+- ✅ 部署实盘
+
+> 📌 **最重要的一句话**
+>
+> **不要相信你的策略会一直赚钱。**
+>
+> 量化的本质是用数据和纪律对抗自己的情绪偏差。能在市场上长期生存的人，不是因为找到了圣杯策略，而是因为他们：
+> 1. 严格执行规则
+> 2. 控制下行风险
+> 3. 持续学习改进
+> 4. 接受随机性
+>
+> 祝你在量化的路上玩得开心。

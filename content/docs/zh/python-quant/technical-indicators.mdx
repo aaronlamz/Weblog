@@ -1,0 +1,268 @@
+---
+title: "技术指标实战"
+description: "手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库"
+order: 5
+---
+
+技术指标是技术分析的语言。这一篇我们手撕几个最常用的指标，搞懂它们的计算原理，然后再用专业库 `talib` 做对照。
+
+## 为什么要手撕
+
+直接用库不香吗？香，但**不知道指标怎么算出来的，就没办法在策略里灵活运用**。手撕一遍后你就知道：
+
+- MA 不是魔法，就是简单平均
+- MACD 是两条均线的差再平滑
+- RSI 是涨跌幅的比例
+
+理解后，调参、改造、组合都游刃有余。
+
+## 准备数据
+
+```python
+import akshare as ak
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2024-01-01'].set_index('date')
+```
+
+## 1. 移动平均线 MA
+
+最简单的指标，就是 N 日收盘价的算术平均。
+
+```python
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+df['MA60'] = df['close'].rolling(60).mean()
+```
+
+### EMA（指数移动平均）
+
+EMA 给最近的价格更高权重，对趋势变化更敏感：
+
+```python
+df['EMA12'] = df['close'].ewm(span=12, adjust=False).mean()
+df['EMA26'] = df['close'].ewm(span=26, adjust=False).mean()
+```
+
+> 💡 `span=N` 等价于 `α = 2/(N+1)`，是约定俗成的写法。
+
+## 2. MACD（指数平滑异同移动平均）
+
+MACD 由三个部分组成：
+- **DIF**（快线）= EMA12 - EMA26
+- **DEA**（慢线）= DIF 的 9 日 EMA
+- **MACD 柱**= 2 × (DIF - DEA)
+
+```python
+def calc_macd(close, fast=12, slow=26, signal=9):
+    ema_fast = close.ewm(span=fast, adjust=False).mean()
+    ema_slow = close.ewm(span=slow, adjust=False).mean()
+    dif = ema_fast - ema_slow
+    dea = dif.ewm(span=signal, adjust=False).mean()
+    macd = 2 * (dif - dea)
+    return dif, dea, macd
+
+df['DIF'], df['DEA'], df['MACD'] = calc_macd(df['close'])
+```
+
+### 信号判定
+
+- DIF 上穿 DEA → 金叉，看多
+- DIF 下穿 DEA → 死叉，看空
+- MACD 柱由负转正 → 多头势能增强
+
+```python
+df['macd_golden'] = (df['DIF'] > df['DEA']) & (df['DIF'].shift(1) <= df['DEA'].shift(1))
+df['macd_death']  = (df['DIF'] < df['DEA']) & (df['DIF'].shift(1) >= df['DEA'].shift(1))
+```
+
+## 3. RSI（相对强弱指数）
+
+衡量价格涨跌的相对强度，输出 0-100 的值。
+
+```python
+def calc_rsi(close, period=14):
+    delta = close.diff()
+    gain = delta.where(delta > 0, 0)
+    loss = -delta.where(delta < 0, 0)
+
+    avg_gain = gain.rolling(period).mean()
+    avg_loss = loss.rolling(period).mean()
+
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
+
+df['RSI14'] = calc_rsi(df['close'])
+```
+
+### 信号判定
+
+- RSI > 70 → 超买区，警惕回调
+- RSI < 30 → 超卖区，可能反弹
+
+```python
+df['rsi_overbought'] = df['RSI14'] > 70
+df['rsi_oversold']   = df['RSI14'] < 30
+```
+
+## 4. KDJ
+
+KDJ 由 K、D、J 三条线组成，对短线反转更敏感。
+
+```python
+def calc_kdj(df, n=9):
+    low_n  = df['low'].rolling(n).min()
+    high_n = df['high'].rolling(n).max()
+
+    rsv = (df['close'] - low_n) / (high_n - low_n) * 100
+
+    k = rsv.ewm(alpha=1/3, adjust=False).mean()
+    d = k.ewm(alpha=1/3, adjust=False).mean()
+    j = 3 * k - 2 * d
+
+    return k, d, j
+
+df['K'], df['D'], df['J'] = calc_kdj(df)
+```
+
+### 信号判定
+
+- K 上穿 D 且都在 20 以下 → 强买入
+- K 下穿 D 且都在 80 以上 → 强卖出
+- J 跌破 0 → 极度超卖
+- J 突破 100 → 极度超买
+
+## 5. 布林带（Bollinger Bands）
+
+布林带由三条线组成：中轨（MA20） + 上下轨（中轨 ± 2 倍标准差）。
+
+```python
+def calc_boll(close, period=20, num_std=2):
+    mid   = close.rolling(period).mean()
+    std   = close.rolling(period).std()
+    upper = mid + num_std * std
+    lower = mid - num_std * std
+    return upper, mid, lower
+
+df['BOLL_UP'], df['BOLL_MID'], df['BOLL_DOWN'] = calc_boll(df['close'])
+```
+
+### 用法
+
+- 价格触及上轨 → 可能超买
+- 价格触及下轨 → 可能超卖
+- 带宽收窄 → 即将爆发
+- 带宽扩张 → 趋势行情
+
+## 6. ATR（真实波幅）
+
+衡量市场波动率，常用于设置止损位。
+
+```python
+def calc_atr(df, period=14):
+    high_low = df['high'] - df['low']
+    high_close = (df['high'] - df['close'].shift()).abs()
+    low_close  = (df['low']  - df['close'].shift()).abs()
+
+    tr = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+    atr = tr.rolling(period).mean()
+    return atr
+
+df['ATR14'] = calc_atr(df)
+```
+
+### 应用：基于 ATR 的动态止损
+
+```python
+# 入场后，止损位 = 入场价 - 2 × ATR
+df['stop_loss'] = df['close'] - 2 * df['ATR14']
+```
+
+## 用 talib 偷懒
+
+手撕一遍后，正式写策略可以直接用 `talib`，几百个指标都现成的。
+
+```bash
+uv pip install ta-lib  # macOS 可能需要先 brew install ta-lib
+```
+
+```python
+import talib
+
+df['SMA20']   = talib.SMA(df['close'], timeperiod=20)
+df['EMA12']   = talib.EMA(df['close'], timeperiod=12)
+df['RSI14']   = talib.RSI(df['close'], timeperiod=14)
+
+dif, dea, macd = talib.MACD(df['close'], fastperiod=12, slowperiod=26, signalperiod=9)
+df['DIF'], df['DEA'], df['MACD'] = dif, dea, macd
+
+upper, mid, lower = talib.BBANDS(df['close'], timeperiod=20)
+df['BOLL_UP'], df['BOLL_MID'], df['BOLL_DOWN'] = upper, mid, lower
+```
+
+> ⚠️ **talib 安装坑**
+> talib 是 C 语言库，安装可能需要先装系统依赖：
+> - macOS: `brew install ta-lib`
+> - Ubuntu: `apt install ta-lib`
+> - Windows: 下载预编译的 wheel 文件
+
+如果嫌 talib 装起来麻烦，可以用纯 Python 的替代品：
+
+```bash
+uv pip install pandas-ta
+```
+
+```python
+import pandas_ta as ta
+
+df['RSI14'] = ta.rsi(df['close'], length=14)
+df['MACD']  = ta.macd(df['close'])
+```
+
+## 可视化技术指标
+
+把 MACD 和价格放在一起看：
+
+```python
+import mplfinance as mpf
+
+df_mpf = df.rename(columns={
+    'open':'Open', 'high':'High', 'low':'Low',
+    'close':'Close', 'volume':'Volume'
+})
+
+apds = [
+    mpf.make_addplot(df['DIF'],  panel=2, color='#3b82f6', ylabel='MACD'),
+    mpf.make_addplot(df['DEA'],  panel=2, color='#ef4444'),
+    mpf.make_addplot(df['MACD'], panel=2, type='bar', color='gray'),
+]
+
+mpf.plot(
+    df_mpf,
+    type='candle',
+    addplot=apds,
+    volume=True,
+    mav=(5, 20),
+    panel_ratios=(3, 1, 2),
+    figratio=(16, 10),
+    style='yahoo',
+)
+```
+
+## 小结
+
+到这里你已经会：
+
+- ✅ 手算 MA / EMA / MACD / RSI / KDJ / 布林带 / ATR
+- ✅ 用 talib 快速获取指标
+- ✅ 在 K 线图上叠加指标
+
+下一篇 [双均线策略实战](/docs/python-quant/dual-moving-average-strategy)，我们把这些指标用到具体的策略里，写出你的第一个完整量化策略。
+
+> 📌 **学习建议**
+> 不要追求记住所有指标。常用的就 MA、MACD、RSI、布林带这几个。选 1-2 个吃透，比知道 50 个但都不熟有用得多。
