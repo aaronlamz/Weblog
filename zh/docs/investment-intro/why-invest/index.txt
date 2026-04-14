@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","investment-intro","why-invest",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","investment-intro/why-invest","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","investment-intro/why-invest","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","kg1DT5yHHboIGYGhCb3HXv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T11bd,
+在搞清楚怎么投资之前，先想清楚**为什么要投资**。这一篇不讲任何技术，只讲三件事：通胀、复利、机会成本。理解了这三件事，你就有了投资的内在动力。
+
+## 现金每年都在贬值
+
+把钱放银行一年期存款，年利率大概 1-2%。听起来不错？但每年的通胀大约 2-3%。
+
+**结论**：你的钱购买力每年都在缩水。
+
+举个例子：
+- 2010 年一杯咖啡 18 元
+- 2024 年同一杯咖啡 35 元
+- 14 年价格几乎翻倍
+
+如果你 2010 年的 1 万元一直放银行，到 2024 年账面变成 1.2 万，但能买的咖啡数量从 555 杯降到了 343 杯。**你账面赚了，购买力亏了**。
+
+## 复利：投资最重要的概念
+
+复利的公式：**本息再投入，利上加利**。
+
+举个例子，10 万元本金，年化收益对比：
+
+| 年化收益 | 10 年后 | 20 年后 | 30 年后 |
+|---|---|---|---|
+| 2%（存款） | 12 万 | 14.9 万 | 18.1 万 |
+| 5%（保守） | 16.3 万 | 26.5 万 | 43.2 万 |
+| 8%（标普长期） | 21.6 万 | 46.6 万 | 100.6 万 |
+| 12%（优秀策略） | 31.1 万 | 96.5 万 | 299.6 万 |
+
+10 年差距不大，**30 年差距是天壤之别**。
+
+爱因斯坦说："复利是世界第八大奇迹。理解它的人能赚到它，不理解的人付出它。"
+
+### 复利的两个关键变量
+
+1. **时间** — 越早开始越好。25 岁投 1 万 vs 45 岁投 5 万，到 65 岁价值差不多
+2. **稳定的正收益** — 巨亏一次会摧毁多年的复利。亏 50% 需要赚 100% 才能回本
+
+## 机会成本
+
+你不投资，钱就在银行躺着，看似"安全"。但你失去的是：
+
+- 标普 500 长期年化约 10%
+- 港股恒生指数长期年化约 6-8%
+- 美国国债年化约 4-5%
+
+**不投资的真正成本，是失去这些本可以获得的收益**。
+
+## 投资 vs 投机
+
+新手最容易把这两个混为一谈。
+
+| 投资 | 投机 |
+|---|---|
+| 基于价值判断 | 基于价格波动判断 |
+| 时间维度长 | 时间维度短 |
+| 关注公司基本面 | 关注短期消息和情绪 |
+| 心态平静 | 心态焦虑 |
+| 大概率赚钱 | 大概率亏钱 |
+
+**散户亏钱的核心原因**：把投机当投资，又把投资当赌博。
+
+## 你需要建立的几个观念
+
+### 1. 接受市场的不确定性
+
+即使是巴菲特，也无法预测明天股市涨跌。**承认这点**比假装能预测重要得多。
+
+### 2. 长期主义
+
+A 股、港股、美股长期都是上涨的（虽然中间会有大起大落）。如果你能拿 10 年以上，赚钱概率非常高。
+
+### 3. 知道自己在做什么
+
+巴菲特名言："不要投资你不理解的东西。"
+
+如果你买一只股票却说不清楚这家公司是干嘛的、靠什么赚钱、估值是不是合理 —— 你就是在赌博。
+
+### 4. 风险比收益重要
+
+新手满脑子都是"能赚多少"，老手满脑子都是"会亏多少"。
+
+回测里 100% 收益看起来很美，但伴随的可能是 50% 回撤。**你能不能拿得住**，比能不能赚到更重要。
+
+## 投资前的准备
+
+在打开富途下单之前，先问自己几个问题：
+
+```
+□ 我有 3-6 个月的应急资金（不投股市）吗？
+□ 我能接受短期亏 30% 不割肉吗？
+□ 我愿意每周/每月花时间学习吗？
+□ 我能承受这笔钱亏完吗？（最坏情况）
+□ 我的投资周期有多长？1 年？5 年？10 年？
+```
+
+**如果不能在所有问题上给出明确答案，先别急着开始**。
+
+## 这个系列教什么
+
+接下来 12 篇，我们会按这个顺序学：
+
+1. ~~为什么要投资~~ ✅
+2. [港美股市场全景](/docs/investment-intro/hk-us-market-overview)
+3. [券商账户开通指南](/docs/investment-intro/open-broker-account)
+4. [股票基础知识](/docs/investment-intro/stock-basics)
+5. [ETF 入门](/docs/investment-intro/etf-basics)
+6. [债券与 REITs](/docs/investment-intro/bonds-and-reits)
+7. [怎么看一家公司](/docs/investment-intro/fundamental-analysis)
+8. [K 线与技术面入门](/docs/investment-intro/technical-analysis-basics)
+9. [估值与买入时机](/docs/investment-intro/valuation-and-timing)
+10. [资产配置与组合构建](/docs/investment-intro/asset-allocation)
+11. [风险管理](/docs/investment-intro/risk-management)
+12. [期权基础](/docs/investment-intro/options-basics)
+13. [从 0 开始的实操路径](/docs/investment-intro/beginner-roadmap)
+
+> 📌 **学习建议**
+> 不要跳着看。后面的篇章建立在前面的基础上。每篇看完留下你的疑问，等学完整个系列再回头解答。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"investment-intro","title":"投资入门101","description":"港美股新手到入门：股票、ETF、债券、REITs、期权全梳理","icon":"TrendingUp","order":10,"docs":[{"slug":"investment-intro/why-invest","title":"为什么要投资","description":"通胀、复利、机会成本，建立投资的'为什么'","order":1,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/hk-us-market-overview","title":"港美股市场全景","description":"主要交易所、指数、交易时间、和 A 股的区别","order":2,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/open-broker-account","title":"券商账户开通指南","description":"富途 vs 盈立对比，开户流程、出入金、汇率","order":3,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/stock-basics","title":"股票基础知识","description":"股票是什么、IPO、分红、拆股、做多做空","order":4,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/etf-basics","title":"ETF 入门","description":"ETF 是什么、和基金区别、宽基/行业/跨境 ETF、怎么挑","order":5,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/bonds-and-reits","title":"债券与 REITs","description":"美债、公司债、REITs 收息逻辑","order":6,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/fundamental-analysis","title":"怎么看一家公司（基本面）","description":"财报三表速读、关键指标 PE/PB/ROE","order":7,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/technical-analysis-basics","title":"K 线与技术面入门","description":"K 线、趋势、均线、量价关系","order":8,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/valuation-and-timing","title":"估值与买入时机","description":"DCF 简化版、相对估值、定投 vs 一次性","order":9,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/asset-allocation","title":"资产配置与组合构建","description":"股债配置、地区分散、风险偏好测试","order":10,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/risk-management","title":"风险管理","description":"仓位控制、止损止盈、心理偏差","order":11,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/options-basics","title":"期权基础","description":"Call / Put、行权价、希腊字母、几个经典策略","order":12,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/beginner-roadmap","title":"从 0 开始的实操路径","description":"新手 1 万美金 / 10 万港币的具体配置示例与行动计划","order":13,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"投资入门101"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"为什么要投资"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"通胀、复利、机会成本，建立投资的'为什么'"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"为什么要投资 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"通胀、复利、机会成本，建立投资的'为什么'"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"为什么要投资 | 投资入门101"}],["$","meta","8",{"property":"og:description","content":"通胀、复利、机会成本，建立投资的'为什么'"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

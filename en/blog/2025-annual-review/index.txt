@@ -1,0 +1,117 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","en","blog","2025-annual-review",""],"i":false,"f":[[["",{"children":[["locale","en","d"],{"children":["blog",{"children":[["slug","2025-annual-review","d"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","en","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-annual-review","d"],["$","$1","c",{"children":[null,["$","div",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},[["$","div","l",{"className":"container mx-auto px-4 pt-4 pb-8","children":["$","article",null,{"className":"mx-auto max-w-6xl","children":[["$","header",null,{"className":"mb-12 animate-pulse","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","div",null,{"className":"h-3.5 w-28 bg-muted/60 rounded"}],["$","div",null,{"className":"h-3.5 w-16 bg-muted/50 rounded"}],["$","div",null,{"className":"h-3.5 w-20 bg-muted/50 rounded"}]]}],["$","div",null,{"className":"h-8 w-2/3 bg-muted/70 rounded mb-3"}],["$","div",null,{"className":"h-6 w-1/2 bg-muted/60 rounded"}]]}],["$","div",null,{"className":"space-y-3 animate-pulse","children":[[["$","div","0",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","1",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","2",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","3",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","4",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","5",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","6",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","7",{"className":"h-4 w-full bg-muted/50 rounded"}]],["$","div",null,{"className":"h-4 w-5/6 bg-muted/50 rounded"}],["$","div",null,{"className":"h-4 w-2/3 bg-muted/50 rounded"}]]}]]}]}],[],[]],false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","9y9XnSW5FT6Co9-X02li_v",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"DocsTopBar"]
+15:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"default"]
+17:I[82426,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"default"]
+16:T10f2,
+> Time really does fly. Another year has passed, and it feels like the right moment to sum up a pretty ordinary one.
+
+---
+
+## 💻 Work
+
+Twelve years into my career. Nothing dramatic—somewhere in the middle, as they say.
+
+- **What I did this year**: Kept doing Web development as usual. I’m more open-minded about work now: less obsessed with grinding, more willing to try new things when they show up. Prefer a real work–life balance and not pushing myself too hard.
+- **Technical growth**: Started using AI tools like **Cursor** and **Claude Code**, and got a taste of **Vibe Coding**. Writing code has shifted toward designing products with AI; efficiency has clearly gone up.
+- **Vibe Coding**: AI is changing how we program. Using it made me see how powerful vibe coding can be. For straightforward tasks it can break down knowledge barriers and feel like a real “dimension drop.” That’s both risk and opportunity—only way through is to keep learning and grab the chance (classic “always hustling” mindset 😂).
+- **Side gigs & side projects**: Tried some freelance and personal projects this year. Realized my time management still isn’t good enough; I need to plan better and get more done in less time.
+
+---
+
+## 🏠 Daily Life
+
+### Routine
+
+- **Sleep & health**: Having a 🐱 has helped—I’ve been going to bed and waking up earlier, so my schedule is more regular. As long as work from the night before doesn’t spill over 😅.
+
+### Hobbies
+
+- **Reading**: Still mostly technical books. I’d like to step away from work reading more and pick up other genres to broaden the view.
+- **Fitness**: I’ve been casually working out for years with no big results—more for general wellness. Next year I might plan diet a bit more and aim for a more standard shape.
+
+---
+
+## ✈️ Travel
+
+### Places I went
+
+I traveled a bit more than in past years. Sticking to the “at least one trip a year” rule—life’s for experiencing.
+
+1. **Altay road trip** — Scenery was great. Last day we got stuck in heavy snow on the road and sat in traffic till dawn. Unforgettable in its own way.
+2. **Bangkok** — First time in Bangkok. Lots of eating and wandering; international vibe was nice.
+3. **Tibet, Ngari (Ali) road trip** — As a Guangdong native, first time seeing thick snowfall. Every day was another “co” (lake), very photogenic. I had altitude sickness and threw up on day one, but the trip was still worth it.
+
+### Takeaway
+
+Getting out more, feeling different cultures and landscapes, does open your eyes.
+
+---
+
+## ❤️ Relationships
+
+Not much to say here. I try to be kind and care more about family. With friends I’m working on better communication and expression. More socializing, more going out, meeting more people, trying more new things.
+
+---
+
+## 🎯 New Experiences
+
+### Sports
+
+- **Skiing** 🎿 — First time ever. Alpine (two skis) was easier to start; snowboard was a lot harder. Planning to keep at it next year.
+- **Badminton** 🏸 — Joined the company badminton group for the first time this year. Good experience; played a couple of matches.
+
+---
+
+## 💰 Investing & Money
+
+- **How it went**: Overall not great—some wins, some losses, net negative, but almost back to even.
+- **Lessons**: If you don’t understand it, don’t invest. A lot of it is luck anyway; you won’t get rich from it. Better to spend time on things that add more value.
+- **Going forward**: Pay more attention to US stock ETFs and keep building basic financial literacy.
+
+---
+
+## 🌟 Turning 35
+
+I turned 35 in 2025. Honestly it didn’t feel like a big shift—no “I must set big goals” anxiety like at 30. Accepting that ordinary is the norm. Still, it’s a good time to look at my life again and plan the next chapter.
+
+---
+
+## Closing
+
+Looking back at 2025: new experiences with AI and this blog, slowing down and simplifying in daily life, more travel and relationships and trying new sports. Investing was rough but the lessons were real. At 35 I’ve looked at my life a bit more clearly and have a better sense of what matters. Nothing spectacular, but every step was still growth.
+
+**Here’s to becoming a slightly better version of ourselves on the way.** 🚀
+
+---
+Took me a while to finish this—time to start the next leg of the journey.
+
+*Last updated: 2026-03-07*
+6:[["$","$L14",null,{"backHref":"/en/blog","backLabel":"Back to Blog","homeHref":"/en/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","article",null,{"children":[["$","header",null,{"className":"mb-6 text-center","children":[["$","div",null,{"className":"flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-3","children":[["$","time",null,{"dateTime":"2026-01-12","children":"January 12, 2026"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"4 min read"}],false]}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-3","children":"2025 Year in Review"}],["$","p",null,{"className":"text-lg text-muted-foreground mb-4","children":"A look back at work and life in 2025—the growth, the lessons, and what matters."}],["$","div",null,{"className":"flex flex-wrap justify-center gap-2","children":[["$","span","Year in Review",{"className":"inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary text-secondary-foreground","children":"Year in Review"}]]}]]}],["$","$L15",null,{"content":"$16"}],["$","$L17",null,{"locale":"en"}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"Home","blog":"Blog","docs":"Docs Hub","about":"About","back":"Back"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"Skills","frontend":"Frontend Development","mobile":"Mobile Development","beyond":"Beyond Code"},"skillsDesc":{"frontend":"Modern web technologies","design":"UI/UX and visual design","mobile":"iOS/Android with React Native and PWA","beyond":"Reading, thinking, and capturing life's beautiful moments"},"tech":{"title":"Tech Stack"},"posts":{"blog":"Blog","featured":"Featured Posts","latest":"Latest Posts","description":"Documenting thoughts and life fragments.","readMore":"Read More","publishedOn":"Published on","readingTime":"{minutes} min read","empty":"No posts yet. Check back soon!","tags":"Tags","archive":"Archive","monthlyArchive":"Monthly Archive","popularTags":"Popular Tags","clearFilters":"Clear Filters","backToBlog":"Back to Blog"},"common":{"onThisPage":"On this page"},"footer":{"scrollToTop":"Scroll to top","copyright":"All rights reserved","builtWith":"Built with Claude Code"},"contact":{"title":"Contact Me","getInTouch":"Get In Touch","subtitle":"I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out.","name":"Name","email":"Email","subject":"Subject","message":"Message","send":"Send","sending":"Sending...","success":"Message sent successfully!","error":"Failed to send, please try again","methods":{"email":{"name":"Email","desc":"Send me an email for work inquiries or collaboration"},"github":{"name":"GitHub","desc":"Check out my code and projects"},"twitter":{"name":"Twitter","desc":"Follow me for updates and tech discussions"},"linkedin":{"name":"LinkedIn","desc":"View my professional profile and network"},"x":{"name":"X","desc":"Get my latest updates and tech shares"},"wechat":{"name":"WeChat","desc":"Add me or view my QR code"},"wechatOfficialAccount":{"name":"WeChat Official Account","desc":"Follow my official account for latest content"}},"sendMessage":"Send a Message","responseTime":"Response Time","responseTip":"I typically respond to emails within 24-48 hours. Looking forward to connecting with you!"},"about":{"title":"About Me","description":"Full-stack Developer · Securities Professional · Life Chronicler","intro":"I write code for a living, working in the securities industry. Outside of work, I like hitting the gym and getting outdoors.","bio":"Thoughts, life moments, investment insights, and the occasional tech post.","connectTitle":"Let's Connect","connect":"Investing, tech, or just life — always happy to chat.","quote":"The Great Way is simple."},"docs":{"title":"Docs Hub","description":"Tutorials, Booklets & Knowledge Sharing","articles":"articles","empty":"No docs yet. Check back soon!","backToDocs":"Back to Docs"},"meta":{"description":"Personal blog about coding, learning tech, and life moments"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"en"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"2025 Year in Review | Aaron Lam"}],["$","meta","1",{"name":"description","content":"A look back at work and life in 2025—the growth, the lessons, and what matters."}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"2025 Year in Review"}],["$","meta","8",{"property":"og:description","content":"A look back at work and life in 2025—the growth, the lessons, and what matters."}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-01-12"}],["$","meta","11",{"property":"article:author","content":"Aaron Lam"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"2025 Year in Review"}],["$","meta","14",{"name":"twitter:description","content":"A look back at work and life in 2025—the growth, the lessons, and what matters."}],["$","link","15",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","16",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","17",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

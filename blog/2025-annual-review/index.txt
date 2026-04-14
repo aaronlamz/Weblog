@@ -1,0 +1,112 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","blog","2025-annual-review",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["blog",{"children":[["slug","2025-annual-review","d"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-annual-review","d"],["$","$1","c",{"children":[null,["$","div",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},[["$","div","l",{"className":"container mx-auto px-4 pt-4 pb-8","children":["$","article",null,{"className":"mx-auto max-w-6xl","children":[["$","header",null,{"className":"mb-12 animate-pulse","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","div",null,{"className":"h-3.5 w-28 bg-muted/60 rounded"}],["$","div",null,{"className":"h-3.5 w-16 bg-muted/50 rounded"}],["$","div",null,{"className":"h-3.5 w-20 bg-muted/50 rounded"}]]}],["$","div",null,{"className":"h-8 w-2/3 bg-muted/70 rounded mb-3"}],["$","div",null,{"className":"h-6 w-1/2 bg-muted/60 rounded"}]]}],["$","div",null,{"className":"space-y-3 animate-pulse","children":[[["$","div","0",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","1",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","2",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","3",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","4",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","5",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","6",{"className":"h-4 w-full bg-muted/50 rounded"}],["$","div","7",{"className":"h-4 w-full bg-muted/50 rounded"}]],["$","div",null,{"className":"h-4 w-5/6 bg-muted/50 rounded"}],["$","div",null,{"className":"h-4 w-2/3 bg-muted/50 rounded"}]]}]]}]}],[],[]],false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","e_5XCqp1MPRfHivrTnyNbv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"DocsTopBar"]
+15:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"default"]
+17:I[82426,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","8414","static/chunks/app/%5Blocale%5D/blog/%5Bslug%5D/page-ed80c73d18dbf7bb.js"],"default"]
+16:Tf8f,
+> 时间过得是真快，转眼间一年又过去了，感觉是时候总结一下这一个平平无奇的一年。
+
+---
+
+## 💻 工作生涯
+
+转眼间职业生涯已经 12 个年头。平平无奇，比上不足比下有余吧。
+
+- **今年在做的事**：还是按部就班做着 Web 开发相关的工作。但目前心态也比较open，不执着工作的内卷，有机会就去尝试一些新的东西。最好是Work Life Balance，不要把自己逼得太紧。
+- **技术成长**：开始用 Cursor、Claude code 等 AI 工具，体验了 Vibe Coding，从「写代码」更多变成「和 AI 一起设计产品」，效率明显提升。
+- **Vibe Coding**：AI的出现直接变革了编程范式，用过才知道vibe coding是有多么的强大。简单的工作基本可以打破知识的壁垒，真正实现降维打击。这是风险也是机会，只能保持进步，抓住机会（一生都在卷的中国人😂）。
+- **兼职、个人项目**：今年在业余时间尝试了兼职、个人项目，发现自己的时间管理能力还是不够，需要更加合理地安排时间，提高效率。
+---
+
+## 🏠 生活日常
+
+### 生活节奏
+
+- **作息与健康**：养🐱的原因，基本能够保持早睡早起，作息比较规律了。前提是不要被前天晚上的工作影响😅。
+
+### 兴趣爱好
+
+- **阅读**：今年可能还是看得技术书比较多，还是要放下工作看看其他的书，开阔一下视野。
+- **健身**：随意健身也很多年年了，没啥成绩，养生为主。明年看看计划控制饮食争取达到一个比较标准的状态吧。
+
+---
+
+## ✈️ 旅行足迹
+
+### 去过的地方
+今年出去的地方相对比以往还是多了个，每年一次的计划还是要按部执行，生活还是要体验的。
+1. **[阿勒泰自驾]** — 风景很不错，就是最后一天自驾被大雪困住，塞车到天亮，也是一次难忘的体验。
+2. **[曼谷]** — 第一次去曼谷，吃吃逛逛很不错，国际化氛围很好。
+3. **[西藏阿里地区自驾]** — 广东人第一次看到下的鹅毛大雪，每天风景都是措，很出片，虽然第一天高反吐了，但行程还是很值得。
+
+### 旅行感悟
+
+- 还是多出去逛逛，感受一下不同的文化和风景，开阔一下视野。
+
+---
+
+## ❤️ 感情生活
+
+- 这个可能没什么好说的，与人为善，会多关心家人吧，跟朋友之间学会更好的沟通和表达。
+- 多社交，多出去走走，认识更多的人，多尝试新的东西。
+---
+
+## 🎯 探索新事物
+
+### 运动
+
+- **滑雪** 🎿：人生第一次滑雪，双板入门简单，单板入门太费劲了。明年继续玩一玩。
+- **羽毛球** 🏸：今年第一次参与了公司的羽毛球运动，体验还是不错的，打了2场。
+
+---
+
+## 💰 投资理财
+
+- **表现**：总体不太行，有赚有亏，算下来整体是负的，但也快回本了。
+- **经验教训**：不懂就不要投资，大部分都是运气了，也赚不大大钱，把时间花在更有价值的事情上。
+- **认知思考**：更多关注美股ETF投资，日常提升自我理财能力。
+---
+
+## 🌟 35 岁的思考
+
+2025 年，我 35 岁了，感受上其实还是没什么变化，并没有到30岁的那种立flag的那种节点的焦虑，接受自己的普通才是人生的常态吧。但也是时候重新审视一下自己的人生，重新规划一下自己的未来。
+
+---
+
+## 结语
+
+回顾 2025 年，在工作上多了 AI 和博客这些新体验，在生活里开始慢下来、做减法；旅行、感情、运动探索都有新的经历，投资虽然不太行，但教训很实在。35 岁这一年，对人生有了更多审视，也更清楚什么对自己真正重要。虽然谈不上多精彩，但每一步都是成长。
+
+**愿我们都能在人生的路上，成为更好的自己。** 🚀
+
+---
+拖了很久才写完，也是时候开始新的征程了。
+*最后更新：2026-03-07*
+6:[["$","$L14",null,{"backHref":"/blog","backLabel":"返回博客","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","article",null,{"children":[["$","header",null,{"className":"mb-6 text-center","children":[["$","div",null,{"className":"flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-3","children":[["$","time",null,{"dateTime":"2026-01-12","children":"2026年01月12日"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"阅读约 1 分钟"}],false]}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-3","children":"2025年终总结"}],["$","p",null,{"className":"text-lg text-muted-foreground mb-4","children":"回顾2025年的工作与生活，总结这一年的成长与收获。"}],["$","div",null,{"className":"flex flex-wrap justify-center gap-2","children":[["$","span","年终总结",{"className":"inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary text-secondary-foreground","children":"年终总结"}]]}]]}],["$","$L15",null,{"content":"$16"}],["$","$L17",null,{"locale":"zh"}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"2025年终总结 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"回顾2025年的工作与生活，总结这一年的成长与收获。"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"2025年终总结"}],["$","meta","8",{"property":"og:description","content":"回顾2025年的工作与生活，总结这一年的成长与收获。"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-01-12"}],["$","meta","11",{"property":"article:author","content":"Aaron Lam"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"2025年终总结"}],["$","meta","14",{"name":"twitter:description","content":"回顾2025年的工作与生活，总结这一年的成长与收获。"}],["$","link","15",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","16",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","17",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

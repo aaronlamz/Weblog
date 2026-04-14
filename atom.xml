@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://aaronlamz.github.io/Weblog</id>
+    <title>Weblog</title>
+    <updated>2026-04-14T03:34:09.274Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Aaron</name>
+        <email>aaronlamz2022@gmail.com</email>
+        <uri>https://aaronlamz.github.io/Weblog</uri>
+    </author>
+    <link rel="alternate" href="https://aaronlamz.github.io/Weblog"/>
+    <link rel="self" href="https://aaronlamz.github.io/Weblog/atom.xml"/>
+    <subtitle>A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.</subtitle>
+    <logo>https://aaronlamz.github.io/Weblog/images/og-image.png</logo>
+    <icon>https://aaronlamz.github.io/Weblog/favicon.ico</icon>
+    <rights>© 2026 Aaron. All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[2025 Year in Review]]></title>
+        <id>https://aaronlamz.github.io/Weblog/en/blog/2025-annual-review</id>
+        <link href="https://aaronlamz.github.io/Weblog/en/blog/2025-annual-review"/>
+        <updated>2026-01-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A look back at work and life in 2025—the growth, the lessons, and what matters.]]></summary>
+        <content type="html"><![CDATA[
+> Time really does fly. Another year has passed, and it feels like the right moment to sum up a pretty ordinary one.
+
+---
+
+## 💻 Work
+
+Twelve years into my career. Nothing dramatic—somewhere in the middle, as they say.
+
+- **What I did this year**: Kept doing Web development as usual. I’m more open-minded about work now: less obsessed with grinding, more willing to try new things when they show up. Prefer a real work–life balance and not pushing myself too hard.
+- **Technical growth**: Started using AI tools like **Cursor** and **Claude Code**, and got a taste of **Vibe Coding**. Writing code has shifted toward designing products with AI; efficiency has clearly gone up.
+- **Vibe Coding**: AI is changing how we program. Using it made me see how powerful vibe coding can be. For straightforward tasks it can break down knowledge barriers and feel like a real “dimension drop.” That’s both risk and opportunity—only way through is to keep learning and grab the chance (classic “always hustling” mindset 😂).
+- **Side gigs & side projects**: Tried some freelance and personal projects this year. Realized my time management still isn’t good enough; I need to plan better and get more done in less time.
+
+---
+
+## 🏠 Daily Life
+
+### Routine
+
+- **Sleep & health**: Having a 🐱 has helped—I’ve been going to bed and waking up earlier, so my schedule is more regular. As long as work from the night before doesn’t spill over 😅.
+
+### Hobbies
+
+- **Reading**: Still mostly technical books. I’d like to step away from work reading more and pick up other genres to broaden the view.
+- **Fitness**: I’ve been casually working out for years with no big results—more for general wellness. Next year I might plan diet a bit more and aim for a more standard shape.
+
+---
+
+## ✈️ Travel
+
+### Places I went
+
+I traveled a bit more than in past years. Sticking to the “at least one trip a year” rule—life’s for experiencing.
+
+1. **Altay road trip** — Scenery was great. Last day we got stuck in heavy snow on the road and sat in traffic till dawn. Unforgettable in its own way.
+2. **Bangkok** — First time in Bangkok. Lots of eating and wandering; international vibe was nice.
+3. **Tibet, Ngari (Ali) road trip** — As a Guangdong native, first time seeing thick snowfall. Every day was another “co” (lake), very photogenic. I had altitude sickness and threw up on day one, but the trip was still worth it.
+
+### Takeaway
+
+Getting out more, feeling different cultures and landscapes, does open your eyes.
+
+---
+
+## ❤️ Relationships
+
+Not much to say here. I try to be kind and care more about family. With friends I’m working on better communication and expression. More socializing, more going out, meeting more people, trying more new things.
+
+---
+
+## 🎯 New Experiences
+
+### Sports
+
+- **Skiing** 🎿 — First time ever. Alpine (two skis) was easier to start; snowboard was a lot harder. Planning to keep at it next year.
+- **Badminton** 🏸 — Joined the company badminton group for the first time this year. Good experience; played a couple of matches.
+
+---
+
+## 💰 Investing & Money
+
+- **How it went**: Overall not great—some wins, some losses, net negative, but almost back to even.
+- **Lessons**: If you don’t understand it, don’t invest. A lot of it is luck anyway; you won’t get rich from it. Better to spend time on things that add more value.
+- **Going forward**: Pay more attention to US stock ETFs and keep building basic financial literacy.
+
+---
+
+## 🌟 Turning 35
+
+I turned 35 in 2025. Honestly it didn’t feel like a big shift—no “I must set big goals” anxiety like at 30. Accepting that ordinary is the norm. Still, it’s a good time to look at my life again and plan the next chapter.
+
+---
+
+## Closing
+
+Looking back at 2025: new experiences with AI and this blog, slowing down and simplifying in daily life, more travel and relationships and trying new sports. Investing was rough but the lessons were real. At 35 I’ve looked at my life a bit more clearly and have a better sense of what matters. Nothing spectacular, but every step was still growth.
+
+**Here’s to becoming a slightly better version of ourselves on the way.** 🚀
+
+---
+Took me a while to finish this—time to start the next leg of the journey.
+
+*Last updated: 2026-03-07*
+]]></content>
+        <author>
+            <name>Aaron Lam</name>
+            <email>aaronlamz2022@gmail.com</email>
+            <uri>https://aaronlamz.github.io/Weblog</uri>
+        </author>
+        <category label="Year in Review"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ALL in AI: Why You Should Start Vibe Coding Right Now?]]></title>
+        <id>https://aaronlamz.github.io/Weblog/en/blog/all-in-ai-vibe-coding</id>
+        <link href="https://aaronlamz.github.io/Weblog/en/blog/all-in-ai-vibe-coding"/>
+        <updated>2025-11-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Explore the new paradigm of AI-assisted programming, understand why Vibe Coding will transform your development approach, and learn how to start practicing immediately.]]></summary>
+        <content type="html"><![CDATA[
+# ALL in AI: Why You Should Start Vibe Coding Right Now?
+
+> The future of programming isn't writing more code, it's expressing your ideas better.
+
+## Introduction: A Revolutionary Shift in Programming Paradigms
+
+Remember when you first learned to code? Starting with Hello World, typing line by line, debugging syntax errors, reading documentation... This process often took months or even years to truly master.
+
+But everything has changed.
+
+In 2024, the maturity of AI programming tools reached a critical point. The emergence of Claude, GPT-4, Cursor, GitHub Copilot, and similar tools has transformed "programming in natural language" from science fiction into reality. This is **Vibe Coding** — an entirely new programming paradigm.
+
+## What is Vibe Coding?
+
+**Vibe Coding** is an AI-centric approach to programming, with the core philosophy:
+
+> Shift from "writing code" to "conversing with AI," describing requirements in natural language and letting AI generate code.
+
+### Traditional Programming vs Vibe Coding
+
+| Traditional Programming | Vibe Coding |
+|------------------------|-------------|
+| Write every line manually | Describe needs in natural language |
+| Search docs and Stack Overflow | Ask AI directly |
+| Repeatedly debug syntax errors | AI generates correct code |
+| Need deep understanding of details | Focus on architecture and logic |
+| Steep learning curve | Quick start, learn by doing |
+
+### Key Features
+
+1. **Natural Language Interaction**: Describe what you want in human language, not how to implement it
+2. **Rapid Prototyping**: From idea to prototype in minutes
+3. **Lower Technical Barriers**: Even beginners can build complex applications
+4. **Exponential Efficiency Gains**: Focus on creativity and architecture, not implementation details
+
+## Why Start Now?
+
+### 1. Technology Maturity Has Reached a Critical Point
+
+We're at a pivotal moment:
+
+- **Claude 3.5 Sonnet** and **GPT-4** code generation accuracy has reached professional levels
+- Editors like **Cursor** deeply integrate AI into development workflows
+- **GitHub Copilot** is used daily by millions of developers
+- **Claude Code** provides conversational programming experience
+
+These tools have evolved from "experimental toys" into genuine productivity tools. If you haven't started yet, you're already behind.
+
+### 2. Competitive Advantages Are Forming
+
+Imagine two developers:
+
+**Developer A** (Traditional approach):
+- Spends 3 days setting up project infrastructure
+- Manually writes all components and styles
+- Repeatedly debugs and refactors
+- Completes basic features in a week
+
+**Developer B** (Vibe Coding):
+- 30 minutes to generate project architecture with AI
+- Describes requirements in natural language, AI generates components
+- AI-assisted debugging and optimization
+- Completes and iterates multiple versions in a day
+
+A year later, who will have accumulated more project experience? Who will be more competitive?
+
+**Early Adopter Advantages:**
+- Establish new workflows and mindsets
+- Accumulate AI collaboration experience
+- Adapt to future work methods
+- Stand out in the job market
+
+### 3. Significant Cost-Benefit Ratio
+
+Let me speak with real data:
+
+- **Development Speed**: 3-5x faster (depending on task complexity)
+- **Debugging Time Reduced**: 50-70%
+- **Learning New Tech**: From weeks to days
+- **Code Quality**: AI-generated code often follows best practices
+
+This means:
+- Individual developers can complete projects that previously required teams
+- Startups can rapidly validate ideas with fewer resources
+- Learners can progress from beginner to proficient faster
+
+## Vibe Coding Use Cases
+
+### Scenario 1: Rapid Prototyping
+
+**Traditional Approach:**
+```
+1. Design database structure (1 day)
+2. Build backend API (2 days)
+3. Develop frontend UI (3 days)
+4. Connect frontend and backend (1 day)
+5. Debug and fix (2 days)
+Total: 9 days
+```
+
+**Vibe Coding Approach:**
+```
+1. Describe requirements to AI:
+   "Create a blog system with article list, detail pages,
+    tag filtering, and search functionality using Next.js and Tailwind CSS"
+
+2. AI generates complete project structure
+3. Adjust details based on requirements
+4. Deploy
+Total: 2-3 hours
+```
+
+**Real Example:**
+I built a complete personal blog system with Cursor + Claude in 30 minutes, including:
+- Markdown article rendering
+- Tag system and search
+- Responsive design
+- Dark mode
+- SEO optimization
+
+Using traditional methods, this would take at least a week.
+
+### Scenario 2: Learning New Tech Stacks
+
+Want to learn Vue 3? React? Svelte? No need to read docs from scratch.
+
+**Traditional Learning Path:**
+1. Read official documentation
+2. Follow tutorials and type code
+3. Watch video courses
+4. Do practice projects
+5. Search Stack Overflow when stuck
+
+**Vibe Coding Learning Path:**
+1. Tell AI: "I want to build a Todo app with Vue 3"
+2. AI generates code and explains each part
+3. You ask: "Why use ref instead of reactive here?"
+4. AI explains concepts and best practices in detail
+5. Learn by doing, quickly grasp core concepts
+
+**Key Difference:**
+- Traditional: "Learn first, do later"
+- Vibe Coding: "Learn by doing"
+- You're always building real projects, not doing exercises
+
+### Scenario 3: Debugging and Optimization
+
+**Traditional Debugging:**
+```javascript
+// Code breaks, you don't know why
+function calculateTotal(items) {
+  return items.reduce((sum, item) => sum + item.price, 0)
+}
+// TypeError: Cannot read property 'price' of undefined
+
+// Start lengthy debugging...
+// Breakpoints, console.log, docs...
+```
+
+**Vibe Coding Debugging:**
+```
+You: "This code throws an error, help me fix it"
+AI: "The issue is that the items array may contain undefined or null values.
+     Recommend adding filtering and type checking..."
+
+You: "Give me a more robust version"
+AI: [Generates improved code with error handling, type checking, edge cases]
+```
+
+You save not just time, but also energy and frustration.
+
+### Scenario 4: Code Review and Refactoring
+
+```
+You: "Review this code, what can be improved?"
+
+AI: "I notice several points:
+1. Performance: Nested loops here, O(n²) complexity
+2. Security: No user input validation
+3. Maintainability: Function too long, suggest splitting
+4. Type safety: Missing TypeScript definitions
+
+Suggested refactoring: [Detailed improved code]"
+```
+
+It's like having a senior engineer available 24/7 for code reviews.
+
+## How to Start Vibe Coding?
+
+### Step 1: Choose the Right Tools
+
+#### 1. **Cursor** — Most Recommended AI Editor
+- Deeply integrated AI fork of VS Code
+- Project-level code understanding
+- Natural conversational programming experience
+- Price: $20/month
+
+**Best for:** All developers serious about Vibe Coding
+
+#### 2. **Claude Code** — Conversational Programming Assistant
+- Based on Claude 3.5 Sonnet
+- Works directly in terminal
+- Great for system programming and scripts
+- Free (requires Claude API)
+
+**Best for:** Developers who love command line
+
+#### 3. **GitHub Copilot** — Code Completion Master
+- Original AI programming assistant
+- Powerful code completion
+- Deep VS Code integration
+- Price: $10/month
+
+**Best for:** Developers wanting assistance, not dominance
+
+#### 4. **v0.dev** — Rapid Frontend Component Generation
+- Built by Vercel
+- Natural language to React components
+- Real-time preview and adjustment
+- Free trial
+
+**Best for:** Frontend developers and designers
+
+### Step 2: Cultivate New Mindsets
+
+Vibe Coding isn't just a tool change, it's a mindset shift:
+
+#### 1. Learn "Prompt Engineering"
+
+**Bad Prompt:**
+> "Help me write a login feature"
+
+**Good Prompt:**
+> "Create a login page using Next.js 14 and TypeScript with these requirements:
+> 1. Email + Password authentication
+> 2. Integrate NextAuth.js
+> 3. Form validation with React Hook Form and Zod
+> 4. UI using Tailwind CSS, following shadcn/ui style
+> 5. Add 'Remember me' and password reset links
+> 6. Error handling and loading states"
+
+**Key Elements:**
+- **Clear tech stack**
+- **Detailed requirement list**
+- **UI/UX expectations**
+- **Edge cases**
+
+#### 2. From Detail Implementer to Architecture Designer
+
+Before, you needed to care about:
+- How to write this loop
+- Specific CSS properties
+- API request formats
+
+Now you should care about:
+- Is the overall architecture sound
+- Is the data flow clear
+- Is the user experience smooth
+- Is the code maintainable
+
+**Role Transformation:**
+```
+Traditional Developer -> Vibe Coder
+Worker -> Architect
+Executor -> Designer
+Code Writer -> Product Shaper
+```
+
+#### 3. Maintain Understanding and Control of Code
+
+**Important Principle: Never blindly use AI-generated code**
+
+- **Read and understand** every piece of AI-generated code
+- **Test** all functionality to ensure it meets expectations
+- **Refactor** unsatisfactory parts
+- **Learn** why AI implemented it that way
+
+### Step 3: Practice Recommendations
+
+#### Week 1: Start with Small Projects
+- Rewrite a familiar small tool with AI
+- Compare traditional vs Vibe Coding efficiency
+- Build trust and familiarize with the process
+
+**Recommended Projects:**
+- Todo List (classic starter)
+- Personal blog (practical)
+- Weather app (API integration practice)
+- Chrome extension (small but complete)
+
+#### Week 2: Challenge Medium Projects
+- Pick a project you've wanted to do but thought too complex
+- Complete it with AI assistance
+- Track time and issues encountered
+
+**Recommended Projects:**
+- Full-stack blog system
+- Task management tool
+- Simple e-commerce site
+- Data visualization dashboard
+
+#### Week 3: Learn New Technology
+- Choose an unfamiliar tech stack
+- Learn using Vibe Coding
+- Build a small project to validate learning
+
+**Recommended Tech:**
+- React Server Components
+- Rust + WebAssembly
+- Three.js 3D development
+- AI/ML integration
+
+#### Week 4: Optimize Existing Projects
+- Use AI to review your old code
+- Refactor and optimize
+- Add tests and documentation
+
+### Step 4: Establish Best Practices
+
+#### 1. Code Review Checklist
+```markdown
+[ ] Understand all AI-generated code
+[ ] Run tests to ensure functionality
+[ ] Check security (XSS, SQL injection, etc.)
+[ ] Verify performance (don't blindly trust AI)
+[ ] Add necessary error handling
+[ ] Ensure consistent code style
+[ ] Add comments for complex logic
+```
+
+#### 2. Iterative Development
+```
+1. Generate base version with AI
+2. Test and provide feedback
+3. Have AI improve based on feedback
+4. Repeat 2-3 until satisfied
+5. Manually polish details
+```
+
+#### 3. Keep Learning
+- Read AI-generated code, understand why it's written that way
+- Consult relevant docs, deeply understand concepts
+- Treat AI as a mentor, keep asking questions
+- Share experiences, exchange with other Vibe Coders
+
+## Common Misconceptions and Precautions
+
+### Misconception 1: "AI Will Replace Programmers"
+
+**Reality:**
+- AI is a tool, not a replacement
+- Just as calculators didn't replace mathematicians
+- Cars didn't make us lose our legs
+- AI frees us from repetitive work to focus on creation
+
+**Humans Are Still Irreplaceable For:**
+- **Creativity**: Product ideas and UX design
+- **Judgment**: Tech selection and architecture decisions
+- **Empathy**: Understanding user needs and pain points
+- **Responsibility**: Code quality and security assurance
+
+### Misconception 2: "Don't Need to Learn Programming Fundamentals"
+
+**Why Fundamentals Still Matter:**
+
+1. **Code Review**: You need to judge if AI-generated code is correct
+2. **Debugging Skills**: Know how to locate issues
+3. **Architecture Design**: Understand system design principles
+4. **Communication**: Better express requirements to AI
+
+**Recommended Learning Path:**
+```
+Learn by doing:
+1. Build projects with AI (practice)
+2. Understand AI-generated code (learn)
+3. Consult docs for deeper concepts (consolidate)
+4. Try implementing yourself (internalize)
+```
+
+### Misconception 3: "AI-Generated Code Is Always Correct"
+
+**Common Issues:**
+
+1. **Hallucinations**
+   - AI may invent non-existent APIs
+   - May use outdated syntax
+   - Requires your verification and correction
+
+2. **Security Vulnerabilities**
+   - May lack input validation
+   - May have SQL injection risks
+   - Needs security review
+
+3. **Performance Issues**
+   - May use inefficient algorithms
+   - May over-render
+   - Needs performance testing
+
+4. **Over-Engineering**
+   - May add unnecessary abstractions
+   - May over-optimize
+   - Needs simplification
+
+**Prevention Measures:**
+```markdown
+1. Always test AI-generated code
+2. Use TypeScript for type safety
+3. Write test cases
+4. Code reviews
+5. Security scanning
+6. Performance monitoring
+```
+
+## The Future of Vibe Coding
+
+### 1. Evolution of AI Programming Assistants
+
+**Now (2025):**
+- Code generation and completion
+- Q&A and debugging
+- Limited context understanding
+
+**Near Future (2025-2026):**
+- **Multimodal Input**: Generate UI from screenshots, hand-drawn sketches
+- **Project-Level Understanding**: Understand entire codebase architecture and dependencies
+- **Auto-Refactoring**: Identify code smells and auto-optimize
+- **Intelligent Testing**: Auto-generate comprehensive test cases
+
+**Future (2027+):**
+- **Intent Understanding**: Generate complete apps from simple descriptions
+- **Autonomous Development**: AI can independently complete complex features
+- **Collaborative Programming**: Multiple AIs collaborate on large projects
+- **Continuous Optimization**: AI continuously monitors and improves code
+
+### 2. New Collaboration Models
+
+**New Paradigm of Human-AI Collaboration:**
+
+```
+Humans Handle:         AI Handles:
+- Product vision       - Code implementation
+- UX design           - Best practices
+- Architecture        - Documentation
+- Quality control     - Test coverage
+- Innovation          - Repetitive work
+```
+
+**Team Collaboration Changes:**
+- Smaller teams complete larger projects
+- Focus on product over implementation
+- Faster iteration and experimentation
+- More innovation space
+
+### 3. Programming Education Transformation
+
+**Traditional Programming Education:**
+```
+Syntax -> Algorithms -> Data Structures ->
+Design Patterns -> Frameworks -> Projects
+(Takes 2-4 years)
+```
+
+**AI-Era Programming Education:**
+```
+Basic Concepts + AI Tools -> Direct Projects ->
+Learn by Doing -> Deep Understanding
+(Takes 3-6 months)
+```
+
+**Focus Shift:**
+- From "how to write code" to "how to design systems"
+- From "memorizing syntax" to "understanding concepts"
+- From "solo completion" to "AI collaboration"
+- From "technical depth" to "product thinking"
+
+## Real Case Studies
+
+### Case 1: Building a Personal Blog in 30 Minutes
+
+**Background:**
+I wanted to build a tech blog with requirements:
+- Next.js 14
+- Markdown support
+- Tags and categories
+- Search functionality
+- Responsive design
+- Dark mode
+
+**Traditional Estimate:** 1-2 weeks
+
+**Vibe Coding Actual:** 30 minutes
+
+**Process:**
+1. Describe requirements to Cursor (5 min)
+2. AI generates project structure and core code (10 min)
+3. Adjust UI and styles (10 min)
+4. Deploy to Vercel (5 min)
+
+**Result:**
+- Fully functional blog system
+- Elegant UI design
+- SEO optimized
+- Excellent performance
+
+### Case 2: Learning Three.js from Zero
+
+**Background:**
+Wanted to create a 3D visualization project but never touched Three.js.
+
+**Traditional Learning Path:**
+- Read official docs (3-5 days)
+- Watch video tutorials (5-7 days)
+- Do practice projects (7-10 days)
+- Total: 2-3 weeks
+
+**Vibe Coding Path:**
+- Day 1: Tell AI what I want, AI generates base scene
+- Day 2: Modify code while asking AI about concepts
+- Day 3: Complete complex 3D interactions
+- Total: 3 days
+
+**Key Difference:**
+Building real projects from day one, not doing tutorial exercises.
+
+## Action Plan: Start Today
+
+### Immediate Action (Today)
+
+#### Step 1: Choose a Tool (15 minutes)
+- Sign up for Cursor or Claude Code
+- Install and configure
+
+#### Step 2: First AI Project (1 hour)
+Build a simple Todo app with AI to experience Vibe Coding:
+
+```
+Example Prompt:
+"Create a Todo app using React and TypeScript
+with add, delete, and mark complete features,
+persist with localStorage, UI with Tailwind CSS,
+support dark mode"
+```
+
+#### Step 3: Reflect and Record (15 minutes)
+- Compared to traditional methods, how much time saved?
+- What issues encountered?
+- How's the AI-generated code quality?
+- What did you learn?
+
+### Week 1 Plan
+
+**Day 1-2: Get Familiar with Tools**
+- Complete 3-5 small projects
+- Experiment with different prompts
+- Establish your workflow
+
+**Day 3-4: Learn New Tech**
+- Choose an unfamiliar framework or library
+- Learn with AI assistance
+- Build a small project to validate learning
+
+**Day 5-7: Challenge Project**
+- Choose a medium-sized project
+- Complete with Vibe Coding
+- Track time and efficiency gains
+
+### Month 1 Goals
+
+- [ ] Complete 10+ AI-assisted projects
+- [ ] Master 2-3 new tech stacks
+- [ ] Build your own Prompt library
+- [ ] Share experiences (blog/social media)
+- [ ] Join Vibe Coding community
+
+## Conclusion
+
+### This Isn't the Future, It's Now
+
+Vibe Coding isn't a sci-fi concept or experimental tech, it's a productivity tool you can use **right now**.
+
+### The Tech Revolution Won't Wait
+
+- 5 years ago, who imagined AI would write code?
+- 2 years ago, who knew AI code quality would be this good?
+- Now, who can imagine where AI will evolve in 2 years?
+
+**The early adopter dividend period is only 1-2 years.**
+
+If you start today, you'll be an expert next year.
+If you start next year, you'll spend more time catching up.
+If you start the year after, you might already be obsolete.
+
+### My Invitation
+
+Don't just read this article, **take action now**:
+
+1. **Now** open Cursor or Claude Code
+2. **Today** complete your first AI-assisted project
+3. **This week** master basic Vibe Coding workflow
+4. **This month** complete a project you've always wanted to do
+
+**Remember: The future of programming isn't writing more code, it's creating more value.**
+
+Now, close this article, open your AI programming tool, and start your Vibe Coding journey! 🚀
+
+---
+
+## Resources
+
+### Tools
+- [Cursor](https://cursor.sh) - AI programming editor
+- [Claude Code](https://claude.com/code) - Conversational programming assistant
+- [GitHub Copilot](https://github.com/features/copilot) - Code completion
+- [v0.dev](https://v0.dev) - AI frontend component generation
+
+### Learning Resources
+- [Cursor Official Docs](https://cursor.sh/docs)
+- [Claude API Docs](https://docs.anthropic.com)
+- [Prompt Engineering Guide](https://www.promptingguide.ai)
+
+### Community
+- [Cursor Discord](https://discord.gg/cursor)
+- [r/ClaudeAI](https://reddit.com/r/ClaudeAI)
+- [AI Coding Twitter](https://twitter.com/search?q=%23AICoding)
+
+---
+
+*Last Updated: 2025-11-18*
+]]></content>
+        <author>
+            <name>Aaron Lam</name>
+            <email>aaronlamz2022@gmail.com</email>
+            <uri>https://aaronlamz.github.io/Weblog</uri>
+        </author>
+        <category label="AI"/>
+        <category label="Vibe Coding"/>
+        <category label="Programming"/>
+        <category label="Productivity"/>
+        <category label="Tools"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World - Welcome to My Blog]]></title>
+        <id>https://aaronlamz.github.io/Weblog/en/blog/hello-world</id>
+        <link href="https://aaronlamz.github.io/Weblog/en/blog/hello-world"/>
+        <updated>2025-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to my personal blog! This is my first post where I introduce myself and share what you can expect from this blog.]]></summary>
+        <content type="html"><![CDATA[
+# Hello World! 👋
+
+Welcome to my personal blog! I'm Aaron Lam, a full-stack engineer based in Hong Kong.
+
+## About This Blog
+
+This blog is where I'll be sharing:
+
+- **Technical insights** from my development journey
+- **Project showcases** and case studies  
+- **Learning notes** on new technologies
+- **Industry thoughts** and trends
+
+## What to Expect
+
+You can expect posts about:
+
+- Modern web development (React, Next.js, TypeScript)
+- Backend technologies (Node.js, Python, databases)
+- DevOps and deployment strategies
+- UI/UX design principles
+- Personal projects and experiments
+
+## Let's Connect
+
+Feel free to reach out if you have any questions or want to discuss technology! You can find me on various platforms or use the contact form on this site.
+
+Thanks for visiting, and I hope you find the content useful! 🚀
+]]></content>
+        <author>
+            <name>Admin</name>
+            <email>aaronlamz2022@gmail.com</email>
+            <uri>https://aaronlamz.github.io/Weblog</uri>
+        </author>
+        <category label="welcome"/>
+        <category label="introduction"/>
+        <category label="blog"/>
+    </entry>
+</feed>

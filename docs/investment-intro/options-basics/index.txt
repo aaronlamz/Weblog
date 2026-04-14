@@ -1,0 +1,316 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","investment-intro","options-basics",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","investment-intro/options-basics","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","investment-intro/options-basics","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","mB31M1PQwKj8twtvFHLSMv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T21a4,
+期权是港美股的一大特色（A 股期权很受限）。理解期权能让你的工具箱大幅扩展，但**期权也是散户亏钱最快的工具之一**。这一篇带你建立期权的最小认知。
+
+## 期权是什么
+
+**期权** = 一种"权利的合约"。
+
+买期权 = 你**有权利**在未来某个时间，按某个价格买入或卖出某只股票，但**没有义务**。
+
+听起来抽象？看个例子。
+
+## 一个生活化的例子
+
+假设你看上了一套房子，标价 1000 万。但你不确定 6 个月后能不能凑够首付。
+
+你跟卖家协商：
+- 给我 6 个月时间
+- 我先付你 5 万**定金**
+- 6 个月内我有权按 1000 万买这套房
+- 6 个月内你不能卖给别人
+- 6 个月后我不买，5 万定金不退
+
+**这就是一个看涨期权（Call Option）**。
+
+| 元素 | 房子例子 | 股票期权 |
+|---|---|---|
+| 标的 | 房子 | 股票 |
+| 行权价 | 1000 万 | 行权价（Strike Price） |
+| 到期时间 | 6 个月 | 到期日（Expiration） |
+| 期权费 | 5 万定金 | 期权费（Premium） |
+
+## 看涨期权（Call）
+
+**Call**：在到期日前，**有权按行权价"买入"标的**。
+
+**适合**：看涨。
+
+**例子**：苹果当前 $200。你买一张行权价 $210、到期日 1 个月、期权费 $5 的 Call。
+
+**到期日的几种情况**：
+
+| 苹果价格 | 你的决策 | 盈亏 |
+|---|---|---|
+| $190 | 不行权（直接市场买更便宜） | 亏期权费 $5 |
+| $210 | 行权与否一样 | 亏期权费 $5 |
+| $215 | 行权（赚 $5），扣期权费 | 0 |
+| $230 | 行权（赚 $20），扣期权费 | +$15 |
+| $300 | 行权（赚 $90），扣期权费 | +$85 |
+
+**最大亏损**：期权费 $5
+**最大盈利**：理论无限
+
+**注意**：1 张期权对应 100 股股票。所以上面的盈亏要 ×100。
+
+## 看跌期权（Put）
+
+**Put**：在到期日前，**有权按行权价"卖出"标的**。
+
+**适合**：看跌 / 对冲。
+
+**例子**：苹果当前 $200。你买一张行权价 $190、到期日 1 个月、期权费 $4 的 Put。
+
+| 苹果价格 | 你的决策 | 盈亏 |
+|---|---|---|
+| $200 | 不行权 | 亏 $4 |
+| $190 | 行权与否一样 | 亏 $4 |
+| $186 | 行权（赚 $4） | 0 |
+| $180 | 行权（赚 $10） | +$6 |
+| $150 | 行权（赚 $40） | +$36 |
+
+**最大亏损**：期权费 $4
+**最大盈利**：行权价 - 0 - 期权费（股价不能跌成负数）
+
+## 期权的核心要素
+
+| 要素 | 说明 |
+|---|---|
+| **标的** | 哪只股票 |
+| **类型** | Call 或 Put |
+| **方向** | 买（Long）还是卖（Short） |
+| **行权价（Strike）** | 未来按多少买/卖 |
+| **到期日（Expiration）** | 几个月后 |
+| **期权费（Premium）** | 现在付多少钱 |
+
+## 期权的内在价值 vs 时间价值
+
+**期权费 = 内在价值 + 时间价值**
+
+### 内在价值
+
+如果立刻行权，能赚多少。
+
+**Call 内在价值** = max(股价 - 行权价, 0)
+**Put 内在价值** = max(行权价 - 股价, 0)
+
+### 时间价值
+
+剩下的部分，反映"未来还有多大可能赚钱"。**越接近到期日，时间价值衰减越快**。
+
+> 💡 **重要规律**：买期权的人，每天都在亏时间价值（Theta 衰减）。所以买期权要"快进快出"。
+
+## 价内 / 价平 / 价外
+
+| 类型 | Call | Put |
+|---|---|---|
+| **价内（ITM）** | 股价 > 行权价 | 股价 < 行权价 |
+| **价平（ATM）** | 股价 = 行权价 | 股价 = 行权价 |
+| **价外（OTM）** | 股价 < 行权价 | 股价 > 行权价 |
+
+**价内期权贵，胜率高，杠杆小**。
+**价外期权便宜，胜率低，杠杆大**。
+
+## 希腊字母（Greeks）
+
+期权价格变化的几个敏感度。
+
+### Delta（Δ）
+
+股价变 1 元，期权价格变多少。
+
+- Call 的 Delta：0 到 1
+- Put 的 Delta：-1 到 0
+
+**例子**：Delta = 0.5 → 股价涨 1，期权涨 0.5。
+
+### Gamma（Γ）
+
+Delta 的变化率。
+
+### Theta（Θ）
+
+时间衰减。**期权每天会因为时间流逝而损失多少价值**。
+
+- Theta 通常是负的（对买方）
+- 越接近到期日，Theta 越大（衰减越快）
+
+### Vega（V）
+
+波动率变化对期权价格的影响。**波动率上升 → 期权价格上升**。
+
+### Rho（ρ）
+
+利率变化的影响。一般可以忽略。
+
+> 💡 **新手只需要懂 Delta 和 Theta**。
+
+## 几个经典期权策略
+
+### 1. 买 Call（Long Call）
+
+**场景**：看涨某只股票，但不想花太多钱买正股。
+
+**例子**：苹果 $200，你看涨。买 Call 而不是直接买股票：
+- 直接买 100 股 = $20,000
+- 买 1 张 Call（行权价 $210，1 个月后到期，期权费 $5）= $500
+
+**对比**：花 $500 撬动 $20,000 的股票，杠杆 40 倍。
+
+**最大亏损**：期权费 $500
+**潜在收益**：理论无限
+
+**风险**：到期前股价没涨过 $215，全部亏掉。
+
+### 2. 买 Put（Long Put）
+
+**场景**：看跌某只股票 / 给手中股票上保险。
+
+**例子**：你持有 100 股苹果（成本 $180），怕大跌。买 Put（行权价 $200，6 个月后到期，期权费 $5）= $500。
+
+**效果**：相当于给苹果买了"下跌保险"，保 $200 以下的损失。
+
+### 3. 卖 Call（Short Call）
+
+**场景**：你持有股票，想赚一点"租金"。
+
+**例子**：你持有 100 股苹果。卖一张 Call（行权价 $220，1 个月后到期，期权费 $3）= 收入 $300。
+
+**结果**：
+- 苹果不超过 $220 → 你赚 $300 期权费
+- 苹果超过 $220 → 你被强制以 $220 卖出股票，但还是赚了 $300 期权费
+
+这叫 **Covered Call**（备兑开仓），是最适合长持股票的策略。
+
+### 4. 卖 Put（Short Put）
+
+**场景**：你想低价买入某只股票，顺便赚点期权费。
+
+**例子**：苹果当前 $200，你想 $180 时买入。卖一张 Put（行权价 $180，1 个月后到期，期权费 $3）= 收入 $300。
+
+**结果**：
+- 苹果不低于 $180 → 你赚 $300 期权费
+- 苹果低于 $180 → 你被强制以 $180 买入 100 股（但实际成本 = $180 - $3 = $177）
+
+这叫 **Cash-Secured Put**，是巴菲特爱用的策略。
+
+### 5. 价差策略（Spread）
+
+同时买卖不同行权价的期权，限制风险。
+
+**牛市价差**（Bull Call Spread）：
+- 买入 $200 Call
+- 卖出 $220 Call
+- 净支出小，收益封顶但风险也封顶
+
+**适合**：温和看涨，想降低成本。
+
+## 期权的真实案例
+
+### 案例 1：散户的"赌博"
+
+2021 年 GameStop 事件中，很多散户买短期价外 Call。
+
+- 一张 $40 的 GME Call 涨到 $300，赚 7 倍
+- 但更多人买在高位，期权价值归零
+
+**这不是投资，是赌博**。
+
+### 案例 2：Covered Call 的稳定收入
+
+你持有 100 股苹果（长期不卖），每月卖一张 1 个月后到期、行权价高 5% 的 Call。
+
+- 每月赚 1-2% 的期权费
+- 一年下来额外 12-24% 收益
+- 偶尔被强制卖出，也是高位卖出
+
+**这才是期权该有的用法**。
+
+## 期权的风险
+
+期权看起来"亏的少赚的多"，但**真实数据**：
+
+- 80%+ 的散户买期权最终亏损
+- **绝大多数期权到期归零**（特别是 OTM）
+- 时间衰减是隐形杀手
+
+### 最危险的玩法
+
+| 玩法 | 风险 |
+|---|---|
+| **短期 OTM Call** | 95% 概率归零 |
+| **裸卖 Call** | 理论亏损无限 |
+| **裸卖 Put**（无现金担保） | 大跌时爆仓 |
+| **频繁交易期权** | 手续费 + 时间衰减双杀 |
+
+### 相对安全的玩法
+
+| 玩法 | 适用 |
+|---|---|
+| **Covered Call** | 长持股票，赚租金 |
+| **Cash-Secured Put** | 等低价入场 |
+| **价差策略** | 限制风险 |
+| **保护性 Put** | 给持仓上保险 |
+
+## 期权交易在富途 / 盈立的步骤
+
+1. **开通期权交易权限**（需要风险评估）
+2. **打开期权链**（Option Chain）
+3. **选择到期日**
+4. **选择行权价**
+5. **决定买 / 卖**
+6. **下单**
+
+> ⚠️ 期权交易**门槛较高**，券商会先做风险评估。新手通常只能交易 Level 1（Covered Call、Long Call/Put）。
+
+## 小结
+
+期权的核心认知：
+
+- ✅ 期权是"权利的合约"，不是义务
+- ✅ Call 看涨，Put 看跌
+- ✅ 时间价值随时间衰减
+- ✅ 买期权杠杆大但胜率低
+- ✅ 卖期权稳定但有黑天鹅风险
+- ✅ Covered Call / Cash-Secured Put 是相对安全的玩法
+- ✅ 短期 OTM 期权 = 赌博
+
+下一篇 [从 0 开始的实操路径](/docs/investment-intro/beginner-roadmap)，给你一个从零开始的具体行动计划。
+
+> 📌 **最严重的警告**
+>
+> **新手不要碰期权**。
+>
+> 如果一定要试，请先用模拟账户练习 3 个月，再用真实资金的 1% 试一次。期权能让你一晚上亏掉一年的积蓄，这不是夸张。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"investment-intro","title":"投资入门101","description":"港美股新手到入门：股票、ETF、债券、REITs、期权全梳理","icon":"TrendingUp","order":10,"docs":[{"slug":"investment-intro/why-invest","title":"为什么要投资","description":"通胀、复利、机会成本，建立投资的'为什么'","order":1,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/hk-us-market-overview","title":"港美股市场全景","description":"主要交易所、指数、交易时间、和 A 股的区别","order":2,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/open-broker-account","title":"券商账户开通指南","description":"富途 vs 盈立对比，开户流程、出入金、汇率","order":3,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/stock-basics","title":"股票基础知识","description":"股票是什么、IPO、分红、拆股、做多做空","order":4,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/etf-basics","title":"ETF 入门","description":"ETF 是什么、和基金区别、宽基/行业/跨境 ETF、怎么挑","order":5,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/bonds-and-reits","title":"债券与 REITs","description":"美债、公司债、REITs 收息逻辑","order":6,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/fundamental-analysis","title":"怎么看一家公司（基本面）","description":"财报三表速读、关键指标 PE/PB/ROE","order":7,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/technical-analysis-basics","title":"K 线与技术面入门","description":"K 线、趋势、均线、量价关系","order":8,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/valuation-and-timing","title":"估值与买入时机","description":"DCF 简化版、相对估值、定投 vs 一次性","order":9,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/asset-allocation","title":"资产配置与组合构建","description":"股债配置、地区分散、风险偏好测试","order":10,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/risk-management","title":"风险管理","description":"仓位控制、止损止盈、心理偏差","order":11,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/options-basics","title":"期权基础","description":"Call / Put、行权价、希腊字母、几个经典策略","order":12,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/beginner-roadmap","title":"从 0 开始的实操路径","description":"新手 1 万美金 / 10 万港币的具体配置示例与行动计划","order":13,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"投资入门101"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"期权基础"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"Call / Put、行权价、希腊字母、几个经典策略"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"期权基础 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"Call / Put、行权价、希腊字母、几个经典策略"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"期权基础 | 投资入门101"}],["$","meta","8",{"property":"og:description","content":"Call / Put、行权价、希腊字母、几个经典策略"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

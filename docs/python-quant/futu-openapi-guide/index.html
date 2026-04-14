@@ -1,0 +1,655 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/Weblog/_next/static/css/448770d53702bab7.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js"/><script src="/Weblog/_next/static/chunks/b1c36d5c-7af821ec76afd631.js" async=""></script><script src="/Weblog/_next/static/chunks/5177-6b5a63eaad6e5e3e.js" async=""></script><script src="/Weblog/_next/static/chunks/main-app-44c7df09c7fc33e3.js" async=""></script><script src="/Weblog/_next/static/chunks/app/layout-cf7e65f93c8f7249.js" async=""></script><script src="/Weblog/_next/static/chunks/8079-2b3f7eedf4f1d672.js" async=""></script><script src="/Weblog/_next/static/chunks/7952-cc0e32ac27c90321.js" async=""></script><script src="/Weblog/_next/static/chunks/5612-3c1ae2a8191546c0.js" async=""></script><script src="/Weblog/_next/static/chunks/8989-4d976e7e58e8fe92.js" async=""></script><script src="/Weblog/_next/static/chunks/6711-3f2600da09f683cd.js" async=""></script><script src="/Weblog/_next/static/chunks/9440-6e79b5e5aabd03a7.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js" async=""></script><meta name="next-size-adjust" content=""/><title>富途 OpenAPI 完整指南 | Aaron Lam</title><meta name="description" content="架构、订阅额度、限频、权限、错误码、交易接口最佳实践"/><meta name="author" content="Aaron"/><meta name="keywords" content="blog,nextjs,typescript,web development,programming"/><meta name="creator" content="Aaron"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/><meta property="og:title" content="富途 OpenAPI 完整指南 | Python 量化入门"/><meta property="og:description" content="架构、订阅额度、限频、权限、错误码、交易接口最佳实践"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weblog"/><meta name="twitter:description" content="A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/Weblog/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_b6ac51 __variable_c81db4 font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="fixed inset-0 -z-10 bg-background"><div class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div></div><div class="relative min-h-screen flex flex-col"><main class="pb-8 flex-1"><div class=""><div class="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl"><div class="flex items-center justify-between h-12"><a class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" href="/Weblog/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>返回文档</span></a><div class="flex items-center gap-2"><a class="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" href="/Weblog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 select-none lg-btn-ghost text-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></div></div><div class="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl"><div class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0"><aside class="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6"><div class="sticky top-14"><nav class="space-y-1"><div><div class="px-3 py-2 text-sm font-semibold text-foreground/90">Python 量化入门</div><div class="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5"><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/environment-setup/">环境搭建</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-fetching/">行情数据获取</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-primary font-medium bg-primary/5" href="/Weblog/docs/python-quant/futu-openapi-guide/">富途 OpenAPI 完整指南</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/pandas-basics/">Pandas 基础（金融场景）</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-visualization/">数据可视化</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/technical-indicators/">技术指标实战</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/dual-moving-average-strategy/">第一个策略：双均线</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/backtest-framework/">回测框架入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/risk-metrics/">风险与绩效指标</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/multi-factor-selection/">多因子选股入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/from-backtest-to-live/">从回测到实盘</a></div></div></nav></div></aside><article class="lg:pl-8"><header class="mb-4"><div class="text-sm text-primary/80 font-medium mb-1">Python 量化入门</div><h1 class="text-2xl md:text-3xl font-bold mb-2">富途 OpenAPI 完整指南</h1><p class="text-lg text-muted-foreground">架构、订阅额度、限频、权限、错误码、交易接口最佳实践</p></header><div class="relative"><div class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent"><div class="h-0.5 bg-primary transition-[width] duration-150" style="width:0%"></div></div><div class="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0"><div class="lg:pr-8"><div class="prose prose-gray dark:prose-invert max-w-none"><p>上一篇我们用富途 OpenAPI 拉了点行情数据，能跑就行。但实际用富途做量化，<strong>有一堆&quot;看起来简单实则坑很多&quot;的概念</strong>：订阅额度、限频规则、行情权限、错误码、交易接口……新手不搞清楚就会反复踩坑。</p>
+<p>这一篇是<strong>富途 OpenAPI 的系统手册</strong>，建议收藏后随时查阅。官方文档：<a href="https://openapi.futunn.com/futu-api-doc/intro/intro.html">openapi.futunn.com/futu-api-doc</a></p>
+<h2 id="一架构详解"><a href="#一架构详解">一、架构详解</a></h2>
+<p>富途 OpenAPI 不是直接 HTTP 调用，而是<strong>三层架构</strong>：</p>
+<pre><code>┌─────────────────┐    ┌──────────────┐    ┌──────────────┐
+│  你的策略代码   │ →  │  FutuOpenD   │ →  │  富途服务器  │
+│  (Python/Java) │    │  (本地网关)  │    │              │
+└─────────────────┘    └──────────────┘    └──────────────┘
+        ↑                     ↑
+        │                     │
+   通过 socket            富途账号登录
+   与本地通信
+</code></pre>
+<h3 id="为什么这么设计"><a href="#为什么这么设计">为什么这么设计</a></h3>
+<ol>
+<li><strong>账号安全</strong> — 你的账号密码只在本地的 FutuOpenD 输入，第三方代码看不到</li>
+<li><strong>统一连接</strong> — 多个策略可以共用一个 FutuOpenD 连接，节省连接数</li>
+<li><strong>跨语言</strong> — Python、Java、C++、C# 都可以连同一个 FutuOpenD</li>
+<li><strong>协议封装</strong> — SDK 帮你处理底层 protobuf，你只用看 API</li>
+</ol>
+<h3 id="三种部署方式"><a href="#三种部署方式">三种部署方式</a></h3>
+<table><thead><tr><th>方式</th><th>适合</th></tr></thead><tbody><tr><td><strong>本地运行 FutuOpenD</strong></td><td>开发、测试、个人量化（最常见）</td></tr><tr><td><strong>云服务器运行 FutuOpenD</strong></td><td>24 小时实盘策略</td></tr><tr><td><strong>公司内网部署</strong></td><td>团队使用，多人共享</td></tr></tbody></table>
+<h2 id="二futuopend-安装与启动"><a href="#二futuopend-安装与启动">二、FutuOpenD 安装与启动</a></h2>
+<h3 id="下载"><a href="#下载">下载</a></h3>
+<p><a href="https://www.futunn.com/download/openAPI">官方下载页</a>，选择你的系统：</p>
+<ul>
+<li>macOS（dmg）</li>
+<li>Windows（exe）</li>
+<li>Linux（zip / tar.gz）</li>
+<li>Docker 镜像</li>
+</ul>
+<h3 id="启动模式"><a href="#启动模式">启动模式</a></h3>
+<p><strong>1. 图形界面模式</strong>（新手推荐）</p>
+<p>双击启动，弹出登录窗口：</p>
+<ul>
+<li>输入富途账号密码</li>
+<li>完成短信验证</li>
+<li>启动成功后状态栏会显示 &quot;已连接&quot;</li>
+</ul>
+<p><strong>2. 命令行模式</strong>（服务器部署）</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">bash</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># Linux / macOS
+./FutuOpenD -login_account=你的账号 -login_pwd_md5=密码MD5
+
+# 后台运行
+nohup ./FutuOpenD -login_account=xxx -login_pwd_md5=xxx &gt; opend.log 2&gt;&amp;1 &amp;</code></pre></div></pre>
+<h3 id="配置文件"><a href="#配置文件">配置文件</a></h3>
+<p>FutuOpenD 启动后会读取 <code>FutuOpenD.xml</code>（在程序同目录），常用配置：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">xml</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>&lt;config&gt;
+  &lt;!-- 监听端口 --&gt;
+  &lt;api_port&gt;11111&lt;/api_port&gt;
+
+  &lt;!-- 监听 IP，0.0.0.0 表示接受所有连接 --&gt;
+  &lt;api_ip&gt;127.0.0.1&lt;/api_ip&gt;
+
+  &lt;!-- 行情推送 --&gt;
+  &lt;push_proto_fmt&gt;0&lt;/push_proto_fmt&gt;
+
+  &lt;!-- 日志级别 --&gt;
+  &lt;log_level&gt;info&lt;/log_level&gt;
+&lt;/config&gt;</code></pre></div></pre>
+<blockquote>
+<p>⚠️ <strong>服务器部署安全</strong>
+如果把 FutuOpenD 装在云服务器，<strong>千万不要</strong>把 <code>api_ip</code> 设成 <code>0.0.0.0</code> 还开放公网端口。要么走 VPN，要么用 SSH 隧道转发。</p>
+</blockquote>
+<h2 id="三行情订阅额度系统重要"><a href="#三行情订阅额度系统重要">三、行情订阅额度系统（重要）</a></h2>
+<p>这是新手最容易踩的坑。</p>
+<h3 id="什么是订阅"><a href="#什么是订阅">什么是订阅</a></h3>
+<p>获取<strong>实时</strong>行情数据前，必须先<strong>订阅</strong>这只股票。订阅后，富途服务器才会推送实时数据给你。</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 订阅 = 建立长连接的&quot;通道&quot;
+quote_ctx.subscribe([&#x27;HK.00700&#x27;], [&#x27;QUOTE&#x27;])</code></pre></div></pre>
+<h3 id="订阅的类型"><a href="#订阅的类型">订阅的类型</a></h3>
+<p>每只股票可以订阅多种<strong>数据类型</strong>，每种数据类型<strong>单独占用一个额度</strong>：</p>
+<table><thead><tr><th>订阅类型</th><th>含义</th><th>占用额度</th></tr></thead><tbody><tr><td><strong>QUOTE</strong></td><td>实时报价</td><td>1</td></tr><tr><td><strong>TICKER</strong></td><td>逐笔成交</td><td>1</td></tr><tr><td><strong>K_DAY</strong></td><td>日 K 线</td><td>1</td></tr><tr><td><strong>K_5M</strong></td><td>5 分钟 K 线</td><td>1</td></tr><tr><td><strong>K_1M</strong></td><td>1 分钟 K 线</td><td>1</td></tr><tr><td><strong>ORDER_BOOK</strong></td><td>买卖盘</td><td>1</td></tr><tr><td><strong>RT_DATA</strong></td><td>分时数据</td><td>1</td></tr><tr><td><strong>BROKER</strong></td><td>经纪商队列</td><td>1</td></tr></tbody></table>
+<blockquote>
+<p>💡 <strong>关键</strong>：订阅&quot;腾讯的 QUOTE + K_DAY + K_5M&quot; = 占用 3 个额度，不是 1 个。</p>
+</blockquote>
+<h3 id="总额度上限"><a href="#总额度上限">总额度上限</a></h3>
+<table><thead><tr><th>行情权限</th><th>总订阅额度</th></tr></thead><tbody><tr><td>Lv1（免费）</td><td>100</td></tr><tr><td>BMP / 港股 Lv2</td><td>300</td></tr><tr><td>美股 Lv2</td><td>500</td></tr></tbody></table>
+<p><strong>额度共享</strong>：所有连接到同一个 FutuOpenD 的客户端共享额度。</p>
+<h3 id="查询当前订阅"><a href="#查询当前订阅">查询当前订阅</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>ret, data = quote_ctx.query_subscription()
+if ret == 0:
+    print(data)</code></pre></div></pre>
+<h3 id="取消订阅"><a href="#取消订阅">取消订阅</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 取消单只
+quote_ctx.unsubscribe([&#x27;HK.00700&#x27;], [&#x27;QUOTE&#x27;])
+
+# 取消所有
+quote_ctx.unsubscribe_all()</code></pre></div></pre>
+<h3 id="最佳实践"><a href="#最佳实践">最佳实践</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># ❌ 错误：每次获取数据都订阅一次
+for code in stock_list:
+    quote_ctx.subscribe([code], [&#x27;QUOTE&#x27;])
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 正确：批量订阅一次
+quote_ctx.subscribe(stock_list, [&#x27;QUOTE&#x27;])
+ret, data = quote_ctx.get_market_snapshot(stock_list)
+
+# ✅ 用完释放
+quote_ctx.unsubscribe(stock_list, [&#x27;QUOTE&#x27;])</code></pre></div></pre>
+<h2 id="四接口限频规则"><a href="#四接口限频规则">四、接口限频规则</a></h2>
+<p>富途对每个接口都有<strong>调用频率限制</strong>，超频会被限流。</p>
+<h3 id="常见接口的限频"><a href="#常见接口的限频">常见接口的限频</a></h3>
+<table><thead><tr><th>接口</th><th>限频</th></tr></thead><tbody><tr><td><code>get_market_snapshot</code></td><td>60 次/30 秒</td></tr><tr><td><code>request_history_kline</code></td><td>30 次/30 秒</td></tr><tr><td><code>subscribe / unsubscribe</code></td><td>100 次/30 秒</td></tr><tr><td><code>get_cur_kline</code></td><td>60 次/30 秒</td></tr><tr><td><code>place_order</code></td><td>15 次/30 秒</td></tr><tr><td><code>position_list_query</code></td><td>10 次/30 秒</td></tr></tbody></table>
+<h3 id="全局限频"><a href="#全局限频">全局限频</a></h3>
+<p>每个连接每秒最多 <strong>10 次</strong> 协议请求。</p>
+<h3 id="怎么判断被限频"><a href="#怎么判断被限频">怎么判断被限频</a></h3>
+<p>返回的 <code>ret</code> 码会是 <code>RET_ERROR</code>，错误信息包含 &quot;frequency limit&quot;。</p>
+<h3 id="应对方法"><a href="#应对方法">应对方法</a></h3>
+<p><strong>1. 主动 sleep</strong></p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import time
+
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+    time.sleep(0.6)  # 每秒不超过 2 次</code></pre></div></pre>
+<p><strong>2. 批量调用</strong>（最优）</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># ❌ 100 次单只查询 = 限频
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 1 次批量查询
+quote_ctx.get_market_snapshot(stock_list)  # 一次最多 400 只</code></pre></div></pre>
+<p><strong>3. 异步限流装饰器</strong></p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from functools import wraps
+import time
+
+class RateLimiter:
+    def __init__(self, max_calls, period):
+        self.max_calls = max_calls
+        self.period = period
+        self.calls = []
+
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            now = time.time()
+            self.calls = [t for t in self.calls if now - t &lt; self.period]
+            if len(self.calls) &gt;= self.max_calls:
+                sleep_time = self.period - (now - self.calls[0])
+                time.sleep(sleep_time)
+            self.calls.append(time.time())
+            return func(*args, **kwargs)
+        return wrapper
+
+@RateLimiter(max_calls=30, period=30)
+def fetch_kline(code):
+    return quote_ctx.request_history_kline(code, ...)</code></pre></div></pre>
+<h2 id="五行情权限层级"><a href="#五行情权限层级">五、行情权限层级</a></h2>
+<p>不同权限能拿到的数据不一样。</p>
+<h3 id="港股"><a href="#港股">港股</a></h3>
+<table><thead><tr><th>权限</th><th>数据深度</th><th>价格</th></tr></thead><tbody><tr><td><strong>Lv1</strong></td><td>1 档买卖盘</td><td>免费</td></tr><tr><td><strong>BMP</strong></td><td>10 档买卖盘 + 经纪队列</td><td>免费（需开通）</td></tr><tr><td><strong>Lv2</strong></td><td>10 档 + 经纪队列 + 逐笔</td><td>月费</td></tr></tbody></table>
+<h3 id="美股"><a href="#美股">美股</a></h3>
+<table><thead><tr><th>权限</th><th>数据深度</th><th>价格</th></tr></thead><tbody><tr><td><strong>OTC（延迟）</strong></td><td>延迟 15 分钟</td><td>免费</td></tr><tr><td><strong>Lv1（实时）</strong></td><td>实时 1 档</td><td>免费（个人投资者）</td></tr><tr><td><strong>Nasdaq TotalView</strong></td><td>10 档 + 完整深度</td><td>月费</td></tr></tbody></table>
+<h3 id="a-股"><a href="#a-股">A 股</a></h3>
+<table><thead><tr><th>权限</th><th>价格</th></tr></thead><tbody><tr><td><strong>Lv1</strong></td><td>月费</td></tr><tr><td><strong>Lv2</strong></td><td>月费</td></tr></tbody></table>
+<blockquote>
+<p>💡 <strong>散户提示</strong>
+港股 Lv1 + 美股 Lv1 已经够 90% 量化策略用了。Lv2 主要是高频和盘口策略需要。</p>
+</blockquote>
+<h3 id="查询当前权限"><a href="#查询当前权限">查询当前权限</a></h3>
+<p>在 FutuOpenD 的 GUI 里能看到，或者通过 API：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>ret, data = quote_ctx.get_user_security_group(group_type=1)</code></pre></div></pre>
+<h2 id="六错误码与异常处理"><a href="#六错误码与异常处理">六、错误码与异常处理</a></h2>
+<h3 id="通用返回值"><a href="#通用返回值">通用返回值</a></h3>
+<p>所有 API 的返回值都是 <code>(ret, data)</code> 元组：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>ret, data = quote_ctx.get_market_snapshot([&#x27;US.AAPL&#x27;])
+
+if ret == 0:  # 等价于 RET_OK
+    # 成功，data 是结果
+    print(data)
+else:
+    # 失败，data 是错误信息字符串
+    print(f&#x27;Error: {data}&#x27;)</code></pre></div></pre>
+<h3 id="常见错误码"><a href="#常见错误码">常见错误码</a></h3>
+<table><thead><tr><th>错误</th><th>含义</th><th>解决</th></tr></thead><tbody><tr><td><strong>未连接</strong></td><td>FutuOpenD 没运行或端口错</td><td>检查 FutuOpenD 状态、端口</td></tr><tr><td><strong>未订阅</strong></td><td>没订阅就请求实时数据</td><td>先 <code>subscribe</code></td></tr><tr><td><strong>订阅额度不足</strong></td><td>超过订阅上限</td><td>取消旧订阅</td></tr><tr><td><strong>频率限制</strong></td><td>调用太快</td><td>加 sleep 或批量请求</td></tr><tr><td><strong>权限不足</strong></td><td>没有该数据的权限</td><td>升级权限 / 改用免费数据</td></tr><tr><td><strong>代码错误</strong></td><td>股票代码格式错</td><td>检查 <code>US./HK./SH./SZ.</code> 前缀</td></tr><tr><td><strong>未解锁交易</strong></td><td>调交易接口前没解锁</td><td><code>unlock_trade</code></td></tr><tr><td><strong>MD5 不匹配</strong></td><td>交易密码 MD5 错</td><td>重新计算 MD5</td></tr></tbody></table>
+<h3 id="健壮的请求封装"><a href="#健壮的请求封装">健壮的请求封装</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OpenQuoteContext, RET_OK
+import time
+import logging
+
+class FutuClient:
+    def __init__(self, host=&#x27;127.0.0.1&#x27;, port=11111, max_retry=3):
+        self.host = host
+        self.port = port
+        self.max_retry = max_retry
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host=self.host, port=self.port)
+
+    def safe_request(self, func, *args, **kwargs):
+        &quot;&quot;&quot;带重试的请求&quot;&quot;&quot;
+        for i in range(self.max_retry):
+            try:
+                ret, data = func(*args, **kwargs)
+                if ret == RET_OK:
+                    return data
+                logging.warning(f&#x27;Request failed: {data}, retry {i+1}/{self.max_retry}&#x27;)
+                if &#x27;frequency&#x27; in str(data).lower():
+                    time.sleep(2 ** i)  # 指数退避
+            except Exception as e:
+                logging.error(f&#x27;Exception: {e}, retry {i+1}/{self.max_retry}&#x27;)
+                self._connect()  # 重连
+            time.sleep(1)
+        return None
+
+    def get_kline(self, code, **kwargs):
+        return self.safe_request(self.ctx.request_history_kline, code, **kwargs)
+
+    def close(self):
+        if self.ctx:
+            self.ctx.close()</code></pre></div></pre>
+<h2 id="七交易接口"><a href="#七交易接口">七、交易接口</a></h2>
+<h3 id="解锁交易"><a href="#解锁交易">解锁交易</a></h3>
+<p>调交易接口前必须解锁：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OpenSecTradeContext, TrdMarket, TrdEnv
+import hashlib
+
+# 计算交易密码 MD5
+password = &#x27;your_password&#x27;
+password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host=&#x27;127.0.0.1&#x27;,
+    port=11111
+)
+
+# 解锁
+ret, data = trd_ctx.unlock_trade(password_md5=password_md5)
+if ret != 0:
+    print(f&#x27;解锁失败: {data}&#x27;)</code></pre></div></pre>
+<blockquote>
+<p>⚠️ <strong>环境隔离</strong></p>
+<ul>
+<li><code>TrdEnv.SIMULATE</code> = 模拟环境</li>
+<li><code>TrdEnv.REAL</code> = 实盘环境</li>
+<li><strong>永远先在模拟环境验证后再切换到实盘</strong></li>
+</ul>
+</blockquote>
+<h3 id="查询账户"><a href="#查询账户">查询账户</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 账户列表
+ret, data = trd_ctx.get_acc_list()
+print(data)
+
+# 资金状况
+ret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：现金、可用资金、总资产、持仓市值等
+
+# 持仓
+ret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：股票代码、持仓数量、成本价、市值、盈亏等</code></pre></div></pre>
+<h3 id="下单"><a href="#下单">下单</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OrderType, TrdSide
+
+# 限价单
+ret, data = trd_ctx.place_order(
+    price=180.0,                      # 价格
+    qty=10,                           # 数量
+    code=&#x27;US.AAPL&#x27;,                   # 代码
+    trd_side=TrdSide.BUY,             # 买/卖
+    order_type=OrderType.NORMAL,      # 普通限价单
+    trd_env=TrdEnv.SIMULATE,
+)
+
+if ret == 0:
+    order_id = data[&#x27;order_id&#x27;].iloc[0]
+    print(f&#x27;下单成功: {order_id}&#x27;)
+
+# 市价单
+ret, data = trd_ctx.place_order(
+    price=0,                          # 市价单 price 设 0
+    qty=10,
+    code=&#x27;US.AAPL&#x27;,
+    trd_side=TrdSide.BUY,
+    order_type=OrderType.MARKET,
+    trd_env=TrdEnv.SIMULATE,
+)</code></pre></div></pre>
+<h3 id="订单类型对照"><a href="#订单类型对照">订单类型对照</a></h3>
+<table><thead><tr><th>类型</th><th>含义</th><th>适用</th></tr></thead><tbody><tr><td><strong>NORMAL</strong></td><td>普通限价单</td><td>大部分场景</td></tr><tr><td><strong>MARKET</strong></td><td>市价单</td><td>立即成交（注意滑点）</td></tr><tr><td><strong>ABSOLUTE_LIMIT</strong></td><td>绝对限价</td><td>港股</td></tr><tr><td><strong>AUCTION</strong></td><td>竞价</td><td>港股集合竞价</td></tr><tr><td><strong>AUCTION_LIMIT</strong></td><td>竞价限价</td><td>港股</td></tr></tbody></table>
+<h3 id="查询订单状态"><a href="#查询订单状态">查询订单状态</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 当日订单
+ret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+
+# 历史订单
+ret, data = trd_ctx.history_order_list_query(
+    start=&#x27;2024-01-01&#x27;,
+    end=&#x27;2024-12-31&#x27;,
+    trd_env=TrdEnv.SIMULATE
+)</code></pre></div></pre>
+<h3 id="撤单"><a href="#撤单">撤单</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import ModifyOrderOp
+
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.CANCEL,
+    order_id=order_id,
+    qty=0,
+    price=0,
+    trd_env=TrdEnv.SIMULATE,
+)</code></pre></div></pre>
+<h3 id="改单改价--改量"><a href="#改单改价--改量">改单（改价 / 改量）</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.NORMAL,  # 修改
+    order_id=order_id,
+    qty=20,         # 新数量
+    price=185.0,    # 新价格
+    trd_env=TrdEnv.SIMULATE,
+)</code></pre></div></pre>
+<h3 id="订单成交推送"><a href="#订单成交推送">订单成交推送</a></h3>
+<p>如果需要实时知道订单状态变化：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import TradeOrderHandlerBase
+
+class OrderHandler(TradeOrderHandlerBase):
+    def on_recv_rsp(self, rsp_pb):
+        ret, data = super().on_recv_rsp(rsp_pb)
+        if ret == 0:
+            print(f&#x27;订单更新: {data}&#x27;)
+        return ret, data
+
+trd_ctx.set_handler(OrderHandler())</code></pre></div></pre>
+<h2 id="八最佳实践"><a href="#八最佳实践">八、最佳实践</a></h2>
+<h3 id="1-单例连接"><a href="#1-单例连接">1. 单例连接</a></h3>
+<p>不要在每个函数里都新建一个 <code>OpenQuoteContext</code>，开销很大。用单例模式：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>class QuoteSingleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = OpenQuoteContext(host=&#x27;127.0.0.1&#x27;, port=11111)
+        return cls._instance
+
+# 使用
+quote_ctx = QuoteSingleton()</code></pre></div></pre>
+<h3 id="2-上下文管理器"><a href="#2-上下文管理器">2. 上下文管理器</a></h3>
+<p>用 <code>with</code> 自动关闭连接：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>class FutuQuote:
+    def __enter__(self):
+        self.ctx = OpenQuoteContext(host=&#x27;127.0.0.1&#x27;, port=11111)
+        return self.ctx
+
+    def __exit__(self, *args):
+        self.ctx.close()
+
+# 使用
+with FutuQuote() as ctx:
+    ret, data = ctx.get_market_snapshot([&#x27;US.AAPL&#x27;])</code></pre></div></pre>
+<h3 id="3-数据缓存"><a href="#3-数据缓存">3. 数据缓存</a></h3>
+<p>历史数据不变，缓存到本地（前面提过，这里强调重要性）：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import os
+import pandas as pd
+
+def cached_kline(code, start, end, cache_dir=&#x27;./data&#x27;):
+    os.makedirs(cache_dir, exist_ok=True)
+    fname = f&#x27;{cache_dir}/{code.replace(&quot;.&quot;, &quot;_&quot;)}_{start}_{end}.parquet&#x27;
+    if os.path.exists(fname):
+        return pd.read_parquet(fname)
+
+    # 调 API
+    ret, df, _ = quote_ctx.request_history_kline(code, start=start, end=end)
+    if ret == 0:
+        df.to_parquet(fname)
+        return df
+    return None</code></pre></div></pre>
+<h3 id="4-断线重连"><a href="#4-断线重连">4. 断线重连</a></h3>
+<p>FutuOpenD 偶尔会断线，要有重连机制：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>class StableContext:
+    def __init__(self):
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host=&#x27;127.0.0.1&#x27;, port=11111)
+        # 注册系统通知 handler
+        from futu import SysNotifyHandlerBase
+        class NotifyHandler(SysNotifyHandlerBase):
+            def __init__(self, parent):
+                super().__init__()
+                self.parent = parent
+            def on_recv_rsp(self, rsp_pb):
+                ret, data = super().on_recv_rsp(rsp_pb)
+                if &#x27;disconnect&#x27; in str(data).lower():
+                    print(&#x27;Disconnected, reconnecting...&#x27;)
+                    self.parent._connect()
+                return ret, data
+        self.ctx.set_handler(NotifyHandler(self))</code></pre></div></pre>
+<h3 id="5-配额监控"><a href="#5-配额监控">5. 配额监控</a></h3>
+<p>定期检查订阅额度，避免爆额度：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def check_quota(quote_ctx):
+    ret, data = quote_ctx.query_subscription()
+    if ret == 0:
+        used = data[&#x27;total_used&#x27;]
+        total = data[&#x27;remain&#x27;] + used
+        usage = used / total * 100
+        if usage &gt; 80:
+            print(f&#x27;⚠️ 订阅额度告警: {used}/{total} ({usage:.1f}%)&#x27;)</code></pre></div></pre>
+<h3 id="6-日志记录"><a href="#6-日志记录">6. 日志记录</a></h3>
+<p>策略上线前一定要记日志：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=&#x27;%(asctime)s [%(levelname)s] %(message)s&#x27;,
+    handlers=[
+        logging.FileHandler(&#x27;strategy.log&#x27;),
+        logging.StreamHandler()
+    ]
+)
+
+logging.info(&#x27;策略启动&#x27;)
+logging.info(f&#x27;下单成功: {order_id}&#x27;)
+logging.error(f&#x27;API 错误: {e}&#x27;)</code></pre></div></pre>
+<h2 id="九docker-部署-futuopend"><a href="#九docker-部署-futuopend">九、Docker 部署 FutuOpenD</a></h2>
+<p>如果要把策略上云 24 小时跑，推荐用 Docker：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">bash</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 拉取镜像
+docker pull futuopen/futu-opend:latest
+
+# 启动容器
+docker run -d \
+  --name futuopend \
+  -p 11111:11111 \
+  -e LOGIN_ACCOUNT=你的账号 \
+  -e LOGIN_PWD_MD5=你的密码MD5 \
+  futuopen/futu-opend:latest</code></pre></div></pre>
+<p>然后你的策略代码连 <code>host=容器宿主机IP, port=11111</code> 即可。</p>
+<h2 id="十官方文档与资源"><a href="#十官方文档与资源">十、官方文档与资源</a></h2>
+<table><thead><tr><th>资源</th><th>用途</th></tr></thead><tbody><tr><td><a href="https://openapi.futunn.com/futu-api-doc/intro/intro.html">OpenAPI 官方文档</a></td><td>最权威</td></tr><tr><td><a href="https://github.com/FutunnOpen/py-futu-api">Python SDK GitHub</a></td><td>源码 + Issue</td></tr><tr><td><a href="https://openapi.futunn.com/futu-api-doc/quote/get-history-kline.html">接口列表</a></td><td>速查</td></tr><tr><td><a href="https://openapi.futunn.com/futu-api-doc/intro/error-code.html">错误码列表</a></td><td>排查问题</td></tr><tr><td><a href="https://q.futunn.com/feed/openapi">社区 OpenAPI 板块</a></td><td>提问</td></tr></tbody></table>
+<h2 id="小结"><a href="#小结">小结</a></h2>
+<p>走完这一篇你应该明白：</p>
+<ul>
+<li>✅ FutuOpenD 的三层架构和原理</li>
+<li>✅ 订阅额度系统的运作</li>
+<li>✅ 接口限频规则与应对</li>
+<li>✅ 行情权限层级</li>
+<li>✅ 错误码与健壮的请求封装</li>
+<li>✅ 交易接口的完整使用</li>
+<li>✅ 单例、缓存、重连等最佳实践</li>
+</ul>
+<p>下一篇 <a href="/docs/python-quant/pandas-basics">Pandas 基础</a> 我们回到数据处理本身，开始把这些数据用起来。</p>
+<blockquote>
+<p>📌 <strong>核心提醒</strong>
+富途 OpenAPI 不是&quot;接进来就能用&quot;。<strong>订阅额度</strong> 和 <strong>接口限频</strong> 是新手最常踩的坑——一个策略写得再好，被限流后就跑不下去了。早点把这些基础设施做扎实，后面省心 100 倍。</p>
+</blockquote></div></div></div><div id="mobile-toc" role="dialog" aria-modal="true" class="lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-background border-l border-border/60 transform transition-transform duration-200 ease-out translate-x-full"><div class="sticky top-0 flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/90 backdrop-blur"><div class="text-xs uppercase tracking-wide text-muted-foreground">本页导读</div><button type="button" aria-label="Close" class="rounded p-1 hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><nav class="px-4 py-3 space-y-1 overflow-y-auto h-[calc(100%-3rem)]"></nav></div><button type="button" aria-label="Back to top" class="hidden lg:flex fixed bottom-8 right-6 z-40 h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/80 backdrop-blur shadow-md transition-all opacity-0 translate-y-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></article></div></div><!--$--><!--/$--></div></main></div><script src="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[87157,[\"7177\",\"static/chunks/app/layout-cf7e65f93c8f7249.js\"],\"ThemeProvider\"]\n3:I[91850,[],\"\"]\n4:I[1640,[],\"\"]\n7:I[89762,[],\"OutletBoundary\"]\na:I[77874,[],\"AsyncMetadataOutlet\"]\nc:I[89762,[],\"ViewportBoundary\"]\ne:I[89762,[],\"MetadataBoundary\"]\n10:I[10157,[],\"\"]\n:HL[\"/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/css/448770d53702bab7.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kl-pYbLEd_XBGkr3ndzOs\",\"p\":\"/Weblog\",\"c\":[\"\",\"zh\",\"docs\",\"python-quant\",\"futu-openapi-guide\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"locale\",\"zh\",\"d\"],{\"children\":[\"docs\",{\"children\":[[\"slug\",\"python-quant/futu-openapi-guide\",\"c\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/Weblog/_next/static/css/448770d53702bab7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_b6ac51 __variable_c81db4 font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"locale\",\"zh\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,\"$L5\"]}],{\"children\":[\"docs\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"python-quant/futu-openapi-guide\",\"c\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",null,[\"$\",\"$L7\",null,{\"children\":[\"$L8\",\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"xlZLroer_Evcw_R5rvYRbv\",{\"children\":[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:\"$Sreact.suspense\"\n12:I[77874,[],\"AsyncMetadata\"]\nf:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]}]\n9:null\n"])</script><script>self.__next_f.push([1,"14:I[59417,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsTopBar\"]\n15:I[88499,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsSidebar\"]\n16:I[15646,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"default\"]\n17:T446c,"])</script><script>self.__next_f.push([1,"\n上一篇我们用富途 OpenAPI 拉了点行情数据，能跑就行。但实际用富途做量化，**有一堆\"看起来简单实则坑很多\"的概念**：订阅额度、限频规则、行情权限、错误码、交易接口……新手不搞清楚就会反复踩坑。\n\n这一篇是**富途 OpenAPI 的系统手册**，建议收藏后随时查阅。官方文档：[openapi.futunn.com/futu-api-doc](https://openapi.futunn.com/futu-api-doc/intro/intro.html)\n\n## 一、架构详解\n\n富途 OpenAPI 不是直接 HTTP 调用，而是**三层架构**：\n\n```\n┌─────────────────┐    ┌──────────────┐    ┌──────────────┐\n│  你的策略代码   │ →  │  FutuOpenD   │ →  │  富途服务器  │\n│  (Python/Java) │    │  (本地网关)  │    │              │\n└─────────────────┘    └──────────────┘    └──────────────┘\n        ↑                     ↑\n        │                     │\n   通过 socket            富途账号登录\n   与本地通信\n```\n\n### 为什么这么设计\n\n1. **账号安全** — 你的账号密码只在本地的 FutuOpenD 输入，第三方代码看不到\n2. **统一连接** — 多个策略可以共用一个 FutuOpenD 连接，节省连接数\n3. **跨语言** — Python、Java、C++、C# 都可以连同一个 FutuOpenD\n4. **协议封装** — SDK 帮你处理底层 protobuf，你只用看 API\n\n### 三种部署方式\n\n| 方式 | 适合 |\n|---|---|\n| **本地运行 FutuOpenD** | 开发、测试、个人量化（最常见） |\n| **云服务器运行 FutuOpenD** | 24 小时实盘策略 |\n| **公司内网部署** | 团队使用，多人共享 |\n\n## 二、FutuOpenD 安装与启动\n\n### 下载\n\n[官方下载页](https://www.futunn.com/download/openAPI)，选择你的系统：\n- macOS（dmg）\n- Windows（exe）\n- Linux（zip / tar.gz）\n- Docker 镜像\n\n### 启动模式\n\n**1. 图形界面模式**（新手推荐）\n\n双击启动，弹出登录窗口：\n- 输入富途账号密码\n- 完成短信验证\n- 启动成功后状态栏会显示 \"已连接\"\n\n**2. 命令行模式**（服务器部署）\n\n```bash\n# Linux / macOS\n./FutuOpenD -login_account=你的账号 -login_pwd_md5=密码MD5\n\n# 后台运行\nnohup ./FutuOpenD -login_account=xxx -login_pwd_md5=xxx \u003e opend.log 2\u003e\u00261 \u0026\n```\n\n### 配置文件\n\nFutuOpenD 启动后会读取 `FutuOpenD.xml`（在程序同目录），常用配置：\n\n```xml\n\u003cconfig\u003e\n  \u003c!-- 监听端口 --\u003e\n  \u003capi_port\u003e11111\u003c/api_port\u003e\n\n  \u003c!-- 监听 IP，0.0.0.0 表示接受所有连接 --\u003e\n  \u003capi_ip\u003e127.0.0.1\u003c/api_ip\u003e\n\n  \u003c!-- 行情推送 --\u003e\n  \u003cpush_proto_fmt\u003e0\u003c/push_proto_fmt\u003e\n\n  \u003c!-- 日志级别 --\u003e\n  \u003clog_level\u003einfo\u003c/log_level\u003e\n\u003c/config\u003e\n```\n\n\u003e ⚠️ **服务器部署安全**\n\u003e 如果把 FutuOpenD 装在云服务器，**千万不要**把 `api_ip` 设成 `0.0.0.0` 还开放公网端口。要么走 VPN，要么用 SSH 隧道转发。\n\n## 三、行情订阅额度系统（重要）\n\n这是新手最容易踩的坑。\n\n### 什么是订阅\n\n获取**实时**行情数据前，必须先**订阅**这只股票。订阅后，富途服务器才会推送实时数据给你。\n\n```python\n# 订阅 = 建立长连接的\"通道\"\nquote_ctx.subscribe(['HK.00700'], ['QUOTE'])\n```\n\n### 订阅的类型\n\n每只股票可以订阅多种**数据类型**，每种数据类型**单独占用一个额度**：\n\n| 订阅类型 | 含义 | 占用额度 |\n|---|---|---|\n| **QUOTE** | 实时报价 | 1 |\n| **TICKER** | 逐笔成交 | 1 |\n| **K_DAY** | 日 K 线 | 1 |\n| **K_5M** | 5 分钟 K 线 | 1 |\n| **K_1M** | 1 分钟 K 线 | 1 |\n| **ORDER_BOOK** | 买卖盘 | 1 |\n| **RT_DATA** | 分时数据 | 1 |\n| **BROKER** | 经纪商队列 | 1 |\n\n\u003e 💡 **关键**：订阅\"腾讯的 QUOTE + K_DAY + K_5M\" = 占用 3 个额度，不是 1 个。\n\n### 总额度上限\n\n| 行情权限 | 总订阅额度 |\n|---|---|\n| Lv1（免费） | 100 |\n| BMP / 港股 Lv2 | 300 |\n| 美股 Lv2 | 500 |\n\n**额度共享**：所有连接到同一个 FutuOpenD 的客户端共享额度。\n\n### 查询当前订阅\n\n```python\nret, data = quote_ctx.query_subscription()\nif ret == 0:\n    print(data)\n```\n\n### 取消订阅\n\n```python\n# 取消单只\nquote_ctx.unsubscribe(['HK.00700'], ['QUOTE'])\n\n# 取消所有\nquote_ctx.unsubscribe_all()\n```\n\n### 最佳实践\n\n```python\n# ❌ 错误：每次获取数据都订阅一次\nfor code in stock_list:\n    quote_ctx.subscribe([code], ['QUOTE'])\n    quote_ctx.get_market_snapshot([code])\n\n# ✅ 正确：批量订阅一次\nquote_ctx.subscribe(stock_list, ['QUOTE'])\nret, data = quote_ctx.get_market_snapshot(stock_list)\n\n# ✅ 用完释放\nquote_ctx.unsubscribe(stock_list, ['QUOTE'])\n```\n\n## 四、接口限频规则\n\n富途对每个接口都有**调用频率限制**，超频会被限流。\n\n### 常见接口的限频\n\n| 接口 | 限频 |\n|---|---|\n| `get_market_snapshot` | 60 次/30 秒 |\n| `request_history_kline` | 30 次/30 秒 |\n| `subscribe / unsubscribe` | 100 次/30 秒 |\n| `get_cur_kline` | 60 次/30 秒 |\n| `place_order` | 15 次/30 秒 |\n| `position_list_query` | 10 次/30 秒 |\n\n### 全局限频\n\n每个连接每秒最多 **10 次** 协议请求。\n\n### 怎么判断被限频\n\n返回的 `ret` 码会是 `RET_ERROR`，错误信息包含 \"frequency limit\"。\n\n### 应对方法\n\n**1. 主动 sleep**\n\n```python\nimport time\n\nfor code in stock_list:\n    quote_ctx.get_market_snapshot([code])\n    time.sleep(0.6)  # 每秒不超过 2 次\n```\n\n**2. 批量调用**（最优）\n\n```python\n# ❌ 100 次单只查询 = 限频\nfor code in stock_list:\n    quote_ctx.get_market_snapshot([code])\n\n# ✅ 1 次批量查询\nquote_ctx.get_market_snapshot(stock_list)  # 一次最多 400 只\n```\n\n**3. 异步限流装饰器**\n\n```python\nfrom functools import wraps\nimport time\n\nclass RateLimiter:\n    def __init__(self, max_calls, period):\n        self.max_calls = max_calls\n        self.period = period\n        self.calls = []\n\n    def __call__(self, func):\n        @wraps(func)\n        def wrapper(*args, **kwargs):\n            now = time.time()\n            self.calls = [t for t in self.calls if now - t \u003c self.period]\n            if len(self.calls) \u003e= self.max_calls:\n                sleep_time = self.period - (now - self.calls[0])\n                time.sleep(sleep_time)\n            self.calls.append(time.time())\n            return func(*args, **kwargs)\n        return wrapper\n\n@RateLimiter(max_calls=30, period=30)\ndef fetch_kline(code):\n    return quote_ctx.request_history_kline(code, ...)\n```\n\n## 五、行情权限层级\n\n不同权限能拿到的数据不一样。\n\n### 港股\n\n| 权限 | 数据深度 | 价格 |\n|---|---|---|\n| **Lv1** | 1 档买卖盘 | 免费 |\n| **BMP** | 10 档买卖盘 + 经纪队列 | 免费（需开通） |\n| **Lv2** | 10 档 + 经纪队列 + 逐笔 | 月费 |\n\n### 美股\n\n| 权限 | 数据深度 | 价格 |\n|---|---|---|\n| **OTC（延迟）** | 延迟 15 分钟 | 免费 |\n| **Lv1（实时）** | 实时 1 档 | 免费（个人投资者） |\n| **Nasdaq TotalView** | 10 档 + 完整深度 | 月费 |\n\n### A 股\n\n| 权限 | 价格 |\n|---|---|\n| **Lv1** | 月费 |\n| **Lv2** | 月费 |\n\n\u003e 💡 **散户提示**\n\u003e 港股 Lv1 + 美股 Lv1 已经够 90% 量化策略用了。Lv2 主要是高频和盘口策略需要。\n\n### 查询当前权限\n\n在 FutuOpenD 的 GUI 里能看到，或者通过 API：\n\n```python\nret, data = quote_ctx.get_user_security_group(group_type=1)\n```\n\n## 六、错误码与异常处理\n\n### 通用返回值\n\n所有 API 的返回值都是 `(ret, data)` 元组：\n\n```python\nret, data = quote_ctx.get_market_snapshot(['US.AAPL'])\n\nif ret == 0:  # 等价于 RET_OK\n    # 成功，data 是结果\n    print(data)\nelse:\n    # 失败，data 是错误信息字符串\n    print(f'Error: {data}')\n```\n\n### 常见错误码\n\n| 错误 | 含义 | 解决 |\n|---|---|---|\n| **未连接** | FutuOpenD 没运行或端口错 | 检查 FutuOpenD 状态、端口 |\n| **未订阅** | 没订阅就请求实时数据 | 先 `subscribe` |\n| **订阅额度不足** | 超过订阅上限 | 取消旧订阅 |\n| **频率限制** | 调用太快 | 加 sleep 或批量请求 |\n| **权限不足** | 没有该数据的权限 | 升级权限 / 改用免费数据 |\n| **代码错误** | 股票代码格式错 | 检查 `US./HK./SH./SZ.` 前缀 |\n| **未解锁交易** | 调交易接口前没解锁 | `unlock_trade` |\n| **MD5 不匹配** | 交易密码 MD5 错 | 重新计算 MD5 |\n\n### 健壮的请求封装\n\n```python\nfrom futu import OpenQuoteContext, RET_OK\nimport time\nimport logging\n\nclass FutuClient:\n    def __init__(self, host='127.0.0.1', port=11111, max_retry=3):\n        self.host = host\n        self.port = port\n        self.max_retry = max_retry\n        self.ctx = None\n        self._connect()\n\n    def _connect(self):\n        self.ctx = OpenQuoteContext(host=self.host, port=self.port)\n\n    def safe_request(self, func, *args, **kwargs):\n        \"\"\"带重试的请求\"\"\"\n        for i in range(self.max_retry):\n            try:\n                ret, data = func(*args, **kwargs)\n                if ret == RET_OK:\n                    return data\n                logging.warning(f'Request failed: {data}, retry {i+1}/{self.max_retry}')\n                if 'frequency' in str(data).lower():\n                    time.sleep(2 ** i)  # 指数退避\n            except Exception as e:\n                logging.error(f'Exception: {e}, retry {i+1}/{self.max_retry}')\n                self._connect()  # 重连\n            time.sleep(1)\n        return None\n\n    def get_kline(self, code, **kwargs):\n        return self.safe_request(self.ctx.request_history_kline, code, **kwargs)\n\n    def close(self):\n        if self.ctx:\n            self.ctx.close()\n```\n\n## 七、交易接口\n\n### 解锁交易\n\n调交易接口前必须解锁：\n\n```python\nfrom futu import OpenSecTradeContext, TrdMarket, TrdEnv\nimport hashlib\n\n# 计算交易密码 MD5\npassword = 'your_password'\npassword_md5 = hashlib.md5(password.encode()).hexdigest()\n\ntrd_ctx = OpenSecTradeContext(\n    filter_trdmarket=TrdMarket.US,\n    host='127.0.0.1',\n    port=11111\n)\n\n# 解锁\nret, data = trd_ctx.unlock_trade(password_md5=password_md5)\nif ret != 0:\n    print(f'解锁失败: {data}')\n```\n\n\u003e ⚠️ **环境隔离**\n\u003e - `TrdEnv.SIMULATE` = 模拟环境\n\u003e - `TrdEnv.REAL` = 实盘环境\n\u003e - **永远先在模拟环境验证后再切换到实盘**\n\n### 查询账户\n\n```python\n# 账户列表\nret, data = trd_ctx.get_acc_list()\nprint(data)\n\n# 资金状况\nret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n# 包含：现金、可用资金、总资产、持仓市值等\n\n# 持仓\nret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n# 包含：股票代码、持仓数量、成本价、市值、盈亏等\n```\n\n### 下单\n\n```python\nfrom futu import OrderType, TrdSide\n\n# 限价单\nret, data = trd_ctx.place_order(\n    price=180.0,                      # 价格\n    qty=10,                           # 数量\n    code='US.AAPL',                   # 代码\n    trd_side=TrdSide.BUY,             # 买/卖\n    order_type=OrderType.NORMAL,      # 普通限价单\n    trd_env=TrdEnv.SIMULATE,\n)\n\nif ret == 0:\n    order_id = data['order_id'].iloc[0]\n    print(f'下单成功: {order_id}')\n\n# 市价单\nret, data = trd_ctx.place_order(\n    price=0,                          # 市价单 price 设 0\n    qty=10,\n    code='US.AAPL',\n    trd_side=TrdSide.BUY,\n    order_type=OrderType.MARKET,\n    trd_env=TrdEnv.SIMULATE,\n)\n```\n\n### 订单类型对照\n\n| 类型 | 含义 | 适用 |\n|---|---|---|\n| **NORMAL** | 普通限价单 | 大部分场景 |\n| **MARKET** | 市价单 | 立即成交（注意滑点） |\n| **ABSOLUTE_LIMIT** | 绝对限价 | 港股 |\n| **AUCTION** | 竞价 | 港股集合竞价 |\n| **AUCTION_LIMIT** | 竞价限价 | 港股 |\n\n### 查询订单状态\n\n```python\n# 当日订单\nret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n\n# 历史订单\nret, data = trd_ctx.history_order_list_query(\n    start='2024-01-01',\n    end='2024-12-31',\n    trd_env=TrdEnv.SIMULATE\n)\n```\n\n### 撤单\n\n```python\nfrom futu import ModifyOrderOp\n\nret, data = trd_ctx.modify_order(\n    modify_order_op=ModifyOrderOp.CANCEL,\n    order_id=order_id,\n    qty=0,\n    price=0,\n    trd_env=TrdEnv.SIMULATE,\n)\n```\n\n### 改单（改价 / 改量）\n\n```python\nret, data = trd_ctx.modify_order(\n    modify_order_op=ModifyOrderOp.NORMAL,  # 修改\n    order_id=order_id,\n    qty=20,         # 新数量\n    price=185.0,    # 新价格\n    trd_env=TrdEnv.SIMULATE,\n)\n```\n\n### 订单成交推送\n\n如果需要实时知道订单状态变化：\n\n```python\nfrom futu import TradeOrderHandlerBase\n\nclass OrderHandler(TradeOrderHandlerBase):\n    def on_recv_rsp(self, rsp_pb):\n        ret, data = super().on_recv_rsp(rsp_pb)\n        if ret == 0:\n            print(f'订单更新: {data}')\n        return ret, data\n\ntrd_ctx.set_handler(OrderHandler())\n```\n\n## 八、最佳实践\n\n### 1. 单例连接\n\n不要在每个函数里都新建一个 `OpenQuoteContext`，开销很大。用单例模式：\n\n```python\nclass QuoteSingleton:\n    _instance = None\n\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = OpenQuoteContext(host='127.0.0.1', port=11111)\n        return cls._instance\n\n# 使用\nquote_ctx = QuoteSingleton()\n```\n\n### 2. 上下文管理器\n\n用 `with` 自动关闭连接：\n\n```python\nclass FutuQuote:\n    def __enter__(self):\n        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)\n        return self.ctx\n\n    def __exit__(self, *args):\n        self.ctx.close()\n\n# 使用\nwith FutuQuote() as ctx:\n    ret, data = ctx.get_market_snapshot(['US.AAPL'])\n```\n\n### 3. 数据缓存\n\n历史数据不变，缓存到本地（前面提过，这里强调重要性）：\n\n```python\nimport os\nimport pandas as pd\n\ndef cached_kline(code, start, end, cache_dir='./data'):\n    os.makedirs(cache_dir, exist_ok=True)\n    fname = f'{cache_dir}/{code.replace(\".\", \"_\")}_{start}_{end}.parquet'\n    if os.path.exists(fname):\n        return pd.read_parquet(fname)\n\n    # 调 API\n    ret, df, _ = quote_ctx.request_history_kline(code, start=start, end=end)\n    if ret == 0:\n        df.to_parquet(fname)\n        return df\n    return None\n```\n\n### 4. 断线重连\n\nFutuOpenD 偶尔会断线，要有重连机制：\n\n```python\nclass StableContext:\n    def __init__(self):\n        self.ctx = None\n        self._connect()\n\n    def _connect(self):\n        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)\n        # 注册系统通知 handler\n        from futu import SysNotifyHandlerBase\n        class NotifyHandler(SysNotifyHandlerBase):\n            def __init__(self, parent):\n                super().__init__()\n                self.parent = parent\n            def on_recv_rsp(self, rsp_pb):\n                ret, data = super().on_recv_rsp(rsp_pb)\n                if 'disconnect' in str(data).lower():\n                    print('Disconnected, reconnecting...')\n                    self.parent._connect()\n                return ret, data\n        self.ctx.set_handler(NotifyHandler(self))\n```\n\n### 5. 配额监控\n\n定期检查订阅额度，避免爆额度：\n\n```python\ndef check_quota(quote_ctx):\n    ret, data = quote_ctx.query_subscription()\n    if ret == 0:\n        used = data['total_used']\n        total = data['remain'] + used\n        usage = used / total * 100\n        if usage \u003e 80:\n            print(f'⚠️ 订阅额度告警: {used}/{total} ({usage:.1f}%)')\n```\n\n### 6. 日志记录\n\n策略上线前一定要记日志：\n\n```python\nimport logging\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s [%(levelname)s] %(message)s',\n    handlers=[\n        logging.FileHandler('strategy.log'),\n        logging.StreamHandler()\n    ]\n)\n\nlogging.info('策略启动')\nlogging.info(f'下单成功: {order_id}')\nlogging.error(f'API 错误: {e}')\n```\n\n## 九、Docker 部署 FutuOpenD\n\n如果要把策略上云 24 小时跑，推荐用 Docker：\n\n```bash\n# 拉取镜像\ndocker pull futuopen/futu-opend:latest\n\n# 启动容器\ndocker run -d \\\n  --name futuopend \\\n  -p 11111:11111 \\\n  -e LOGIN_ACCOUNT=你的账号 \\\n  -e LOGIN_PWD_MD5=你的密码MD5 \\\n  futuopen/futu-opend:latest\n```\n\n然后你的策略代码连 `host=容器宿主机IP, port=11111` 即可。\n\n## 十、官方文档与资源\n\n| 资源 | 用途 |\n|---|---|\n| [OpenAPI 官方文档](https://openapi.futunn.com/futu-api-doc/intro/intro.html) | 最权威 |\n| [Python SDK GitHub](https://github.com/FutunnOpen/py-futu-api) | 源码 + Issue |\n| [接口列表](https://openapi.futunn.com/futu-api-doc/quote/get-history-kline.html) | 速查 |\n| [错误码列表](https://openapi.futunn.com/futu-api-doc/intro/error-code.html) | 排查问题 |\n| [社区 OpenAPI 板块](https://q.futunn.com/feed/openapi) | 提问 |\n\n## 小结\n\n走完这一篇你应该明白：\n\n- ✅ FutuOpenD 的三层架构和原理\n- ✅ 订阅额度系统的运作\n- ✅ 接口限频规则与应对\n- ✅ 行情权限层级\n- ✅ 错误码与健壮的请求封装\n- ✅ 交易接口的完整使用\n- ✅ 单例、缓存、重连等最佳实践\n\n下一篇 [Pandas 基础](/docs/python-quant/pandas-basics) 我们回到数据处理本身，开始把这些数据用起来。\n\n\u003e 📌 **核心提醒**\n\u003e 富途 OpenAPI 不是\"接进来就能用\"。**订阅额度** 和 **接口限频** 是新手最常踩的坑——一个策略写得再好，被限流后就跑不下去了。早点把这些基础设施做扎实，后面省心 100 倍。\n"])</script><script>self.__next_f.push([1,"6:[[\"$\",\"$L14\",null,{\"backHref\":\"/docs\",\"backLabel\":\"返回文档\",\"homeHref\":\"/\"}],[\"$\",\"div\",null,{\"className\":\"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"sticky top-14\",\"children\":[\"$\",\"$L15\",null,{\"categories\":[{\"slug\":\"python-quant\",\"title\":\"Python 量化入门\",\"description\":\"从零开始学习 Python 量化交易，边学边实践\",\"icon\":\"LineChart\",\"order\":20,\"docs\":[{\"slug\":\"python-quant/environment-setup\",\"title\":\"环境搭建\",\"description\":\"Python + Jupyter + 常用库，为什么选 Python 做量化\",\"order\":1,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-fetching\",\"title\":\"行情数据获取\",\"description\":\"富途 OpenAPI 实战 + 免费数据源对比\",\"order\":2,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/futu-openapi-guide\",\"title\":\"富途 OpenAPI 完整指南\",\"description\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\",\"order\":3,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/pandas-basics\",\"title\":\"Pandas 基础（金融场景）\",\"description\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\",\"order\":4,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-visualization\",\"title\":\"数据可视化\",\"description\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\",\"order\":5,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/technical-indicators\",\"title\":\"技术指标实战\",\"description\":\"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库\",\"order\":6,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/dual-moving-average-strategy\",\"title\":\"第一个策略：双均线\",\"description\":\"策略逻辑、信号生成、仓位管理、回测对比\",\"order\":7,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/backtest-framework\",\"title\":\"回测框架入门\",\"description\":\"backtrader / vectorbt 入门，回测一个真实策略\",\"order\":8,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/risk-metrics\",\"title\":\"风险与绩效指标\",\"description\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\",\"order\":9,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/multi-factor-selection\",\"title\":\"多因子选股入门\",\"description\":\"因子定义、因子打分、组合构建\",\"order\":10,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/from-backtest-to-live\",\"title\":\"从回测到实盘\",\"description\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\",\"order\":11,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"}]}]}]}]}],[\"$\",\"article\",null,{\"className\":\"lg:pl-8\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"text-sm text-primary/80 font-medium mb-1\",\"children\":\"Python 量化入门\"}],[\"$\",\"h1\",null,{\"className\":\"text-2xl md:text-3xl font-bold mb-2\",\"children\":\"富途 OpenAPI 完整指南\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground\",\"children\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\"}]]}],[\"$\",\"$L16\",null,{\"content\":\"$17\",\"tocPosition\":\"right\"}]]}]]}]}]]\n"])</script><script>self.__next_f.push([1,"18:I[88164,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"default\"]\n19:I[73614,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"HtmlLangSetter\"]\n1a:I[82381,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"SmartBackground\"]\n1b:I[17801,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Header\"]\n1c:I[39217,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"DynamicMain\"]\n1d:I[24793,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"PageTransition\"]\n1e:I[23343,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Footer\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$L18\",null,{\"formats\":\"$undefined\",\"locale\":\"zh\",\"messages\":{\"site\":{\"name\":\"Weblog\"},\"navigation\":{\"home\":\"首页\",\"blog\":\"博客\",\"docs\":\"文档中心\",\"about\":\"关于\",\"back\":\"返回\"},\"hero\":{\"greeting\":\"Hi, I'm\",\"introduction\":\"a\",\"roles\":{\"fullstack\":\"Full Stack Engineer\",\"web\":\"Web Developer\",\"solver\":\"Problem Solver\"},\"description\":\"The unexamined life is not worth living.\"},\"skills\":{\"title\":\"技能\",\"frontend\":\"前端开发\",\"mobile\":\"移动开发\",\"beyond\":\"代码之外\"},\"skillsDesc\":{\"frontend\":\"现代 Web 技术栈\",\"design\":\"UI/UX 与视觉设计\",\"mobile\":\"使用 React Native 与 PWA 的移动端开发\",\"beyond\":\"阅读、思考、记录生活的美好时刻\"},\"tech\":{\"title\":\"技术栈\"},\"posts\":{\"blog\":\"博客\",\"featured\":\"精选文章\",\"latest\":\"最新文章\",\"description\":\"记录一些想法和生活碎片\",\"readMore\":\"阅读全文\",\"publishedOn\":\"发布于\",\"readingTime\":\"阅读约 {minutes} 分钟\",\"empty\":\"暂无文章，敬请期待！\",\"tags\":\"标签\",\"archive\":\"时间归档\",\"monthlyArchive\":\"月份归档\",\"popularTags\":\"热门标签\",\"clearFilters\":\"清除筛选\",\"backToBlog\":\"返回博客\"},\"common\":{\"onThisPage\":\"本页导读\"},\"footer\":{\"scrollToTop\":\"回到顶部\",\"copyright\":\"版权所有\",\"builtWith\":\"Built with Claude Code\"},\"contact\":{\"title\":\"联系我\",\"getInTouch\":\"保持联系\",\"subtitle\":\"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。\",\"name\":\"姓名\",\"email\":\"邮箱\",\"subject\":\"主题\",\"message\":\"消息\",\"send\":\"发送\",\"sending\":\"发送中...\",\"success\":\"消息发送成功！\",\"error\":\"发送失败，请重试\",\"methods\":{\"email\":{\"name\":\"邮箱\",\"desc\":\"用于工作或合作，欢迎邮件联系\"},\"github\":{\"name\":\"GitHub\",\"desc\":\"查看我的代码与项目\"},\"twitter\":{\"name\":\"Twitter\",\"desc\":\"关注最新动态与技术交流\"},\"linkedin\":{\"name\":\"LinkedIn\",\"desc\":\"查看我的职业档案与人脉\"},\"x\":{\"name\":\"X\",\"desc\":\"获取最新动态与技术分享\"},\"wechat\":{\"name\":\"微信\",\"desc\":\"添加我为好友或查看二维码\"},\"wechatOfficialAccount\":{\"name\":\"微信公众号\",\"desc\":\"关注我的公众号获取最新内容\"}},\"sendMessage\":\"发送消息\",\"responseTime\":\"响应时间\",\"responseTip\":\"我通常会在 24-48 小时内回复你的邮件，期待与你交流！\"},\"about\":{\"title\":\"关于我\",\"description\":\"全栈开发者 · 证券从业者 · 生活记录者\",\"intro\":\"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。\",\"bio\":\"聊聊想法，记录生活，分享投资思考和技术心得。\",\"connectTitle\":\"联系我\",\"connect\":\"聊投资、聊技术、或者就聊聊生活，都欢迎。\",\"quote\":\"大道至简。\"},\"docs\":{\"title\":\"文档中心\",\"description\":\"教程、小册与知识分享\",\"articles\":\"篇\",\"empty\":\"暂无文档，敬请期待！\",\"backToDocs\":\"返回文档\"},\"meta\":{\"description\":\"个人博客，写代码、学技术、记录生活\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":[[\"$\",\"$L19\",null,{\"locale\":\"zh\"}],[\"$\",\"$L1a\",null,{\"maxCreatures\":3}],[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L1b\",null,{}],[\"$\",\"$L1c\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L1d\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}],[\"$\",\"$L1e\",null,{}]]}]]}]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n8:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"富途 OpenAPI 完整指南 | Aaron Lam\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"blog,nextjs,typescript,web development,programming\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"富途 OpenAPI 完整指南 | Python 量化入门\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"Weblog\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.\"}],[\"$\",\"link\",\"13\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"any\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\",\"type\":\"image/svg+xml\"}],[\"$\",\"link\",\"15\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n13:{\"metadata\":\"$b:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>

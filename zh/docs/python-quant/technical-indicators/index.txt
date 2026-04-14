@@ -1,0 +1,296 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","technical-indicators",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/technical-indicators","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/technical-indicators","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","dAjoImNZqKASOy8FUCsNSv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1aa9,
+技术指标是技术分析的语言。这一篇我们手撕几个最常用的指标，搞懂它们的计算原理，然后再用专业库 `talib` 做对照。
+
+## 为什么要手撕
+
+直接用库不香吗？香，但**不知道指标怎么算出来的，就没办法在策略里灵活运用**。手撕一遍后你就知道：
+
+- MA 不是魔法，就是简单平均
+- MACD 是两条均线的差再平滑
+- RSI 是涨跌幅的比例
+
+理解后，调参、改造、组合都游刃有余。
+
+## 准备数据
+
+```python
+import akshare as ak
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2024-01-01'].set_index('date')
+```
+
+## 1. 移动平均线 MA
+
+最简单的指标，就是 N 日收盘价的算术平均。
+
+```python
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+df['MA60'] = df['close'].rolling(60).mean()
+```
+
+### EMA（指数移动平均）
+
+EMA 给最近的价格更高权重，对趋势变化更敏感：
+
+```python
+df['EMA12'] = df['close'].ewm(span=12, adjust=False).mean()
+df['EMA26'] = df['close'].ewm(span=26, adjust=False).mean()
+```
+
+> 💡 `span=N` 等价于 `α = 2/(N+1)`，是约定俗成的写法。
+
+## 2. MACD（指数平滑异同移动平均）
+
+MACD 由三个部分组成：
+- **DIF**（快线）= EMA12 - EMA26
+- **DEA**（慢线）= DIF 的 9 日 EMA
+- **MACD 柱**= 2 × (DIF - DEA)
+
+```python
+def calc_macd(close, fast=12, slow=26, signal=9):
+    ema_fast = close.ewm(span=fast, adjust=False).mean()
+    ema_slow = close.ewm(span=slow, adjust=False).mean()
+    dif = ema_fast - ema_slow
+    dea = dif.ewm(span=signal, adjust=False).mean()
+    macd = 2 * (dif - dea)
+    return dif, dea, macd
+
+df['DIF'], df['DEA'], df['MACD'] = calc_macd(df['close'])
+```
+
+### 信号判定
+
+- DIF 上穿 DEA → 金叉，看多
+- DIF 下穿 DEA → 死叉，看空
+- MACD 柱由负转正 → 多头势能增强
+
+```python
+df['macd_golden'] = (df['DIF'] > df['DEA']) & (df['DIF'].shift(1) <= df['DEA'].shift(1))
+df['macd_death']  = (df['DIF'] < df['DEA']) & (df['DIF'].shift(1) >= df['DEA'].shift(1))
+```
+
+## 3. RSI（相对强弱指数）
+
+衡量价格涨跌的相对强度，输出 0-100 的值。
+
+```python
+def calc_rsi(close, period=14):
+    delta = close.diff()
+    gain = delta.where(delta > 0, 0)
+    loss = -delta.where(delta < 0, 0)
+
+    avg_gain = gain.rolling(period).mean()
+    avg_loss = loss.rolling(period).mean()
+
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
+
+df['RSI14'] = calc_rsi(df['close'])
+```
+
+### 信号判定
+
+- RSI > 70 → 超买区，警惕回调
+- RSI < 30 → 超卖区，可能反弹
+
+```python
+df['rsi_overbought'] = df['RSI14'] > 70
+df['rsi_oversold']   = df['RSI14'] < 30
+```
+
+## 4. KDJ
+
+KDJ 由 K、D、J 三条线组成，对短线反转更敏感。
+
+```python
+def calc_kdj(df, n=9):
+    low_n  = df['low'].rolling(n).min()
+    high_n = df['high'].rolling(n).max()
+
+    rsv = (df['close'] - low_n) / (high_n - low_n) * 100
+
+    k = rsv.ewm(alpha=1/3, adjust=False).mean()
+    d = k.ewm(alpha=1/3, adjust=False).mean()
+    j = 3 * k - 2 * d
+
+    return k, d, j
+
+df['K'], df['D'], df['J'] = calc_kdj(df)
+```
+
+### 信号判定
+
+- K 上穿 D 且都在 20 以下 → 强买入
+- K 下穿 D 且都在 80 以上 → 强卖出
+- J 跌破 0 → 极度超卖
+- J 突破 100 → 极度超买
+
+## 5. 布林带（Bollinger Bands）
+
+布林带由三条线组成：中轨（MA20） + 上下轨（中轨 ± 2 倍标准差）。
+
+```python
+def calc_boll(close, period=20, num_std=2):
+    mid   = close.rolling(period).mean()
+    std   = close.rolling(period).std()
+    upper = mid + num_std * std
+    lower = mid - num_std * std
+    return upper, mid, lower
+
+df['BOLL_UP'], df['BOLL_MID'], df['BOLL_DOWN'] = calc_boll(df['close'])
+```
+
+### 用法
+
+- 价格触及上轨 → 可能超买
+- 价格触及下轨 → 可能超卖
+- 带宽收窄 → 即将爆发
+- 带宽扩张 → 趋势行情
+
+## 6. ATR（真实波幅）
+
+衡量市场波动率，常用于设置止损位。
+
+```python
+def calc_atr(df, period=14):
+    high_low = df['high'] - df['low']
+    high_close = (df['high'] - df['close'].shift()).abs()
+    low_close  = (df['low']  - df['close'].shift()).abs()
+
+    tr = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+    atr = tr.rolling(period).mean()
+    return atr
+
+df['ATR14'] = calc_atr(df)
+```
+
+### 应用：基于 ATR 的动态止损
+
+```python
+# 入场后，止损位 = 入场价 - 2 × ATR
+df['stop_loss'] = df['close'] - 2 * df['ATR14']
+```
+
+## 用 talib 偷懒
+
+手撕一遍后，正式写策略可以直接用 `talib`，几百个指标都现成的。
+
+```bash
+uv pip install ta-lib  # macOS 可能需要先 brew install ta-lib
+```
+
+```python
+import talib
+
+df['SMA20']   = talib.SMA(df['close'], timeperiod=20)
+df['EMA12']   = talib.EMA(df['close'], timeperiod=12)
+df['RSI14']   = talib.RSI(df['close'], timeperiod=14)
+
+dif, dea, macd = talib.MACD(df['close'], fastperiod=12, slowperiod=26, signalperiod=9)
+df['DIF'], df['DEA'], df['MACD'] = dif, dea, macd
+
+upper, mid, lower = talib.BBANDS(df['close'], timeperiod=20)
+df['BOLL_UP'], df['BOLL_MID'], df['BOLL_DOWN'] = upper, mid, lower
+```
+
+> ⚠️ **talib 安装坑**
+> talib 是 C 语言库，安装可能需要先装系统依赖：
+> - macOS: `brew install ta-lib`
+> - Ubuntu: `apt install ta-lib`
+> - Windows: 下载预编译的 wheel 文件
+
+如果嫌 talib 装起来麻烦，可以用纯 Python 的替代品：
+
+```bash
+uv pip install pandas-ta
+```
+
+```python
+import pandas_ta as ta
+
+df['RSI14'] = ta.rsi(df['close'], length=14)
+df['MACD']  = ta.macd(df['close'])
+```
+
+## 可视化技术指标
+
+把 MACD 和价格放在一起看：
+
+```python
+import mplfinance as mpf
+
+df_mpf = df.rename(columns={
+    'open':'Open', 'high':'High', 'low':'Low',
+    'close':'Close', 'volume':'Volume'
+})
+
+apds = [
+    mpf.make_addplot(df['DIF'],  panel=2, color='#3b82f6', ylabel='MACD'),
+    mpf.make_addplot(df['DEA'],  panel=2, color='#ef4444'),
+    mpf.make_addplot(df['MACD'], panel=2, type='bar', color='gray'),
+]
+
+mpf.plot(
+    df_mpf,
+    type='candle',
+    addplot=apds,
+    volume=True,
+    mav=(5, 20),
+    panel_ratios=(3, 1, 2),
+    figratio=(16, 10),
+    style='yahoo',
+)
+```
+
+## 小结
+
+到这里你已经会：
+
+- ✅ 手算 MA / EMA / MACD / RSI / KDJ / 布林带 / ATR
+- ✅ 用 talib 快速获取指标
+- ✅ 在 K 线图上叠加指标
+
+下一篇 [双均线策略实战](/docs/python-quant/dual-moving-average-strategy)，我们把这些指标用到具体的策略里，写出你的第一个完整量化策略。
+
+> 📌 **学习建议**
+> 不要追求记住所有指标。常用的就 MA、MACD、RSI、布林带这几个。选 1-2 个吃透，比知道 50 个但都不熟有用得多。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"技术指标实战"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"技术指标实战 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"技术指标实战 | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

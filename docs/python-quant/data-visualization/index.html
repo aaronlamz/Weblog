@@ -1,0 +1,409 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/Weblog/_next/static/css/448770d53702bab7.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js"/><script src="/Weblog/_next/static/chunks/b1c36d5c-7af821ec76afd631.js" async=""></script><script src="/Weblog/_next/static/chunks/5177-6b5a63eaad6e5e3e.js" async=""></script><script src="/Weblog/_next/static/chunks/main-app-44c7df09c7fc33e3.js" async=""></script><script src="/Weblog/_next/static/chunks/app/layout-cf7e65f93c8f7249.js" async=""></script><script src="/Weblog/_next/static/chunks/8079-2b3f7eedf4f1d672.js" async=""></script><script src="/Weblog/_next/static/chunks/7952-cc0e32ac27c90321.js" async=""></script><script src="/Weblog/_next/static/chunks/5612-3c1ae2a8191546c0.js" async=""></script><script src="/Weblog/_next/static/chunks/8989-4d976e7e58e8fe92.js" async=""></script><script src="/Weblog/_next/static/chunks/6711-3f2600da09f683cd.js" async=""></script><script src="/Weblog/_next/static/chunks/9440-6e79b5e5aabd03a7.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js" async=""></script><meta name="next-size-adjust" content=""/><title>数据可视化 | Aaron Lam</title><meta name="description" content="matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"/><meta name="author" content="Aaron"/><meta name="keywords" content="blog,nextjs,typescript,web development,programming"/><meta name="creator" content="Aaron"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/><meta property="og:title" content="数据可视化 | Python 量化入门"/><meta property="og:description" content="matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weblog"/><meta name="twitter:description" content="A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/Weblog/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_b6ac51 __variable_c81db4 font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="fixed inset-0 -z-10 bg-background"><div class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div></div><div class="relative min-h-screen flex flex-col"><main class="pb-8 flex-1"><div class=""><div class="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl"><div class="flex items-center justify-between h-12"><a class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" href="/Weblog/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>返回文档</span></a><div class="flex items-center gap-2"><a class="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" href="/Weblog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 select-none lg-btn-ghost text-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></div></div><div class="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl"><div class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0"><aside class="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6"><div class="sticky top-14"><nav class="space-y-1"><div><div class="px-3 py-2 text-sm font-semibold text-foreground/90">Python 量化入门</div><div class="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5"><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/environment-setup/">环境搭建</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-fetching/">行情数据获取</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/futu-openapi-guide/">富途 OpenAPI 完整指南</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/pandas-basics/">Pandas 基础（金融场景）</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-primary font-medium bg-primary/5" href="/Weblog/docs/python-quant/data-visualization/">数据可视化</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/technical-indicators/">技术指标实战</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/dual-moving-average-strategy/">第一个策略：双均线</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/backtest-framework/">回测框架入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/risk-metrics/">风险与绩效指标</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/multi-factor-selection/">多因子选股入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/from-backtest-to-live/">从回测到实盘</a></div></div></nav></div></aside><article class="lg:pl-8"><header class="mb-4"><div class="text-sm text-primary/80 font-medium mb-1">Python 量化入门</div><h1 class="text-2xl md:text-3xl font-bold mb-2">数据可视化</h1><p class="text-lg text-muted-foreground">matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线</p></header><div class="relative"><div class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent"><div class="h-0.5 bg-primary transition-[width] duration-150" style="width:0%"></div></div><div class="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0"><div class="lg:pr-8"><div class="prose prose-gray dark:prose-invert max-w-none"><p>数据可视化是量化研究里非常重要的一环。一张图胜过千行 print —— 价格走势、信号触发、收益曲线，看一眼就明白。这一篇我们用三种工具搞定常见的金融图表。</p>
+<h2 id="工具对比"><a href="#工具对比">工具对比</a></h2>
+<table><thead><tr><th>工具</th><th>适用场景</th><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td><strong>matplotlib</strong></td><td>通用绘图、收益曲线</td><td>灵活、可定制</td><td>API 啰嗦</td></tr><tr><td><strong>mplfinance</strong></td><td>专业 K 线图</td><td>一行画 K 线</td><td>只能画 K 线</td></tr><tr><td><strong>plotly</strong></td><td>交互式图表</td><td>可缩放、悬停</td><td>文件大</td></tr></tbody></table>
+<p>实战中三个一起用：研究阶段用 matplotlib + mplfinance，给别人展示用 plotly。</p>
+<h2 id="准备工作"><a href="#准备工作">准备工作</a></h2>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">bash</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>uv pip install matplotlib mplfinance plotly</code></pre></div></pre>
+<p>中文字体配置（避免方块）：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import matplotlib.pyplot as plt
+
+# macOS
+plt.rcParams[&#x27;font.sans-serif&#x27;] = [&#x27;Arial Unicode MS&#x27;]
+# Windows / Linux 用下面这行
+# plt.rcParams[&#x27;font.sans-serif&#x27;] = [&#x27;SimHei&#x27;]
+plt.rcParams[&#x27;axes.unicode_minus&#x27;] = False</code></pre></div></pre>
+<p>继续用上一篇的苹果数据：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import akshare as ak
+import pandas as pd
+
+df = ak.stock_us_daily(symbol=&quot;AAPL&quot;, adjust=&quot;qfq&quot;)
+df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;])
+df = df[df[&#x27;date&#x27;] &gt;= &#x27;2024-01-01&#x27;].set_index(&#x27;date&#x27;)</code></pre></div></pre>
+<h2 id="matplotlib基础绘图"><a href="#matplotlib基础绘图">matplotlib：基础绘图</a></h2>
+<h3 id="收盘价折线"><a href="#收盘价折线">收盘价折线</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>plt.figure(figsize=(12, 5))
+plt.plot(df.index, df[&#x27;close&#x27;], label=&#x27;AAPL 收盘价&#x27;, color=&#x27;#3b82f6&#x27;)
+plt.title(&#x27;苹果 2024 年走势&#x27;)
+plt.xlabel(&#x27;日期&#x27;)
+plt.ylabel(&#x27;价格 (USD)&#x27;)
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()</code></pre></div></pre>
+<h3 id="多线对比"><a href="#多线对比">多线对比</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>df[&#x27;MA5&#x27;]  = df[&#x27;close&#x27;].rolling(5).mean()
+df[&#x27;MA20&#x27;] = df[&#x27;close&#x27;].rolling(20).mean()
+df[&#x27;MA60&#x27;] = df[&#x27;close&#x27;].rolling(60).mean()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df[&#x27;close&#x27;], label=&#x27;收盘价&#x27;, color=&#x27;black&#x27;, linewidth=1.5)
+plt.plot(df[&#x27;MA5&#x27;],   label=&#x27;MA5&#x27;,  color=&#x27;#ef4444&#x27;, linewidth=1)
+plt.plot(df[&#x27;MA20&#x27;],  label=&#x27;MA20&#x27;, color=&#x27;#3b82f6&#x27;, linewidth=1)
+plt.plot(df[&#x27;MA60&#x27;],  label=&#x27;MA60&#x27;, color=&#x27;#8b5cf6&#x27;, linewidth=1)
+plt.title(&#x27;AAPL 价格 + 均线&#x27;)
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()</code></pre></div></pre>
+<h3 id="双-y-轴价格--成交量"><a href="#双-y-轴价格--成交量">双 Y 轴：价格 + 成交量</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>fig, ax1 = plt.subplots(figsize=(12, 5))
+
+# 左 Y 轴：价格
+ax1.plot(df[&#x27;close&#x27;], color=&#x27;#3b82f6&#x27;, label=&#x27;收盘价&#x27;)
+ax1.set_xlabel(&#x27;日期&#x27;)
+ax1.set_ylabel(&#x27;价格&#x27;, color=&#x27;#3b82f6&#x27;)
+ax1.tick_params(axis=&#x27;y&#x27;, labelcolor=&#x27;#3b82f6&#x27;)
+
+# 右 Y 轴：成交量
+ax2 = ax1.twinx()
+ax2.bar(df.index, df[&#x27;volume&#x27;], alpha=0.3, color=&#x27;gray&#x27;, label=&#x27;成交量&#x27;)
+ax2.set_ylabel(&#x27;成交量&#x27;, color=&#x27;gray&#x27;)
+ax2.tick_params(axis=&#x27;y&#x27;, labelcolor=&#x27;gray&#x27;)
+
+plt.title(&#x27;AAPL 价格与成交量&#x27;)
+plt.tight_layout()
+plt.show()</code></pre></div></pre>
+<h2 id="mplfinance专业-k-线图"><a href="#mplfinance专业-k-线图">mplfinance：专业 K 线图</a></h2>
+<p><code>matplotlib</code> 画 K 线很麻烦，专门有个库叫 <code>mplfinance</code>，一行就能搞定。</p>
+<h3 id="最简-k-线"><a href="#最简-k-线">最简 K 线</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import mplfinance as mpf
+
+# mplfinance 要求列名是 Open / High / Low / Close / Volume
+df_mpf = df.rename(columns={
+    &#x27;open&#x27;:&#x27;Open&#x27;, &#x27;high&#x27;:&#x27;High&#x27;, &#x27;low&#x27;:&#x27;Low&#x27;,
+    &#x27;close&#x27;:&#x27;Close&#x27;, &#x27;volume&#x27;:&#x27;Volume&#x27;
+})
+
+mpf.plot(df_mpf, type=&#x27;candle&#x27;, style=&#x27;yahoo&#x27;, title=&#x27;AAPL&#x27;, volume=True)</code></pre></div></pre>
+<h3 id="k-线--均线--成交量"><a href="#k-线--均线--成交量">K 线 + 均线 + 成交量</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>mpf.plot(
+    df_mpf,
+    type=&#x27;candle&#x27;,
+    style=&#x27;yahoo&#x27;,
+    title=&#x27;AAPL 2024&#x27;,
+    volume=True,
+    mav=(5, 20, 60),           # 5/20/60 日均线
+    figratio=(16, 9),
+    figscale=1.2,
+)</code></pre></div></pre>
+<h3 id="自定义颜色红涨绿跌a-股风格"><a href="#自定义颜色红涨绿跌a-股风格">自定义颜色（红涨绿跌，A 股风格）</a></h3>
+<p>mplfinance 默认是欧美风格（绿涨红跌），改成 A 股风格：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>mc = mpf.make_marketcolors(
+    up=&#x27;red&#x27;, down=&#x27;green&#x27;,
+    edge=&#x27;inherit&#x27;,
+    wick=&#x27;inherit&#x27;,
+    volume=&#x27;inherit&#x27;
+)
+s = mpf.make_mpf_style(marketcolors=mc, base_mpf_style=&#x27;yahoo&#x27;)
+
+mpf.plot(df_mpf, type=&#x27;candle&#x27;, style=s, mav=(5, 20), volume=True)</code></pre></div></pre>
+<h3 id="在-k-线上标记买卖点"><a href="#在-k-线上标记买卖点">在 K 线上标记买卖点</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 假设有这样一个信号 DataFrame
+df_mpf[&#x27;MA5&#x27;]  = df_mpf[&#x27;Close&#x27;].rolling(5).mean()
+df_mpf[&#x27;MA20&#x27;] = df_mpf[&#x27;Close&#x27;].rolling(20).mean()
+
+# 金叉点（MA5 上穿 MA20）
+buy = df_mpf[&#x27;Close&#x27;].where(
+    (df_mpf[&#x27;MA5&#x27;] &gt; df_mpf[&#x27;MA20&#x27;]) &amp; (df_mpf[&#x27;MA5&#x27;].shift(1) &lt;= df_mpf[&#x27;MA20&#x27;].shift(1))
+)
+
+# 死叉点
+sell = df_mpf[&#x27;Close&#x27;].where(
+    (df_mpf[&#x27;MA5&#x27;] &lt; df_mpf[&#x27;MA20&#x27;]) &amp; (df_mpf[&#x27;MA5&#x27;].shift(1) &gt;= df_mpf[&#x27;MA20&#x27;].shift(1))
+)
+
+apds = [
+    mpf.make_addplot(buy,  type=&#x27;scatter&#x27;, marker=&#x27;^&#x27;, color=&#x27;red&#x27;,   markersize=100),
+    mpf.make_addplot(sell, type=&#x27;scatter&#x27;, marker=&#x27;v&#x27;, color=&#x27;green&#x27;, markersize=100),
+]
+
+mpf.plot(df_mpf, type=&#x27;candle&#x27;, addplot=apds, mav=(5, 20), volume=True, style=&#x27;yahoo&#x27;)</code></pre></div></pre>
+<h2 id="收益曲线对比"><a href="#收益曲线对比">收益曲线对比</a></h2>
+<p>策略回测最常画的图就是<strong>收益曲线对比</strong>（策略 vs 基准）。</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import numpy as np
+
+# 计算策略收益（双均线为例）
+df[&#x27;signal&#x27;] = np.where(df[&#x27;MA5&#x27;] &gt; df[&#x27;MA20&#x27;], 1, 0)
+df[&#x27;return&#x27;] = df[&#x27;close&#x27;].pct_change()
+df[&#x27;strategy_return&#x27;] = df[&#x27;signal&#x27;].shift(1) * df[&#x27;return&#x27;]
+
+# 累计收益
+df[&#x27;cum_market&#x27;]   = (1 + df[&#x27;return&#x27;]).cumprod()
+df[&#x27;cum_strategy&#x27;] = (1 + df[&#x27;strategy_return&#x27;]).cumprod()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df[&#x27;cum_market&#x27;],   label=&#x27;Buy &amp; Hold&#x27;, color=&#x27;#94a3b8&#x27;, linewidth=1.5)
+plt.plot(df[&#x27;cum_strategy&#x27;], label=&#x27;双均线策略&#x27;, color=&#x27;#3b82f6&#x27;, linewidth=2)
+plt.title(&#x27;策略 vs 基准&#x27;)
+plt.ylabel(&#x27;累计净值&#x27;)
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.axhline(y=1, color=&#x27;black&#x27;, linestyle=&#x27;--&#x27;, alpha=0.3)
+plt.tight_layout()
+plt.show()</code></pre></div></pre>
+<h2 id="回撤图"><a href="#回撤图">回撤图</a></h2>
+<p>最大回撤是衡量风险的关键指标，常和收益曲线一起画。</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def drawdown(returns):
+    cum = (1 + returns).cumprod()
+    peak = cum.cummax()
+    return (cum - peak) / peak
+
+df[&#x27;drawdown&#x27;] = drawdown(df[&#x27;strategy_return&#x27;])
+
+fig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True,
+                          gridspec_kw={&#x27;height_ratios&#x27;: [3, 1]})
+
+# 上方：净值曲线
+axes[0].plot(df[&#x27;cum_strategy&#x27;], color=&#x27;#3b82f6&#x27;, linewidth=2)
+axes[0].set_title(&#x27;策略表现&#x27;)
+axes[0].set_ylabel(&#x27;净值&#x27;)
+axes[0].grid(True, alpha=0.3)
+
+# 下方：回撤
+axes[1].fill_between(df.index, df[&#x27;drawdown&#x27;], 0, color=&#x27;#ef4444&#x27;, alpha=0.4)
+axes[1].set_ylabel(&#x27;回撤&#x27;)
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()</code></pre></div></pre>
+<h2 id="plotly交互式图表"><a href="#plotly交互式图表">plotly：交互式图表</a></h2>
+<p><code>plotly</code> 画的图可以缩放、悬停查看数据，特别适合在 Jupyter 里探索数据，或者放到网页上展示。</p>
+<h3 id="交互式-k-线"><a href="#交互式-k-线">交互式 K 线</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import plotly.graph_objects as go
+
+fig = go.Figure(data=[go.Candlestick(
+    x=df.index,
+    open=df[&#x27;open&#x27;],
+    high=df[&#x27;high&#x27;],
+    low=df[&#x27;low&#x27;],
+    close=df[&#x27;close&#x27;],
+    name=&#x27;AAPL&#x27;
+)])
+
+fig.update_layout(
+    title=&#x27;AAPL 交互式 K 线&#x27;,
+    xaxis_title=&#x27;日期&#x27;,
+    yaxis_title=&#x27;价格&#x27;,
+    xaxis_rangeslider_visible=False,  # 隐藏底部缩略图
+    template=&#x27;plotly_white&#x27;,
+)
+
+fig.show()</code></pre></div></pre>
+<p>鼠标悬停在 K 线上会显示当天的开高低收，可以拖动缩放。</p>
+<h3 id="k-线--均线--成交量子图"><a href="#k-线--均线--成交量子图">K 线 + 均线 + 成交量子图</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from plotly.subplots import make_subplots
+
+fig = make_subplots(
+    rows=2, cols=1,
+    shared_xaxes=True,
+    vertical_spacing=0.03,
+    row_heights=[0.7, 0.3],
+    subplot_titles=(&#x27;AAPL&#x27;, &#x27;成交量&#x27;)
+)
+
+# K 线
+fig.add_trace(go.Candlestick(
+    x=df.index, open=df[&#x27;open&#x27;], high=df[&#x27;high&#x27;],
+    low=df[&#x27;low&#x27;], close=df[&#x27;close&#x27;], name=&#x27;K线&#x27;
+), row=1, col=1)
+
+# 均线
+fig.add_trace(go.Scatter(x=df.index, y=df[&#x27;MA5&#x27;],  name=&#x27;MA5&#x27;,  line=dict(color=&#x27;red&#x27;,  width=1)), row=1, col=1)
+fig.add_trace(go.Scatter(x=df.index, y=df[&#x27;MA20&#x27;], name=&#x27;MA20&#x27;, line=dict(color=&#x27;blue&#x27;, width=1)), row=1, col=1)
+
+# 成交量
+colors = [&#x27;red&#x27; if c &gt;= o else &#x27;green&#x27; for o, c in zip(df[&#x27;open&#x27;], df[&#x27;close&#x27;])]
+fig.add_trace(go.Bar(x=df.index, y=df[&#x27;volume&#x27;], marker_color=colors, name=&#x27;成交量&#x27;), row=2, col=1)
+
+fig.update_layout(
+    height=700,
+    showlegend=True,
+    xaxis_rangeslider_visible=False,
+    template=&#x27;plotly_white&#x27;,
+)
+
+fig.show()</code></pre></div></pre>
+<h2 id="保存图片"><a href="#保存图片">保存图片</a></h2>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># matplotlib
+plt.savefig(&#x27;output.png&#x27;, dpi=150, bbox_inches=&#x27;tight&#x27;)
+
+# mplfinance
+mpf.plot(df_mpf, type=&#x27;candle&#x27;, savefig=&#x27;kline.png&#x27;)
+
+# plotly
+fig.write_image(&#x27;plotly.png&#x27;)   # 需要安装 kaleido: uv pip install kaleido
+fig.write_html(&#x27;plotly.html&#x27;)   # HTML 文件可以双击打开看交互</code></pre></div></pre>
+<h2 id="一个完整的策略可视化函数"><a href="#一个完整的策略可视化函数">一个完整的策略可视化函数</a></h2>
+<p>把上面学的封装成一个常用函数：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def plot_strategy(df, title=&#x27;Strategy&#x27;):
+    &quot;&quot;&quot;
+    画策略表现：净值曲线 + 回撤
+    df 需要包含: cum_market, cum_strategy, drawdown 列
+    &quot;&quot;&quot;
+    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True,
+                              gridspec_kw={&#x27;height_ratios&#x27;: [3, 1]})
+
+    # 净值对比
+    axes[0].plot(df[&#x27;cum_market&#x27;],   label=&#x27;Buy &amp; Hold&#x27;, color=&#x27;#94a3b8&#x27;, linewidth=1.5)
+    axes[0].plot(df[&#x27;cum_strategy&#x27;], label=&#x27;策略&#x27;,        color=&#x27;#3b82f6&#x27;, linewidth=2)
+    axes[0].set_title(title, fontsize=14, fontweight=&#x27;bold&#x27;)
+    axes[0].set_ylabel(&#x27;净值&#x27;)
+    axes[0].legend(loc=&#x27;upper left&#x27;)
+    axes[0].grid(True, alpha=0.3)
+    axes[0].axhline(y=1, color=&#x27;black&#x27;, linestyle=&#x27;--&#x27;, alpha=0.3)
+
+    # 回撤
+    axes[1].fill_between(df.index, df[&#x27;drawdown&#x27;] * 100, 0, color=&#x27;#ef4444&#x27;, alpha=0.4)
+    axes[1].set_ylabel(&#x27;回撤 (%)&#x27;)
+    axes[1].set_xlabel(&#x27;日期&#x27;)
+    axes[1].grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()</code></pre></div></pre>
+<p>后面写策略时直接调用这个函数就行。</p>
+<h2 id="小结"><a href="#小结">小结</a></h2>
+<p>这一篇覆盖了量化研究 90% 的可视化需求：</p>
+<ul>
+<li>✅ matplotlib 基础绘图</li>
+<li>✅ mplfinance 专业 K 线图（含买卖点标注）</li>
+<li>✅ 收益曲线 + 回撤双图布局</li>
+<li>✅ plotly 交互式图表</li>
+<li>✅ 图表保存</li>
+</ul>
+<p>下一篇我们手撕 <a href="/docs/python-quant/technical-indicators">常用技术指标</a>，把 MA、MACD、RSI、KDJ 这些指标的原理和实现都搞清楚。</p>
+<blockquote>
+<p>📌 <strong>画图建议</strong></p>
+<ul>
+<li><strong>探索阶段</strong>：用 plotly，方便缩放对比</li>
+<li><strong>正式输出</strong>：用 matplotlib 控制细节，导出高清图</li>
+<li><strong>K 线相关</strong>：直接上 mplfinance，省心</li>
+</ul>
+</blockquote></div></div></div><div id="mobile-toc" role="dialog" aria-modal="true" class="lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-background border-l border-border/60 transform transition-transform duration-200 ease-out translate-x-full"><div class="sticky top-0 flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/90 backdrop-blur"><div class="text-xs uppercase tracking-wide text-muted-foreground">本页导读</div><button type="button" aria-label="Close" class="rounded p-1 hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><nav class="px-4 py-3 space-y-1 overflow-y-auto h-[calc(100%-3rem)]"></nav></div><button type="button" aria-label="Back to top" class="hidden lg:flex fixed bottom-8 right-6 z-40 h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/80 backdrop-blur shadow-md transition-all opacity-0 translate-y-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></article></div></div><!--$--><!--/$--></div></main></div><script src="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[87157,[\"7177\",\"static/chunks/app/layout-cf7e65f93c8f7249.js\"],\"ThemeProvider\"]\n3:I[91850,[],\"\"]\n4:I[1640,[],\"\"]\n7:I[89762,[],\"OutletBoundary\"]\na:I[77874,[],\"AsyncMetadataOutlet\"]\nc:I[89762,[],\"ViewportBoundary\"]\ne:I[89762,[],\"MetadataBoundary\"]\n10:I[10157,[],\"\"]\n:HL[\"/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/css/448770d53702bab7.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kl-pYbLEd_XBGkr3ndzOs\",\"p\":\"/Weblog\",\"c\":[\"\",\"zh\",\"docs\",\"python-quant\",\"data-visualization\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"locale\",\"zh\",\"d\"],{\"children\":[\"docs\",{\"children\":[[\"slug\",\"python-quant/data-visualization\",\"c\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/Weblog/_next/static/css/448770d53702bab7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_b6ac51 __variable_c81db4 font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"locale\",\"zh\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,\"$L5\"]}],{\"children\":[\"docs\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"python-quant/data-visualization\",\"c\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",null,[\"$\",\"$L7\",null,{\"children\":[\"$L8\",\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"6F6Z7GBkRudoAospTcGtbv\",{\"children\":[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:\"$Sreact.suspense\"\n12:I[77874,[],\"AsyncMetadata\"]\nf:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]}]\n9:null\n"])</script><script>self.__next_f.push([1,"14:I[59417,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsTopBar\"]\n15:I[88499,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsSidebar\"]\n16:I[15646,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"default\"]\n17:T2658,"])</script><script>self.__next_f.push([1,"\n数据可视化是量化研究里非常重要的一环。一张图胜过千行 print —— 价格走势、信号触发、收益曲线，看一眼就明白。这一篇我们用三种工具搞定常见的金融图表。\n\n## 工具对比\n\n| 工具 | 适用场景 | 优点 | 缺点 |\n|---|---|---|---|\n| **matplotlib** | 通用绘图、收益曲线 | 灵活、可定制 | API 啰嗦 |\n| **mplfinance** | 专业 K 线图 | 一行画 K 线 | 只能画 K 线 |\n| **plotly** | 交互式图表 | 可缩放、悬停 | 文件大 |\n\n实战中三个一起用：研究阶段用 matplotlib + mplfinance，给别人展示用 plotly。\n\n## 准备工作\n\n```bash\nuv pip install matplotlib mplfinance plotly\n```\n\n中文字体配置（避免方块）：\n\n```python\nimport matplotlib.pyplot as plt\n\n# macOS\nplt.rcParams['font.sans-serif'] = ['Arial Unicode MS']\n# Windows / Linux 用下面这行\n# plt.rcParams['font.sans-serif'] = ['SimHei']\nplt.rcParams['axes.unicode_minus'] = False\n```\n\n继续用上一篇的苹果数据：\n\n```python\nimport akshare as ak\nimport pandas as pd\n\ndf = ak.stock_us_daily(symbol=\"AAPL\", adjust=\"qfq\")\ndf['date'] = pd.to_datetime(df['date'])\ndf = df[df['date'] \u003e= '2024-01-01'].set_index('date')\n```\n\n## matplotlib：基础绘图\n\n### 收盘价折线\n\n```python\nplt.figure(figsize=(12, 5))\nplt.plot(df.index, df['close'], label='AAPL 收盘价', color='#3b82f6')\nplt.title('苹果 2024 年走势')\nplt.xlabel('日期')\nplt.ylabel('价格 (USD)')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.tight_layout()\nplt.show()\n```\n\n### 多线对比\n\n```python\ndf['MA5']  = df['close'].rolling(5).mean()\ndf['MA20'] = df['close'].rolling(20).mean()\ndf['MA60'] = df['close'].rolling(60).mean()\n\nplt.figure(figsize=(12, 5))\nplt.plot(df['close'], label='收盘价', color='black', linewidth=1.5)\nplt.plot(df['MA5'],   label='MA5',  color='#ef4444', linewidth=1)\nplt.plot(df['MA20'],  label='MA20', color='#3b82f6', linewidth=1)\nplt.plot(df['MA60'],  label='MA60', color='#8b5cf6', linewidth=1)\nplt.title('AAPL 价格 + 均线')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.tight_layout()\nplt.show()\n```\n\n### 双 Y 轴：价格 + 成交量\n\n```python\nfig, ax1 = plt.subplots(figsize=(12, 5))\n\n# 左 Y 轴：价格\nax1.plot(df['close'], color='#3b82f6', label='收盘价')\nax1.set_xlabel('日期')\nax1.set_ylabel('价格', color='#3b82f6')\nax1.tick_params(axis='y', labelcolor='#3b82f6')\n\n# 右 Y 轴：成交量\nax2 = ax1.twinx()\nax2.bar(df.index, df['volume'], alpha=0.3, color='gray', label='成交量')\nax2.set_ylabel('成交量', color='gray')\nax2.tick_params(axis='y', labelcolor='gray')\n\nplt.title('AAPL 价格与成交量')\nplt.tight_layout()\nplt.show()\n```\n\n## mplfinance：专业 K 线图\n\n`matplotlib` 画 K 线很麻烦，专门有个库叫 `mplfinance`，一行就能搞定。\n\n### 最简 K 线\n\n```python\nimport mplfinance as mpf\n\n# mplfinance 要求列名是 Open / High / Low / Close / Volume\ndf_mpf = df.rename(columns={\n    'open':'Open', 'high':'High', 'low':'Low',\n    'close':'Close', 'volume':'Volume'\n})\n\nmpf.plot(df_mpf, type='candle', style='yahoo', title='AAPL', volume=True)\n```\n\n### K 线 + 均线 + 成交量\n\n```python\nmpf.plot(\n    df_mpf,\n    type='candle',\n    style='yahoo',\n    title='AAPL 2024',\n    volume=True,\n    mav=(5, 20, 60),           # 5/20/60 日均线\n    figratio=(16, 9),\n    figscale=1.2,\n)\n```\n\n### 自定义颜色（红涨绿跌，A 股风格）\n\nmplfinance 默认是欧美风格（绿涨红跌），改成 A 股风格：\n\n```python\nmc = mpf.make_marketcolors(\n    up='red', down='green',\n    edge='inherit',\n    wick='inherit',\n    volume='inherit'\n)\ns = mpf.make_mpf_style(marketcolors=mc, base_mpf_style='yahoo')\n\nmpf.plot(df_mpf, type='candle', style=s, mav=(5, 20), volume=True)\n```\n\n### 在 K 线上标记买卖点\n\n```python\n# 假设有这样一个信号 DataFrame\ndf_mpf['MA5']  = df_mpf['Close'].rolling(5).mean()\ndf_mpf['MA20'] = df_mpf['Close'].rolling(20).mean()\n\n# 金叉点（MA5 上穿 MA20）\nbuy = df_mpf['Close'].where(\n    (df_mpf['MA5'] \u003e df_mpf['MA20']) \u0026 (df_mpf['MA5'].shift(1) \u003c= df_mpf['MA20'].shift(1))\n)\n\n# 死叉点\nsell = df_mpf['Close'].where(\n    (df_mpf['MA5'] \u003c df_mpf['MA20']) \u0026 (df_mpf['MA5'].shift(1) \u003e= df_mpf['MA20'].shift(1))\n)\n\napds = [\n    mpf.make_addplot(buy,  type='scatter', marker='^', color='red',   markersize=100),\n    mpf.make_addplot(sell, type='scatter', marker='v', color='green', markersize=100),\n]\n\nmpf.plot(df_mpf, type='candle', addplot=apds, mav=(5, 20), volume=True, style='yahoo')\n```\n\n## 收益曲线对比\n\n策略回测最常画的图就是**收益曲线对比**（策略 vs 基准）。\n\n```python\nimport numpy as np\n\n# 计算策略收益（双均线为例）\ndf['signal'] = np.where(df['MA5'] \u003e df['MA20'], 1, 0)\ndf['return'] = df['close'].pct_change()\ndf['strategy_return'] = df['signal'].shift(1) * df['return']\n\n# 累计收益\ndf['cum_market']   = (1 + df['return']).cumprod()\ndf['cum_strategy'] = (1 + df['strategy_return']).cumprod()\n\nplt.figure(figsize=(12, 5))\nplt.plot(df['cum_market'],   label='Buy \u0026 Hold', color='#94a3b8', linewidth=1.5)\nplt.plot(df['cum_strategy'], label='双均线策略', color='#3b82f6', linewidth=2)\nplt.title('策略 vs 基准')\nplt.ylabel('累计净值')\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.axhline(y=1, color='black', linestyle='--', alpha=0.3)\nplt.tight_layout()\nplt.show()\n```\n\n## 回撤图\n\n最大回撤是衡量风险的关键指标，常和收益曲线一起画。\n\n```python\ndef drawdown(returns):\n    cum = (1 + returns).cumprod()\n    peak = cum.cummax()\n    return (cum - peak) / peak\n\ndf['drawdown'] = drawdown(df['strategy_return'])\n\nfig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True,\n                          gridspec_kw={'height_ratios': [3, 1]})\n\n# 上方：净值曲线\naxes[0].plot(df['cum_strategy'], color='#3b82f6', linewidth=2)\naxes[0].set_title('策略表现')\naxes[0].set_ylabel('净值')\naxes[0].grid(True, alpha=0.3)\n\n# 下方：回撤\naxes[1].fill_between(df.index, df['drawdown'], 0, color='#ef4444', alpha=0.4)\naxes[1].set_ylabel('回撤')\naxes[1].grid(True, alpha=0.3)\n\nplt.tight_layout()\nplt.show()\n```\n\n## plotly：交互式图表\n\n`plotly` 画的图可以缩放、悬停查看数据，特别适合在 Jupyter 里探索数据，或者放到网页上展示。\n\n### 交互式 K 线\n\n```python\nimport plotly.graph_objects as go\n\nfig = go.Figure(data=[go.Candlestick(\n    x=df.index,\n    open=df['open'],\n    high=df['high'],\n    low=df['low'],\n    close=df['close'],\n    name='AAPL'\n)])\n\nfig.update_layout(\n    title='AAPL 交互式 K 线',\n    xaxis_title='日期',\n    yaxis_title='价格',\n    xaxis_rangeslider_visible=False,  # 隐藏底部缩略图\n    template='plotly_white',\n)\n\nfig.show()\n```\n\n鼠标悬停在 K 线上会显示当天的开高低收，可以拖动缩放。\n\n### K 线 + 均线 + 成交量子图\n\n```python\nfrom plotly.subplots import make_subplots\n\nfig = make_subplots(\n    rows=2, cols=1,\n    shared_xaxes=True,\n    vertical_spacing=0.03,\n    row_heights=[0.7, 0.3],\n    subplot_titles=('AAPL', '成交量')\n)\n\n# K 线\nfig.add_trace(go.Candlestick(\n    x=df.index, open=df['open'], high=df['high'],\n    low=df['low'], close=df['close'], name='K线'\n), row=1, col=1)\n\n# 均线\nfig.add_trace(go.Scatter(x=df.index, y=df['MA5'],  name='MA5',  line=dict(color='red',  width=1)), row=1, col=1)\nfig.add_trace(go.Scatter(x=df.index, y=df['MA20'], name='MA20', line=dict(color='blue', width=1)), row=1, col=1)\n\n# 成交量\ncolors = ['red' if c \u003e= o else 'green' for o, c in zip(df['open'], df['close'])]\nfig.add_trace(go.Bar(x=df.index, y=df['volume'], marker_color=colors, name='成交量'), row=2, col=1)\n\nfig.update_layout(\n    height=700,\n    showlegend=True,\n    xaxis_rangeslider_visible=False,\n    template='plotly_white',\n)\n\nfig.show()\n```\n\n## 保存图片\n\n```python\n# matplotlib\nplt.savefig('output.png', dpi=150, bbox_inches='tight')\n\n# mplfinance\nmpf.plot(df_mpf, type='candle', savefig='kline.png')\n\n# plotly\nfig.write_image('plotly.png')   # 需要安装 kaleido: uv pip install kaleido\nfig.write_html('plotly.html')   # HTML 文件可以双击打开看交互\n```\n\n## 一个完整的策略可视化函数\n\n把上面学的封装成一个常用函数：\n\n```python\ndef plot_strategy(df, title='Strategy'):\n    \"\"\"\n    画策略表现：净值曲线 + 回撤\n    df 需要包含: cum_market, cum_strategy, drawdown 列\n    \"\"\"\n    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True,\n                              gridspec_kw={'height_ratios': [3, 1]})\n\n    # 净值对比\n    axes[0].plot(df['cum_market'],   label='Buy \u0026 Hold', color='#94a3b8', linewidth=1.5)\n    axes[0].plot(df['cum_strategy'], label='策略',        color='#3b82f6', linewidth=2)\n    axes[0].set_title(title, fontsize=14, fontweight='bold')\n    axes[0].set_ylabel('净值')\n    axes[0].legend(loc='upper left')\n    axes[0].grid(True, alpha=0.3)\n    axes[0].axhline(y=1, color='black', linestyle='--', alpha=0.3)\n\n    # 回撤\n    axes[1].fill_between(df.index, df['drawdown'] * 100, 0, color='#ef4444', alpha=0.4)\n    axes[1].set_ylabel('回撤 (%)')\n    axes[1].set_xlabel('日期')\n    axes[1].grid(True, alpha=0.3)\n\n    plt.tight_layout()\n    plt.show()\n```\n\n后面写策略时直接调用这个函数就行。\n\n## 小结\n\n这一篇覆盖了量化研究 90% 的可视化需求：\n\n- ✅ matplotlib 基础绘图\n- ✅ mplfinance 专业 K 线图（含买卖点标注）\n- ✅ 收益曲线 + 回撤双图布局\n- ✅ plotly 交互式图表\n- ✅ 图表保存\n\n下一篇我们手撕 [常用技术指标](/docs/python-quant/technical-indicators)，把 MA、MACD、RSI、KDJ 这些指标的原理和实现都搞清楚。\n\n\u003e 📌 **画图建议**\n\u003e - **探索阶段**：用 plotly，方便缩放对比\n\u003e - **正式输出**：用 matplotlib 控制细节，导出高清图\n\u003e - **K 线相关**：直接上 mplfinance，省心\n"])</script><script>self.__next_f.push([1,"6:[[\"$\",\"$L14\",null,{\"backHref\":\"/docs\",\"backLabel\":\"返回文档\",\"homeHref\":\"/\"}],[\"$\",\"div\",null,{\"className\":\"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"sticky top-14\",\"children\":[\"$\",\"$L15\",null,{\"categories\":[{\"slug\":\"python-quant\",\"title\":\"Python 量化入门\",\"description\":\"从零开始学习 Python 量化交易，边学边实践\",\"icon\":\"LineChart\",\"order\":20,\"docs\":[{\"slug\":\"python-quant/environment-setup\",\"title\":\"环境搭建\",\"description\":\"Python + Jupyter + 常用库，为什么选 Python 做量化\",\"order\":1,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-fetching\",\"title\":\"行情数据获取\",\"description\":\"富途 OpenAPI 实战 + 免费数据源对比\",\"order\":2,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/futu-openapi-guide\",\"title\":\"富途 OpenAPI 完整指南\",\"description\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\",\"order\":3,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/pandas-basics\",\"title\":\"Pandas 基础（金融场景）\",\"description\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\",\"order\":4,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-visualization\",\"title\":\"数据可视化\",\"description\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\",\"order\":5,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/technical-indicators\",\"title\":\"技术指标实战\",\"description\":\"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库\",\"order\":6,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/dual-moving-average-strategy\",\"title\":\"第一个策略：双均线\",\"description\":\"策略逻辑、信号生成、仓位管理、回测对比\",\"order\":7,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/backtest-framework\",\"title\":\"回测框架入门\",\"description\":\"backtrader / vectorbt 入门，回测一个真实策略\",\"order\":8,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/risk-metrics\",\"title\":\"风险与绩效指标\",\"description\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\",\"order\":9,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/multi-factor-selection\",\"title\":\"多因子选股入门\",\"description\":\"因子定义、因子打分、组合构建\",\"order\":10,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/from-backtest-to-live\",\"title\":\"从回测到实盘\",\"description\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\",\"order\":11,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"}]}]}]}]}],[\"$\",\"article\",null,{\"className\":\"lg:pl-8\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"text-sm text-primary/80 font-medium mb-1\",\"children\":\"Python 量化入门\"}],[\"$\",\"h1\",null,{\"className\":\"text-2xl md:text-3xl font-bold mb-2\",\"children\":\"数据可视化\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground\",\"children\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\"}]]}],[\"$\",\"$L16\",null,{\"content\":\"$17\",\"tocPosition\":\"right\"}]]}]]}]}]]\n"])</script><script>self.__next_f.push([1,"18:I[88164,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"default\"]\n19:I[73614,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"HtmlLangSetter\"]\n1a:I[82381,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"SmartBackground\"]\n1b:I[17801,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Header\"]\n1c:I[39217,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"DynamicMain\"]\n1d:I[24793,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"PageTransition\"]\n1e:I[23343,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Footer\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$L18\",null,{\"formats\":\"$undefined\",\"locale\":\"zh\",\"messages\":{\"site\":{\"name\":\"Weblog\"},\"navigation\":{\"home\":\"首页\",\"blog\":\"博客\",\"docs\":\"文档中心\",\"about\":\"关于\",\"back\":\"返回\"},\"hero\":{\"greeting\":\"Hi, I'm\",\"introduction\":\"a\",\"roles\":{\"fullstack\":\"Full Stack Engineer\",\"web\":\"Web Developer\",\"solver\":\"Problem Solver\"},\"description\":\"The unexamined life is not worth living.\"},\"skills\":{\"title\":\"技能\",\"frontend\":\"前端开发\",\"mobile\":\"移动开发\",\"beyond\":\"代码之外\"},\"skillsDesc\":{\"frontend\":\"现代 Web 技术栈\",\"design\":\"UI/UX 与视觉设计\",\"mobile\":\"使用 React Native 与 PWA 的移动端开发\",\"beyond\":\"阅读、思考、记录生活的美好时刻\"},\"tech\":{\"title\":\"技术栈\"},\"posts\":{\"blog\":\"博客\",\"featured\":\"精选文章\",\"latest\":\"最新文章\",\"description\":\"记录一些想法和生活碎片\",\"readMore\":\"阅读全文\",\"publishedOn\":\"发布于\",\"readingTime\":\"阅读约 {minutes} 分钟\",\"empty\":\"暂无文章，敬请期待！\",\"tags\":\"标签\",\"archive\":\"时间归档\",\"monthlyArchive\":\"月份归档\",\"popularTags\":\"热门标签\",\"clearFilters\":\"清除筛选\",\"backToBlog\":\"返回博客\"},\"common\":{\"onThisPage\":\"本页导读\"},\"footer\":{\"scrollToTop\":\"回到顶部\",\"copyright\":\"版权所有\",\"builtWith\":\"Built with Claude Code\"},\"contact\":{\"title\":\"联系我\",\"getInTouch\":\"保持联系\",\"subtitle\":\"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。\",\"name\":\"姓名\",\"email\":\"邮箱\",\"subject\":\"主题\",\"message\":\"消息\",\"send\":\"发送\",\"sending\":\"发送中...\",\"success\":\"消息发送成功！\",\"error\":\"发送失败，请重试\",\"methods\":{\"email\":{\"name\":\"邮箱\",\"desc\":\"用于工作或合作，欢迎邮件联系\"},\"github\":{\"name\":\"GitHub\",\"desc\":\"查看我的代码与项目\"},\"twitter\":{\"name\":\"Twitter\",\"desc\":\"关注最新动态与技术交流\"},\"linkedin\":{\"name\":\"LinkedIn\",\"desc\":\"查看我的职业档案与人脉\"},\"x\":{\"name\":\"X\",\"desc\":\"获取最新动态与技术分享\"},\"wechat\":{\"name\":\"微信\",\"desc\":\"添加我为好友或查看二维码\"},\"wechatOfficialAccount\":{\"name\":\"微信公众号\",\"desc\":\"关注我的公众号获取最新内容\"}},\"sendMessage\":\"发送消息\",\"responseTime\":\"响应时间\",\"responseTip\":\"我通常会在 24-48 小时内回复你的邮件，期待与你交流！\"},\"about\":{\"title\":\"关于我\",\"description\":\"全栈开发者 · 证券从业者 · 生活记录者\",\"intro\":\"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。\",\"bio\":\"聊聊想法，记录生活，分享投资思考和技术心得。\",\"connectTitle\":\"联系我\",\"connect\":\"聊投资、聊技术、或者就聊聊生活，都欢迎。\",\"quote\":\"大道至简。\"},\"docs\":{\"title\":\"文档中心\",\"description\":\"教程、小册与知识分享\",\"articles\":\"篇\",\"empty\":\"暂无文档，敬请期待！\",\"backToDocs\":\"返回文档\"},\"meta\":{\"description\":\"个人博客，写代码、学技术、记录生活\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":[[\"$\",\"$L19\",null,{\"locale\":\"zh\"}],[\"$\",\"$L1a\",null,{\"maxCreatures\":3}],[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L1b\",null,{}],[\"$\",\"$L1c\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L1d\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}],[\"$\",\"$L1e\",null,{}]]}]]}]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n8:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"数据可视化 | Aaron Lam\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"blog,nextjs,typescript,web development,programming\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"数据可视化 | Python 量化入门\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"Weblog\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.\"}],[\"$\",\"link\",\"13\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"any\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\",\"type\":\"image/svg+xml\"}],[\"$\",\"link\",\"15\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n13:{\"metadata\":\"$b:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>

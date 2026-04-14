@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/Weblog/_next/static/css/448770d53702bab7.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js"/><script src="/Weblog/_next/static/chunks/b1c36d5c-7af821ec76afd631.js" async=""></script><script src="/Weblog/_next/static/chunks/5177-6b5a63eaad6e5e3e.js" async=""></script><script src="/Weblog/_next/static/chunks/main-app-44c7df09c7fc33e3.js" async=""></script><script src="/Weblog/_next/static/chunks/app/layout-cf7e65f93c8f7249.js" async=""></script><script src="/Weblog/_next/static/chunks/8079-2b3f7eedf4f1d672.js" async=""></script><script src="/Weblog/_next/static/chunks/7952-cc0e32ac27c90321.js" async=""></script><script src="/Weblog/_next/static/chunks/5612-3c1ae2a8191546c0.js" async=""></script><script src="/Weblog/_next/static/chunks/8989-4d976e7e58e8fe92.js" async=""></script><script src="/Weblog/_next/static/chunks/6711-3f2600da09f683cd.js" async=""></script><script src="/Weblog/_next/static/chunks/9440-6e79b5e5aabd03a7.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js" async=""></script><meta name="next-size-adjust" content=""/><title>从回测到实盘 | Aaron Lam</title><meta name="description" content="模拟盘 → 实盘的注意事项、富途 API 下单实战"/><meta name="author" content="Aaron"/><meta name="keywords" content="blog,nextjs,typescript,web development,programming"/><meta name="creator" content="Aaron"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/><meta property="og:title" content="从回测到实盘 | Python 量化入门"/><meta property="og:description" content="模拟盘 → 实盘的注意事项、富途 API 下单实战"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weblog"/><meta name="twitter:description" content="A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/Weblog/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_b6ac51 __variable_c81db4 font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="fixed inset-0 -z-10 bg-background"><div class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div></div><div class="relative min-h-screen flex flex-col"><main class="pb-8 flex-1"><div class=""><div class="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl"><div class="flex items-center justify-between h-12"><a class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" href="/Weblog/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>返回文档</span></a><div class="flex items-center gap-2"><a class="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" href="/Weblog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 select-none lg-btn-ghost text-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></div></div><div class="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl"><div class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0"><aside class="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6"><div class="sticky top-14"><nav class="space-y-1"><div><div class="px-3 py-2 text-sm font-semibold text-foreground/90">Python 量化入门</div><div class="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5"><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/environment-setup/">环境搭建</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-fetching/">行情数据获取</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/futu-openapi-guide/">富途 OpenAPI 完整指南</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/pandas-basics/">Pandas 基础（金融场景）</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-visualization/">数据可视化</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/technical-indicators/">技术指标实战</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/dual-moving-average-strategy/">第一个策略：双均线</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/backtest-framework/">回测框架入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/risk-metrics/">风险与绩效指标</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/multi-factor-selection/">多因子选股入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-primary font-medium bg-primary/5" href="/Weblog/docs/python-quant/from-backtest-to-live/">从回测到实盘</a></div></div></nav></div></aside><article class="lg:pl-8"><header class="mb-4"><div class="text-sm text-primary/80 font-medium mb-1">Python 量化入门</div><h1 class="text-2xl md:text-3xl font-bold mb-2">从回测到实盘</h1><p class="text-lg text-muted-foreground">模拟盘 → 实盘的注意事项、富途 API 下单实战</p></header><div class="relative"><div class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent"><div class="h-0.5 bg-primary transition-[width] duration-150" style="width:0%"></div></div><div class="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0"><div class="lg:pr-8"><div class="prose prose-gray dark:prose-invert max-w-none"><p>回测里赚 100% 不代表实盘能赚 100%。这一篇我们讨论从纸上策略到真金白银交易的所有坑。</p>
+<h2 id="回测-vs-实盘的本质区别"><a href="#回测-vs-实盘的本质区别">回测 vs 实盘的本质区别</a></h2>
+<table><thead><tr><th>维度</th><th>回测</th><th>实盘</th></tr></thead><tbody><tr><td>数据</td><td>完整、整理过</td><td>实时、可能延迟、可能错误</td></tr><tr><td>成交</td><td>假设按收盘价成交</td><td>滑点、流动性、撮合规则</td></tr><tr><td>资金</td><td>无限假设</td><td>真实资金，有承受底线</td></tr><tr><td>心理</td><td>看历史无压力</td><td>真亏钱时手抖</td></tr><tr><td>时间</td><td>几秒跑完</td><td>实时等待</td></tr></tbody></table>
+<p>很多回测看起来很美的策略，实盘第一天就挂了。原因往往是：</p>
+<ol>
+<li><strong>未来函数</strong> — 用了回测时才能看到的数据</li>
+<li><strong>滑点过乐观</strong> — 实际成交价 ≠ 信号价</li>
+<li><strong>流动性陷阱</strong> — 小盘股根本买不到那么多</li>
+<li><strong>手续费没算够</strong> — 高频策略尤其敏感</li>
+<li><strong>心理崩溃</strong> — 第一笔大亏就割肉了</li>
+</ol>
+<h2 id="实盘前必做的检查"><a href="#实盘前必做的检查">实盘前必做的检查</a></h2>
+<h3 id="1-走纸上交易paper-trading"><a href="#1-走纸上交易paper-trading">1. 走纸上交易（Paper Trading）</a></h3>
+<p>策略上线前，先用<strong>实时数据 + 假账户</strong>跑一段时间。富途 OpenAPI 支持模拟交易：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OpenSecTradeContext, TrdEnv, TrdMarket
+
+# SIMULATE 表示模拟环境
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host=&#x27;127.0.0.1&#x27;,
+    port=11111
+)
+
+# 解锁交易（模拟环境也需要）
+ret, data = trd_ctx.unlock_trade(password_md5=&#x27;your_password_md5&#x27;)</code></pre></div></pre>
+<p>模拟跑 1-2 个月，看看：</p>
+<ul>
+<li>信号触发是否符合预期</li>
+<li>成交价和信号价的偏差</li>
+<li>系统稳定性（断网怎么办？程序挂了怎么办？）</li>
+</ul>
+<h3 id="2-小资金试水"><a href="#2-小资金试水">2. 小资金试水</a></h3>
+<p>模拟 OK 后，<strong>不要立刻全仓</strong>。先用 1-5% 的资金跑一个月，确认没有 bug 再加仓。</p>
+<h3 id="3-准备应急方案"><a href="#3-准备应急方案">3. 准备应急方案</a></h3>
+<p>提前想清楚：</p>
+<ul>
+<li>程序崩了怎么手动平仓？</li>
+<li>网络断了仓位怎么处理？</li>
+<li>策略亏到 X% 时强制停止？</li>
+</ul>
+<h2 id="富途-api-下单实战"><a href="#富途-api-下单实战">富途 API 下单实战</a></h2>
+<h3 id="解锁交易"><a href="#解锁交易">解锁交易</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OpenSecTradeContext, TrdEnv, TrdMarket
+import hashlib
+
+# 你的交易密码 MD5
+password = &#x27;123456&#x27;  # 替换为你的密码
+password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host=&#x27;127.0.0.1&#x27;,
+    port=11111
+)
+
+# 解锁交易
+ret, data = trd_ctx.unlock_trade(password_md5=password_md5)
+if ret != 0:
+    print(&#x27;解锁失败:&#x27;, data)</code></pre></div></pre>
+<h3 id="查询账户"><a href="#查询账户">查询账户</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 查询账户资金
+ret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+
+# 查询持仓
+ret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)</code></pre></div></pre>
+<h3 id="下单"><a href="#下单">下单</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import OrderType, TrdSide
+
+# 限价买入
+ret, data = trd_ctx.place_order(
+    price=180.0,
+    qty=10,
+    code=&#x27;US.AAPL&#x27;,
+    trd_side=TrdSide.BUY,
+    order_type=OrderType.NORMAL,
+    trd_env=TrdEnv.SIMULATE,
+)
+
+if ret == 0:
+    order_id = data[&#x27;order_id&#x27;].iloc[0]
+    print(f&#x27;下单成功，订单ID: {order_id}&#x27;)
+else:
+    print(&#x27;下单失败:&#x27;, data)</code></pre></div></pre>
+<h3 id="查询订单状态"><a href="#查询订单状态">查询订单状态</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>ret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)</code></pre></div></pre>
+<h3 id="撤单"><a href="#撤单">撤单</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>from futu import ModifyOrderOp
+
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.CANCEL,
+    order_id=order_id,
+    qty=0, price=0,
+    trd_env=TrdEnv.SIMULATE,
+)</code></pre></div></pre>
+<h2 id="一个完整的实盘策略框架"><a href="#一个完整的实盘策略框架">一个完整的实盘策略框架</a></h2>
+<p>把所有部分整合起来：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import time
+from futu import (
+    OpenQuoteContext, OpenSecTradeContext,
+    RET_OK, KLType, AuType, TrdMarket, TrdEnv,
+    OrderType, TrdSide, ModifyOrderOp
+)
+
+class DualMALiveStrategy:
+    def __init__(self, code, fast=5, slow=20, env=TrdEnv.SIMULATE):
+        self.code = code
+        self.fast = fast
+        self.slow = slow
+        self.env = env
+
+        self.quote_ctx = OpenQuoteContext(host=&#x27;127.0.0.1&#x27;, port=11111)
+        self.trd_ctx = OpenSecTradeContext(
+            filter_trdmarket=TrdMarket.US,
+            host=&#x27;127.0.0.1&#x27;,
+            port=11111
+        )
+
+    def get_signal(self):
+        &quot;&quot;&quot;获取最新信号&quot;&quot;&quot;
+        ret, df, _ = self.quote_ctx.request_history_kline(
+            code=self.code,
+            ktype=KLType.K_DAY,
+            autype=AuType.QFQ,
+            max_count=self.slow + 5,
+        )
+        if ret != RET_OK:
+            return None
+
+        df[&#x27;ma_fast&#x27;] = df[&#x27;close&#x27;].rolling(self.fast).mean()
+        df[&#x27;ma_slow&#x27;] = df[&#x27;close&#x27;].rolling(self.slow).mean()
+
+        latest = df.iloc[-1]
+        prev = df.iloc[-2]
+
+        # 金叉
+        if prev[&#x27;ma_fast&#x27;] &lt;= prev[&#x27;ma_slow&#x27;] and latest[&#x27;ma_fast&#x27;] &gt; latest[&#x27;ma_slow&#x27;]:
+            return &#x27;BUY&#x27;
+        # 死叉
+        if prev[&#x27;ma_fast&#x27;] &gt;= prev[&#x27;ma_slow&#x27;] and latest[&#x27;ma_fast&#x27;] &lt; latest[&#x27;ma_slow&#x27;]:
+            return &#x27;SELL&#x27;
+        return None
+
+    def get_position(self):
+        &quot;&quot;&quot;获取当前持仓数量&quot;&quot;&quot;
+        ret, data = self.trd_ctx.position_list_query(trd_env=self.env)
+        if ret != RET_OK or len(data) == 0:
+            return 0
+        pos = data[data[&#x27;code&#x27;] == self.code]
+        return int(pos[&#x27;qty&#x27;].sum()) if len(pos) &gt; 0 else 0
+
+    def execute(self, signal, qty=10):
+        &quot;&quot;&quot;执行交易&quot;&quot;&quot;
+        side = TrdSide.BUY if signal == &#x27;BUY&#x27; else TrdSide.SELL
+        ret, data = self.trd_ctx.place_order(
+            price=0,                           # 市价单
+            qty=qty,
+            code=self.code,
+            trd_side=side,
+            order_type=OrderType.MARKET,
+            trd_env=self.env,
+        )
+        if ret == 0:
+            print(f&#x27;{signal} 下单成功&#x27;)
+        else:
+            print(f&#x27;下单失败: {data}&#x27;)
+
+    def run_once(self):
+        &quot;&quot;&quot;跑一次策略&quot;&quot;&quot;
+        signal = self.get_signal()
+        position = self.get_position()
+
+        if signal == &#x27;BUY&#x27; and position == 0:
+            self.execute(&#x27;BUY&#x27;, qty=10)
+        elif signal == &#x27;SELL&#x27; and position &gt; 0:
+            self.execute(&#x27;SELL&#x27;, qty=position)
+
+    def close(self):
+        self.quote_ctx.close()
+        self.trd_ctx.close()
+
+
+# 主循环
+if __name__ == &#x27;__main__&#x27;:
+    strategy = DualMALiveStrategy(&#x27;US.AAPL&#x27;, fast=5, slow=20)
+
+    try:
+        while True:
+            strategy.run_once()
+            time.sleep(300)  # 每 5 分钟检查一次
+    except KeyboardInterrupt:
+        print(&#x27;策略停止&#x27;)
+    finally:
+        strategy.close()</code></pre></div></pre>
+<h2 id="上线前-checklist"><a href="#上线前-checklist">上线前 Checklist</a></h2>
+<pre><code>□ 在模拟环境跑通了完整流程
+□ 模拟运行至少 2 周
+□ 盈亏符合回测预期
+□ 异常处理完备（断网、API 错误、数据缺失）
+□ 有止损止盈机制
+□ 有手动停止开关
+□ 有日志记录每次决策
+□ 准备了应急平仓方案
+□ 用小资金（≤5%）真实跑了 1 周
+□ 想清楚最坏情况能承受多少损失
+</code></pre>
+<p>每一条都通过了，再考虑加大资金。</p>
+<h2 id="实盘心态建设"><a href="#实盘心态建设">实盘心态建设</a></h2>
+<p>代码完成只是开始。真正的挑战是<strong>心理</strong>：</p>
+<ol>
+<li><strong>第一次大亏不要慌</strong> — 任何策略都有回撤期，看看回测里历史最大回撤多少天</li>
+<li><strong>不要在亏损时改策略</strong> — 这是过拟合的开始</li>
+<li><strong>不要随便加仓</strong> — 牛市追加仓位、熊市死扛是散户最容易犯的错</li>
+<li><strong>定期评估，但不要天天看</strong> — 日内波动会扰乱判断</li>
+</ol>
+<h2 id="持续学习的方向"><a href="#持续学习的方向">持续学习的方向</a></h2>
+<p>走完这 10 篇，你已经入门了。下一步可以：</p>
+<ul>
+<li><strong>读经典书</strong>：《Quantitative Trading》（Ernie Chan）、《Active Portfolio Management》</li>
+<li><strong>关注社区</strong>：聚宽、米筐、QuantStart 等</li>
+<li><strong>参加竞赛</strong>：Kaggle、聚宽算法大赛</li>
+<li><strong>研究论文</strong>：SSRN 上的金融工程论文</li>
+<li><strong>关注因子</strong>：MSCI Barra 模型、Fama-French 五因子</li>
+</ul>
+<h2 id="小结"><a href="#小结">小结</a></h2>
+<p>到这里整个 Python 量化入门系列就结束了。你已经会：</p>
+<ul>
+<li>✅ 搭建 Python 量化环境</li>
+<li>✅ 获取行情数据（富途 + 免费源）</li>
+<li>✅ 用 Pandas 处理金融时间序列</li>
+<li>✅ 数据可视化</li>
+<li>✅ 实现常用技术指标</li>
+<li>✅ 写完整的策略</li>
+<li>✅ 用 backtrader / vectorbt 回测</li>
+<li>✅ 评估策略风险与绩效</li>
+<li>✅ 多因子选股入门</li>
+<li>✅ 部署实盘</li>
+</ul>
+<blockquote>
+<p>📌 <strong>最重要的一句话</strong></p>
+<p><strong>不要相信你的策略会一直赚钱。</strong></p>
+<p>量化的本质是用数据和纪律对抗自己的情绪偏差。能在市场上长期生存的人，不是因为找到了圣杯策略，而是因为他们：</p>
+<ol>
+<li>严格执行规则</li>
+<li>控制下行风险</li>
+<li>持续学习改进</li>
+<li>接受随机性</li>
+</ol>
+<p>祝你在量化的路上玩得开心。</p>
+</blockquote></div></div></div><div id="mobile-toc" role="dialog" aria-modal="true" class="lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-background border-l border-border/60 transform transition-transform duration-200 ease-out translate-x-full"><div class="sticky top-0 flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/90 backdrop-blur"><div class="text-xs uppercase tracking-wide text-muted-foreground">本页导读</div><button type="button" aria-label="Close" class="rounded p-1 hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><nav class="px-4 py-3 space-y-1 overflow-y-auto h-[calc(100%-3rem)]"></nav></div><button type="button" aria-label="Back to top" class="hidden lg:flex fixed bottom-8 right-6 z-40 h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/80 backdrop-blur shadow-md transition-all opacity-0 translate-y-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></article></div></div><!--$--><!--/$--></div></main></div><script src="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[87157,[\"7177\",\"static/chunks/app/layout-cf7e65f93c8f7249.js\"],\"ThemeProvider\"]\n3:I[91850,[],\"\"]\n4:I[1640,[],\"\"]\n7:I[89762,[],\"OutletBoundary\"]\na:I[77874,[],\"AsyncMetadataOutlet\"]\nc:I[89762,[],\"ViewportBoundary\"]\ne:I[89762,[],\"MetadataBoundary\"]\n10:I[10157,[],\"\"]\n:HL[\"/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/css/448770d53702bab7.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kl-pYbLEd_XBGkr3ndzOs\",\"p\":\"/Weblog\",\"c\":[\"\",\"zh\",\"docs\",\"python-quant\",\"from-backtest-to-live\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"locale\",\"zh\",\"d\"],{\"children\":[\"docs\",{\"children\":[[\"slug\",\"python-quant/from-backtest-to-live\",\"c\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/Weblog/_next/static/css/448770d53702bab7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_b6ac51 __variable_c81db4 font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"locale\",\"zh\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,\"$L5\"]}],{\"children\":[\"docs\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"python-quant/from-backtest-to-live\",\"c\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",null,[\"$\",\"$L7\",null,{\"children\":[\"$L8\",\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"oOqNdoqk9a6CH6IBad8Ogv\",{\"children\":[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:\"$Sreact.suspense\"\n12:I[77874,[],\"AsyncMetadata\"]\nf:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]}]\n9:null\n"])</script><script>self.__next_f.push([1,"14:I[59417,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsTopBar\"]\n15:I[88499,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsSidebar\"]\n16:I[15646,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"default\"]\n17:T2062,"])</script><script>self.__next_f.push([1,"\n回测里赚 100% 不代表实盘能赚 100%。这一篇我们讨论从纸上策略到真金白银交易的所有坑。\n\n## 回测 vs 实盘的本质区别\n\n| 维度 | 回测 | 实盘 |\n|---|---|---|\n| 数据 | 完整、整理过 | 实时、可能延迟、可能错误 |\n| 成交 | 假设按收盘价成交 | 滑点、流动性、撮合规则 |\n| 资金 | 无限假设 | 真实资金，有承受底线 |\n| 心理 | 看历史无压力 | 真亏钱时手抖 |\n| 时间 | 几秒跑完 | 实时等待 |\n\n很多回测看起来很美的策略，实盘第一天就挂了。原因往往是：\n\n1. **未来函数** — 用了回测时才能看到的数据\n2. **滑点过乐观** — 实际成交价 ≠ 信号价\n3. **流动性陷阱** — 小盘股根本买不到那么多\n4. **手续费没算够** — 高频策略尤其敏感\n5. **心理崩溃** — 第一笔大亏就割肉了\n\n## 实盘前必做的检查\n\n### 1. 走纸上交易（Paper Trading）\n\n策略上线前，先用**实时数据 + 假账户**跑一段时间。富途 OpenAPI 支持模拟交易：\n\n```python\nfrom futu import OpenSecTradeContext, TrdEnv, TrdMarket\n\n# SIMULATE 表示模拟环境\ntrd_ctx = OpenSecTradeContext(\n    filter_trdmarket=TrdMarket.US,\n    host='127.0.0.1',\n    port=11111\n)\n\n# 解锁交易（模拟环境也需要）\nret, data = trd_ctx.unlock_trade(password_md5='your_password_md5')\n```\n\n模拟跑 1-2 个月，看看：\n- 信号触发是否符合预期\n- 成交价和信号价的偏差\n- 系统稳定性（断网怎么办？程序挂了怎么办？）\n\n### 2. 小资金试水\n\n模拟 OK 后，**不要立刻全仓**。先用 1-5% 的资金跑一个月，确认没有 bug 再加仓。\n\n### 3. 准备应急方案\n\n提前想清楚：\n- 程序崩了怎么手动平仓？\n- 网络断了仓位怎么处理？\n- 策略亏到 X% 时强制停止？\n\n## 富途 API 下单实战\n\n### 解锁交易\n\n```python\nfrom futu import OpenSecTradeContext, TrdEnv, TrdMarket\nimport hashlib\n\n# 你的交易密码 MD5\npassword = '123456'  # 替换为你的密码\npassword_md5 = hashlib.md5(password.encode()).hexdigest()\n\ntrd_ctx = OpenSecTradeContext(\n    filter_trdmarket=TrdMarket.US,\n    host='127.0.0.1',\n    port=11111\n)\n\n# 解锁交易\nret, data = trd_ctx.unlock_trade(password_md5=password_md5)\nif ret != 0:\n    print('解锁失败:', data)\n```\n\n### 查询账户\n\n```python\n# 查询账户资金\nret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n\n# 查询持仓\nret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n```\n\n### 下单\n\n```python\nfrom futu import OrderType, TrdSide\n\n# 限价买入\nret, data = trd_ctx.place_order(\n    price=180.0,\n    qty=10,\n    code='US.AAPL',\n    trd_side=TrdSide.BUY,\n    order_type=OrderType.NORMAL,\n    trd_env=TrdEnv.SIMULATE,\n)\n\nif ret == 0:\n    order_id = data['order_id'].iloc[0]\n    print(f'下单成功，订单ID: {order_id}')\nelse:\n    print('下单失败:', data)\n```\n\n### 查询订单状态\n\n```python\nret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)\nprint(data)\n```\n\n### 撤单\n\n```python\nfrom futu import ModifyOrderOp\n\nret, data = trd_ctx.modify_order(\n    modify_order_op=ModifyOrderOp.CANCEL,\n    order_id=order_id,\n    qty=0, price=0,\n    trd_env=TrdEnv.SIMULATE,\n)\n```\n\n## 一个完整的实盘策略框架\n\n把所有部分整合起来：\n\n```python\nimport time\nfrom futu import (\n    OpenQuoteContext, OpenSecTradeContext,\n    RET_OK, KLType, AuType, TrdMarket, TrdEnv,\n    OrderType, TrdSide, ModifyOrderOp\n)\n\nclass DualMALiveStrategy:\n    def __init__(self, code, fast=5, slow=20, env=TrdEnv.SIMULATE):\n        self.code = code\n        self.fast = fast\n        self.slow = slow\n        self.env = env\n\n        self.quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)\n        self.trd_ctx = OpenSecTradeContext(\n            filter_trdmarket=TrdMarket.US,\n            host='127.0.0.1',\n            port=11111\n        )\n\n    def get_signal(self):\n        \"\"\"获取最新信号\"\"\"\n        ret, df, _ = self.quote_ctx.request_history_kline(\n            code=self.code,\n            ktype=KLType.K_DAY,\n            autype=AuType.QFQ,\n            max_count=self.slow + 5,\n        )\n        if ret != RET_OK:\n            return None\n\n        df['ma_fast'] = df['close'].rolling(self.fast).mean()\n        df['ma_slow'] = df['close'].rolling(self.slow).mean()\n\n        latest = df.iloc[-1]\n        prev = df.iloc[-2]\n\n        # 金叉\n        if prev['ma_fast'] \u003c= prev['ma_slow'] and latest['ma_fast'] \u003e latest['ma_slow']:\n            return 'BUY'\n        # 死叉\n        if prev['ma_fast'] \u003e= prev['ma_slow'] and latest['ma_fast'] \u003c latest['ma_slow']:\n            return 'SELL'\n        return None\n\n    def get_position(self):\n        \"\"\"获取当前持仓数量\"\"\"\n        ret, data = self.trd_ctx.position_list_query(trd_env=self.env)\n        if ret != RET_OK or len(data) == 0:\n            return 0\n        pos = data[data['code'] == self.code]\n        return int(pos['qty'].sum()) if len(pos) \u003e 0 else 0\n\n    def execute(self, signal, qty=10):\n        \"\"\"执行交易\"\"\"\n        side = TrdSide.BUY if signal == 'BUY' else TrdSide.SELL\n        ret, data = self.trd_ctx.place_order(\n            price=0,                           # 市价单\n            qty=qty,\n            code=self.code,\n            trd_side=side,\n            order_type=OrderType.MARKET,\n            trd_env=self.env,\n        )\n        if ret == 0:\n            print(f'{signal} 下单成功')\n        else:\n            print(f'下单失败: {data}')\n\n    def run_once(self):\n        \"\"\"跑一次策略\"\"\"\n        signal = self.get_signal()\n        position = self.get_position()\n\n        if signal == 'BUY' and position == 0:\n            self.execute('BUY', qty=10)\n        elif signal == 'SELL' and position \u003e 0:\n            self.execute('SELL', qty=position)\n\n    def close(self):\n        self.quote_ctx.close()\n        self.trd_ctx.close()\n\n\n# 主循环\nif __name__ == '__main__':\n    strategy = DualMALiveStrategy('US.AAPL', fast=5, slow=20)\n\n    try:\n        while True:\n            strategy.run_once()\n            time.sleep(300)  # 每 5 分钟检查一次\n    except KeyboardInterrupt:\n        print('策略停止')\n    finally:\n        strategy.close()\n```\n\n## 上线前 Checklist\n\n```\n□ 在模拟环境跑通了完整流程\n□ 模拟运行至少 2 周\n□ 盈亏符合回测预期\n□ 异常处理完备（断网、API 错误、数据缺失）\n□ 有止损止盈机制\n□ 有手动停止开关\n□ 有日志记录每次决策\n□ 准备了应急平仓方案\n□ 用小资金（≤5%）真实跑了 1 周\n□ 想清楚最坏情况能承受多少损失\n```\n\n每一条都通过了，再考虑加大资金。\n\n## 实盘心态建设\n\n代码完成只是开始。真正的挑战是**心理**：\n\n1. **第一次大亏不要慌** — 任何策略都有回撤期，看看回测里历史最大回撤多少天\n2. **不要在亏损时改策略** — 这是过拟合的开始\n3. **不要随便加仓** — 牛市追加仓位、熊市死扛是散户最容易犯的错\n4. **定期评估，但不要天天看** — 日内波动会扰乱判断\n\n## 持续学习的方向\n\n走完这 10 篇，你已经入门了。下一步可以：\n\n- **读经典书**：《Quantitative Trading》（Ernie Chan）、《Active Portfolio Management》\n- **关注社区**：聚宽、米筐、QuantStart 等\n- **参加竞赛**：Kaggle、聚宽算法大赛\n- **研究论文**：SSRN 上的金融工程论文\n- **关注因子**：MSCI Barra 模型、Fama-French 五因子\n\n## 小结\n\n到这里整个 Python 量化入门系列就结束了。你已经会：\n\n- ✅ 搭建 Python 量化环境\n- ✅ 获取行情数据（富途 + 免费源）\n- ✅ 用 Pandas 处理金融时间序列\n- ✅ 数据可视化\n- ✅ 实现常用技术指标\n- ✅ 写完整的策略\n- ✅ 用 backtrader / vectorbt 回测\n- ✅ 评估策略风险与绩效\n- ✅ 多因子选股入门\n- ✅ 部署实盘\n\n\u003e 📌 **最重要的一句话**\n\u003e\n\u003e **不要相信你的策略会一直赚钱。**\n\u003e\n\u003e 量化的本质是用数据和纪律对抗自己的情绪偏差。能在市场上长期生存的人，不是因为找到了圣杯策略，而是因为他们：\n\u003e 1. 严格执行规则\n\u003e 2. 控制下行风险\n\u003e 3. 持续学习改进\n\u003e 4. 接受随机性\n\u003e\n\u003e 祝你在量化的路上玩得开心。\n"])</script><script>self.__next_f.push([1,"6:[[\"$\",\"$L14\",null,{\"backHref\":\"/docs\",\"backLabel\":\"返回文档\",\"homeHref\":\"/\"}],[\"$\",\"div\",null,{\"className\":\"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"sticky top-14\",\"children\":[\"$\",\"$L15\",null,{\"categories\":[{\"slug\":\"python-quant\",\"title\":\"Python 量化入门\",\"description\":\"从零开始学习 Python 量化交易，边学边实践\",\"icon\":\"LineChart\",\"order\":20,\"docs\":[{\"slug\":\"python-quant/environment-setup\",\"title\":\"环境搭建\",\"description\":\"Python + Jupyter + 常用库，为什么选 Python 做量化\",\"order\":1,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-fetching\",\"title\":\"行情数据获取\",\"description\":\"富途 OpenAPI 实战 + 免费数据源对比\",\"order\":2,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/futu-openapi-guide\",\"title\":\"富途 OpenAPI 完整指南\",\"description\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\",\"order\":3,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/pandas-basics\",\"title\":\"Pandas 基础（金融场景）\",\"description\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\",\"order\":4,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-visualization\",\"title\":\"数据可视化\",\"description\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\",\"order\":5,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/technical-indicators\",\"title\":\"技术指标实战\",\"description\":\"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库\",\"order\":6,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/dual-moving-average-strategy\",\"title\":\"第一个策略：双均线\",\"description\":\"策略逻辑、信号生成、仓位管理、回测对比\",\"order\":7,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/backtest-framework\",\"title\":\"回测框架入门\",\"description\":\"backtrader / vectorbt 入门，回测一个真实策略\",\"order\":8,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/risk-metrics\",\"title\":\"风险与绩效指标\",\"description\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\",\"order\":9,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/multi-factor-selection\",\"title\":\"多因子选股入门\",\"description\":\"因子定义、因子打分、组合构建\",\"order\":10,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/from-backtest-to-live\",\"title\":\"从回测到实盘\",\"description\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\",\"order\":11,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"}]}]}]}]}],[\"$\",\"article\",null,{\"className\":\"lg:pl-8\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"text-sm text-primary/80 font-medium mb-1\",\"children\":\"Python 量化入门\"}],[\"$\",\"h1\",null,{\"className\":\"text-2xl md:text-3xl font-bold mb-2\",\"children\":\"从回测到实盘\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground\",\"children\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\"}]]}],[\"$\",\"$L16\",null,{\"content\":\"$17\",\"tocPosition\":\"right\"}]]}]]}]}]]\n"])</script><script>self.__next_f.push([1,"18:I[88164,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"default\"]\n19:I[73614,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"HtmlLangSetter\"]\n1a:I[82381,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"SmartBackground\"]\n1b:I[17801,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Header\"]\n1c:I[39217,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"DynamicMain\"]\n1d:I[24793,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"PageTransition\"]\n1e:I[23343,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Footer\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$L18\",null,{\"formats\":\"$undefined\",\"locale\":\"zh\",\"messages\":{\"site\":{\"name\":\"Weblog\"},\"navigation\":{\"home\":\"首页\",\"blog\":\"博客\",\"docs\":\"文档中心\",\"about\":\"关于\",\"back\":\"返回\"},\"hero\":{\"greeting\":\"Hi, I'm\",\"introduction\":\"a\",\"roles\":{\"fullstack\":\"Full Stack Engineer\",\"web\":\"Web Developer\",\"solver\":\"Problem Solver\"},\"description\":\"The unexamined life is not worth living.\"},\"skills\":{\"title\":\"技能\",\"frontend\":\"前端开发\",\"mobile\":\"移动开发\",\"beyond\":\"代码之外\"},\"skillsDesc\":{\"frontend\":\"现代 Web 技术栈\",\"design\":\"UI/UX 与视觉设计\",\"mobile\":\"使用 React Native 与 PWA 的移动端开发\",\"beyond\":\"阅读、思考、记录生活的美好时刻\"},\"tech\":{\"title\":\"技术栈\"},\"posts\":{\"blog\":\"博客\",\"featured\":\"精选文章\",\"latest\":\"最新文章\",\"description\":\"记录一些想法和生活碎片\",\"readMore\":\"阅读全文\",\"publishedOn\":\"发布于\",\"readingTime\":\"阅读约 {minutes} 分钟\",\"empty\":\"暂无文章，敬请期待！\",\"tags\":\"标签\",\"archive\":\"时间归档\",\"monthlyArchive\":\"月份归档\",\"popularTags\":\"热门标签\",\"clearFilters\":\"清除筛选\",\"backToBlog\":\"返回博客\"},\"common\":{\"onThisPage\":\"本页导读\"},\"footer\":{\"scrollToTop\":\"回到顶部\",\"copyright\":\"版权所有\",\"builtWith\":\"Built with Claude Code\"},\"contact\":{\"title\":\"联系我\",\"getInTouch\":\"保持联系\",\"subtitle\":\"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。\",\"name\":\"姓名\",\"email\":\"邮箱\",\"subject\":\"主题\",\"message\":\"消息\",\"send\":\"发送\",\"sending\":\"发送中...\",\"success\":\"消息发送成功！\",\"error\":\"发送失败，请重试\",\"methods\":{\"email\":{\"name\":\"邮箱\",\"desc\":\"用于工作或合作，欢迎邮件联系\"},\"github\":{\"name\":\"GitHub\",\"desc\":\"查看我的代码与项目\"},\"twitter\":{\"name\":\"Twitter\",\"desc\":\"关注最新动态与技术交流\"},\"linkedin\":{\"name\":\"LinkedIn\",\"desc\":\"查看我的职业档案与人脉\"},\"x\":{\"name\":\"X\",\"desc\":\"获取最新动态与技术分享\"},\"wechat\":{\"name\":\"微信\",\"desc\":\"添加我为好友或查看二维码\"},\"wechatOfficialAccount\":{\"name\":\"微信公众号\",\"desc\":\"关注我的公众号获取最新内容\"}},\"sendMessage\":\"发送消息\",\"responseTime\":\"响应时间\",\"responseTip\":\"我通常会在 24-48 小时内回复你的邮件，期待与你交流！\"},\"about\":{\"title\":\"关于我\",\"description\":\"全栈开发者 · 证券从业者 · 生活记录者\",\"intro\":\"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。\",\"bio\":\"聊聊想法，记录生活，分享投资思考和技术心得。\",\"connectTitle\":\"联系我\",\"connect\":\"聊投资、聊技术、或者就聊聊生活，都欢迎。\",\"quote\":\"大道至简。\"},\"docs\":{\"title\":\"文档中心\",\"description\":\"教程、小册与知识分享\",\"articles\":\"篇\",\"empty\":\"暂无文档，敬请期待！\",\"backToDocs\":\"返回文档\"},\"meta\":{\"description\":\"个人博客，写代码、学技术、记录生活\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":[[\"$\",\"$L19\",null,{\"locale\":\"zh\"}],[\"$\",\"$L1a\",null,{\"maxCreatures\":3}],[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L1b\",null,{}],[\"$\",\"$L1c\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L1d\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}],[\"$\",\"$L1e\",null,{}]]}]]}]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n8:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"从回测到实盘 | Aaron Lam\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"blog,nextjs,typescript,web development,programming\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"从回测到实盘 | Python 量化入门\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"Weblog\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.\"}],[\"$\",\"link\",\"13\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"any\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\",\"type\":\"image/svg+xml\"}],[\"$\",\"link\",\"15\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n13:{\"metadata\":\"$b:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>

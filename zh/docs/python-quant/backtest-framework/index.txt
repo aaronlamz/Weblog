@@ -1,0 +1,327 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","backtest-framework",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/backtest-framework","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/backtest-framework","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","P9teyn_2VzABGyumVYuz9v",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T20a2,
+上一篇我们手撸了一个双均线回测，代码已经有点乱了。如果策略再复杂一点（多周期、多品种、止损止盈），手撸会越来越难维护。这时候就需要**专业的回测框架**。
+
+## 主流框架对比
+
+| 框架 | 特点 | 适合 |
+|---|---|---|
+| **backtrader** | 事件驱动，功能全面，社区大 | 中长期策略、新手入门 |
+| **vectorbt** | 向量化，速度极快 | 大规模参数扫描、因子研究 |
+| **zipline** | Quantopian 出品 | 已停止维护，不推荐 |
+| **rqalpha** | 米筐出品，A 股友好 | A 股策略 |
+
+新手建议从 **backtrader** 开始，资料多、API 直观。
+
+## backtrader 入门
+
+### 安装
+
+```bash
+uv pip install backtrader
+```
+
+### 核心概念
+
+backtrader 用面向对象的方式组织代码，几个核心概念：
+
+- **Cerebro**（大脑）— 整个回测的引擎
+- **Strategy**（策略）— 你的交易逻辑
+- **Data Feed**（数据源）— 喂给策略的行情
+- **Broker**（券商）— 模拟成交、收手续费
+- **Analyzer**（分析器）— 计算绩效指标
+
+### 第一个 backtrader 策略
+
+```python
+import backtrader as bt
+import akshare as ak
+import pandas as pd
+
+# 1. 定义策略
+class DualMAStrategy(bt.Strategy):
+    params = (
+        ('fast', 5),
+        ('slow', 20),
+    )
+
+    def __init__(self):
+        self.ma_fast = bt.indicators.SMA(self.data.close, period=self.params.fast)
+        self.ma_slow = bt.indicators.SMA(self.data.close, period=self.params.slow)
+        self.crossover = bt.indicators.CrossOver(self.ma_fast, self.ma_slow)
+
+    def next(self):
+        if not self.position:                  # 空仓
+            if self.crossover > 0:              # 金叉
+                self.buy()
+        elif self.crossover < 0:                # 死叉
+            self.close()
+
+    def log(self, txt):
+        dt = self.data.datetime.date(0)
+        print(f'{dt} {txt}')
+
+    def notify_order(self, order):
+        if order.status == order.Completed:
+            self.log(f'{"BUY" if order.isbuy() else "SELL"} @ {order.executed.price:.2f}')
+
+# 2. 准备数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2023-01-01'].set_index('date')
+df = df.rename(columns={
+    'open':'open', 'high':'high', 'low':'low',
+    'close':'close', 'volume':'volume'
+})
+
+# 3. 创建 Cerebro
+cerebro = bt.Cerebro()
+
+# 4. 添加策略
+cerebro.addstrategy(DualMAStrategy, fast=5, slow=20)
+
+# 5. 添加数据
+data = bt.feeds.PandasData(dataname=df)
+cerebro.adddata(data)
+
+# 6. 设置初始资金、手续费
+cerebro.broker.setcash(100000)
+cerebro.broker.setcommission(commission=0.0003)
+
+# 7. 运行
+print(f'初始资金: {cerebro.broker.getvalue():.2f}')
+cerebro.run()
+print(f'最终资金: {cerebro.broker.getvalue():.2f}')
+
+# 8. 画图
+cerebro.plot(style='candlestick')
+```
+
+跑起来你会看到每次开平仓的日志，最后输出最终账户净值，并自动画出 K 线 + 信号 + 净值曲线。
+
+## 加入分析器
+
+backtrader 自带很多分析器：
+
+```python
+cerebro.addanalyzer(bt.analyzers.SharpeRatio,    _name='sharpe')
+cerebro.addanalyzer(bt.analyzers.DrawDown,       _name='dd')
+cerebro.addanalyzer(bt.analyzers.Returns,        _name='returns')
+cerebro.addanalyzer(bt.analyzers.TradeAnalyzer,  _name='trades')
+
+results = cerebro.run()
+strat = results[0]
+
+print(f'Sharpe Ratio: {strat.analyzers.sharpe.get_analysis()["sharperatio"]:.2f}')
+print(f'Max Drawdown: {strat.analyzers.dd.get_analysis()["max"]["drawdown"]:.2f}%')
+print(f'Total Return: {strat.analyzers.returns.get_analysis()["rtot"]:.2%}')
+
+trades = strat.analyzers.trades.get_analysis()
+print(f'交易次数: {trades.total.total}')
+print(f'盈利次数: {trades.won.total}')
+print(f'亏损次数: {trades.lost.total}')
+```
+
+## 加入仓位管理
+
+实战中很少全仓买入。常见做法是按账户资金的固定比例下单：
+
+```python
+class DualMAStrategy(bt.Strategy):
+    def next(self):
+        if not self.position:
+            if self.crossover > 0:
+                # 用账户 30% 的资金买入
+                size = int(self.broker.getcash() * 0.3 / self.data.close[0])
+                self.buy(size=size)
+        elif self.crossover < 0:
+            self.close()
+```
+
+或者用 backtrader 内置的 sizer：
+
+```python
+cerebro.addsizer(bt.sizers.PercentSizer, percents=30)
+```
+
+## 加入止损止盈
+
+```python
+class DualMAWithStop(bt.Strategy):
+    params = (
+        ('fast', 5),
+        ('slow', 20),
+        ('stop_loss', 0.05),    # 5% 止损
+        ('take_profit', 0.10),  # 10% 止盈
+    )
+
+    def __init__(self):
+        self.ma_fast = bt.indicators.SMA(self.data.close, period=self.params.fast)
+        self.ma_slow = bt.indicators.SMA(self.data.close, period=self.params.slow)
+        self.crossover = bt.indicators.CrossOver(self.ma_fast, self.ma_slow)
+        self.entry_price = None
+
+    def next(self):
+        if not self.position:
+            if self.crossover > 0:
+                self.buy()
+                self.entry_price = self.data.close[0]
+        else:
+            current = self.data.close[0]
+            ret = (current - self.entry_price) / self.entry_price
+
+            if ret <= -self.params.stop_loss:
+                self.close()  # 止损
+            elif ret >= self.params.take_profit:
+                self.close()  # 止盈
+            elif self.crossover < 0:
+                self.close()  # 死叉
+```
+
+## 多品种回测
+
+```python
+symbols = ['AAPL', 'MSFT', 'GOOGL']
+
+cerebro = bt.Cerebro()
+cerebro.addstrategy(DualMAStrategy)
+
+for symbol in symbols:
+    df = ak.stock_us_daily(symbol=symbol, adjust="qfq")
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['date'] >= '2023-01-01'].set_index('date')
+
+    data = bt.feeds.PandasData(dataname=df, name=symbol)
+    cerebro.adddata(data)
+
+cerebro.broker.setcash(300000)
+cerebro.broker.setcommission(commission=0.0003)
+cerebro.run()
+```
+
+策略代码会自动对每个品种独立运行。
+
+## vectorbt：向量化回测
+
+`vectorbt` 用纯 numpy 向量化运算，速度比 backtrader 快几十倍，适合**参数扫描**和**因子研究**。
+
+### 安装
+
+```bash
+uv pip install vectorbt
+```
+
+### 一行代码回测双均线
+
+```python
+import vectorbt as vbt
+import yfinance as yf
+
+# 拉取数据
+price = yf.download('AAPL', start='2023-01-01', end='2024-12-31')['Close']
+
+# 计算均线
+fast_ma = vbt.MA.run(price, 5)
+slow_ma = vbt.MA.run(price, 20)
+
+# 生成信号
+entries = fast_ma.ma_crossed_above(slow_ma)
+exits   = fast_ma.ma_crossed_below(slow_ma)
+
+# 回测
+pf = vbt.Portfolio.from_signals(
+    price, entries, exits,
+    init_cash=100000,
+    fees=0.0003,
+)
+
+# 查看结果
+print(pf.stats())
+pf.plot().show()
+```
+
+`pf.stats()` 会输出几十个统计指标，比 backtrader 完整。
+
+### 参数扫描
+
+vectorbt 的杀手锏是**一次跑几百组参数**：
+
+```python
+import numpy as np
+
+# 5 个快线 × 5 个慢线 = 25 组参数
+fast_periods = [5, 10, 15, 20, 25]
+slow_periods = [30, 50, 60, 100, 200]
+
+fast_ma = vbt.MA.run(price, window=fast_periods, short_name='fast')
+slow_ma = vbt.MA.run(price, window=slow_periods, short_name='slow')
+
+entries = fast_ma.ma_crossed_above(slow_ma)
+exits   = fast_ma.ma_crossed_below(slow_ma)
+
+pf = vbt.Portfolio.from_signals(price, entries, exits, fees=0.0003)
+
+# 找出夏普最高的参数组合
+print(pf.sharpe_ratio().sort_values(ascending=False).head())
+```
+
+不到 1 秒钟就能跑完。
+
+## 框架选择建议
+
+| 场景 | 推荐 |
+|---|---|
+| 学习量化交易、写第一个策略 | backtrader |
+| 复杂的事件驱动逻辑 | backtrader |
+| 大规模参数优化 | vectorbt |
+| 快速验证想法 | vectorbt |
+| 实盘策略部署 | backtrader（社区有实盘对接方案） |
+
+我自己的做法：**研究阶段用 vectorbt 快速试错，定型后用 backtrader 写正式代码**。
+
+## 小结
+
+你已经会：
+
+- ✅ backtrader 基础用法
+- ✅ 加入分析器、仓位管理、止损止盈
+- ✅ 多品种回测
+- ✅ vectorbt 向量化回测
+- ✅ 参数扫描
+
+下一篇 [风险与绩效指标](/docs/python-quant/risk-metrics)，我们详细搞懂回测报告里那些指标到底意味着什么。
+
+> 📌 **避坑提示**
+> 别一上来就用复杂框架。如果一个策略你手撸都说不清楚收益从哪来，框架只会让你更迷茫。先理解原理，再用框架。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"回测框架入门"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"backtrader / vectorbt 入门，回测一个真实策略"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"回测框架入门 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"backtrader / vectorbt 入门，回测一个真实策略"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"回测框架入门 | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"backtrader / vectorbt 入门，回测一个真实策略"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

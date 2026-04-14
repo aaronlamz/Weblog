@@ -1,0 +1,251 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","investment-intro","bonds-and-reits",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","investment-intro/bonds-and-reits","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","investment-intro/bonds-and-reits","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","7MYlYi_nxjcx9RZ3H6eYev",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1b09,
+股票之外，还有两个重要的资产类别：**债券**和 **REITs**。它们的共同特点是**稳定、能收息**，是组合中重要的"稳定剂"。
+
+## 债券是什么
+
+债券 = 借条。
+
+你把钱借给政府或公司，对方承诺：
+- 每年付你**固定利息**（票面利率）
+- 到期还你**本金**
+
+**例子**：你买 $1000 面值的 10 年期美债，票面利率 4%。
+- 每年拿 $40 利息
+- 10 年后拿回 $1000 本金
+
+**总收益**：$400 利息 + $1000 本金 = $1400
+
+## 债券的几个核心概念
+
+### 1. 票面利率（Coupon Rate）
+
+债券承诺的固定利息，发行时确定，**不变**。
+
+### 2. 到期收益率（YTM, Yield to Maturity）
+
+如果你按当前市场价格买入，持有到期，能拿到的年化收益。**这才是重点**。
+
+> 💡 票面利率是给债券发行时定的，YTM 是按当前市场价算的。两者经常不一样。
+
+### 3. 久期（Duration）
+
+衡量债券价格对**利率变化的敏感度**。
+
+简单理解：
+- 久期越长，价格波动越大
+- 利率上升 1%，债券价格下跌约（久期 × 1%）
+
+### 4. 信用评级
+
+| 评级 | 含义 | 例子 |
+|---|---|---|
+| **AAA** | 最高，几乎无违约风险 | 美国国债 |
+| **AA / A** | 高质量公司债 | 苹果、微软 |
+| **BBB** | 投资级最低 | 一些大型公司 |
+| **BB 及以下** | 投机级（垃圾债） | 高收益债 |
+
+## 债券价格 vs 利率
+
+**核心规律：利率上升 → 债券价格下跌；利率下降 → 债券价格上涨**。
+
+为什么？
+
+假设你 2020 年买了一只票面利率 1% 的美债。到了 2024 年，新发的美债票面利率 5%。谁还要你的 1% 债券？没人要，所以你的债券**只能折价卖**。
+
+这就是 2022 年很多债券基金大跌的原因——美联储疯狂加息，老债券集体跳水。
+
+## 债券类型
+
+### 按发行人
+
+| 类型 | 风险 | 收益 | 例子 |
+|---|---|---|---|
+| **国债** | 极低 | 较低 | 美国 / 中国国债 |
+| **市政债** | 低 | 较低 | 美国地方政府债 |
+| **公司债** | 中-高 | 较高 | 苹果债、特斯拉债 |
+| **高收益债** | 高 | 高 | 垃圾债 |
+| **可转债** | 中 | 中（带股票期权属性） | 特斯拉可转债 |
+
+### 按期限
+
+| 类型 | 期限 |
+|---|---|
+| **短期** | < 1 年 |
+| **中期** | 1-10 年 |
+| **长期** | > 10 年 |
+
+**长期债波动大，短期债波动小**。
+
+## 买债券的几种方式
+
+### 1. 直接买单只债券（不推荐新手）
+
+需要研究单个发行人，门槛高，最低面值通常 $1000 起。
+
+### 2. 买债券 ETF（推荐）
+
+| ETF | 投向 | 久期 | 当前 YTM 约 |
+|---|---|---|---|
+| **SHV** | 0-1 年美债 | 0.4 年 | 5%+ |
+| **SHY** | 1-3 年美债 | 1.9 年 | 4.5% |
+| **IEF** | 7-10 年美债 | 7.5 年 | 4.3% |
+| **TLT** | 20+ 年美债 | 17 年 | 4.5% |
+| **AGG** | 综合美债 | 6 年 | 4.5% |
+| **LQD** | 投资级公司债 | 8 年 | 5.2% |
+| **HYG** | 高收益债（垃圾债） | 4 年 | 7.5% |
+
+**新手建议**：
+
+- 想稳健：**SHY** 或 **IEF**
+- 想博弈降息：**TLT**（杠杆效应大）
+- 想要分散：**AGG**（综合债）
+
+### 3. 货币市场基金
+
+几乎等同于"高息存款"，购买和卖出都很方便。
+
+例子：富途和盈立都有"零钱通"类的产品，买美元货币基金，年化 4-5%。
+
+## 债券 vs 股票的关系
+
+经典理论：**债券和股票通常负相关**。
+
+- 经济不好 → 股票跌，债券涨（资金避险）
+- 经济好 → 股票涨，债券跌
+
+所以**股债搭配可以降低组合波动**。
+
+> ⚠️ 2022 年是个特例：美联储加息导致股票和债券同时大跌。这种情况历史上很罕见。
+
+### 经典股债配置
+
+**60/40 组合**：60% 股票 + 40% 债券。
+
+| 时期 | 60/40 年化收益 |
+|---|---|
+| 1928-2023（美国） | 8.5% |
+| 2003-2023 | 7% |
+
+收益不如纯股票，但**波动小很多**，适合不能承受大回撤的人。
+
+## REITs 是什么
+
+**REITs**（Real Estate Investment Trusts）= 房地产信托基金。
+
+简单说：**你出钱给一个公司去买商业地产（写字楼、商场、仓库等），然后这个公司把租金分给你**。
+
+REITs 的特点：
+
+- 通过买卖股票的方式投资房地产
+- 法律强制要求**每年至少派 90% 的利润**
+- 因此**股息率很高**（通常 3-7%）
+
+## REITs vs 直接买房
+
+| 维度 | REITs | 直接买房 |
+|---|---|---|
+| 入场门槛 | 1 股就能买 | 几十到几百万 |
+| 流动性 | 像股票，分钟级买卖 | 几个月才能卖出 |
+| 分散度 | 一只 REIT 持有几十个物业 | 集中风险 |
+| 管理 | 完全交给专业团队 | 自己处理租客、维修 |
+| 杠杆 | 通常无 | 有房贷 |
+| 税务 | 有股息税 | 各种税费 |
+
+## REITs 类型
+
+| 类型 | 投向 | 例子 |
+|---|---|---|
+| **商业 REITs** | 写字楼、商场 | SPG（西蒙地产） |
+| **住宅 REITs** | 公寓、出租房 | EQR、AVB |
+| **工业 REITs** | 仓储、物流 | PLD（普洛斯）、O |
+| **数据中心 REITs** | 数据中心 | EQIX、DLR |
+| **医疗 REITs** | 医院、养老院 | WELL |
+| **基建 REITs** | 通信塔 | AMT |
+| **抵押 REITs（mREITs）** | 房贷资产 | NLY |
+
+### 几只经典 REITs
+
+| 代码 | 公司 | 特点 |
+|---|---|---|
+| **O** | Realty Income | 月分红，号称"月月收租" |
+| **VICI** | VICI Properties | 拉斯维加斯赌场地产 |
+| **PLD** | Prologis | 全球最大物流地产 |
+| **AMT** | American Tower | 全球通信塔 |
+
+### 港股 REITs
+
+| 代码 | 名称 | 特点 |
+|---|---|---|
+| **0823.HK** | 领展房产基金 | 香港最大 REIT |
+| **0808.HK** | 泓富产业信托 | 香港工业 REITs |
+| **2778.HK** | 冠君产业信托 | 香港写字楼 |
+
+## REITs ETF（更省心）
+
+如果你不想挑单只 REITs，可以买 ETF。
+
+| 代码 | 投向 |
+|---|---|
+| **VNQ** | 美国 REITs（最大、最经典） |
+| **REET** | 全球 REITs |
+| **SCHH** | 美国 REITs（更便宜的替代） |
+
+## REITs 的风险
+
+不要被"高股息"迷惑：
+
+1. **利率敏感** — 加息时 REITs 股价跌惨（融资成本上升 + 房产估值下降）
+2. **行业风险** — 比如商场 REITs 受电商冲击大
+3. **股息可能减少** — 经济不好时公司可能砍股息
+4. **杠杆问题** — 很多 REITs 用杠杆放大收益和风险
+
+## 小结
+
+债券和 REITs 在组合中的角色：
+
+- **债券** = 稳定的"现金流 + 避险"
+- **REITs** = 兼具股票流动性和房地产收息特性
+
+新手怎么用？
+
+- 风险偏好低 → 多配债券（如 60% 股 + 40% 债）
+- 想要稳定现金流 → 配置一些高股息 REITs / SCHD / JEPI
+- 担心通胀 → 配置 TIPS（通胀保护债）
+
+下一篇 [怎么看一家公司](/docs/investment-intro/fundamental-analysis)，我们学习基本面分析。
+
+> 📌 **新手提醒**
+> 100% 股票的组合不是最优解。一个**60% 股 + 30% 债 + 10% REITs** 的简单组合，长期表现可能让你惊喜，而且半夜不会失眠。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"investment-intro","title":"投资入门101","description":"港美股新手到入门：股票、ETF、债券、REITs、期权全梳理","icon":"TrendingUp","order":10,"docs":[{"slug":"investment-intro/why-invest","title":"为什么要投资","description":"通胀、复利、机会成本，建立投资的'为什么'","order":1,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/hk-us-market-overview","title":"港美股市场全景","description":"主要交易所、指数、交易时间、和 A 股的区别","order":2,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/open-broker-account","title":"券商账户开通指南","description":"富途 vs 盈立对比，开户流程、出入金、汇率","order":3,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/stock-basics","title":"股票基础知识","description":"股票是什么、IPO、分红、拆股、做多做空","order":4,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/etf-basics","title":"ETF 入门","description":"ETF 是什么、和基金区别、宽基/行业/跨境 ETF、怎么挑","order":5,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/bonds-and-reits","title":"债券与 REITs","description":"美债、公司债、REITs 收息逻辑","order":6,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/fundamental-analysis","title":"怎么看一家公司（基本面）","description":"财报三表速读、关键指标 PE/PB/ROE","order":7,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/technical-analysis-basics","title":"K 线与技术面入门","description":"K 线、趋势、均线、量价关系","order":8,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/valuation-and-timing","title":"估值与买入时机","description":"DCF 简化版、相对估值、定投 vs 一次性","order":9,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/asset-allocation","title":"资产配置与组合构建","description":"股债配置、地区分散、风险偏好测试","order":10,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/risk-management","title":"风险管理","description":"仓位控制、止损止盈、心理偏差","order":11,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/options-basics","title":"期权基础","description":"Call / Put、行权价、希腊字母、几个经典策略","order":12,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/beginner-roadmap","title":"从 0 开始的实操路径","description":"新手 1 万美金 / 10 万港币的具体配置示例与行动计划","order":13,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"投资入门101"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"债券与 REITs"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"美债、公司债、REITs 收息逻辑"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"债券与 REITs | Aaron Lam"}],["$","meta","1",{"name":"description","content":"美债、公司债、REITs 收息逻辑"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"债券与 REITs | 投资入门101"}],["$","meta","8",{"property":"og:description","content":"美债、公司债、REITs 收息逻辑"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

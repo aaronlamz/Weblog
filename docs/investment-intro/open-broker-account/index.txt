@@ -1,0 +1,241 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","investment-intro","open-broker-account",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","investment-intro/open-broker-account","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","investment-intro/open-broker-account","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","Yh-ewutOW5gdKhJ1ZkSjvv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1e7d,
+要交易港美股，你需要一个**海外券商账户**。这一篇我们对比目前散户最常用的两家——富途和盈立证券，讲清楚怎么开户、怎么出入金。
+
+> ⚠️ **重要：富途已停止接受中国大陆新客户**
+>
+> 受中国证监会监管要求影响，**富途和老虎证券自 2023 年起已停止为中国大陆居民开立新账户**。具体表现：
+> - 新的大陆身份证用户**无法注册新账户**
+> - 大陆已有客户**保留账户、可继续交易**，但部分功能（如新入金）有所限制
+> - 如果你是大陆居民、还没有富途账户，**只能选择盈立或其他仍接受大陆客户的券商**
+>
+> 如果你已经有富途账号（在限制前开通的），可以继续使用。下面的对比依然有参考价值。
+
+## 为什么不选传统券商
+
+很多人会问：为什么不选老牌的盈透证券（IB）、嘉信、第一证券？
+
+**答案**：对中文用户来说，这些券商：
+- 界面英文为主，对新手不友好
+- 客服基本不懂中文
+- 入金渠道复杂（要电汇）
+- 没有中文研究报告和资讯
+
+而**富途和盈立**专为中港用户设计：
+- 中文界面 + 中文客服
+- 支持港币、美金账户
+- 有手机 App，操作直观
+- 提供中文的财报、研究报告
+- 入金方便（支持 FPS 转数快、电汇）
+
+## 富途证券 vs 盈立证券
+
+| 维度 | 富途证券 | 盈立证券 |
+|---|---|---|
+| **公司背景** | 富途控股（NASDAQ: FUTU） | uSmart Securities |
+| **监管** | 香港 SFC、美国 SEC、新加坡 MAS | 香港 SFC |
+| **可交易市场** | 港、美、A、新 | 港、美 |
+| **港股佣金** | 0.03%（最低 3 港币） | 0%（永久免佣） |
+| **美股佣金** | 0.0049 美元/股 | 0% 永久免佣 |
+| **平台费** | 港股有，美股无 | 港股有，美股无 |
+| **App 体验** | 富途牛牛，功能强大 | uSmart，简洁 |
+| **数据** | 港股 Lv1 免费、Lv2 付费 | 港股 Lv2 免费 |
+| **打新** | 强大，有融资额度 | 较好 |
+| **存款利息** | 美元闲置资金有利息 | 美元闲置资金有利息 |
+| **客服** | 中文，回应快 | 中文，回应快 |
+| **API 量化** | 强（免费 OpenAPI） | 较弱 |
+
+### 我的建议
+
+**如果你是大陆居民、目前还没有任何账户**：
+
+- 首选 **盈立证券**（仍接受大陆客户开户）
+- 富途已不能新开了，不用考虑
+
+**如果你已经有富途账号**（限制前开通的）：
+
+- **只买美股 + 偶尔港股** → 用盈立（永久免佣）
+- **想做量化、需要 API** → 用富途（OpenAPI 是免费的）
+- **打新股很积极** → 用富途（融资打新额度高）
+- **两个都用** → 是最常见的选择，分散风险
+
+**如果你是港澳台 / 海外身份**：
+
+- 两家都可以正常开户，按需求选择
+
+我自己两个都开了（在限制前开通的），**富途用来量化和打新，盈立用来美股长持**。
+
+### 大陆客户的其他选择
+
+如果你是大陆居民、又错过了富途的开户窗口，除了盈立，还有：
+
+- **老虎证券** — 同样停止接受新大陆客户
+- **盈透证券（IB）** — 全英文，门槛高，仍可开户
+- **嘉信、第一证券** — 美国本土券商，部分仍接受大陆客户但难度大
+- **微牛**（Webull） — 美国上市券商，曾有大陆开户通道
+
+> 💡 **现实建议**
+> 对大陆新手来说，**盈立证券是目前最务实的选择**——中文友好、入金方便、永久免佣。本系列后续涉及具体操作时，默认以盈立为例。
+
+## 开户流程
+
+港美股券商开户都是**线上完成**，整个过程 30 分钟左右。
+
+### 准备材料
+
+```
+□ 身份证（中国大陆）或港澳通行证
+□ 地址证明（3 个月内的水电煤账单 / 银行账单 / 信用卡账单）
+□ 一张内地银行卡（用于入金）
+□ 手机号
+□ 邮箱
+```
+
+### 步骤
+
+以富途为例（盈立流程几乎一样）：
+
+1. **下载 App**（富途牛牛 / uSmart）
+2. **注册账号** — 用手机号注册
+3. **选择开户类型** — 个人账户
+4. **填写基本信息** — 姓名、身份证、地址
+5. **上传证件照片** — 身份证正反面、地址证明
+6. **风险评估问卷** — 评估你的投资经验和风险承受能力
+7. **签署协议** — 电子签名
+8. **人脸识别** — 视频认证
+9. **等待审核** — 通常 1-3 个工作日
+
+审核通过后，你会收到通知，账户开通成功。
+
+## 入金（最关键的一步）
+
+### 入金渠道
+
+| 方式 | 速度 | 手续费 | 额度限制 |
+|---|---|---|---|
+| **FPS 转数快**（港币） | 几分钟 | 免费 | 较高 |
+| **eDDA 自动直通** | T+1 | 免费 | 单日 1 万港币左右 |
+| **电汇** | T+1 - T+3 | 100-300 港币 | 高 |
+| **银证通** | 实时 | 免费 | 看券商支持 |
+
+### 内地资金怎么过去
+
+这是最让新手头疼的问题。中国大陆有 **5 万美元年度购汇额度**，超出需要其他途径。
+
+**主流方法**：
+
+1. **信用卡 / 储蓄卡换汇 → 香港银行卡 → 券商**
+   - 需要先开一张香港银行卡（汇丰、中银香港、众安银行等）
+   - 内地银行 → 香港银行 → 券商
+   - 受 5 万美元年度额度限制
+
+2. **数字银行**
+   - 使用众安银行、ZA Bank、Mox 等虚拟银行的香港账户
+   - 跨境转账方便
+
+3. **直接电汇**
+   - 内地银行 → 券商指定收款行
+   - 备注用途（买卖证券需要）
+   - 注意各银行对个人购汇用途的审核
+
+> ⚠️ **合规提醒**
+> 中国大陆居民购汇用于"境外证券投资"在严格意义上属于**资本项下**，不在 5 万美元用途范围内。实际操作中很多人在做，但要了解监管风险。具体合规问题请咨询专业人士。
+
+## 出金
+
+出金路径基本是入金的逆向：
+
+- 券商 → 香港银行账户 → 内地银行
+- 或：券商 → 直接电汇到内地
+
+**出金通常需要 1-3 个工作日**，部分会被银行风控审核（特别是大额）。
+
+> 💡 **建议**：开户初期就走通"小额入金 + 小额出金"流程，确认资金能进出，再加大投入。
+
+## 美股 vs 港币账户
+
+券商账户里通常有两个独立子账户：
+- **美元账户**：用来买美股
+- **港币账户**：用来买港股
+
+**重要**：买港股不能直接用美元，需要先换汇到港币，反之亦然。换汇有汇率差，每次 0.1% 左右。
+
+### 汇率小知识
+
+- USD/HKD 汇率长期固定在 7.75-7.85（港币联系汇率制度）
+- USD/CNY 汇率波动较大
+- 富途和盈立都支持**自动换汇**或**手动换汇**
+
+## 第一次入金多少合适
+
+新手最容易犯的错：**一上来 ALL IN**。
+
+建议：
+
+```
+第一次入金：1000-3000 美元 / 1 万港币
+```
+
+这点钱用来：
+- 熟悉下单流程
+- 体验交易感受
+- 试错（必然会犯错）
+
+**等你能稳定盈利或者至少不犯低级错误后，再加大投入**。
+
+## 开户后的第一个动作
+
+不要急着买股票。先做这些：
+
+1. **设置交易密码**
+2. **开通行情订阅**（港股 Lv1 免费，Lv2 看券商政策）
+3. **熟悉 App 界面** — 行情、自选股、资金账户、交易功能
+4. **看几篇研报** — 富途和盈立都有
+5. **设置 K 线图样式**（个人喜好）
+6. **添加一只股票到自选** — 比如苹果（AAPL）
+
+## 小结
+
+完成这一篇你应该已经：
+
+- ✅ 知道富途和盈立的区别
+- ✅ 完成开户流程
+- ✅ 完成第一次小额入金
+- ✅ 熟悉了 App 基本功能
+
+下一篇 [股票基础知识](/docs/investment-intro/stock-basics)，我们正式开始学习投资标的，从最基础的股票讲起。
+
+> 📌 **新手建议**
+> 开户的过程会有点繁琐（特别是入金），不要被吓退。这是最烦人的一步，过了之后就一路顺畅了。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"investment-intro","title":"投资入门101","description":"港美股新手到入门：股票、ETF、债券、REITs、期权全梳理","icon":"TrendingUp","order":10,"docs":[{"slug":"investment-intro/why-invest","title":"为什么要投资","description":"通胀、复利、机会成本，建立投资的'为什么'","order":1,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/hk-us-market-overview","title":"港美股市场全景","description":"主要交易所、指数、交易时间、和 A 股的区别","order":2,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/open-broker-account","title":"券商账户开通指南","description":"富途 vs 盈立对比，开户流程、出入金、汇率","order":3,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/stock-basics","title":"股票基础知识","description":"股票是什么、IPO、分红、拆股、做多做空","order":4,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/etf-basics","title":"ETF 入门","description":"ETF 是什么、和基金区别、宽基/行业/跨境 ETF、怎么挑","order":5,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/bonds-and-reits","title":"债券与 REITs","description":"美债、公司债、REITs 收息逻辑","order":6,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/fundamental-analysis","title":"怎么看一家公司（基本面）","description":"财报三表速读、关键指标 PE/PB/ROE","order":7,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/technical-analysis-basics","title":"K 线与技术面入门","description":"K 线、趋势、均线、量价关系","order":8,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/valuation-and-timing","title":"估值与买入时机","description":"DCF 简化版、相对估值、定投 vs 一次性","order":9,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/asset-allocation","title":"资产配置与组合构建","description":"股债配置、地区分散、风险偏好测试","order":10,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/risk-management","title":"风险管理","description":"仓位控制、止损止盈、心理偏差","order":11,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/options-basics","title":"期权基础","description":"Call / Put、行权价、希腊字母、几个经典策略","order":12,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/beginner-roadmap","title":"从 0 开始的实操路径","description":"新手 1 万美金 / 10 万港币的具体配置示例与行动计划","order":13,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"投资入门101"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"券商账户开通指南"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"富途 vs 盈立对比，开户流程、出入金、汇率"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"券商账户开通指南 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"富途 vs 盈立对比，开户流程、出入金、汇率"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"券商账户开通指南 | 投资入门101"}],["$","meta","8",{"property":"og:description","content":"富途 vs 盈立对比，开户流程、出入金、汇率"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

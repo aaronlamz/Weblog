@@ -1,0 +1,693 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","futu-openapi-guide",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/futu-openapi-guide","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/futu-openapi-guide","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","xlZLroer_Evcw_R5rvYRbv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T446c,
+上一篇我们用富途 OpenAPI 拉了点行情数据，能跑就行。但实际用富途做量化，**有一堆"看起来简单实则坑很多"的概念**：订阅额度、限频规则、行情权限、错误码、交易接口……新手不搞清楚就会反复踩坑。
+
+这一篇是**富途 OpenAPI 的系统手册**，建议收藏后随时查阅。官方文档：[openapi.futunn.com/futu-api-doc](https://openapi.futunn.com/futu-api-doc/intro/intro.html)
+
+## 一、架构详解
+
+富途 OpenAPI 不是直接 HTTP 调用，而是**三层架构**：
+
+```
+┌─────────────────┐    ┌──────────────┐    ┌──────────────┐
+│  你的策略代码   │ →  │  FutuOpenD   │ →  │  富途服务器  │
+│  (Python/Java) │    │  (本地网关)  │    │              │
+└─────────────────┘    └──────────────┘    └──────────────┘
+        ↑                     ↑
+        │                     │
+   通过 socket            富途账号登录
+   与本地通信
+```
+
+### 为什么这么设计
+
+1. **账号安全** — 你的账号密码只在本地的 FutuOpenD 输入，第三方代码看不到
+2. **统一连接** — 多个策略可以共用一个 FutuOpenD 连接，节省连接数
+3. **跨语言** — Python、Java、C++、C# 都可以连同一个 FutuOpenD
+4. **协议封装** — SDK 帮你处理底层 protobuf，你只用看 API
+
+### 三种部署方式
+
+| 方式 | 适合 |
+|---|---|
+| **本地运行 FutuOpenD** | 开发、测试、个人量化（最常见） |
+| **云服务器运行 FutuOpenD** | 24 小时实盘策略 |
+| **公司内网部署** | 团队使用，多人共享 |
+
+## 二、FutuOpenD 安装与启动
+
+### 下载
+
+[官方下载页](https://www.futunn.com/download/openAPI)，选择你的系统：
+- macOS（dmg）
+- Windows（exe）
+- Linux（zip / tar.gz）
+- Docker 镜像
+
+### 启动模式
+
+**1. 图形界面模式**（新手推荐）
+
+双击启动，弹出登录窗口：
+- 输入富途账号密码
+- 完成短信验证
+- 启动成功后状态栏会显示 "已连接"
+
+**2. 命令行模式**（服务器部署）
+
+```bash
+# Linux / macOS
+./FutuOpenD -login_account=你的账号 -login_pwd_md5=密码MD5
+
+# 后台运行
+nohup ./FutuOpenD -login_account=xxx -login_pwd_md5=xxx > opend.log 2>&1 &
+```
+
+### 配置文件
+
+FutuOpenD 启动后会读取 `FutuOpenD.xml`（在程序同目录），常用配置：
+
+```xml
+<config>
+  <!-- 监听端口 -->
+  <api_port>11111</api_port>
+
+  <!-- 监听 IP，0.0.0.0 表示接受所有连接 -->
+  <api_ip>127.0.0.1</api_ip>
+
+  <!-- 行情推送 -->
+  <push_proto_fmt>0</push_proto_fmt>
+
+  <!-- 日志级别 -->
+  <log_level>info</log_level>
+</config>
+```
+
+> ⚠️ **服务器部署安全**
+> 如果把 FutuOpenD 装在云服务器，**千万不要**把 `api_ip` 设成 `0.0.0.0` 还开放公网端口。要么走 VPN，要么用 SSH 隧道转发。
+
+## 三、行情订阅额度系统（重要）
+
+这是新手最容易踩的坑。
+
+### 什么是订阅
+
+获取**实时**行情数据前，必须先**订阅**这只股票。订阅后，富途服务器才会推送实时数据给你。
+
+```python
+# 订阅 = 建立长连接的"通道"
+quote_ctx.subscribe(['HK.00700'], ['QUOTE'])
+```
+
+### 订阅的类型
+
+每只股票可以订阅多种**数据类型**，每种数据类型**单独占用一个额度**：
+
+| 订阅类型 | 含义 | 占用额度 |
+|---|---|---|
+| **QUOTE** | 实时报价 | 1 |
+| **TICKER** | 逐笔成交 | 1 |
+| **K_DAY** | 日 K 线 | 1 |
+| **K_5M** | 5 分钟 K 线 | 1 |
+| **K_1M** | 1 分钟 K 线 | 1 |
+| **ORDER_BOOK** | 买卖盘 | 1 |
+| **RT_DATA** | 分时数据 | 1 |
+| **BROKER** | 经纪商队列 | 1 |
+
+> 💡 **关键**：订阅"腾讯的 QUOTE + K_DAY + K_5M" = 占用 3 个额度，不是 1 个。
+
+### 总额度上限
+
+| 行情权限 | 总订阅额度 |
+|---|---|
+| Lv1（免费） | 100 |
+| BMP / 港股 Lv2 | 300 |
+| 美股 Lv2 | 500 |
+
+**额度共享**：所有连接到同一个 FutuOpenD 的客户端共享额度。
+
+### 查询当前订阅
+
+```python
+ret, data = quote_ctx.query_subscription()
+if ret == 0:
+    print(data)
+```
+
+### 取消订阅
+
+```python
+# 取消单只
+quote_ctx.unsubscribe(['HK.00700'], ['QUOTE'])
+
+# 取消所有
+quote_ctx.unsubscribe_all()
+```
+
+### 最佳实践
+
+```python
+# ❌ 错误：每次获取数据都订阅一次
+for code in stock_list:
+    quote_ctx.subscribe([code], ['QUOTE'])
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 正确：批量订阅一次
+quote_ctx.subscribe(stock_list, ['QUOTE'])
+ret, data = quote_ctx.get_market_snapshot(stock_list)
+
+# ✅ 用完释放
+quote_ctx.unsubscribe(stock_list, ['QUOTE'])
+```
+
+## 四、接口限频规则
+
+富途对每个接口都有**调用频率限制**，超频会被限流。
+
+### 常见接口的限频
+
+| 接口 | 限频 |
+|---|---|
+| `get_market_snapshot` | 60 次/30 秒 |
+| `request_history_kline` | 30 次/30 秒 |
+| `subscribe / unsubscribe` | 100 次/30 秒 |
+| `get_cur_kline` | 60 次/30 秒 |
+| `place_order` | 15 次/30 秒 |
+| `position_list_query` | 10 次/30 秒 |
+
+### 全局限频
+
+每个连接每秒最多 **10 次** 协议请求。
+
+### 怎么判断被限频
+
+返回的 `ret` 码会是 `RET_ERROR`，错误信息包含 "frequency limit"。
+
+### 应对方法
+
+**1. 主动 sleep**
+
+```python
+import time
+
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+    time.sleep(0.6)  # 每秒不超过 2 次
+```
+
+**2. 批量调用**（最优）
+
+```python
+# ❌ 100 次单只查询 = 限频
+for code in stock_list:
+    quote_ctx.get_market_snapshot([code])
+
+# ✅ 1 次批量查询
+quote_ctx.get_market_snapshot(stock_list)  # 一次最多 400 只
+```
+
+**3. 异步限流装饰器**
+
+```python
+from functools import wraps
+import time
+
+class RateLimiter:
+    def __init__(self, max_calls, period):
+        self.max_calls = max_calls
+        self.period = period
+        self.calls = []
+
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            now = time.time()
+            self.calls = [t for t in self.calls if now - t < self.period]
+            if len(self.calls) >= self.max_calls:
+                sleep_time = self.period - (now - self.calls[0])
+                time.sleep(sleep_time)
+            self.calls.append(time.time())
+            return func(*args, **kwargs)
+        return wrapper
+
+@RateLimiter(max_calls=30, period=30)
+def fetch_kline(code):
+    return quote_ctx.request_history_kline(code, ...)
+```
+
+## 五、行情权限层级
+
+不同权限能拿到的数据不一样。
+
+### 港股
+
+| 权限 | 数据深度 | 价格 |
+|---|---|---|
+| **Lv1** | 1 档买卖盘 | 免费 |
+| **BMP** | 10 档买卖盘 + 经纪队列 | 免费（需开通） |
+| **Lv2** | 10 档 + 经纪队列 + 逐笔 | 月费 |
+
+### 美股
+
+| 权限 | 数据深度 | 价格 |
+|---|---|---|
+| **OTC（延迟）** | 延迟 15 分钟 | 免费 |
+| **Lv1（实时）** | 实时 1 档 | 免费（个人投资者） |
+| **Nasdaq TotalView** | 10 档 + 完整深度 | 月费 |
+
+### A 股
+
+| 权限 | 价格 |
+|---|---|
+| **Lv1** | 月费 |
+| **Lv2** | 月费 |
+
+> 💡 **散户提示**
+> 港股 Lv1 + 美股 Lv1 已经够 90% 量化策略用了。Lv2 主要是高频和盘口策略需要。
+
+### 查询当前权限
+
+在 FutuOpenD 的 GUI 里能看到，或者通过 API：
+
+```python
+ret, data = quote_ctx.get_user_security_group(group_type=1)
+```
+
+## 六、错误码与异常处理
+
+### 通用返回值
+
+所有 API 的返回值都是 `(ret, data)` 元组：
+
+```python
+ret, data = quote_ctx.get_market_snapshot(['US.AAPL'])
+
+if ret == 0:  # 等价于 RET_OK
+    # 成功，data 是结果
+    print(data)
+else:
+    # 失败，data 是错误信息字符串
+    print(f'Error: {data}')
+```
+
+### 常见错误码
+
+| 错误 | 含义 | 解决 |
+|---|---|---|
+| **未连接** | FutuOpenD 没运行或端口错 | 检查 FutuOpenD 状态、端口 |
+| **未订阅** | 没订阅就请求实时数据 | 先 `subscribe` |
+| **订阅额度不足** | 超过订阅上限 | 取消旧订阅 |
+| **频率限制** | 调用太快 | 加 sleep 或批量请求 |
+| **权限不足** | 没有该数据的权限 | 升级权限 / 改用免费数据 |
+| **代码错误** | 股票代码格式错 | 检查 `US./HK./SH./SZ.` 前缀 |
+| **未解锁交易** | 调交易接口前没解锁 | `unlock_trade` |
+| **MD5 不匹配** | 交易密码 MD5 错 | 重新计算 MD5 |
+
+### 健壮的请求封装
+
+```python
+from futu import OpenQuoteContext, RET_OK
+import time
+import logging
+
+class FutuClient:
+    def __init__(self, host='127.0.0.1', port=11111, max_retry=3):
+        self.host = host
+        self.port = port
+        self.max_retry = max_retry
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host=self.host, port=self.port)
+
+    def safe_request(self, func, *args, **kwargs):
+        """带重试的请求"""
+        for i in range(self.max_retry):
+            try:
+                ret, data = func(*args, **kwargs)
+                if ret == RET_OK:
+                    return data
+                logging.warning(f'Request failed: {data}, retry {i+1}/{self.max_retry}')
+                if 'frequency' in str(data).lower():
+                    time.sleep(2 ** i)  # 指数退避
+            except Exception as e:
+                logging.error(f'Exception: {e}, retry {i+1}/{self.max_retry}')
+                self._connect()  # 重连
+            time.sleep(1)
+        return None
+
+    def get_kline(self, code, **kwargs):
+        return self.safe_request(self.ctx.request_history_kline, code, **kwargs)
+
+    def close(self):
+        if self.ctx:
+            self.ctx.close()
+```
+
+## 七、交易接口
+
+### 解锁交易
+
+调交易接口前必须解锁：
+
+```python
+from futu import OpenSecTradeContext, TrdMarket, TrdEnv
+import hashlib
+
+# 计算交易密码 MD5
+password = 'your_password'
+password_md5 = hashlib.md5(password.encode()).hexdigest()
+
+trd_ctx = OpenSecTradeContext(
+    filter_trdmarket=TrdMarket.US,
+    host='127.0.0.1',
+    port=11111
+)
+
+# 解锁
+ret, data = trd_ctx.unlock_trade(password_md5=password_md5)
+if ret != 0:
+    print(f'解锁失败: {data}')
+```
+
+> ⚠️ **环境隔离**
+> - `TrdEnv.SIMULATE` = 模拟环境
+> - `TrdEnv.REAL` = 实盘环境
+> - **永远先在模拟环境验证后再切换到实盘**
+
+### 查询账户
+
+```python
+# 账户列表
+ret, data = trd_ctx.get_acc_list()
+print(data)
+
+# 资金状况
+ret, data = trd_ctx.accinfo_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：现金、可用资金、总资产、持仓市值等
+
+# 持仓
+ret, data = trd_ctx.position_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+# 包含：股票代码、持仓数量、成本价、市值、盈亏等
+```
+
+### 下单
+
+```python
+from futu import OrderType, TrdSide
+
+# 限价单
+ret, data = trd_ctx.place_order(
+    price=180.0,                      # 价格
+    qty=10,                           # 数量
+    code='US.AAPL',                   # 代码
+    trd_side=TrdSide.BUY,             # 买/卖
+    order_type=OrderType.NORMAL,      # 普通限价单
+    trd_env=TrdEnv.SIMULATE,
+)
+
+if ret == 0:
+    order_id = data['order_id'].iloc[0]
+    print(f'下单成功: {order_id}')
+
+# 市价单
+ret, data = trd_ctx.place_order(
+    price=0,                          # 市价单 price 设 0
+    qty=10,
+    code='US.AAPL',
+    trd_side=TrdSide.BUY,
+    order_type=OrderType.MARKET,
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 订单类型对照
+
+| 类型 | 含义 | 适用 |
+|---|---|---|
+| **NORMAL** | 普通限价单 | 大部分场景 |
+| **MARKET** | 市价单 | 立即成交（注意滑点） |
+| **ABSOLUTE_LIMIT** | 绝对限价 | 港股 |
+| **AUCTION** | 竞价 | 港股集合竞价 |
+| **AUCTION_LIMIT** | 竞价限价 | 港股 |
+
+### 查询订单状态
+
+```python
+# 当日订单
+ret, data = trd_ctx.order_list_query(trd_env=TrdEnv.SIMULATE)
+print(data)
+
+# 历史订单
+ret, data = trd_ctx.history_order_list_query(
+    start='2024-01-01',
+    end='2024-12-31',
+    trd_env=TrdEnv.SIMULATE
+)
+```
+
+### 撤单
+
+```python
+from futu import ModifyOrderOp
+
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.CANCEL,
+    order_id=order_id,
+    qty=0,
+    price=0,
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 改单（改价 / 改量）
+
+```python
+ret, data = trd_ctx.modify_order(
+    modify_order_op=ModifyOrderOp.NORMAL,  # 修改
+    order_id=order_id,
+    qty=20,         # 新数量
+    price=185.0,    # 新价格
+    trd_env=TrdEnv.SIMULATE,
+)
+```
+
+### 订单成交推送
+
+如果需要实时知道订单状态变化：
+
+```python
+from futu import TradeOrderHandlerBase
+
+class OrderHandler(TradeOrderHandlerBase):
+    def on_recv_rsp(self, rsp_pb):
+        ret, data = super().on_recv_rsp(rsp_pb)
+        if ret == 0:
+            print(f'订单更新: {data}')
+        return ret, data
+
+trd_ctx.set_handler(OrderHandler())
+```
+
+## 八、最佳实践
+
+### 1. 单例连接
+
+不要在每个函数里都新建一个 `OpenQuoteContext`，开销很大。用单例模式：
+
+```python
+class QuoteSingleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = OpenQuoteContext(host='127.0.0.1', port=11111)
+        return cls._instance
+
+# 使用
+quote_ctx = QuoteSingleton()
+```
+
+### 2. 上下文管理器
+
+用 `with` 自动关闭连接：
+
+```python
+class FutuQuote:
+    def __enter__(self):
+        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+        return self.ctx
+
+    def __exit__(self, *args):
+        self.ctx.close()
+
+# 使用
+with FutuQuote() as ctx:
+    ret, data = ctx.get_market_snapshot(['US.AAPL'])
+```
+
+### 3. 数据缓存
+
+历史数据不变，缓存到本地（前面提过，这里强调重要性）：
+
+```python
+import os
+import pandas as pd
+
+def cached_kline(code, start, end, cache_dir='./data'):
+    os.makedirs(cache_dir, exist_ok=True)
+    fname = f'{cache_dir}/{code.replace(".", "_")}_{start}_{end}.parquet'
+    if os.path.exists(fname):
+        return pd.read_parquet(fname)
+
+    # 调 API
+    ret, df, _ = quote_ctx.request_history_kline(code, start=start, end=end)
+    if ret == 0:
+        df.to_parquet(fname)
+        return df
+    return None
+```
+
+### 4. 断线重连
+
+FutuOpenD 偶尔会断线，要有重连机制：
+
+```python
+class StableContext:
+    def __init__(self):
+        self.ctx = None
+        self._connect()
+
+    def _connect(self):
+        self.ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+        # 注册系统通知 handler
+        from futu import SysNotifyHandlerBase
+        class NotifyHandler(SysNotifyHandlerBase):
+            def __init__(self, parent):
+                super().__init__()
+                self.parent = parent
+            def on_recv_rsp(self, rsp_pb):
+                ret, data = super().on_recv_rsp(rsp_pb)
+                if 'disconnect' in str(data).lower():
+                    print('Disconnected, reconnecting...')
+                    self.parent._connect()
+                return ret, data
+        self.ctx.set_handler(NotifyHandler(self))
+```
+
+### 5. 配额监控
+
+定期检查订阅额度，避免爆额度：
+
+```python
+def check_quota(quote_ctx):
+    ret, data = quote_ctx.query_subscription()
+    if ret == 0:
+        used = data['total_used']
+        total = data['remain'] + used
+        usage = used / total * 100
+        if usage > 80:
+            print(f'⚠️ 订阅额度告警: {used}/{total} ({usage:.1f}%)')
+```
+
+### 6. 日志记录
+
+策略上线前一定要记日志：
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler('strategy.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logging.info('策略启动')
+logging.info(f'下单成功: {order_id}')
+logging.error(f'API 错误: {e}')
+```
+
+## 九、Docker 部署 FutuOpenD
+
+如果要把策略上云 24 小时跑，推荐用 Docker：
+
+```bash
+# 拉取镜像
+docker pull futuopen/futu-opend:latest
+
+# 启动容器
+docker run -d \
+  --name futuopend \
+  -p 11111:11111 \
+  -e LOGIN_ACCOUNT=你的账号 \
+  -e LOGIN_PWD_MD5=你的密码MD5 \
+  futuopen/futu-opend:latest
+```
+
+然后你的策略代码连 `host=容器宿主机IP, port=11111` 即可。
+
+## 十、官方文档与资源
+
+| 资源 | 用途 |
+|---|---|
+| [OpenAPI 官方文档](https://openapi.futunn.com/futu-api-doc/intro/intro.html) | 最权威 |
+| [Python SDK GitHub](https://github.com/FutunnOpen/py-futu-api) | 源码 + Issue |
+| [接口列表](https://openapi.futunn.com/futu-api-doc/quote/get-history-kline.html) | 速查 |
+| [错误码列表](https://openapi.futunn.com/futu-api-doc/intro/error-code.html) | 排查问题 |
+| [社区 OpenAPI 板块](https://q.futunn.com/feed/openapi) | 提问 |
+
+## 小结
+
+走完这一篇你应该明白：
+
+- ✅ FutuOpenD 的三层架构和原理
+- ✅ 订阅额度系统的运作
+- ✅ 接口限频规则与应对
+- ✅ 行情权限层级
+- ✅ 错误码与健壮的请求封装
+- ✅ 交易接口的完整使用
+- ✅ 单例、缓存、重连等最佳实践
+
+下一篇 [Pandas 基础](/docs/python-quant/pandas-basics) 我们回到数据处理本身，开始把这些数据用起来。
+
+> 📌 **核心提醒**
+> 富途 OpenAPI 不是"接进来就能用"。**订阅额度** 和 **接口限频** 是新手最常踩的坑——一个策略写得再好，被限流后就跑不下去了。早点把这些基础设施做扎实，后面省心 100 倍。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"富途 OpenAPI 完整指南"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"富途 OpenAPI 完整指南 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"富途 OpenAPI 完整指南 | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

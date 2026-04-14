@@ -1,0 +1,396 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","data-visualization",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/data-visualization","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/data-visualization","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","6F6Z7GBkRudoAospTcGtbv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T2658,
+数据可视化是量化研究里非常重要的一环。一张图胜过千行 print —— 价格走势、信号触发、收益曲线，看一眼就明白。这一篇我们用三种工具搞定常见的金融图表。
+
+## 工具对比
+
+| 工具 | 适用场景 | 优点 | 缺点 |
+|---|---|---|---|
+| **matplotlib** | 通用绘图、收益曲线 | 灵活、可定制 | API 啰嗦 |
+| **mplfinance** | 专业 K 线图 | 一行画 K 线 | 只能画 K 线 |
+| **plotly** | 交互式图表 | 可缩放、悬停 | 文件大 |
+
+实战中三个一起用：研究阶段用 matplotlib + mplfinance，给别人展示用 plotly。
+
+## 准备工作
+
+```bash
+uv pip install matplotlib mplfinance plotly
+```
+
+中文字体配置（避免方块）：
+
+```python
+import matplotlib.pyplot as plt
+
+# macOS
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+# Windows / Linux 用下面这行
+# plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+```
+
+继续用上一篇的苹果数据：
+
+```python
+import akshare as ak
+import pandas as pd
+
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2024-01-01'].set_index('date')
+```
+
+## matplotlib：基础绘图
+
+### 收盘价折线
+
+```python
+plt.figure(figsize=(12, 5))
+plt.plot(df.index, df['close'], label='AAPL 收盘价', color='#3b82f6')
+plt.title('苹果 2024 年走势')
+plt.xlabel('日期')
+plt.ylabel('价格 (USD)')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+### 多线对比
+
+```python
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+df['MA60'] = df['close'].rolling(60).mean()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['close'], label='收盘价', color='black', linewidth=1.5)
+plt.plot(df['MA5'],   label='MA5',  color='#ef4444', linewidth=1)
+plt.plot(df['MA20'],  label='MA20', color='#3b82f6', linewidth=1)
+plt.plot(df['MA60'],  label='MA60', color='#8b5cf6', linewidth=1)
+plt.title('AAPL 价格 + 均线')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+### 双 Y 轴：价格 + 成交量
+
+```python
+fig, ax1 = plt.subplots(figsize=(12, 5))
+
+# 左 Y 轴：价格
+ax1.plot(df['close'], color='#3b82f6', label='收盘价')
+ax1.set_xlabel('日期')
+ax1.set_ylabel('价格', color='#3b82f6')
+ax1.tick_params(axis='y', labelcolor='#3b82f6')
+
+# 右 Y 轴：成交量
+ax2 = ax1.twinx()
+ax2.bar(df.index, df['volume'], alpha=0.3, color='gray', label='成交量')
+ax2.set_ylabel('成交量', color='gray')
+ax2.tick_params(axis='y', labelcolor='gray')
+
+plt.title('AAPL 价格与成交量')
+plt.tight_layout()
+plt.show()
+```
+
+## mplfinance：专业 K 线图
+
+`matplotlib` 画 K 线很麻烦，专门有个库叫 `mplfinance`，一行就能搞定。
+
+### 最简 K 线
+
+```python
+import mplfinance as mpf
+
+# mplfinance 要求列名是 Open / High / Low / Close / Volume
+df_mpf = df.rename(columns={
+    'open':'Open', 'high':'High', 'low':'Low',
+    'close':'Close', 'volume':'Volume'
+})
+
+mpf.plot(df_mpf, type='candle', style='yahoo', title='AAPL', volume=True)
+```
+
+### K 线 + 均线 + 成交量
+
+```python
+mpf.plot(
+    df_mpf,
+    type='candle',
+    style='yahoo',
+    title='AAPL 2024',
+    volume=True,
+    mav=(5, 20, 60),           # 5/20/60 日均线
+    figratio=(16, 9),
+    figscale=1.2,
+)
+```
+
+### 自定义颜色（红涨绿跌，A 股风格）
+
+mplfinance 默认是欧美风格（绿涨红跌），改成 A 股风格：
+
+```python
+mc = mpf.make_marketcolors(
+    up='red', down='green',
+    edge='inherit',
+    wick='inherit',
+    volume='inherit'
+)
+s = mpf.make_mpf_style(marketcolors=mc, base_mpf_style='yahoo')
+
+mpf.plot(df_mpf, type='candle', style=s, mav=(5, 20), volume=True)
+```
+
+### 在 K 线上标记买卖点
+
+```python
+# 假设有这样一个信号 DataFrame
+df_mpf['MA5']  = df_mpf['Close'].rolling(5).mean()
+df_mpf['MA20'] = df_mpf['Close'].rolling(20).mean()
+
+# 金叉点（MA5 上穿 MA20）
+buy = df_mpf['Close'].where(
+    (df_mpf['MA5'] > df_mpf['MA20']) & (df_mpf['MA5'].shift(1) <= df_mpf['MA20'].shift(1))
+)
+
+# 死叉点
+sell = df_mpf['Close'].where(
+    (df_mpf['MA5'] < df_mpf['MA20']) & (df_mpf['MA5'].shift(1) >= df_mpf['MA20'].shift(1))
+)
+
+apds = [
+    mpf.make_addplot(buy,  type='scatter', marker='^', color='red',   markersize=100),
+    mpf.make_addplot(sell, type='scatter', marker='v', color='green', markersize=100),
+]
+
+mpf.plot(df_mpf, type='candle', addplot=apds, mav=(5, 20), volume=True, style='yahoo')
+```
+
+## 收益曲线对比
+
+策略回测最常画的图就是**收益曲线对比**（策略 vs 基准）。
+
+```python
+import numpy as np
+
+# 计算策略收益（双均线为例）
+df['signal'] = np.where(df['MA5'] > df['MA20'], 1, 0)
+df['return'] = df['close'].pct_change()
+df['strategy_return'] = df['signal'].shift(1) * df['return']
+
+# 累计收益
+df['cum_market']   = (1 + df['return']).cumprod()
+df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+plt.figure(figsize=(12, 5))
+plt.plot(df['cum_market'],   label='Buy & Hold', color='#94a3b8', linewidth=1.5)
+plt.plot(df['cum_strategy'], label='双均线策略', color='#3b82f6', linewidth=2)
+plt.title('策略 vs 基准')
+plt.ylabel('累计净值')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.axhline(y=1, color='black', linestyle='--', alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+## 回撤图
+
+最大回撤是衡量风险的关键指标，常和收益曲线一起画。
+
+```python
+def drawdown(returns):
+    cum = (1 + returns).cumprod()
+    peak = cum.cummax()
+    return (cum - peak) / peak
+
+df['drawdown'] = drawdown(df['strategy_return'])
+
+fig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True,
+                          gridspec_kw={'height_ratios': [3, 1]})
+
+# 上方：净值曲线
+axes[0].plot(df['cum_strategy'], color='#3b82f6', linewidth=2)
+axes[0].set_title('策略表现')
+axes[0].set_ylabel('净值')
+axes[0].grid(True, alpha=0.3)
+
+# 下方：回撤
+axes[1].fill_between(df.index, df['drawdown'], 0, color='#ef4444', alpha=0.4)
+axes[1].set_ylabel('回撤')
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+## plotly：交互式图表
+
+`plotly` 画的图可以缩放、悬停查看数据，特别适合在 Jupyter 里探索数据，或者放到网页上展示。
+
+### 交互式 K 线
+
+```python
+import plotly.graph_objects as go
+
+fig = go.Figure(data=[go.Candlestick(
+    x=df.index,
+    open=df['open'],
+    high=df['high'],
+    low=df['low'],
+    close=df['close'],
+    name='AAPL'
+)])
+
+fig.update_layout(
+    title='AAPL 交互式 K 线',
+    xaxis_title='日期',
+    yaxis_title='价格',
+    xaxis_rangeslider_visible=False,  # 隐藏底部缩略图
+    template='plotly_white',
+)
+
+fig.show()
+```
+
+鼠标悬停在 K 线上会显示当天的开高低收，可以拖动缩放。
+
+### K 线 + 均线 + 成交量子图
+
+```python
+from plotly.subplots import make_subplots
+
+fig = make_subplots(
+    rows=2, cols=1,
+    shared_xaxes=True,
+    vertical_spacing=0.03,
+    row_heights=[0.7, 0.3],
+    subplot_titles=('AAPL', '成交量')
+)
+
+# K 线
+fig.add_trace(go.Candlestick(
+    x=df.index, open=df['open'], high=df['high'],
+    low=df['low'], close=df['close'], name='K线'
+), row=1, col=1)
+
+# 均线
+fig.add_trace(go.Scatter(x=df.index, y=df['MA5'],  name='MA5',  line=dict(color='red',  width=1)), row=1, col=1)
+fig.add_trace(go.Scatter(x=df.index, y=df['MA20'], name='MA20', line=dict(color='blue', width=1)), row=1, col=1)
+
+# 成交量
+colors = ['red' if c >= o else 'green' for o, c in zip(df['open'], df['close'])]
+fig.add_trace(go.Bar(x=df.index, y=df['volume'], marker_color=colors, name='成交量'), row=2, col=1)
+
+fig.update_layout(
+    height=700,
+    showlegend=True,
+    xaxis_rangeslider_visible=False,
+    template='plotly_white',
+)
+
+fig.show()
+```
+
+## 保存图片
+
+```python
+# matplotlib
+plt.savefig('output.png', dpi=150, bbox_inches='tight')
+
+# mplfinance
+mpf.plot(df_mpf, type='candle', savefig='kline.png')
+
+# plotly
+fig.write_image('plotly.png')   # 需要安装 kaleido: uv pip install kaleido
+fig.write_html('plotly.html')   # HTML 文件可以双击打开看交互
+```
+
+## 一个完整的策略可视化函数
+
+把上面学的封装成一个常用函数：
+
+```python
+def plot_strategy(df, title='Strategy'):
+    """
+    画策略表现：净值曲线 + 回撤
+    df 需要包含: cum_market, cum_strategy, drawdown 列
+    """
+    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True,
+                              gridspec_kw={'height_ratios': [3, 1]})
+
+    # 净值对比
+    axes[0].plot(df['cum_market'],   label='Buy & Hold', color='#94a3b8', linewidth=1.5)
+    axes[0].plot(df['cum_strategy'], label='策略',        color='#3b82f6', linewidth=2)
+    axes[0].set_title(title, fontsize=14, fontweight='bold')
+    axes[0].set_ylabel('净值')
+    axes[0].legend(loc='upper left')
+    axes[0].grid(True, alpha=0.3)
+    axes[0].axhline(y=1, color='black', linestyle='--', alpha=0.3)
+
+    # 回撤
+    axes[1].fill_between(df.index, df['drawdown'] * 100, 0, color='#ef4444', alpha=0.4)
+    axes[1].set_ylabel('回撤 (%)')
+    axes[1].set_xlabel('日期')
+    axes[1].grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()
+```
+
+后面写策略时直接调用这个函数就行。
+
+## 小结
+
+这一篇覆盖了量化研究 90% 的可视化需求：
+
+- ✅ matplotlib 基础绘图
+- ✅ mplfinance 专业 K 线图（含买卖点标注）
+- ✅ 收益曲线 + 回撤双图布局
+- ✅ plotly 交互式图表
+- ✅ 图表保存
+
+下一篇我们手撕 [常用技术指标](/docs/python-quant/technical-indicators)，把 MA、MACD、RSI、KDJ 这些指标的原理和实现都搞清楚。
+
+> 📌 **画图建议**
+> - **探索阶段**：用 plotly，方便缩放对比
+> - **正式输出**：用 matplotlib 控制细节，导出高清图
+> - **K 线相关**：直接上 mplfinance，省心
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"数据可视化"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"数据可视化 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"数据可视化 | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

@@ -1,0 +1,302 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/Weblog/_next/static/css/448770d53702bab7.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js"/><script src="/Weblog/_next/static/chunks/b1c36d5c-7af821ec76afd631.js" async=""></script><script src="/Weblog/_next/static/chunks/5177-6b5a63eaad6e5e3e.js" async=""></script><script src="/Weblog/_next/static/chunks/main-app-44c7df09c7fc33e3.js" async=""></script><script src="/Weblog/_next/static/chunks/app/layout-cf7e65f93c8f7249.js" async=""></script><script src="/Weblog/_next/static/chunks/8079-2b3f7eedf4f1d672.js" async=""></script><script src="/Weblog/_next/static/chunks/7952-cc0e32ac27c90321.js" async=""></script><script src="/Weblog/_next/static/chunks/5612-3c1ae2a8191546c0.js" async=""></script><script src="/Weblog/_next/static/chunks/8989-4d976e7e58e8fe92.js" async=""></script><script src="/Weblog/_next/static/chunks/6711-3f2600da09f683cd.js" async=""></script><script src="/Weblog/_next/static/chunks/9440-6e79b5e5aabd03a7.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js" async=""></script><meta name="next-size-adjust" content=""/><title>风险与绩效指标 | Aaron Lam</title><meta name="description" content="夏普比率、最大回撤、年化收益、胜率、卡玛比率"/><meta name="author" content="Aaron"/><meta name="keywords" content="blog,nextjs,typescript,web development,programming"/><meta name="creator" content="Aaron"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/><meta property="og:title" content="风险与绩效指标 | Python 量化入门"/><meta property="og:description" content="夏普比率、最大回撤、年化收益、胜率、卡玛比率"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weblog"/><meta name="twitter:description" content="A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/Weblog/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_b6ac51 __variable_c81db4 font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="fixed inset-0 -z-10 bg-background"><div class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div></div><div class="relative min-h-screen flex flex-col"><main class="pb-8 flex-1"><div class=""><div class="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl"><div class="flex items-center justify-between h-12"><a class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" href="/Weblog/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>返回文档</span></a><div class="flex items-center gap-2"><a class="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" href="/Weblog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 select-none lg-btn-ghost text-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></div></div><div class="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl"><div class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0"><aside class="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6"><div class="sticky top-14"><nav class="space-y-1"><div><div class="px-3 py-2 text-sm font-semibold text-foreground/90">Python 量化入门</div><div class="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5"><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/environment-setup/">环境搭建</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-fetching/">行情数据获取</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/futu-openapi-guide/">富途 OpenAPI 完整指南</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/pandas-basics/">Pandas 基础（金融场景）</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-visualization/">数据可视化</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/technical-indicators/">技术指标实战</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/dual-moving-average-strategy/">第一个策略：双均线</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/backtest-framework/">回测框架入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-primary font-medium bg-primary/5" href="/Weblog/docs/python-quant/risk-metrics/">风险与绩效指标</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/multi-factor-selection/">多因子选股入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/from-backtest-to-live/">从回测到实盘</a></div></div></nav></div></aside><article class="lg:pl-8"><header class="mb-4"><div class="text-sm text-primary/80 font-medium mb-1">Python 量化入门</div><h1 class="text-2xl md:text-3xl font-bold mb-2">风险与绩效指标</h1><p class="text-lg text-muted-foreground">夏普比率、最大回撤、年化收益、胜率、卡玛比率</p></header><div class="relative"><div class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent"><div class="h-0.5 bg-primary transition-[width] duration-150" style="width:0%"></div></div><div class="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0"><div class="lg:pr-8"><div class="prose prose-gray dark:prose-invert max-w-none"><p>回测报告里一堆指标，新手很容易只看&quot;总收益&quot;。但<strong>总收益高不代表策略好</strong>——可能是运气、可能波动巨大、可能回撤吓人。这一篇我们彻底搞懂常用的绩效指标。</p>
+<h2 id="收益类指标"><a href="#收益类指标">收益类指标</a></h2>
+<h3 id="1-总收益total-return"><a href="#1-总收益total-return">1. 总收益（Total Return）</a></h3>
+<p>最直观的指标，简单粗暴：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>total_return = (1 + returns).prod() - 1
+# 或者
+total_return = cum_value[-1] / cum_value[0] - 1</code></pre></div></pre>
+<p><strong>用途</strong>：快速看策略赚不赚钱
+<strong>陷阱</strong>：不考虑时间长度和波动</p>
+<h3 id="2-年化收益annualized-return"><a href="#2-年化收益annualized-return">2. 年化收益（Annualized Return）</a></h3>
+<p>把不同时间长度的收益拉到同一标准：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>n_years = len(returns) / 252  # 252 个交易日 = 1 年
+annual_return = (1 + total_return) ** (1 / n_years) - 1</code></pre></div></pre>
+<p><strong>用途</strong>：跨策略、跨周期对比
+<strong>注意</strong>：复利计算，不是简单平均</p>
+<h2 id="风险类指标"><a href="#风险类指标">风险类指标</a></h2>
+<h3 id="3-年化波动率annualized-volatility"><a href="#3-年化波动率annualized-volatility">3. 年化波动率（Annualized Volatility）</a></h3>
+<p>衡量收益的不稳定程度：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import numpy as np
+annual_vol = returns.std() * np.sqrt(252)</code></pre></div></pre>
+<p><strong>用途</strong>：判断策略是否平稳
+<strong>理解</strong>：年化波动 20% 意味着一年内收益大概率在 ±20% 之间波动</p>
+<h3 id="4-最大回撤max-drawdownmdd"><a href="#4-最大回撤max-drawdownmdd">4. 最大回撤（Max Drawdown，MDD）</a></h3>
+<p>从历史最高点到最低点的最大跌幅，<strong>新手最该关注的指标</strong>。</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def max_drawdown(returns):
+    cum = (1 + returns).cumprod()
+    peak = cum.cummax()
+    dd = (cum - peak) / peak
+    return dd.min()
+
+mdd = max_drawdown(df[&#x27;strategy_return&#x27;])
+print(f&#x27;最大回撤: {mdd:.2%}&#x27;)</code></pre></div></pre>
+<p><strong>为什么重要</strong>：</p>
+<ul>
+<li>一个年化 30% 但最大回撤 50% 的策略，你能拿得住吗？</li>
+<li>真实交易中，回撤决定你会不会爆仓、会不会割肉</li>
+</ul>
+<p><strong>经验值</strong>：</p>
+<ul>
+<li>优秀策略：MDD &lt; 15%</li>
+<li>可接受：15% - 25%</li>
+<li>危险：&gt; 30%</li>
+</ul>
+<h3 id="5-回撤持续时间drawdown-duration"><a href="#5-回撤持续时间drawdown-duration">5. 回撤持续时间（Drawdown Duration）</a></h3>
+<p>不只是回撤多深，还要看<strong>多久才能回本</strong>：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def max_drawdown_duration(returns):
+    cum = (1 + returns).cumprod()
+    peak = cum.cummax()
+    in_dd = cum &lt; peak
+
+    # 连续回撤的最大长度
+    durations = []
+    cur = 0
+    for x in in_dd:
+        if x:
+            cur += 1
+        else:
+            if cur &gt; 0:
+                durations.append(cur)
+            cur = 0
+    return max(durations) if durations else 0</code></pre></div></pre>
+<p><strong>用途</strong>：评估策略的&quot;忍耐成本&quot;
+<strong>经验</strong>：超过 1 年的回撤，大部分人都拿不住</p>
+<h2 id="风险调整收益"><a href="#风险调整收益">风险调整收益</a></h2>
+<p>收益和风险都重要，单独看任一个都不够。下面是把两者结合的指标。</p>
+<h3 id="6-夏普比率sharpe-ratio"><a href="#6-夏普比率sharpe-ratio">6. 夏普比率（Sharpe Ratio）</a></h3>
+<p>最经典的风险调整收益指标：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def sharpe_ratio(returns, rf=0.0, periods_per_year=252):
+    excess = returns - rf / periods_per_year
+    return excess.mean() / excess.std() * np.sqrt(periods_per_year)</code></pre></div></pre>
+<p>公式：<code>(年化收益 - 无风险利率) / 年化波动率</code></p>
+<p><strong>经验值</strong>：</p>
+<ul>
+<li>
+<blockquote>
+<p>2 → 非常好</p>
+</blockquote>
+</li>
+<li>1 - 2 → 不错</li>
+<li>0.5 - 1 → 一般</li>
+<li>&lt; 0.5 → 不太行</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>夏普比率的陷阱</strong>
+它把&quot;上行波动&quot;和&quot;下行波动&quot;一视同仁。一个稳定向上但偶尔大涨的策略，夏普会被&quot;惩罚&quot;。</p>
+</blockquote>
+<h3 id="7-索提诺比率sortino-ratio"><a href="#7-索提诺比率sortino-ratio">7. 索提诺比率（Sortino Ratio）</a></h3>
+<p>夏普的改进版，只看下行波动：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def sortino_ratio(returns, rf=0.0, periods_per_year=252):
+    excess = returns - rf / periods_per_year
+    downside = excess[excess &lt; 0].std() * np.sqrt(periods_per_year)
+    if downside == 0:
+        return np.nan
+    return (excess.mean() * periods_per_year) / downside</code></pre></div></pre>
+<p><strong>用途</strong>：更符合人对&quot;风险&quot;的直觉感知
+<strong>经验</strong>：通常比夏普高，因为分母更小</p>
+<h3 id="8-卡玛比率calmar-ratio"><a href="#8-卡玛比率calmar-ratio">8. 卡玛比率（Calmar Ratio）</a></h3>
+<p>收益与最大回撤的比值：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def calmar_ratio(returns, periods_per_year=252):
+    annual_return = (1 + returns).prod() ** (periods_per_year / len(returns)) - 1
+    mdd = abs(max_drawdown(returns))
+    return annual_return / mdd if mdd &gt; 0 else np.nan</code></pre></div></pre>
+<p><strong>用途</strong>：直接告诉你&quot;为了 1% 的回撤，你能赚多少&quot;
+<strong>经验</strong>：</p>
+<ul>
+<li>
+<blockquote>
+<p>3 → 极佳</p>
+</blockquote>
+</li>
+<li>1 - 3 → 不错</li>
+<li>&lt; 1 → 一般</li>
+</ul>
+<h2 id="交易类指标"><a href="#交易类指标">交易类指标</a></h2>
+<h3 id="9-胜率win-rate"><a href="#9-胜率win-rate">9. 胜率（Win Rate）</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def win_rate(returns):
+    positive = (returns &gt; 0).sum()
+    nonzero  = (returns != 0).sum()
+    return positive / nonzero if nonzero &gt; 0 else 0</code></pre></div></pre>
+<p><strong>陷阱</strong>：胜率高不一定赚钱。如果每次小赚（+1%）每次大亏（-10%），胜率 80% 也是亏的。</p>
+<h3 id="10-盈亏比profitloss-ratio"><a href="#10-盈亏比profitloss-ratio">10. 盈亏比（Profit/Loss Ratio）</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def profit_loss_ratio(returns):
+    wins   = returns[returns &gt; 0]
+    losses = returns[returns &lt; 0]
+    if len(wins) == 0 or len(losses) == 0:
+        return np.nan
+    return wins.mean() / abs(losses.mean())</code></pre></div></pre>
+<p><strong>用途</strong>：和胜率配合看
+<strong>经验</strong>：胜率 50% + 盈亏比 1.5 &gt; 胜率 70% + 盈亏比 0.5</p>
+<h3 id="11-凯利公式仓位kelly-criterion"><a href="#11-凯利公式仓位kelly-criterion">11. 凯利公式仓位（Kelly Criterion）</a></h3>
+<p>理论最优仓位比例：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def kelly_fraction(win_rate, profit_loss_ratio):
+    return win_rate - (1 - win_rate) / profit_loss_ratio</code></pre></div></pre>
+<p><strong>用途</strong>：参考用，实战要用半凯利或更保守</p>
+<h2 id="完整的指标计算函数"><a href="#完整的指标计算函数">完整的指标计算函数</a></h2>
+<p>把上面的指标整合成一个工具：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import pandas as pd
+import numpy as np
+
+def calc_metrics(returns, periods_per_year=252):
+    &quot;&quot;&quot;
+    输入：日收益率 Series
+    输出：所有指标 dict
+    &quot;&quot;&quot;
+    returns = returns.dropna()
+    if len(returns) == 0:
+        return {}
+
+    # 收益
+    total = (1 + returns).prod() - 1
+    n_years = len(returns) / periods_per_year
+    annual = (1 + total) ** (1 / n_years) - 1 if n_years &gt; 0 else 0
+
+    # 风险
+    vol = returns.std() * np.sqrt(periods_per_year)
+
+    cum = (1 + returns).cumprod()
+    dd = (cum / cum.cummax() - 1)
+    mdd = dd.min()
+
+    # 风险调整收益
+    sharpe = (returns.mean() / returns.std() * np.sqrt(periods_per_year)) if returns.std() &gt; 0 else 0
+    downside = returns[returns &lt; 0].std() * np.sqrt(periods_per_year) if (returns &lt; 0).any() else 0
+    sortino = (returns.mean() * periods_per_year / downside) if downside &gt; 0 else np.nan
+    calmar = (annual / abs(mdd)) if mdd != 0 else np.nan
+
+    # 交易
+    win_rate = (returns &gt; 0).sum() / (returns != 0).sum() if (returns != 0).sum() &gt; 0 else 0
+    wins = returns[returns &gt; 0]
+    losses = returns[returns &lt; 0]
+    pl_ratio = wins.mean() / abs(losses.mean()) if len(losses) &gt; 0 and losses.mean() != 0 else np.nan
+
+    return {
+        &#x27;总收益&#x27;:       f&#x27;{total:.2%}&#x27;,
+        &#x27;年化收益&#x27;:     f&#x27;{annual:.2%}&#x27;,
+        &#x27;年化波动&#x27;:     f&#x27;{vol:.2%}&#x27;,
+        &#x27;最大回撤&#x27;:     f&#x27;{mdd:.2%}&#x27;,
+        &#x27;夏普比率&#x27;:     f&#x27;{sharpe:.2f}&#x27;,
+        &#x27;索提诺比率&#x27;:   f&#x27;{sortino:.2f}&#x27;,
+        &#x27;卡玛比率&#x27;:     f&#x27;{calmar:.2f}&#x27;,
+        &#x27;日胜率&#x27;:       f&#x27;{win_rate:.2%}&#x27;,
+        &#x27;盈亏比&#x27;:       f&#x27;{pl_ratio:.2f}&#x27;,
+    }</code></pre></div></pre>
+<h2 id="怎么综合判断一个策略"><a href="#怎么综合判断一个策略">怎么综合判断一个策略</a></h2>
+<p>不要看单一指标，要看<strong>组合</strong>：</p>
+<table><thead><tr><th>指标</th><th>看什么</th></tr></thead><tbody><tr><td>年化收益</td><td>是否值得做</td></tr><tr><td>最大回撤</td><td>是否拿得住</td></tr><tr><td>夏普比率</td><td>风险收益比</td></tr><tr><td>卡玛比率</td><td>回撤的代价</td></tr><tr><td>胜率 + 盈亏比</td><td>心理可承受性</td></tr><tr><td>回撤持续时间</td><td>是否会让你怀疑人生</td></tr></tbody></table>
+<p><strong>好策略的特征</strong>：</p>
+<ul>
+<li>✅ 年化 &gt; 15%</li>
+<li>✅ 最大回撤 &lt; 20%</li>
+<li>✅ 夏普 &gt; 1</li>
+<li>✅ 卡玛 &gt; 1</li>
+<li>✅ 净值曲线平滑、向右上</li>
+</ul>
+<h2 id="小结"><a href="#小结">小结</a></h2>
+<p>到这里你已经会用十几个指标全方位评估一个策略。下一篇 <a href="/docs/python-quant/multi-factor-selection">多因子选股入门</a>，我们从单股票策略升级到组合选股。</p>
+<blockquote>
+<p>📌 <strong>新手常见误区</strong></p>
+<ol>
+<li>只看总收益 → 忽略了风险</li>
+<li>追求超高夏普 → 往往是过拟合</li>
+<li>看不见回撤 → 实盘必爆仓</li>
+<li>用太短的回测期 → 没经历过完整牛熊</li>
+</ol>
+<p>一个策略至少要经历<strong>3 年以上的回测</strong>才有参考价值。</p>
+</blockquote></div></div></div><div id="mobile-toc" role="dialog" aria-modal="true" class="lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-background border-l border-border/60 transform transition-transform duration-200 ease-out translate-x-full"><div class="sticky top-0 flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/90 backdrop-blur"><div class="text-xs uppercase tracking-wide text-muted-foreground">本页导读</div><button type="button" aria-label="Close" class="rounded p-1 hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><nav class="px-4 py-3 space-y-1 overflow-y-auto h-[calc(100%-3rem)]"></nav></div><button type="button" aria-label="Back to top" class="hidden lg:flex fixed bottom-8 right-6 z-40 h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/80 backdrop-blur shadow-md transition-all opacity-0 translate-y-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></article></div></div><!--$--><!--/$--></div></main></div><script src="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[87157,[\"7177\",\"static/chunks/app/layout-cf7e65f93c8f7249.js\"],\"ThemeProvider\"]\n3:I[91850,[],\"\"]\n4:I[1640,[],\"\"]\n7:I[89762,[],\"OutletBoundary\"]\na:I[77874,[],\"AsyncMetadataOutlet\"]\nc:I[89762,[],\"ViewportBoundary\"]\ne:I[89762,[],\"MetadataBoundary\"]\n10:I[10157,[],\"\"]\n:HL[\"/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/css/448770d53702bab7.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kl-pYbLEd_XBGkr3ndzOs\",\"p\":\"/Weblog\",\"c\":[\"\",\"zh\",\"docs\",\"python-quant\",\"risk-metrics\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"locale\",\"zh\",\"d\"],{\"children\":[\"docs\",{\"children\":[[\"slug\",\"python-quant/risk-metrics\",\"c\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/Weblog/_next/static/css/448770d53702bab7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_b6ac51 __variable_c81db4 font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"locale\",\"zh\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,\"$L5\"]}],{\"children\":[\"docs\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"python-quant/risk-metrics\",\"c\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",null,[\"$\",\"$L7\",null,{\"children\":[\"$L8\",\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"dNaDf4tNGtJjXl9ZbZbDOv\",{\"children\":[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:\"$Sreact.suspense\"\n12:I[77874,[],\"AsyncMetadata\"]\nf:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]}]\n9:null\n"])</script><script>self.__next_f.push([1,"14:I[59417,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsTopBar\"]\n15:I[88499,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsSidebar\"]\n16:I[15646,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"default\"]\n17:T1dec,"])</script><script>self.__next_f.push([1,"\n回测报告里一堆指标，新手很容易只看\"总收益\"。但**总收益高不代表策略好**——可能是运气、可能波动巨大、可能回撤吓人。这一篇我们彻底搞懂常用的绩效指标。\n\n## 收益类指标\n\n### 1. 总收益（Total Return）\n\n最直观的指标，简单粗暴：\n\n```python\ntotal_return = (1 + returns).prod() - 1\n# 或者\ntotal_return = cum_value[-1] / cum_value[0] - 1\n```\n\n**用途**：快速看策略赚不赚钱\n**陷阱**：不考虑时间长度和波动\n\n### 2. 年化收益（Annualized Return）\n\n把不同时间长度的收益拉到同一标准：\n\n```python\nn_years = len(returns) / 252  # 252 个交易日 = 1 年\nannual_return = (1 + total_return) ** (1 / n_years) - 1\n```\n\n**用途**：跨策略、跨周期对比\n**注意**：复利计算，不是简单平均\n\n## 风险类指标\n\n### 3. 年化波动率（Annualized Volatility）\n\n衡量收益的不稳定程度：\n\n```python\nimport numpy as np\nannual_vol = returns.std() * np.sqrt(252)\n```\n\n**用途**：判断策略是否平稳\n**理解**：年化波动 20% 意味着一年内收益大概率在 ±20% 之间波动\n\n### 4. 最大回撤（Max Drawdown，MDD）\n\n从历史最高点到最低点的最大跌幅，**新手最该关注的指标**。\n\n```python\ndef max_drawdown(returns):\n    cum = (1 + returns).cumprod()\n    peak = cum.cummax()\n    dd = (cum - peak) / peak\n    return dd.min()\n\nmdd = max_drawdown(df['strategy_return'])\nprint(f'最大回撤: {mdd:.2%}')\n```\n\n**为什么重要**：\n- 一个年化 30% 但最大回撤 50% 的策略，你能拿得住吗？\n- 真实交易中，回撤决定你会不会爆仓、会不会割肉\n\n**经验值**：\n- 优秀策略：MDD \u003c 15%\n- 可接受：15% - 25%\n- 危险：\u003e 30%\n\n### 5. 回撤持续时间（Drawdown Duration）\n\n不只是回撤多深，还要看**多久才能回本**：\n\n```python\ndef max_drawdown_duration(returns):\n    cum = (1 + returns).cumprod()\n    peak = cum.cummax()\n    in_dd = cum \u003c peak\n\n    # 连续回撤的最大长度\n    durations = []\n    cur = 0\n    for x in in_dd:\n        if x:\n            cur += 1\n        else:\n            if cur \u003e 0:\n                durations.append(cur)\n            cur = 0\n    return max(durations) if durations else 0\n```\n\n**用途**：评估策略的\"忍耐成本\"\n**经验**：超过 1 年的回撤，大部分人都拿不住\n\n## 风险调整收益\n\n收益和风险都重要，单独看任一个都不够。下面是把两者结合的指标。\n\n### 6. 夏普比率（Sharpe Ratio）\n\n最经典的风险调整收益指标：\n\n```python\ndef sharpe_ratio(returns, rf=0.0, periods_per_year=252):\n    excess = returns - rf / periods_per_year\n    return excess.mean() / excess.std() * np.sqrt(periods_per_year)\n```\n\n公式：`(年化收益 - 无风险利率) / 年化波动率`\n\n**经验值**：\n- \u003e 2 → 非常好\n- 1 - 2 → 不错\n- 0.5 - 1 → 一般\n- \u003c 0.5 → 不太行\n\n\u003e ⚠️ **夏普比率的陷阱**\n\u003e 它把\"上行波动\"和\"下行波动\"一视同仁。一个稳定向上但偶尔大涨的策略，夏普会被\"惩罚\"。\n\n### 7. 索提诺比率（Sortino Ratio）\n\n夏普的改进版，只看下行波动：\n\n```python\ndef sortino_ratio(returns, rf=0.0, periods_per_year=252):\n    excess = returns - rf / periods_per_year\n    downside = excess[excess \u003c 0].std() * np.sqrt(periods_per_year)\n    if downside == 0:\n        return np.nan\n    return (excess.mean() * periods_per_year) / downside\n```\n\n**用途**：更符合人对\"风险\"的直觉感知\n**经验**：通常比夏普高，因为分母更小\n\n### 8. 卡玛比率（Calmar Ratio）\n\n收益与最大回撤的比值：\n\n```python\ndef calmar_ratio(returns, periods_per_year=252):\n    annual_return = (1 + returns).prod() ** (periods_per_year / len(returns)) - 1\n    mdd = abs(max_drawdown(returns))\n    return annual_return / mdd if mdd \u003e 0 else np.nan\n```\n\n**用途**：直接告诉你\"为了 1% 的回撤，你能赚多少\"\n**经验**：\n- \u003e 3 → 极佳\n- 1 - 3 → 不错\n- \u003c 1 → 一般\n\n## 交易类指标\n\n### 9. 胜率（Win Rate）\n\n```python\ndef win_rate(returns):\n    positive = (returns \u003e 0).sum()\n    nonzero  = (returns != 0).sum()\n    return positive / nonzero if nonzero \u003e 0 else 0\n```\n\n**陷阱**：胜率高不一定赚钱。如果每次小赚（+1%）每次大亏（-10%），胜率 80% 也是亏的。\n\n### 10. 盈亏比（Profit/Loss Ratio）\n\n```python\ndef profit_loss_ratio(returns):\n    wins   = returns[returns \u003e 0]\n    losses = returns[returns \u003c 0]\n    if len(wins) == 0 or len(losses) == 0:\n        return np.nan\n    return wins.mean() / abs(losses.mean())\n```\n\n**用途**：和胜率配合看\n**经验**：胜率 50% + 盈亏比 1.5 \u003e 胜率 70% + 盈亏比 0.5\n\n### 11. 凯利公式仓位（Kelly Criterion）\n\n理论最优仓位比例：\n\n```python\ndef kelly_fraction(win_rate, profit_loss_ratio):\n    return win_rate - (1 - win_rate) / profit_loss_ratio\n```\n\n**用途**：参考用，实战要用半凯利或更保守\n\n## 完整的指标计算函数\n\n把上面的指标整合成一个工具：\n\n```python\nimport pandas as pd\nimport numpy as np\n\ndef calc_metrics(returns, periods_per_year=252):\n    \"\"\"\n    输入：日收益率 Series\n    输出：所有指标 dict\n    \"\"\"\n    returns = returns.dropna()\n    if len(returns) == 0:\n        return {}\n\n    # 收益\n    total = (1 + returns).prod() - 1\n    n_years = len(returns) / periods_per_year\n    annual = (1 + total) ** (1 / n_years) - 1 if n_years \u003e 0 else 0\n\n    # 风险\n    vol = returns.std() * np.sqrt(periods_per_year)\n\n    cum = (1 + returns).cumprod()\n    dd = (cum / cum.cummax() - 1)\n    mdd = dd.min()\n\n    # 风险调整收益\n    sharpe = (returns.mean() / returns.std() * np.sqrt(periods_per_year)) if returns.std() \u003e 0 else 0\n    downside = returns[returns \u003c 0].std() * np.sqrt(periods_per_year) if (returns \u003c 0).any() else 0\n    sortino = (returns.mean() * periods_per_year / downside) if downside \u003e 0 else np.nan\n    calmar = (annual / abs(mdd)) if mdd != 0 else np.nan\n\n    # 交易\n    win_rate = (returns \u003e 0).sum() / (returns != 0).sum() if (returns != 0).sum() \u003e 0 else 0\n    wins = returns[returns \u003e 0]\n    losses = returns[returns \u003c 0]\n    pl_ratio = wins.mean() / abs(losses.mean()) if len(losses) \u003e 0 and losses.mean() != 0 else np.nan\n\n    return {\n        '总收益':       f'{total:.2%}',\n        '年化收益':     f'{annual:.2%}',\n        '年化波动':     f'{vol:.2%}',\n        '最大回撤':     f'{mdd:.2%}',\n        '夏普比率':     f'{sharpe:.2f}',\n        '索提诺比率':   f'{sortino:.2f}',\n        '卡玛比率':     f'{calmar:.2f}',\n        '日胜率':       f'{win_rate:.2%}',\n        '盈亏比':       f'{pl_ratio:.2f}',\n    }\n```\n\n## 怎么综合判断一个策略\n\n不要看单一指标，要看**组合**：\n\n| 指标 | 看什么 |\n|---|---|\n| 年化收益 | 是否值得做 |\n| 最大回撤 | 是否拿得住 |\n| 夏普比率 | 风险收益比 |\n| 卡玛比率 | 回撤的代价 |\n| 胜率 + 盈亏比 | 心理可承受性 |\n| 回撤持续时间 | 是否会让你怀疑人生 |\n\n**好策略的特征**：\n- ✅ 年化 \u003e 15%\n- ✅ 最大回撤 \u003c 20%\n- ✅ 夏普 \u003e 1\n- ✅ 卡玛 \u003e 1\n- ✅ 净值曲线平滑、向右上\n\n## 小结\n\n到这里你已经会用十几个指标全方位评估一个策略。下一篇 [多因子选股入门](/docs/python-quant/multi-factor-selection)，我们从单股票策略升级到组合选股。\n\n\u003e 📌 **新手常见误区**\n\u003e 1. 只看总收益 → 忽略了风险\n\u003e 2. 追求超高夏普 → 往往是过拟合\n\u003e 3. 看不见回撤 → 实盘必爆仓\n\u003e 4. 用太短的回测期 → 没经历过完整牛熊\n\u003e\n\u003e 一个策略至少要经历**3 年以上的回测**才有参考价值。\n"])</script><script>self.__next_f.push([1,"6:[[\"$\",\"$L14\",null,{\"backHref\":\"/docs\",\"backLabel\":\"返回文档\",\"homeHref\":\"/\"}],[\"$\",\"div\",null,{\"className\":\"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"sticky top-14\",\"children\":[\"$\",\"$L15\",null,{\"categories\":[{\"slug\":\"python-quant\",\"title\":\"Python 量化入门\",\"description\":\"从零开始学习 Python 量化交易，边学边实践\",\"icon\":\"LineChart\",\"order\":20,\"docs\":[{\"slug\":\"python-quant/environment-setup\",\"title\":\"环境搭建\",\"description\":\"Python + Jupyter + 常用库，为什么选 Python 做量化\",\"order\":1,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-fetching\",\"title\":\"行情数据获取\",\"description\":\"富途 OpenAPI 实战 + 免费数据源对比\",\"order\":2,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/futu-openapi-guide\",\"title\":\"富途 OpenAPI 完整指南\",\"description\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\",\"order\":3,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/pandas-basics\",\"title\":\"Pandas 基础（金融场景）\",\"description\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\",\"order\":4,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-visualization\",\"title\":\"数据可视化\",\"description\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\",\"order\":5,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/technical-indicators\",\"title\":\"技术指标实战\",\"description\":\"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库\",\"order\":6,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/dual-moving-average-strategy\",\"title\":\"第一个策略：双均线\",\"description\":\"策略逻辑、信号生成、仓位管理、回测对比\",\"order\":7,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/backtest-framework\",\"title\":\"回测框架入门\",\"description\":\"backtrader / vectorbt 入门，回测一个真实策略\",\"order\":8,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/risk-metrics\",\"title\":\"风险与绩效指标\",\"description\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\",\"order\":9,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/multi-factor-selection\",\"title\":\"多因子选股入门\",\"description\":\"因子定义、因子打分、组合构建\",\"order\":10,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/from-backtest-to-live\",\"title\":\"从回测到实盘\",\"description\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\",\"order\":11,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"}]}]}]}]}],[\"$\",\"article\",null,{\"className\":\"lg:pl-8\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"text-sm text-primary/80 font-medium mb-1\",\"children\":\"Python 量化入门\"}],[\"$\",\"h1\",null,{\"className\":\"text-2xl md:text-3xl font-bold mb-2\",\"children\":\"风险与绩效指标\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground\",\"children\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\"}]]}],[\"$\",\"$L16\",null,{\"content\":\"$17\",\"tocPosition\":\"right\"}]]}]]}]}]]\n"])</script><script>self.__next_f.push([1,"18:I[88164,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"default\"]\n19:I[73614,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"HtmlLangSetter\"]\n1a:I[82381,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"SmartBackground\"]\n1b:I[17801,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Header\"]\n1c:I[39217,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"DynamicMain\"]\n1d:I[24793,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"PageTransition\"]\n1e:I[23343,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Footer\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$L18\",null,{\"formats\":\"$undefined\",\"locale\":\"zh\",\"messages\":{\"site\":{\"name\":\"Weblog\"},\"navigation\":{\"home\":\"首页\",\"blog\":\"博客\",\"docs\":\"文档中心\",\"about\":\"关于\",\"back\":\"返回\"},\"hero\":{\"greeting\":\"Hi, I'm\",\"introduction\":\"a\",\"roles\":{\"fullstack\":\"Full Stack Engineer\",\"web\":\"Web Developer\",\"solver\":\"Problem Solver\"},\"description\":\"The unexamined life is not worth living.\"},\"skills\":{\"title\":\"技能\",\"frontend\":\"前端开发\",\"mobile\":\"移动开发\",\"beyond\":\"代码之外\"},\"skillsDesc\":{\"frontend\":\"现代 Web 技术栈\",\"design\":\"UI/UX 与视觉设计\",\"mobile\":\"使用 React Native 与 PWA 的移动端开发\",\"beyond\":\"阅读、思考、记录生活的美好时刻\"},\"tech\":{\"title\":\"技术栈\"},\"posts\":{\"blog\":\"博客\",\"featured\":\"精选文章\",\"latest\":\"最新文章\",\"description\":\"记录一些想法和生活碎片\",\"readMore\":\"阅读全文\",\"publishedOn\":\"发布于\",\"readingTime\":\"阅读约 {minutes} 分钟\",\"empty\":\"暂无文章，敬请期待！\",\"tags\":\"标签\",\"archive\":\"时间归档\",\"monthlyArchive\":\"月份归档\",\"popularTags\":\"热门标签\",\"clearFilters\":\"清除筛选\",\"backToBlog\":\"返回博客\"},\"common\":{\"onThisPage\":\"本页导读\"},\"footer\":{\"scrollToTop\":\"回到顶部\",\"copyright\":\"版权所有\",\"builtWith\":\"Built with Claude Code\"},\"contact\":{\"title\":\"联系我\",\"getInTouch\":\"保持联系\",\"subtitle\":\"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。\",\"name\":\"姓名\",\"email\":\"邮箱\",\"subject\":\"主题\",\"message\":\"消息\",\"send\":\"发送\",\"sending\":\"发送中...\",\"success\":\"消息发送成功！\",\"error\":\"发送失败，请重试\",\"methods\":{\"email\":{\"name\":\"邮箱\",\"desc\":\"用于工作或合作，欢迎邮件联系\"},\"github\":{\"name\":\"GitHub\",\"desc\":\"查看我的代码与项目\"},\"twitter\":{\"name\":\"Twitter\",\"desc\":\"关注最新动态与技术交流\"},\"linkedin\":{\"name\":\"LinkedIn\",\"desc\":\"查看我的职业档案与人脉\"},\"x\":{\"name\":\"X\",\"desc\":\"获取最新动态与技术分享\"},\"wechat\":{\"name\":\"微信\",\"desc\":\"添加我为好友或查看二维码\"},\"wechatOfficialAccount\":{\"name\":\"微信公众号\",\"desc\":\"关注我的公众号获取最新内容\"}},\"sendMessage\":\"发送消息\",\"responseTime\":\"响应时间\",\"responseTip\":\"我通常会在 24-48 小时内回复你的邮件，期待与你交流！\"},\"about\":{\"title\":\"关于我\",\"description\":\"全栈开发者 · 证券从业者 · 生活记录者\",\"intro\":\"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。\",\"bio\":\"聊聊想法，记录生活，分享投资思考和技术心得。\",\"connectTitle\":\"联系我\",\"connect\":\"聊投资、聊技术、或者就聊聊生活，都欢迎。\",\"quote\":\"大道至简。\"},\"docs\":{\"title\":\"文档中心\",\"description\":\"教程、小册与知识分享\",\"articles\":\"篇\",\"empty\":\"暂无文档，敬请期待！\",\"backToDocs\":\"返回文档\"},\"meta\":{\"description\":\"个人博客，写代码、学技术、记录生活\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":[[\"$\",\"$L19\",null,{\"locale\":\"zh\"}],[\"$\",\"$L1a\",null,{\"maxCreatures\":3}],[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L1b\",null,{}],[\"$\",\"$L1c\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L1d\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}],[\"$\",\"$L1e\",null,{}]]}]]}]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n8:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"风险与绩效指标 | Aaron Lam\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"blog,nextjs,typescript,web development,programming\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"风险与绩效指标 | Python 量化入门\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"Weblog\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.\"}],[\"$\",\"link\",\"13\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"any\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\",\"type\":\"image/svg+xml\"}],[\"$\",\"link\",\"15\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n13:{\"metadata\":\"$b:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>

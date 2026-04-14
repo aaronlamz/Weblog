@@ -1,0 +1,340 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/Weblog/_next/static/css/448770d53702bab7.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js"/><script src="/Weblog/_next/static/chunks/b1c36d5c-7af821ec76afd631.js" async=""></script><script src="/Weblog/_next/static/chunks/5177-6b5a63eaad6e5e3e.js" async=""></script><script src="/Weblog/_next/static/chunks/main-app-44c7df09c7fc33e3.js" async=""></script><script src="/Weblog/_next/static/chunks/app/layout-cf7e65f93c8f7249.js" async=""></script><script src="/Weblog/_next/static/chunks/8079-2b3f7eedf4f1d672.js" async=""></script><script src="/Weblog/_next/static/chunks/7952-cc0e32ac27c90321.js" async=""></script><script src="/Weblog/_next/static/chunks/5612-3c1ae2a8191546c0.js" async=""></script><script src="/Weblog/_next/static/chunks/8989-4d976e7e58e8fe92.js" async=""></script><script src="/Weblog/_next/static/chunks/6711-3f2600da09f683cd.js" async=""></script><script src="/Weblog/_next/static/chunks/9440-6e79b5e5aabd03a7.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js" async=""></script><script src="/Weblog/_next/static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js" async=""></script><meta name="next-size-adjust" content=""/><title>Pandas 基础（金融场景） | Aaron Lam</title><meta name="description" content="DataFrame 处理 K 线、时间序列、resample、滚动窗口"/><meta name="author" content="Aaron"/><meta name="keywords" content="blog,nextjs,typescript,web development,programming"/><meta name="creator" content="Aaron"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/><meta property="og:title" content="Pandas 基础（金融场景） | Python 量化入门"/><meta property="og:description" content="DataFrame 处理 K 线、时间序列、resample、滚动窗口"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Weblog"/><meta name="twitter:description" content="A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/Weblog/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_b6ac51 __variable_c81db4 font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="fixed inset-0 -z-10 bg-background"><div class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div></div><div class="relative min-h-screen flex flex-col"><main class="pb-8 flex-1"><div class=""><div class="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md"><div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl"><div class="flex items-center justify-between h-12"><a class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors" href="/Weblog/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>返回文档</span></a><div class="flex items-center gap-2"><a class="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors" href="/Weblog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house w-4 h-4"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 select-none lg-btn-ghost text-foreground h-9 w-9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></div></div><div class="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl"><div class="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0"><aside class="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6"><div class="sticky top-14"><nav class="space-y-1"><div><div class="px-3 py-2 text-sm font-semibold text-foreground/90">Python 量化入门</div><div class="ml-3 border-l border-border/60 pl-3 space-y-0.5 mt-0.5"><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/environment-setup/">环境搭建</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-fetching/">行情数据获取</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/futu-openapi-guide/">富途 OpenAPI 完整指南</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-primary font-medium bg-primary/5" href="/Weblog/docs/python-quant/pandas-basics/">Pandas 基础（金融场景）</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/data-visualization/">数据可视化</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/technical-indicators/">技术指标实战</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/dual-moving-average-strategy/">第一个策略：双均线</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/backtest-framework/">回测框架入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/risk-metrics/">风险与绩效指标</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/multi-factor-selection/">多因子选股入门</a><a class="block px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/40" href="/Weblog/docs/python-quant/from-backtest-to-live/">从回测到实盘</a></div></div></nav></div></aside><article class="lg:pl-8"><header class="mb-4"><div class="text-sm text-primary/80 font-medium mb-1">Python 量化入门</div><h1 class="text-2xl md:text-3xl font-bold mb-2">Pandas 基础（金融场景）</h1><p class="text-lg text-muted-foreground">DataFrame 处理 K 线、时间序列、resample、滚动窗口</p></header><div class="relative"><div class="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent"><div class="h-0.5 bg-primary transition-[width] duration-150" style="width:0%"></div></div><div class="mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0"><div class="lg:pr-8"><div class="prose prose-gray dark:prose-invert max-w-none"><p>Pandas 是量化里最重要的库，没有之一。这一篇不会从零教你 pandas 语法，而是聚焦在<strong>金融数据分析最常用的几个操作</strong>：处理 K 线、计算收益率、滚动窗口、频率转换。</p>
+<h2 id="准备数据"><a href="#准备数据">准备数据</a></h2>
+<p>继续用上一篇的方法获取一段历史数据。这里用 akshare 演示，方便你在没有富途环境时也能跑：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import akshare as ak
+import pandas as pd
+
+# 获取苹果的日 K 数据
+df = ak.stock_us_daily(symbol=&quot;AAPL&quot;, adjust=&quot;qfq&quot;)
+df = df[df[&#x27;date&#x27;] &gt;= &#x27;2023-01-01&#x27;].reset_index(drop=True)
+print(df.head())</code></pre></div></pre>
+<p>输出大概长这样：</p>
+<pre><code>        date     open     high      low    close      volume
+0 2023-01-03  130.28   130.90   124.17   125.07  112117500
+1 2023-01-04  126.89   128.66   125.08   126.36   89113600
+...
+</code></pre>
+<h2 id="dataframe-的两个核心概念"><a href="#dataframe-的两个核心概念">DataFrame 的两个核心概念</a></h2>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>print(type(df))          # pandas.DataFrame — 表格
+print(type(df[&#x27;close&#x27;])) # pandas.Series — 一列</code></pre></div></pre>
+<p>简单理解：</p>
+<ul>
+<li><strong>DataFrame</strong> = 二维表格（多列）</li>
+<li><strong>Series</strong> = 一列（一维数据 + 索引）</li>
+</ul>
+<p>大部分操作都是在这两者之间转换。</p>
+<h2 id="时间序列索引金融数据的灵魂"><a href="#时间序列索引金融数据的灵魂">时间序列索引：金融数据的灵魂</a></h2>
+<p>K 线数据的索引一定要是<strong>时间</strong>，不然没法做时间序列分析。</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 把 date 列转成 datetime 类型
+df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;])
+
+# 把 date 设置为索引
+df.set_index(&#x27;date&#x27;, inplace=True)
+
+print(df.head())</code></pre></div></pre>
+<p>设好索引后，你可以用日期切片：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 取 2024 年的数据
+df_2024 = df.loc[&#x27;2024&#x27;]
+
+# 取 2024 年 3 月的数据
+df_mar = df.loc[&#x27;2024-03&#x27;]
+
+# 取一个区间
+df_q1 = df.loc[&#x27;2024-01&#x27;:&#x27;2024-03&#x27;]</code></pre></div></pre>
+<p>这种切片语法只有 DatetimeIndex 才支持，非常方便。</p>
+<h2 id="计算收益率"><a href="#计算收益率">计算收益率</a></h2>
+<p>收益率是金融分析的基本单位。pandas 里一行代码搞定：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 简单收益率（日涨跌幅）
+df[&#x27;return&#x27;] = df[&#x27;close&#x27;].pct_change()
+
+# 对数收益率（更适合统计计算）
+import numpy as np
+df[&#x27;log_return&#x27;] = np.log(df[&#x27;close&#x27;] / df[&#x27;close&#x27;].shift(1))
+
+print(df[[&#x27;close&#x27;, &#x27;return&#x27;, &#x27;log_return&#x27;]].head())</code></pre></div></pre>
+<blockquote>
+<p>💡 <strong>简单收益率 vs 对数收益率</strong></p>
+<ul>
+<li>简单收益率直观，适合展示</li>
+<li>对数收益率可加（多日累计直接相加），适合统计建模和计算波动率</li>
+</ul>
+</blockquote>
+<h3 id="累计收益率"><a href="#累计收益率">累计收益率</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 累计收益率（基于简单收益率）
+df[&#x27;cum_return&#x27;] = (1 + df[&#x27;return&#x27;]).cumprod() - 1
+
+# 或者直接用收盘价归一
+df[&#x27;cum_return_v2&#x27;] = df[&#x27;close&#x27;] / df[&#x27;close&#x27;].iloc[0] - 1
+
+print(df[[&#x27;close&#x27;, &#x27;cum_return&#x27;]].tail())</code></pre></div></pre>
+<h2 id="滚动窗口均线波动率全靠它"><a href="#滚动窗口均线波动率全靠它">滚动窗口：均线、波动率全靠它</a></h2>
+<p><code>rolling</code> 是金融场景出现频率最高的方法之一。</p>
+<h3 id="移动平均线ma"><a href="#移动平均线ma">移动平均线（MA）</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>df[&#x27;MA5&#x27;]  = df[&#x27;close&#x27;].rolling(window=5).mean()
+df[&#x27;MA20&#x27;] = df[&#x27;close&#x27;].rolling(window=20).mean()
+df[&#x27;MA60&#x27;] = df[&#x27;close&#x27;].rolling(window=60).mean()</code></pre></div></pre>
+<p>5 日、20 日、60 日均线一行一个。</p>
+<h3 id="滚动波动率"><a href="#滚动波动率">滚动波动率</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 20 日滚动标准差，乘以 sqrt(252) 年化
+df[&#x27;volatility_20d&#x27;] = df[&#x27;return&#x27;].rolling(20).std() * np.sqrt(252)</code></pre></div></pre>
+<h3 id="滚动最高--最低用于止损或突破策略"><a href="#滚动最高--最低用于止损或突破策略">滚动最高 / 最低（用于止损或突破策略）</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>df[&#x27;high_20d&#x27;] = df[&#x27;high&#x27;].rolling(20).max()
+df[&#x27;low_20d&#x27;]  = df[&#x27;low&#x27;].rolling(20).min()</code></pre></div></pre>
+<h3 id="自定义滚动逻辑"><a href="#自定义滚动逻辑">自定义滚动逻辑</a></h3>
+<p>如果内置方法不够用，可以传一个函数：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 滚动 20 日的 25% 分位数
+df[&#x27;p25_20d&#x27;] = df[&#x27;close&#x27;].rolling(20).quantile(0.25)
+
+# 自定义函数：滚动 20 日的最大回撤
+def max_drawdown(s):
+    cum = (1 + s).cumprod()
+    return (cum / cum.cummax() - 1).min()
+
+df[&#x27;mdd_20d&#x27;] = df[&#x27;return&#x27;].rolling(20).apply(max_drawdown, raw=False)</code></pre></div></pre>
+<h2 id="resample频率转换"><a href="#resample频率转换">resample：频率转换</a></h2>
+<p>实战中经常需要把日 K 转成周 K、月 K。<code>resample</code> 一句话搞定：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 日 K → 周 K
+weekly = df.resample(&#x27;W&#x27;).agg({
+    &#x27;open&#x27;:   &#x27;first&#x27;,
+    &#x27;high&#x27;:   &#x27;max&#x27;,
+    &#x27;low&#x27;:    &#x27;min&#x27;,
+    &#x27;close&#x27;:  &#x27;last&#x27;,
+    &#x27;volume&#x27;: &#x27;sum&#x27;
+})
+
+# 日 K → 月 K
+monthly = df.resample(&#x27;ME&#x27;).agg({  # ME = Month End
+    &#x27;open&#x27;:   &#x27;first&#x27;,
+    &#x27;high&#x27;:   &#x27;max&#x27;,
+    &#x27;low&#x27;:    &#x27;min&#x27;,
+    &#x27;close&#x27;:  &#x27;last&#x27;,
+    &#x27;volume&#x27;: &#x27;sum&#x27;
+})</code></pre></div></pre>
+<p>常用频率字符串：</p>
+<table><thead><tr><th>字符串</th><th>含义</th></tr></thead><tbody><tr><td><code>D</code></td><td>日</td></tr><tr><td><code>W</code></td><td>周（默认周日结束）</td></tr><tr><td><code>ME</code></td><td>月末</td></tr><tr><td><code>QE</code></td><td>季末</td></tr><tr><td><code>YE</code></td><td>年末</td></tr><tr><td><code>5min</code></td><td>5 分钟</td></tr><tr><td><code>1h</code></td><td>1 小时</td></tr></tbody></table>
+<h2 id="处理多只股票"><a href="#处理多只股票">处理多只股票</a></h2>
+<p>实际研究经常要对比多只股票，常见做法是把它们拼成一个多列 DataFrame：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>def fetch_close(symbol):
+    df = ak.stock_us_daily(symbol=symbol, adjust=&quot;qfq&quot;)
+    df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;])
+    df.set_index(&#x27;date&#x27;, inplace=True)
+    return df[&#x27;close&#x27;].rename(symbol)
+
+# 拉取苹果、微软、谷歌的收盘价
+prices = pd.concat([
+    fetch_close(&#x27;AAPL&#x27;),
+    fetch_close(&#x27;MSFT&#x27;),
+    fetch_close(&#x27;GOOGL&#x27;)
+], axis=1)
+
+prices = prices.loc[&#x27;2023-01-01&#x27;:]
+print(prices.head())</code></pre></div></pre>
+<p>输出：</p>
+<pre><code>              AAPL    MSFT   GOOGL
+date
+2023-01-03  125.07  239.58   89.12
+2023-01-04  126.36  229.10   88.08
+...
+</code></pre>
+<h3 id="一次性计算所有股票的收益率"><a href="#一次性计算所有股票的收益率">一次性计算所有股票的收益率</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>returns = prices.pct_change().dropna()
+print(returns.head())</code></pre></div></pre>
+<h3 id="计算相关性矩阵"><a href="#计算相关性矩阵">计算相关性矩阵</a></h3>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>print(returns.corr())</code></pre></div></pre>
+<p>输出：</p>
+<pre><code>         AAPL    MSFT   GOOGL
+AAPL   1.000   0.652   0.583
+MSFT   0.652   1.000   0.621
+GOOGL  0.583   0.621   1.000
+</code></pre>
+<p>这就是组合对冲 / 配对交易策略的基础。</p>
+<h2 id="缺失值处理"><a href="#缺失值处理">缺失值处理</a></h2>
+<p>K 线数据偶尔会有缺失（停牌、节假日等），常见处理方式：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code># 用前一个值填充（最常用）
+df[&#x27;close&#x27;].ffill()
+
+# 用后一个值填充
+df[&#x27;close&#x27;].bfill()
+
+# 直接删除有缺失的行
+df.dropna()
+
+# 用 0 填充（一般不推荐）
+df[&#x27;close&#x27;].fillna(0)</code></pre></div></pre>
+<h2 id="一个完整的小例子双均线信号"><a href="#一个完整的小例子双均线信号">一个完整的小例子：双均线信号</a></h2>
+<p>把上面学的串起来，写一个简单的双均线信号生成：</p>
+<pre><div class="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background"><div class="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20"><span class="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">python</span><button class="
+        inline-flex items-center gap-1 px-2 py-1 text-xs font-medium
+        bg-background hover:bg-primary/10 
+        border border-border hover:border-primary/50
+        rounded-md transition-all duration-200
+        text-muted-foreground hover:text-primary
+        shadow-sm hover:shadow-md
+        
+      " aria-label="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3 h-3"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="p-4 text-sm overflow-x-auto font-mono leading-relaxed"><code>import akshare as ak
+import pandas as pd
+import numpy as np
+
+# 1. 获取数据
+df = ak.stock_us_daily(symbol=&quot;AAPL&quot;, adjust=&quot;qfq&quot;)
+df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;])
+df = df[df[&#x27;date&#x27;] &gt;= &#x27;2023-01-01&#x27;].set_index(&#x27;date&#x27;)
+
+# 2. 计算均线
+df[&#x27;MA5&#x27;]  = df[&#x27;close&#x27;].rolling(5).mean()
+df[&#x27;MA20&#x27;] = df[&#x27;close&#x27;].rolling(20).mean()
+
+# 3. 生成信号：MA5 上穿 MA20 → 1（买入），下穿 → -1（卖出）
+df[&#x27;signal&#x27;] = 0
+df.loc[df[&#x27;MA5&#x27;] &gt; df[&#x27;MA20&#x27;], &#x27;signal&#x27;] = 1
+df.loc[df[&#x27;MA5&#x27;] &lt; df[&#x27;MA20&#x27;], &#x27;signal&#x27;] = -1
+
+# 4. 计算策略收益
+df[&#x27;return&#x27;] = df[&#x27;close&#x27;].pct_change()
+df[&#x27;strategy_return&#x27;] = df[&#x27;signal&#x27;].shift(1) * df[&#x27;return&#x27;]  # shift 避免未来函数
+
+# 5. 累计收益对比
+df[&#x27;cum_market&#x27;]   = (1 + df[&#x27;return&#x27;]).cumprod()
+df[&#x27;cum_strategy&#x27;] = (1 + df[&#x27;strategy_return&#x27;]).cumprod()
+
+print(df[[&#x27;cum_market&#x27;, &#x27;cum_strategy&#x27;]].tail())</code></pre></div></pre>
+<blockquote>
+<p>⚠️ <strong>避免未来函数</strong>
+信号要 <code>shift(1)</code>，意思是&quot;今天的信号根据昨天的均线产生，明天才能交易&quot;。否则就是用未来数据预测过去，回测结果会假到离谱。这是新手最常犯的错误。</p>
+</blockquote>
+<h2 id="小结"><a href="#小结">小结</a></h2>
+<p>这一篇覆盖了金融场景下 90% 的 pandas 操作：</p>
+<ul>
+<li>✅ DatetimeIndex 时间切片</li>
+<li>✅ 收益率计算（简单 / 对数 / 累计）</li>
+<li>✅ 滚动窗口（均线 / 波动率 / 最高最低）</li>
+<li>✅ resample 频率转换</li>
+<li>✅ 多股票对比与相关性</li>
+<li>✅ 缺失值处理</li>
+<li>✅ 一个完整的双均线策略雏形</li>
+</ul>
+<p>下一篇我们学 <a href="/docs/python-quant/data-visualization">数据可视化</a>，把这些数字变成直观的图表。</p>
+<blockquote>
+<p>📌 <strong>小白建议</strong>
+Pandas 函数太多记不住很正常，我自己写代码也经常查文档。学的方法是：<strong>遇到一个具体问题 → 搜怎么解决 → 用一次记住</strong>。比看教程死记硬背高效一百倍。</p>
+</blockquote></div></div></div><div id="mobile-toc" role="dialog" aria-modal="true" class="lg:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm z-[60] bg-background border-l border-border/60 transform transition-transform duration-200 ease-out translate-x-full"><div class="sticky top-0 flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/90 backdrop-blur"><div class="text-xs uppercase tracking-wide text-muted-foreground">本页导读</div><button type="button" aria-label="Close" class="rounded p-1 hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><nav class="px-4 py-3 space-y-1 overflow-y-auto h-[calc(100%-3rem)]"></nav></div><button type="button" aria-label="Back to top" class="hidden lg:flex fixed bottom-8 right-6 z-40 h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/80 backdrop-blur shadow-md transition-all opacity-0 translate-y-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-4 w-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></article></div></div><!--$--><!--/$--></div></main></div><script src="/Weblog/_next/static/chunks/webpack-0f2cf3aa2c3be70b.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[87157,[\"7177\",\"static/chunks/app/layout-cf7e65f93c8f7249.js\"],\"ThemeProvider\"]\n3:I[91850,[],\"\"]\n4:I[1640,[],\"\"]\n7:I[89762,[],\"OutletBoundary\"]\na:I[77874,[],\"AsyncMetadataOutlet\"]\nc:I[89762,[],\"ViewportBoundary\"]\ne:I[89762,[],\"MetadataBoundary\"]\n10:I[10157,[],\"\"]\n:HL[\"/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/Weblog/_next/static/css/448770d53702bab7.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kl-pYbLEd_XBGkr3ndzOs\",\"p\":\"/Weblog\",\"c\":[\"\",\"zh\",\"docs\",\"python-quant\",\"pandas-basics\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"locale\",\"zh\",\"d\"],{\"children\":[\"docs\",{\"children\":[[\"slug\",\"python-quant/pandas-basics\",\"c\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/Weblog/_next/static/css/448770d53702bab7.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_b6ac51 __variable_c81db4 font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"system\",\"enableSystem\":true,\"disableTransitionOnChange\":true,\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"locale\",\"zh\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,\"$L5\"]}],{\"children\":[\"docs\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"python-quant/pandas-basics\",\"c\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L6\",null,[\"$\",\"$L7\",null,{\"children\":[\"$L8\",\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"681HqggmL7IUNqgzdQLi9v\",{\"children\":[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Le\",null,{\"children\":\"$Lf\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$10\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:\"$Sreact.suspense\"\n12:I[77874,[],\"AsyncMetadata\"]\nf:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$11\",null,{\"fallback\":null,\"children\":[\"$\",\"$L12\",null,{\"promise\":\"$@13\"}]}]}]\n9:null\n"])</script><script>self.__next_f.push([1,"14:I[59417,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsTopBar\"]\n15:I[88499,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"DocsSidebar\"]\n16:I[15646,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"6711\",\"static/chunks/6711-3f2600da09f683cd.js\",\"9440\",\"static/chunks/9440-6e79b5e5aabd03a7.js\",\"5779\",\"static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js\"],\"default\"]\n17:T1daf,"])</script><script>self.__next_f.push([1,"\nPandas 是量化里最重要的库，没有之一。这一篇不会从零教你 pandas 语法，而是聚焦在**金融数据分析最常用的几个操作**：处理 K 线、计算收益率、滚动窗口、频率转换。\n\n## 准备数据\n\n继续用上一篇的方法获取一段历史数据。这里用 akshare 演示，方便你在没有富途环境时也能跑：\n\n```python\nimport akshare as ak\nimport pandas as pd\n\n# 获取苹果的日 K 数据\ndf = ak.stock_us_daily(symbol=\"AAPL\", adjust=\"qfq\")\ndf = df[df['date'] \u003e= '2023-01-01'].reset_index(drop=True)\nprint(df.head())\n```\n\n输出大概长这样：\n\n```\n        date     open     high      low    close      volume\n0 2023-01-03  130.28   130.90   124.17   125.07  112117500\n1 2023-01-04  126.89   128.66   125.08   126.36   89113600\n...\n```\n\n## DataFrame 的两个核心概念\n\n```python\nprint(type(df))          # pandas.DataFrame — 表格\nprint(type(df['close'])) # pandas.Series — 一列\n```\n\n简单理解：\n- **DataFrame** = 二维表格（多列）\n- **Series** = 一列（一维数据 + 索引）\n\n大部分操作都是在这两者之间转换。\n\n## 时间序列索引：金融数据的灵魂\n\nK 线数据的索引一定要是**时间**，不然没法做时间序列分析。\n\n```python\n# 把 date 列转成 datetime 类型\ndf['date'] = pd.to_datetime(df['date'])\n\n# 把 date 设置为索引\ndf.set_index('date', inplace=True)\n\nprint(df.head())\n```\n\n设好索引后，你可以用日期切片：\n\n```python\n# 取 2024 年的数据\ndf_2024 = df.loc['2024']\n\n# 取 2024 年 3 月的数据\ndf_mar = df.loc['2024-03']\n\n# 取一个区间\ndf_q1 = df.loc['2024-01':'2024-03']\n```\n\n这种切片语法只有 DatetimeIndex 才支持，非常方便。\n\n## 计算收益率\n\n收益率是金融分析的基本单位。pandas 里一行代码搞定：\n\n```python\n# 简单收益率（日涨跌幅）\ndf['return'] = df['close'].pct_change()\n\n# 对数收益率（更适合统计计算）\nimport numpy as np\ndf['log_return'] = np.log(df['close'] / df['close'].shift(1))\n\nprint(df[['close', 'return', 'log_return']].head())\n```\n\n\u003e 💡 **简单收益率 vs 对数收益率**\n\u003e - 简单收益率直观，适合展示\n\u003e - 对数收益率可加（多日累计直接相加），适合统计建模和计算波动率\n\n### 累计收益率\n\n```python\n# 累计收益率（基于简单收益率）\ndf['cum_return'] = (1 + df['return']).cumprod() - 1\n\n# 或者直接用收盘价归一\ndf['cum_return_v2'] = df['close'] / df['close'].iloc[0] - 1\n\nprint(df[['close', 'cum_return']].tail())\n```\n\n## 滚动窗口：均线、波动率全靠它\n\n`rolling` 是金融场景出现频率最高的方法之一。\n\n### 移动平均线（MA）\n\n```python\ndf['MA5']  = df['close'].rolling(window=5).mean()\ndf['MA20'] = df['close'].rolling(window=20).mean()\ndf['MA60'] = df['close'].rolling(window=60).mean()\n```\n\n5 日、20 日、60 日均线一行一个。\n\n### 滚动波动率\n\n```python\n# 20 日滚动标准差，乘以 sqrt(252) 年化\ndf['volatility_20d'] = df['return'].rolling(20).std() * np.sqrt(252)\n```\n\n### 滚动最高 / 最低（用于止损或突破策略）\n\n```python\ndf['high_20d'] = df['high'].rolling(20).max()\ndf['low_20d']  = df['low'].rolling(20).min()\n```\n\n### 自定义滚动逻辑\n\n如果内置方法不够用，可以传一个函数：\n\n```python\n# 滚动 20 日的 25% 分位数\ndf['p25_20d'] = df['close'].rolling(20).quantile(0.25)\n\n# 自定义函数：滚动 20 日的最大回撤\ndef max_drawdown(s):\n    cum = (1 + s).cumprod()\n    return (cum / cum.cummax() - 1).min()\n\ndf['mdd_20d'] = df['return'].rolling(20).apply(max_drawdown, raw=False)\n```\n\n## resample：频率转换\n\n实战中经常需要把日 K 转成周 K、月 K。`resample` 一句话搞定：\n\n```python\n# 日 K → 周 K\nweekly = df.resample('W').agg({\n    'open':   'first',\n    'high':   'max',\n    'low':    'min',\n    'close':  'last',\n    'volume': 'sum'\n})\n\n# 日 K → 月 K\nmonthly = df.resample('ME').agg({  # ME = Month End\n    'open':   'first',\n    'high':   'max',\n    'low':    'min',\n    'close':  'last',\n    'volume': 'sum'\n})\n```\n\n常用频率字符串：\n\n| 字符串 | 含义 |\n|---|---|\n| `D` | 日 |\n| `W` | 周（默认周日结束） |\n| `ME` | 月末 |\n| `QE` | 季末 |\n| `YE` | 年末 |\n| `5min` | 5 分钟 |\n| `1h` | 1 小时 |\n\n## 处理多只股票\n\n实际研究经常要对比多只股票，常见做法是把它们拼成一个多列 DataFrame：\n\n```python\ndef fetch_close(symbol):\n    df = ak.stock_us_daily(symbol=symbol, adjust=\"qfq\")\n    df['date'] = pd.to_datetime(df['date'])\n    df.set_index('date', inplace=True)\n    return df['close'].rename(symbol)\n\n# 拉取苹果、微软、谷歌的收盘价\nprices = pd.concat([\n    fetch_close('AAPL'),\n    fetch_close('MSFT'),\n    fetch_close('GOOGL')\n], axis=1)\n\nprices = prices.loc['2023-01-01':]\nprint(prices.head())\n```\n\n输出：\n\n```\n              AAPL    MSFT   GOOGL\ndate\n2023-01-03  125.07  239.58   89.12\n2023-01-04  126.36  229.10   88.08\n...\n```\n\n### 一次性计算所有股票的收益率\n\n```python\nreturns = prices.pct_change().dropna()\nprint(returns.head())\n```\n\n### 计算相关性矩阵\n\n```python\nprint(returns.corr())\n```\n\n输出：\n\n```\n         AAPL    MSFT   GOOGL\nAAPL   1.000   0.652   0.583\nMSFT   0.652   1.000   0.621\nGOOGL  0.583   0.621   1.000\n```\n\n这就是组合对冲 / 配对交易策略的基础。\n\n## 缺失值处理\n\nK 线数据偶尔会有缺失（停牌、节假日等），常见处理方式：\n\n```python\n# 用前一个值填充（最常用）\ndf['close'].ffill()\n\n# 用后一个值填充\ndf['close'].bfill()\n\n# 直接删除有缺失的行\ndf.dropna()\n\n# 用 0 填充（一般不推荐）\ndf['close'].fillna(0)\n```\n\n## 一个完整的小例子：双均线信号\n\n把上面学的串起来，写一个简单的双均线信号生成：\n\n```python\nimport akshare as ak\nimport pandas as pd\nimport numpy as np\n\n# 1. 获取数据\ndf = ak.stock_us_daily(symbol=\"AAPL\", adjust=\"qfq\")\ndf['date'] = pd.to_datetime(df['date'])\ndf = df[df['date'] \u003e= '2023-01-01'].set_index('date')\n\n# 2. 计算均线\ndf['MA5']  = df['close'].rolling(5).mean()\ndf['MA20'] = df['close'].rolling(20).mean()\n\n# 3. 生成信号：MA5 上穿 MA20 → 1（买入），下穿 → -1（卖出）\ndf['signal'] = 0\ndf.loc[df['MA5'] \u003e df['MA20'], 'signal'] = 1\ndf.loc[df['MA5'] \u003c df['MA20'], 'signal'] = -1\n\n# 4. 计算策略收益\ndf['return'] = df['close'].pct_change()\ndf['strategy_return'] = df['signal'].shift(1) * df['return']  # shift 避免未来函数\n\n# 5. 累计收益对比\ndf['cum_market']   = (1 + df['return']).cumprod()\ndf['cum_strategy'] = (1 + df['strategy_return']).cumprod()\n\nprint(df[['cum_market', 'cum_strategy']].tail())\n```\n\n\u003e ⚠️ **避免未来函数**\n\u003e 信号要 `shift(1)`，意思是\"今天的信号根据昨天的均线产生，明天才能交易\"。否则就是用未来数据预测过去，回测结果会假到离谱。这是新手最常犯的错误。\n\n## 小结\n\n这一篇覆盖了金融场景下 90% 的 pandas 操作：\n\n- ✅ DatetimeIndex 时间切片\n- ✅ 收益率计算（简单 / 对数 / 累计）\n- ✅ 滚动窗口（均线 / 波动率 / 最高最低）\n- ✅ resample 频率转换\n- ✅ 多股票对比与相关性\n- ✅ 缺失值处理\n- ✅ 一个完整的双均线策略雏形\n\n下一篇我们学 [数据可视化](/docs/python-quant/data-visualization)，把这些数字变成直观的图表。\n\n\u003e 📌 **小白建议**\n\u003e Pandas 函数太多记不住很正常，我自己写代码也经常查文档。学的方法是：**遇到一个具体问题 → 搜怎么解决 → 用一次记住**。比看教程死记硬背高效一百倍。\n"])</script><script>self.__next_f.push([1,"6:[[\"$\",\"$L14\",null,{\"backHref\":\"/docs\",\"backLabel\":\"返回文档\",\"homeHref\":\"/\"}],[\"$\",\"div\",null,{\"className\":\"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"sticky top-14\",\"children\":[\"$\",\"$L15\",null,{\"categories\":[{\"slug\":\"python-quant\",\"title\":\"Python 量化入门\",\"description\":\"从零开始学习 Python 量化交易，边学边实践\",\"icon\":\"LineChart\",\"order\":20,\"docs\":[{\"slug\":\"python-quant/environment-setup\",\"title\":\"环境搭建\",\"description\":\"Python + Jupyter + 常用库，为什么选 Python 做量化\",\"order\":1,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-fetching\",\"title\":\"行情数据获取\",\"description\":\"富途 OpenAPI 实战 + 免费数据源对比\",\"order\":2,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/futu-openapi-guide\",\"title\":\"富途 OpenAPI 完整指南\",\"description\":\"架构、订阅额度、限频、权限、错误码、交易接口最佳实践\",\"order\":3,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/pandas-basics\",\"title\":\"Pandas 基础（金融场景）\",\"description\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\",\"order\":4,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/data-visualization\",\"title\":\"数据可视化\",\"description\":\"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线\",\"order\":5,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/technical-indicators\",\"title\":\"技术指标实战\",\"description\":\"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库\",\"order\":6,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/dual-moving-average-strategy\",\"title\":\"第一个策略：双均线\",\"description\":\"策略逻辑、信号生成、仓位管理、回测对比\",\"order\":7,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/backtest-framework\",\"title\":\"回测框架入门\",\"description\":\"backtrader / vectorbt 入门，回测一个真实策略\",\"order\":8,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/risk-metrics\",\"title\":\"风险与绩效指标\",\"description\":\"夏普比率、最大回撤、年化收益、胜率、卡玛比率\",\"order\":9,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/multi-factor-selection\",\"title\":\"多因子选股入门\",\"description\":\"因子定义、因子打分、组合构建\",\"order\":10,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"},{\"slug\":\"python-quant/from-backtest-to-live\",\"title\":\"从回测到实盘\",\"description\":\"模拟盘 → 实盘的注意事项、富途 API 下单实战\",\"order\":11,\"category\":\"python-quant\",\"categoryTitle\":\"Python 量化入门\",\"categoryOrder\":20,\"categoryIcon\":\"LineChart\"}]}]}]}]}],[\"$\",\"article\",null,{\"className\":\"lg:pl-8\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"text-sm text-primary/80 font-medium mb-1\",\"children\":\"Python 量化入门\"}],[\"$\",\"h1\",null,{\"className\":\"text-2xl md:text-3xl font-bold mb-2\",\"children\":\"Pandas 基础（金融场景）\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground\",\"children\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\"}]]}],[\"$\",\"$L16\",null,{\"content\":\"$17\",\"tocPosition\":\"right\"}]]}]]}]}]]\n"])</script><script>self.__next_f.push([1,"18:I[88164,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"default\"]\n19:I[73614,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"HtmlLangSetter\"]\n1a:I[82381,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"SmartBackground\"]\n1b:I[17801,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Header\"]\n1c:I[39217,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"DynamicMain\"]\n1d:I[24793,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"PageTransition\"]\n1e:I[23343,[\"8079\",\"static/chunks/8079-2b3f7eedf4f1d672.js\",\"7952\",\"static/chunks/7952-cc0e32ac27c90321.js\",\"5612\",\"static/chunks/5612-3c1ae2a8191546c0.js\",\"8989\",\"static/chunks/8989-4d976e7e58e8fe92.js\",\"8450\",\"static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js\"],\"Footer\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"$L18\",null,{\"formats\":\"$undefined\",\"locale\":\"zh\",\"messages\":{\"site\":{\"name\":\"Weblog\"},\"navigation\":{\"home\":\"首页\",\"blog\":\"博客\",\"docs\":\"文档中心\",\"about\":\"关于\",\"back\":\"返回\"},\"hero\":{\"greeting\":\"Hi, I'm\",\"introduction\":\"a\",\"roles\":{\"fullstack\":\"Full Stack Engineer\",\"web\":\"Web Developer\",\"solver\":\"Problem Solver\"},\"description\":\"The unexamined life is not worth living.\"},\"skills\":{\"title\":\"技能\",\"frontend\":\"前端开发\",\"mobile\":\"移动开发\",\"beyond\":\"代码之外\"},\"skillsDesc\":{\"frontend\":\"现代 Web 技术栈\",\"design\":\"UI/UX 与视觉设计\",\"mobile\":\"使用 React Native 与 PWA 的移动端开发\",\"beyond\":\"阅读、思考、记录生活的美好时刻\"},\"tech\":{\"title\":\"技术栈\"},\"posts\":{\"blog\":\"博客\",\"featured\":\"精选文章\",\"latest\":\"最新文章\",\"description\":\"记录一些想法和生活碎片\",\"readMore\":\"阅读全文\",\"publishedOn\":\"发布于\",\"readingTime\":\"阅读约 {minutes} 分钟\",\"empty\":\"暂无文章，敬请期待！\",\"tags\":\"标签\",\"archive\":\"时间归档\",\"monthlyArchive\":\"月份归档\",\"popularTags\":\"热门标签\",\"clearFilters\":\"清除筛选\",\"backToBlog\":\"返回博客\"},\"common\":{\"onThisPage\":\"本页导读\"},\"footer\":{\"scrollToTop\":\"回到顶部\",\"copyright\":\"版权所有\",\"builtWith\":\"Built with Claude Code\"},\"contact\":{\"title\":\"联系我\",\"getInTouch\":\"保持联系\",\"subtitle\":\"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。\",\"name\":\"姓名\",\"email\":\"邮箱\",\"subject\":\"主题\",\"message\":\"消息\",\"send\":\"发送\",\"sending\":\"发送中...\",\"success\":\"消息发送成功！\",\"error\":\"发送失败，请重试\",\"methods\":{\"email\":{\"name\":\"邮箱\",\"desc\":\"用于工作或合作，欢迎邮件联系\"},\"github\":{\"name\":\"GitHub\",\"desc\":\"查看我的代码与项目\"},\"twitter\":{\"name\":\"Twitter\",\"desc\":\"关注最新动态与技术交流\"},\"linkedin\":{\"name\":\"LinkedIn\",\"desc\":\"查看我的职业档案与人脉\"},\"x\":{\"name\":\"X\",\"desc\":\"获取最新动态与技术分享\"},\"wechat\":{\"name\":\"微信\",\"desc\":\"添加我为好友或查看二维码\"},\"wechatOfficialAccount\":{\"name\":\"微信公众号\",\"desc\":\"关注我的公众号获取最新内容\"}},\"sendMessage\":\"发送消息\",\"responseTime\":\"响应时间\",\"responseTip\":\"我通常会在 24-48 小时内回复你的邮件，期待与你交流！\"},\"about\":{\"title\":\"关于我\",\"description\":\"全栈开发者 · 证券从业者 · 生活记录者\",\"intro\":\"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。\",\"bio\":\"聊聊想法，记录生活，分享投资思考和技术心得。\",\"connectTitle\":\"联系我\",\"connect\":\"聊投资、聊技术、或者就聊聊生活，都欢迎。\",\"quote\":\"大道至简。\"},\"docs\":{\"title\":\"文档中心\",\"description\":\"教程、小册与知识分享\",\"articles\":\"篇\",\"empty\":\"暂无文档，敬请期待！\",\"backToDocs\":\"返回文档\"},\"meta\":{\"description\":\"个人博客，写代码、学技术、记录生活\"}},\"now\":\"$undefined\",\"timeZone\":\"UTC\",\"children\":[[\"$\",\"$L19\",null,{\"locale\":\"zh\"}],[\"$\",\"$L1a\",null,{\"maxCreatures\":3}],[\"$\",\"div\",null,{\"className\":\"relative min-h-screen flex flex-col\",\"children\":[[\"$\",\"$L1b\",null,{}],[\"$\",\"$L1c\",null,{\"className\":\"flex-1\",\"children\":[\"$\",\"$L1d\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}],[\"$\",\"$L1e\",null,{}]]}]]}]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n8:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Pandas 基础（金融场景） | Aaron Lam\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"blog,nextjs,typescript,web development,programming\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aaron\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:title\",\"content\":\"Pandas 基础（金融场景） | Python 量化入门\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:description\",\"content\":\"DataFrame 处理 K 线、时间序列、resample、滚动窗口\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:title\",\"content\":\"Weblog\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:description\",\"content\":\"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.\"}],[\"$\",\"link\",\"13\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"any\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\",\"type\":\"image/svg+xml\"}],[\"$\",\"link\",\"15\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n13:{\"metadata\":\"$b:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>

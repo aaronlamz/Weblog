@@ -1,0 +1,280 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","data-fetching",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/data-fetching","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/data-fetching","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","Y9HjtQ-uNnnXrOVDK74X0v",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1c29,
+数据是量化的起点。这一篇我们重点搞定**富途 OpenAPI**，因为它能拿到港美股的实时行情和历史数据，对于做港美股交易的人来说是最顺的选择。同时也会介绍几个免费数据源做补充。
+
+## 数据源选型
+
+| 数据源 | 覆盖市场 | 实时性 | 是否免费 | 优势 | 劣势 |
+|---|---|---|---|---|---|
+| **富途 OpenAPI** | 港美 A 股、期货、期权 | 实时 | 需要富途账号（基础免费） | 数据全、可下单 | 需要本地网关 |
+| **akshare** | A 股为主，部分港美 | 延迟 15min | 完全免费 | 无需账号 | 港美数据不全 |
+| **yfinance** | 美股为主 | 延迟 15min | 完全免费 | 简单易用 | 不稳定，偶尔被封 |
+| **tushare** | A 股 | 准实时 | 注册即用，部分付费 | A 股数据最全 | 港美股弱 |
+| **聚宽 / 米筐** | A 股 | 实时 | 付费 | 专业、稳定 | 价格高 |
+
+如果你跟我一样主要做港美股，**富途 OpenAPI 是最优选**。
+
+## 富途 OpenAPI 准备工作
+
+富途 OpenAPI 的架构跟其他数据源不太一样，它需要你本地跑一个**网关程序 FutuOpenD**，Python 通过 socket 跟这个网关通信，网关再去富途服务器拉数据。
+
+```
+你的 Python 代码  ←→  FutuOpenD（本地网关）  ←→  富途服务器
+```
+
+为什么这么设计？因为富途账号有交易权限，本地网关可以确保你的账号信息不会泄露给第三方。
+
+### Step 1: 下载 FutuOpenD
+
+去 [富途 OpenAPI 官网](https://openapi.futunn.com/futu-api-doc/intro/intro.html) 下载 FutuOpenD：
+
+- macOS / Windows / Linux 都有版本
+- 下载后是个独立的程序，不需要安装
+
+### Step 2: 启动 FutuOpenD 并登录
+
+启动 FutuOpenD，用你的富途账号登录。登录后会显示监听端口（默认 `11111`）。
+
+> ⚠️ **保持运行**
+> FutuOpenD 必须保持运行，Python 程序才能拿到数据。可以放在后台。
+
+### Step 3: 安装 Python SDK
+
+```bash
+uv pip install futu-api
+```
+
+## 获取行情数据
+
+新建一个 Jupyter notebook，先连接 FutuOpenD：
+
+```python
+from futu import OpenQuoteContext, RET_OK, KLType, AuType
+
+# 连接本地 FutuOpenD（默认端口 11111）
+quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+```
+
+### 1. 获取实时报价
+
+```python
+# 获取苹果股价
+ret, data = quote_ctx.get_market_snapshot(['US.AAPL'])
+
+if ret == RET_OK:
+    print(data)
+else:
+    print('error:', data)
+```
+
+港股代码格式是 `HK.00700`（腾讯），美股是 `US.AAPL`。
+
+### 2. 获取历史 K 线
+
+```python
+ret, data, page_req_key = quote_ctx.request_history_kline(
+    code='US.AAPL',
+    start='2024-01-01',
+    end='2024-12-31',
+    ktype=KLType.K_DAY,           # 日 K
+    autype=AuType.QFQ,            # 前复权
+    max_count=1000
+)
+
+if ret == RET_OK:
+    print(data.head())
+```
+
+返回的 `data` 是一个 pandas DataFrame，包含 `time_key`、`open`、`high`、`low`、`close`、`volume`、`turnover` 等字段。
+
+### 3. 订阅实时推送
+
+如果要做实盘策略，需要订阅实时推送：
+
+```python
+from futu import StockQuoteHandlerBase
+
+class StockQuoteHandler(StockQuoteHandlerBase):
+    def on_recv_rsp(self, rsp_pb):
+        ret, data = super().on_recv_rsp(rsp_pb)
+        if ret == RET_OK:
+            print(data)
+        return RET_OK, data
+
+# 注册 handler
+quote_ctx.set_handler(StockQuoteHandler())
+
+# 订阅腾讯的实时报价
+quote_ctx.subscribe(['HK.00700'], ['QUOTE'])
+```
+
+### 4. 获取股票列表
+
+```python
+from futu import Market, SecurityType
+
+# 获取美股所有 ETF
+ret, data = quote_ctx.get_stock_basicinfo(
+    market=Market.US,
+    stock_type=SecurityType.ETF
+)
+print(data.head())
+```
+
+### 5. 用完关闭连接
+
+```python
+quote_ctx.close()
+```
+
+> 💡 **数据权限**
+> - 港股 / 美股 Level 1 数据是免费的
+> - 港股 Level 2、美股 Nasdaq TotalView 等高级数据需要付费订阅
+> - A 股 Level 2 也需要付费
+
+## 封装一个简易的数据获取函数
+
+每次都写 `get_market_snapshot`、`request_history_kline` 太啰嗦，封装一下：
+
+```python
+from futu import OpenQuoteContext, RET_OK, KLType, AuType
+
+def fetch_kline(code: str, start: str, end: str, ktype=KLType.K_DAY):
+    """
+    获取历史 K 线
+    code: 'US.AAPL' / 'HK.00700' / 'SH.600519'
+    start, end: '2024-01-01' 格式
+    """
+    ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+    try:
+        ret, data, _ = ctx.request_history_kline(
+            code=code,
+            start=start,
+            end=end,
+            ktype=ktype,
+            autype=AuType.QFQ,
+            max_count=1000
+        )
+        if ret != RET_OK:
+            raise Exception(f'fetch failed: {data}')
+        return data
+    finally:
+        ctx.close()
+
+# 使用
+df = fetch_kline('US.AAPL', '2024-01-01', '2024-12-31')
+print(df.head())
+```
+
+## 数据缓存
+
+频繁请求行情数据既慢又浪费配额，建议把拉到的数据缓存到本地：
+
+```python
+import os
+import pandas as pd
+
+def fetch_kline_cached(code: str, start: str, end: str, cache_dir='./data'):
+    os.makedirs(cache_dir, exist_ok=True)
+    cache_file = f'{cache_dir}/{code.replace(".", "_")}_{start}_{end}.parquet'
+
+    if os.path.exists(cache_file):
+        return pd.read_parquet(cache_file)
+
+    df = fetch_kline(code, start, end)
+    df.to_parquet(cache_file)
+    return df
+```
+
+`parquet` 格式比 csv 小 5-10 倍，读写也快。
+
+## 备选方案：免费数据源
+
+如果你只是想学习回测，不需要实盘，免费数据源也够用了。
+
+### akshare 获取美股
+
+```python
+import akshare as ak
+
+# 获取苹果历史数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+print(df.head())
+```
+
+### akshare 获取港股
+
+```python
+df = ak.stock_hk_daily(symbol="00700", adjust="qfq")
+print(df.head())
+```
+
+### yfinance（备用）
+
+```python
+import yfinance as yf
+
+ticker = yf.Ticker("AAPL")
+df = ticker.history(start="2024-01-01", end="2024-12-31")
+print(df.head())
+```
+
+> ⚠️ yfinance 时不时会被 Yahoo 风控，不太适合生产环境。学习时凑合能用。
+
+## 富途 vs 免费数据源什么时候用什么
+
+| 场景 | 推荐 |
+|---|---|
+| 学习、回测、研究 | akshare（免费够用） |
+| 实盘策略、需要实时报价 | 富途 OpenAPI |
+| 需要下单交易 | 富途 OpenAPI |
+| 多市场对比研究 | 富途 OpenAPI（数据更全） |
+
+我自己的做法：**学习阶段用 akshare 免费数据，写完策略要实盘之前再切换到富途**。这样既省事又能快速验证想法。
+
+## 小结
+
+到这里你已经能：
+
+- ✅ 配好富途 OpenAPI 环境
+- ✅ 拉到港美股的实时和历史数据
+- ✅ 把数据缓存到本地
+
+下一篇 [富途 OpenAPI 完整指南](/docs/python-quant/futu-openapi-guide) 我们系统讲透富途 API 的订阅额度、限频规则、错误码、交易接口等深度内容。如果你不打算深入富途，也可以直接跳到 [Pandas 基础](/docs/python-quant/pandas-basics)。
+
+> 📌 **常见坑**
+> - **连接失败** → 检查 FutuOpenD 是否运行，端口是否一致
+> - **数据为空** → 检查股票代码格式（要带 `US.` / `HK.` 前缀）
+> - **被限流** → 富途有频率限制，每秒最多 10 次请求，多了会拒绝
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"行情数据获取"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"富途 OpenAPI 实战 + 免费数据源对比"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"行情数据获取 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"富途 OpenAPI 实战 + 免费数据源对比"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"行情数据获取 | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"富途 OpenAPI 实战 + 免费数据源对比"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

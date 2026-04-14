@@ -1,0 +1,317 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","investment-intro","risk-management",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","investment-intro/risk-management","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","investment-intro/risk-management","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","JBHDt4bTH-riwGAQjXet0v",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1ce2,
+新手满脑子想"赚多少"，老手满脑子想"亏多少"。**控制风险**比追求收益更重要——因为亏 50% 需要赚 100% 才能回本。
+
+## 风险的两种类型
+
+### 系统性风险
+
+整个市场的风险，所有股票都跑不掉。
+- 经济衰退
+- 加息周期
+- 战争 / 黑天鹅
+- 通胀失控
+
+**应对**：分散到不同资产类别（股票 + 债券 + 黄金）。
+
+### 非系统性风险
+
+单只股票或行业的风险。
+- 公司财务造假
+- 高管丑闻
+- 行业政策
+- 竞争对手颠覆
+
+**应对**：分散到多只股票 / 行业。
+
+## 仓位控制
+
+**仓位** = 某个资产占总资金的比例。
+
+### 单只股票的仓位规则
+
+| 类型 | 建议上限 |
+|---|---|
+| 蓝筹股 | 10% |
+| 中盘成长股 | 5% |
+| 小盘 / 高风险 | 2% |
+| 杠杆 ETF | 0%（不要碰） |
+
+### 总仓位规则
+
+| 仓位 | 含义 |
+|---|---|
+| **轻仓**（< 30%） | 防御 / 不确定 |
+| **半仓**（30-60%） | 中性 |
+| **重仓**（60-90%） | 看好 |
+| **满仓**（> 90%） | 极度看好 |
+
+新手常犯的错：**永远满仓**。永远满仓意味着：
+- 没有抄底子弹
+- 心理压力大
+- 一旦犯错损失惨重
+
+**建议**：常年保留 10-20% 现金。
+
+## 止损（Stop Loss）
+
+**止损** = 价格跌到一定程度后强制卖出，避免损失继续扩大。
+
+### 几种止损方法
+
+**1. 固定百分比止损**
+
+最常见：买入价跌 10% → 卖出。
+
+**优点**：简单
+**缺点**：可能止损在最低点
+
+**2. 移动止损（Trailing Stop）**
+
+止损价跟随股价上涨而上移。
+
+**例子**：
+- 买入 $100，止损 $90
+- 涨到 $120，止损上移到 $108
+- 涨到 $150，止损上移到 $135
+- 跌到 $135 → 触发止损，落袋 $35 利润
+
+**优点**：保护利润
+**缺点**：可能被震荡洗出
+
+**3. 关键支撑位止损**
+
+跌破前期重要支撑 → 卖出。
+
+**优点**：符合技术面逻辑
+**缺点**：需要看图
+
+**4. 时间止损**
+
+持有 N 天后没有上涨 → 卖出。
+
+**优点**：避免无谓占用资金
+**缺点**：可能错过滞后行情
+
+### 止损的争议
+
+不止损派：
+
+- 巴菲特从不止损
+- 频繁止损 = 频繁亏钱
+- 真正的好公司，跌了应该加仓
+
+止损派：
+
+- 小亏不止损会变大亏
+- 散户没有巴菲特的判断力
+- 控制下行才能长期生存
+
+**我的建议**：
+
+- 长期投资 + 优质 ETF / 龙头股 → **不止损**，跌了反而加仓
+- 投机性买入 + 不熟悉的股票 → **设止损**，控制下行
+
+**最忌讳的是"该止损不止损"**。设了止损又不执行，等于没设。
+
+## 止盈（Take Profit）
+
+**止盈** = 涨到一定程度后卖出锁定利润。
+
+### 几种止盈方法
+
+**1. 固定目标止盈**
+
+买入时定好目标价，达到 → 卖出。
+
+**例子**：买苹果 $180，目标 $220 → $220 时卖出。
+
+**2. 分批止盈**
+
+涨到第一个目标卖一部分，涨到第二个目标卖一部分。
+
+**例子**：
+- $200 卖 1/3
+- $250 卖 1/3
+- $300 卖 1/3
+
+**优点**：既锁利又留弹药
+
+**3. 不止盈，长期持有**
+
+适用于真正看好的优质公司。让利润奔跑。
+
+> 💡 **巴菲特的策略**：好公司就一直拿着，永远不卖。
+
+## 散户的几大心理偏差
+
+**散户亏钱的根本原因不是策略，而是心理**。下面是最常见的几个偏差。
+
+### 1. 处置效应（Disposition Effect）
+
+**表现**：盈利的股票早早卖出锁定，亏损的股票一直拿着希望回本。
+
+**结果**：把好的卖掉，把烂的留下。
+
+**正确做法**：盈利的股票如果还有上涨空间就拿着，亏损的股票如果基本面变坏就卖掉。
+
+### 2. 锚定效应
+
+**表现**：执着于"买入价"。
+- "我买的 $100，跌到 $80 不卖，等回到 $100 就卖"
+- "等回本就走"
+
+**结果**：错过止损时机，套得更深。
+
+**正确做法**：忘掉买入价，根据**当前价格和未来预期**做决策。
+
+### 3. 损失厌恶
+
+**表现**：亏 100 元的痛苦 > 赚 100 元的快乐（约 2 倍）。
+
+**结果**：怕亏 → 不敢买入 / 频繁止损。
+
+**正确做法**：接受短期波动，看长期。
+
+### 4. 从众效应
+
+**表现**：大家都在买 → 我也买。
+
+**结果**：在牛市顶部买入，在熊市底部割肉。
+
+**正确做法**：当市场极度狂热时警惕，当市场极度悲观时贪婪（巴菲特金句）。
+
+### 5. 确认偏差
+
+**表现**：只关注支持自己观点的信息，忽略反对声音。
+
+**结果**：错过预警信号。
+
+**正确做法**：主动寻找反对意见。
+
+### 6. 过度自信
+
+**表现**：刚赚了几次就觉得自己是股神。
+
+**结果**：加大仓位 → 一次大亏 → 全部吐回去 + 赔本金。
+
+**正确做法**：永远谦卑，永远敬畏市场。
+
+### 7. 沉没成本
+
+**表现**：已经投入了很多研究 / 资金 / 感情，舍不得放弃。
+
+**结果**：在错的策略上越陷越深。
+
+**正确做法**：忽略已经发生的成本，看未来。
+
+## 风险预算
+
+**风险预算**：每笔交易最多亏多少。
+
+**经典做法**：每笔交易最大亏损 = **总资金的 1-2%**。
+
+**例子**：
+- 总资金 $100,000
+- 单笔最大亏损 $1,000-2,000
+- 如果单只股票计划亏损 10%，则单只股票仓位 = $10,000-20,000
+
+这样即使连续亏 10 次，也只损失 10-20% 总资金。
+
+## 黑天鹅应对
+
+**黑天鹅** = 极端、罕见、影响巨大的事件（如新冠、9/11、雷曼倒闭）。
+
+应对策略：
+
+1. **永远留现金** — 至少 10-20% 流动性
+2. **不要满仓** — 给自己留余地
+3. **不要用杠杆** — 杠杆放大黑天鹅伤害
+4. **多元化** — 避免单一资产
+5. **接受亏损** — 黑天鹅来了，全部资产都会跌
+6. **不要恐慌抛售** — 暴跌后通常会反弹
+
+历史经验：每次大跌之后 2-3 年，市场都创了新高。**坚持住的人都赢了**。
+
+## 实操检查清单
+
+每次下单前问自己：
+
+```
+□ 这笔钱我能承受亏 30% 吗？
+□ 这只股票占我总资金多少？是否超过仓位上限？
+□ 我看好的逻辑是什么？基本面 / 技术面 / 消息面？
+□ 如果跌了，我的止损在哪里？
+□ 如果涨了，我的目标价是多少？
+□ 我是不是在追高？
+□ 我是不是在恐慌？
+□ 这笔交易符合我的整体配置吗？
+```
+
+每条都想清楚再下单。
+
+## 心态修炼
+
+最后的建议，比任何技术都重要：
+
+1. **接受亏损** — 没有任何策略能 100% 盈利
+2. **少看账户** — 看得越多决策越糟
+3. **不要听噪音** — 关掉财经群、关掉短视频
+4. **写交易日记** — 记录每笔交易的逻辑，事后复盘
+5. **承认错误** — 错了就改，不要嘴硬
+6. **保持谦卑** — 市场永远比你聪明
+7. **耐心** — 复利需要时间
+
+> 巴菲特名言："投资很简单，但不容易。"
+
+## 小结
+
+风险管理的几个核心：
+
+- ✅ 控制单只股票仓位
+- ✅ 总资金留 10-20% 现金
+- ✅ 该止损时止损（机械执行）
+- ✅ 让利润奔跑，及时止亏
+- ✅ 警惕心理偏差
+- ✅ 不要满仓不要杠杆
+- ✅ 永远敬畏市场
+
+下一篇 [期权基础](/docs/investment-intro/options-basics)，讲讲进阶玩法——期权。
+
+> 📌 **最重要的话**
+>
+> 投资里最可怕的不是亏 10% 或 20%，而是**亏 50% 后无法回本**。
+>
+> 一切策略、技巧、指标，都不如**永远不要让自己重伤**这一条原则。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"investment-intro","title":"投资入门101","description":"港美股新手到入门：股票、ETF、债券、REITs、期权全梳理","icon":"TrendingUp","order":10,"docs":[{"slug":"investment-intro/why-invest","title":"为什么要投资","description":"通胀、复利、机会成本，建立投资的'为什么'","order":1,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/hk-us-market-overview","title":"港美股市场全景","description":"主要交易所、指数、交易时间、和 A 股的区别","order":2,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/open-broker-account","title":"券商账户开通指南","description":"富途 vs 盈立对比，开户流程、出入金、汇率","order":3,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/stock-basics","title":"股票基础知识","description":"股票是什么、IPO、分红、拆股、做多做空","order":4,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/etf-basics","title":"ETF 入门","description":"ETF 是什么、和基金区别、宽基/行业/跨境 ETF、怎么挑","order":5,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/bonds-and-reits","title":"债券与 REITs","description":"美债、公司债、REITs 收息逻辑","order":6,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/fundamental-analysis","title":"怎么看一家公司（基本面）","description":"财报三表速读、关键指标 PE/PB/ROE","order":7,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/technical-analysis-basics","title":"K 线与技术面入门","description":"K 线、趋势、均线、量价关系","order":8,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/valuation-and-timing","title":"估值与买入时机","description":"DCF 简化版、相对估值、定投 vs 一次性","order":9,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/asset-allocation","title":"资产配置与组合构建","description":"股债配置、地区分散、风险偏好测试","order":10,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/risk-management","title":"风险管理","description":"仓位控制、止损止盈、心理偏差","order":11,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/options-basics","title":"期权基础","description":"Call / Put、行权价、希腊字母、几个经典策略","order":12,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"},{"slug":"investment-intro/beginner-roadmap","title":"从 0 开始的实操路径","description":"新手 1 万美金 / 10 万港币的具体配置示例与行动计划","order":13,"category":"investment-intro","categoryTitle":"投资入门101","categoryOrder":10,"categoryIcon":"TrendingUp"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"投资入门101"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"风险管理"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"仓位控制、止损止盈、心理偏差"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"风险管理 | Aaron Lam"}],["$","meta","1",{"name":"description","content":"仓位控制、止损止盈、心理偏差"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"风险管理 | 投资入门101"}],["$","meta","8",{"property":"og:description","content":"仓位控制、止损止盈、心理偏差"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

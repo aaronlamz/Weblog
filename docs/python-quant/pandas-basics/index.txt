@@ -1,0 +1,339 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-cf7e65f93c8f7249.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/448770d53702bab7.css","style"]
+0:{"P":null,"b":"kl-pYbLEd_XBGkr3ndzOs","p":"/Weblog","c":["","zh","docs","python-quant","pandas-basics",""],"i":false,"f":[[["",{"children":[["locale","zh","d"],{"children":["docs",{"children":[["slug","python-quant/pandas-basics","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/448770d53702bab7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","zh","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","python-quant/pandas-basics","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","681HqggmL7IUNqgzdQLi9v",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsTopBar"]
+15:I[88499,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","6711","static/chunks/6711-3f2600da09f683cd.js","9440","static/chunks/9440-6e79b5e5aabd03a7.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-5d31f0a9272303ba.js"],"default"]
+17:T1daf,
+Pandas 是量化里最重要的库，没有之一。这一篇不会从零教你 pandas 语法，而是聚焦在**金融数据分析最常用的几个操作**：处理 K 线、计算收益率、滚动窗口、频率转换。
+
+## 准备数据
+
+继续用上一篇的方法获取一段历史数据。这里用 akshare 演示，方便你在没有富途环境时也能跑：
+
+```python
+import akshare as ak
+import pandas as pd
+
+# 获取苹果的日 K 数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df = df[df['date'] >= '2023-01-01'].reset_index(drop=True)
+print(df.head())
+```
+
+输出大概长这样：
+
+```
+        date     open     high      low    close      volume
+0 2023-01-03  130.28   130.90   124.17   125.07  112117500
+1 2023-01-04  126.89   128.66   125.08   126.36   89113600
+...
+```
+
+## DataFrame 的两个核心概念
+
+```python
+print(type(df))          # pandas.DataFrame — 表格
+print(type(df['close'])) # pandas.Series — 一列
+```
+
+简单理解：
+- **DataFrame** = 二维表格（多列）
+- **Series** = 一列（一维数据 + 索引）
+
+大部分操作都是在这两者之间转换。
+
+## 时间序列索引：金融数据的灵魂
+
+K 线数据的索引一定要是**时间**，不然没法做时间序列分析。
+
+```python
+# 把 date 列转成 datetime 类型
+df['date'] = pd.to_datetime(df['date'])
+
+# 把 date 设置为索引
+df.set_index('date', inplace=True)
+
+print(df.head())
+```
+
+设好索引后，你可以用日期切片：
+
+```python
+# 取 2024 年的数据
+df_2024 = df.loc['2024']
+
+# 取 2024 年 3 月的数据
+df_mar = df.loc['2024-03']
+
+# 取一个区间
+df_q1 = df.loc['2024-01':'2024-03']
+```
+
+这种切片语法只有 DatetimeIndex 才支持，非常方便。
+
+## 计算收益率
+
+收益率是金融分析的基本单位。pandas 里一行代码搞定：
+
+```python
+# 简单收益率（日涨跌幅）
+df['return'] = df['close'].pct_change()
+
+# 对数收益率（更适合统计计算）
+import numpy as np
+df['log_return'] = np.log(df['close'] / df['close'].shift(1))
+
+print(df[['close', 'return', 'log_return']].head())
+```
+
+> 💡 **简单收益率 vs 对数收益率**
+> - 简单收益率直观，适合展示
+> - 对数收益率可加（多日累计直接相加），适合统计建模和计算波动率
+
+### 累计收益率
+
+```python
+# 累计收益率（基于简单收益率）
+df['cum_return'] = (1 + df['return']).cumprod() - 1
+
+# 或者直接用收盘价归一
+df['cum_return_v2'] = df['close'] / df['close'].iloc[0] - 1
+
+print(df[['close', 'cum_return']].tail())
+```
+
+## 滚动窗口：均线、波动率全靠它
+
+`rolling` 是金融场景出现频率最高的方法之一。
+
+### 移动平均线（MA）
+
+```python
+df['MA5']  = df['close'].rolling(window=5).mean()
+df['MA20'] = df['close'].rolling(window=20).mean()
+df['MA60'] = df['close'].rolling(window=60).mean()
+```
+
+5 日、20 日、60 日均线一行一个。
+
+### 滚动波动率
+
+```python
+# 20 日滚动标准差，乘以 sqrt(252) 年化
+df['volatility_20d'] = df['return'].rolling(20).std() * np.sqrt(252)
+```
+
+### 滚动最高 / 最低（用于止损或突破策略）
+
+```python
+df['high_20d'] = df['high'].rolling(20).max()
+df['low_20d']  = df['low'].rolling(20).min()
+```
+
+### 自定义滚动逻辑
+
+如果内置方法不够用，可以传一个函数：
+
+```python
+# 滚动 20 日的 25% 分位数
+df['p25_20d'] = df['close'].rolling(20).quantile(0.25)
+
+# 自定义函数：滚动 20 日的最大回撤
+def max_drawdown(s):
+    cum = (1 + s).cumprod()
+    return (cum / cum.cummax() - 1).min()
+
+df['mdd_20d'] = df['return'].rolling(20).apply(max_drawdown, raw=False)
+```
+
+## resample：频率转换
+
+实战中经常需要把日 K 转成周 K、月 K。`resample` 一句话搞定：
+
+```python
+# 日 K → 周 K
+weekly = df.resample('W').agg({
+    'open':   'first',
+    'high':   'max',
+    'low':    'min',
+    'close':  'last',
+    'volume': 'sum'
+})
+
+# 日 K → 月 K
+monthly = df.resample('ME').agg({  # ME = Month End
+    'open':   'first',
+    'high':   'max',
+    'low':    'min',
+    'close':  'last',
+    'volume': 'sum'
+})
+```
+
+常用频率字符串：
+
+| 字符串 | 含义 |
+|---|---|
+| `D` | 日 |
+| `W` | 周（默认周日结束） |
+| `ME` | 月末 |
+| `QE` | 季末 |
+| `YE` | 年末 |
+| `5min` | 5 分钟 |
+| `1h` | 1 小时 |
+
+## 处理多只股票
+
+实际研究经常要对比多只股票，常见做法是把它们拼成一个多列 DataFrame：
+
+```python
+def fetch_close(symbol):
+    df = ak.stock_us_daily(symbol=symbol, adjust="qfq")
+    df['date'] = pd.to_datetime(df['date'])
+    df.set_index('date', inplace=True)
+    return df['close'].rename(symbol)
+
+# 拉取苹果、微软、谷歌的收盘价
+prices = pd.concat([
+    fetch_close('AAPL'),
+    fetch_close('MSFT'),
+    fetch_close('GOOGL')
+], axis=1)
+
+prices = prices.loc['2023-01-01':]
+print(prices.head())
+```
+
+输出：
+
+```
+              AAPL    MSFT   GOOGL
+date
+2023-01-03  125.07  239.58   89.12
+2023-01-04  126.36  229.10   88.08
+...
+```
+
+### 一次性计算所有股票的收益率
+
+```python
+returns = prices.pct_change().dropna()
+print(returns.head())
+```
+
+### 计算相关性矩阵
+
+```python
+print(returns.corr())
+```
+
+输出：
+
+```
+         AAPL    MSFT   GOOGL
+AAPL   1.000   0.652   0.583
+MSFT   0.652   1.000   0.621
+GOOGL  0.583   0.621   1.000
+```
+
+这就是组合对冲 / 配对交易策略的基础。
+
+## 缺失值处理
+
+K 线数据偶尔会有缺失（停牌、节假日等），常见处理方式：
+
+```python
+# 用前一个值填充（最常用）
+df['close'].ffill()
+
+# 用后一个值填充
+df['close'].bfill()
+
+# 直接删除有缺失的行
+df.dropna()
+
+# 用 0 填充（一般不推荐）
+df['close'].fillna(0)
+```
+
+## 一个完整的小例子：双均线信号
+
+把上面学的串起来，写一个简单的双均线信号生成：
+
+```python
+import akshare as ak
+import pandas as pd
+import numpy as np
+
+# 1. 获取数据
+df = ak.stock_us_daily(symbol="AAPL", adjust="qfq")
+df['date'] = pd.to_datetime(df['date'])
+df = df[df['date'] >= '2023-01-01'].set_index('date')
+
+# 2. 计算均线
+df['MA5']  = df['close'].rolling(5).mean()
+df['MA20'] = df['close'].rolling(20).mean()
+
+# 3. 生成信号：MA5 上穿 MA20 → 1（买入），下穿 → -1（卖出）
+df['signal'] = 0
+df.loc[df['MA5'] > df['MA20'], 'signal'] = 1
+df.loc[df['MA5'] < df['MA20'], 'signal'] = -1
+
+# 4. 计算策略收益
+df['return'] = df['close'].pct_change()
+df['strategy_return'] = df['signal'].shift(1) * df['return']  # shift 避免未来函数
+
+# 5. 累计收益对比
+df['cum_market']   = (1 + df['return']).cumprod()
+df['cum_strategy'] = (1 + df['strategy_return']).cumprod()
+
+print(df[['cum_market', 'cum_strategy']].tail())
+```
+
+> ⚠️ **避免未来函数**
+> 信号要 `shift(1)`，意思是"今天的信号根据昨天的均线产生，明天才能交易"。否则就是用未来数据预测过去，回测结果会假到离谱。这是新手最常犯的错误。
+
+## 小结
+
+这一篇覆盖了金融场景下 90% 的 pandas 操作：
+
+- ✅ DatetimeIndex 时间切片
+- ✅ 收益率计算（简单 / 对数 / 累计）
+- ✅ 滚动窗口（均线 / 波动率 / 最高最低）
+- ✅ resample 频率转换
+- ✅ 多股票对比与相关性
+- ✅ 缺失值处理
+- ✅ 一个完整的双均线策略雏形
+
+下一篇我们学 [数据可视化](/docs/python-quant/data-visualization)，把这些数字变成直观的图表。
+
+> 📌 **小白建议**
+> Pandas 函数太多记不住很正常，我自己写代码也经常查文档。学的方法是：**遇到一个具体问题 → 搜怎么解决 → 用一次记住**。比看教程死记硬背高效一百倍。
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"返回文档","homeHref":"/"}],["$","div",null,{"className":"mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0","children":[["$","aside",null,{"className":"hidden lg:block lg:border-r lg:border-border/50 lg:pr-6","children":["$","div",null,{"className":"sticky top-14","children":["$","$L15",null,{"categories":[{"slug":"python-quant","title":"Python 量化入门","description":"从零开始学习 Python 量化交易，边学边实践","icon":"LineChart","order":20,"docs":[{"slug":"python-quant/environment-setup","title":"环境搭建","description":"Python + Jupyter + 常用库，为什么选 Python 做量化","order":1,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-fetching","title":"行情数据获取","description":"富途 OpenAPI 实战 + 免费数据源对比","order":2,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/futu-openapi-guide","title":"富途 OpenAPI 完整指南","description":"架构、订阅额度、限频、权限、错误码、交易接口最佳实践","order":3,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/pandas-basics","title":"Pandas 基础（金融场景）","description":"DataFrame 处理 K 线、时间序列、resample、滚动窗口","order":4,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/data-visualization","title":"数据可视化","description":"matplotlib + mplfinance + plotly 画 K 线、均线、收益曲线","order":5,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/technical-indicators","title":"技术指标实战","description":"手撕 MA / MACD / RSI / KDJ / 布林带，对比 talib 库","order":6,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/dual-moving-average-strategy","title":"第一个策略：双均线","description":"策略逻辑、信号生成、仓位管理、回测对比","order":7,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/backtest-framework","title":"回测框架入门","description":"backtrader / vectorbt 入门，回测一个真实策略","order":8,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/risk-metrics","title":"风险与绩效指标","description":"夏普比率、最大回撤、年化收益、胜率、卡玛比率","order":9,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/multi-factor-selection","title":"多因子选股入门","description":"因子定义、因子打分、组合构建","order":10,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"},{"slug":"python-quant/from-backtest-to-live","title":"从回测到实盘","description":"模拟盘 → 实盘的注意事项、富途 API 下单实战","order":11,"category":"python-quant","categoryTitle":"Python 量化入门","categoryOrder":20,"categoryIcon":"LineChart"}]}]}]}]}],["$","article",null,{"className":"lg:pl-8","children":[["$","header",null,{"className":"mb-4","children":[["$","div",null,{"className":"text-sm text-primary/80 font-medium mb-1","children":"Python 量化入门"}],["$","h1",null,{"className":"text-2xl md:text-3xl font-bold mb-2","children":"Pandas 基础（金融场景）"}],["$","p",null,{"className":"text-lg text-muted-foreground","children":"DataFrame 处理 K 线、时间序列、resample、滚动窗口"}]]}],["$","$L16",null,{"content":"$17","tocPosition":"right"}]]}]]}]}]]
+18:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"default"]
+19:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"HtmlLangSetter"]
+1a:I[82381,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"SmartBackground"]
+1b:I[17801,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Header"]
+1c:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"DynamicMain"]
+1d:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"PageTransition"]
+1e:I[23343,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","7952","static/chunks/7952-cc0e32ac27c90321.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","8989","static/chunks/8989-4d976e7e58e8fe92.js","8450","static/chunks/app/%5Blocale%5D/layout-15609b67c71b895c.js"],"Footer"]
+5:["$","$L18",null,{"formats":"$undefined","locale":"zh","messages":{"site":{"name":"Weblog"},"navigation":{"home":"首页","blog":"博客","docs":"文档中心","about":"关于","back":"返回"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"fullstack":"Full Stack Engineer","web":"Web Developer","solver":"Problem Solver"},"description":"The unexamined life is not worth living."},"skills":{"title":"技能","frontend":"前端开发","mobile":"移动开发","beyond":"代码之外"},"skillsDesc":{"frontend":"现代 Web 技术栈","design":"UI/UX 与视觉设计","mobile":"使用 React Native 与 PWA 的移动端开发","beyond":"阅读、思考、记录生活的美好时刻"},"tech":{"title":"技术栈"},"posts":{"blog":"博客","featured":"精选文章","latest":"最新文章","description":"记录一些想法和生活碎片","readMore":"阅读全文","publishedOn":"发布于","readingTime":"阅读约 {minutes} 分钟","empty":"暂无文章，敬请期待！","tags":"标签","archive":"时间归档","monthlyArchive":"月份归档","popularTags":"热门标签","clearFilters":"清除筛选","backToBlog":"返回博客"},"common":{"onThisPage":"本页导读"},"footer":{"scrollToTop":"回到顶部","copyright":"版权所有","builtWith":"Built with Claude Code"},"contact":{"title":"联系我","getInTouch":"保持联系","subtitle":"很高兴与你交流！如果你有问题、想合作，或者只是打个招呼，欢迎联系我。","name":"姓名","email":"邮箱","subject":"主题","message":"消息","send":"发送","sending":"发送中...","success":"消息发送成功！","error":"发送失败，请重试","methods":{"email":{"name":"邮箱","desc":"用于工作或合作，欢迎邮件联系"},"github":{"name":"GitHub","desc":"查看我的代码与项目"},"twitter":{"name":"Twitter","desc":"关注最新动态与技术交流"},"linkedin":{"name":"LinkedIn","desc":"查看我的职业档案与人脉"},"x":{"name":"X","desc":"获取最新动态与技术分享"},"wechat":{"name":"微信","desc":"添加我为好友或查看二维码"},"wechatOfficialAccount":{"name":"微信公众号","desc":"关注我的公众号获取最新内容"}},"sendMessage":"发送消息","responseTime":"响应时间","responseTip":"我通常会在 24-48 小时内回复你的邮件，期待与你交流！"},"about":{"title":"关于我","description":"全栈开发者 · 证券从业者 · 生活记录者","intro":"写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。","bio":"聊聊想法，记录生活，分享投资思考和技术心得。","connectTitle":"联系我","connect":"聊投资、聊技术、或者就聊聊生活，都欢迎。","quote":"大道至简。"},"docs":{"title":"文档中心","description":"教程、小册与知识分享","articles":"篇","empty":"暂无文档，敬请期待！","backToDocs":"返回文档"},"meta":{"description":"个人博客，写代码、学技术、记录生活"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L19",null,{"locale":"zh"}],["$","$L1a",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1b",null,{}],["$","$L1c",null,{"className":"flex-1","children":["$","$L1d",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1e",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"Pandas 基础（金融场景） | Aaron Lam"}],["$","meta","1",{"name":"description","content":"DataFrame 处理 K 线、时间序列、resample、滚动窗口"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"blog,nextjs,typescript,web development,programming"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"Pandas 基础（金融场景） | Python 量化入门"}],["$","meta","8",{"property":"og:description","content":"DataFrame 处理 K 线、时间序列、resample、滚动窗口"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Weblog"}],["$","meta","12",{"name":"twitter:description","content":"A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}
