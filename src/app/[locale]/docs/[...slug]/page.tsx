@@ -70,16 +70,16 @@ export default async function DocPage({ params }: DocPageProps) {
       />
 
       <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-8 max-w-screen-2xl">
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0">
           {/* Sidebar: only current category */}
-          <aside className="hidden lg:block">
+          <aside className="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6">
             <div className="sticky top-14">
               <DocsSidebar categories={currentCategoryDocs} />
             </div>
           </aside>
 
           {/* Content */}
-          <article>
+          <article className="lg:pl-8">
             <header className="mb-4">
               <div className="text-sm text-primary/80 font-medium mb-1">
                 {doc.categoryTitle}

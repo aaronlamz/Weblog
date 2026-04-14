@@ -96,7 +96,7 @@ dependencies:
     specifier: ^4.0.1
     version: 4.0.1
   shiki:
-    specifier: ^1.17.0
+    specifier: ^1.29.2
     version: 1.29.2
   sitemap:
     specifier: ^8.0.0
