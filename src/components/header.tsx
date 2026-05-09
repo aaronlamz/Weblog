@@ -67,10 +67,41 @@ function SliderNavigation({ navItems, currentLocale }: { navItems: any[], curren
     })
   }
 
-  // 初始化时显示 active pill
+  // 初始化 + 监听尺寸变化（字体加载、翻译切换、窗口缩放）
   useEffect(() => {
-    if (activeIndex >= 0) updatePill(null)
-  }, [pathname])
+    if (activeIndex < 0) return
+
+    // 多帧调用确保布局稳定后再定位
+    const reposition = () => updatePill(null)
+    reposition()
+    const raf1 = requestAnimationFrame(reposition)
+    const raf2 = requestAnimationFrame(() => requestAnimationFrame(reposition))
+    const timer = setTimeout(reposition, 150)
+
+    // 监听字体加载完成
+    if (document.fonts) {
+      document.fonts.ready.then(reposition)
+    }
+
+    // 监听导航容器尺寸变化
+    let observer: ResizeObserver | null = null
+    if (navRef.current && typeof ResizeObserver !== 'undefined') {
+      observer = new ResizeObserver(reposition)
+      observer.observe(navRef.current)
+      itemRefs.current.forEach(el => el && observer!.observe(el))
+    }
+
+    // 窗口大小变化
+    window.addEventListener('resize', reposition)
+
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+      clearTimeout(timer)
+      observer?.disconnect()
+      window.removeEventListener('resize', reposition)
+    }
+  }, [pathname, activeIndex])
 
   return (
     <div

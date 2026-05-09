@@ -53,7 +53,7 @@ export default async function DocsPage({
 
         {/* Category Cards Grid */}
         {categories.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-6 items-stretch">
             {categories.map((category, index) => {
               const firstDoc = category.docs[0]
               const href = firstDoc
@@ -65,14 +65,15 @@ export default async function DocsPage({
                 <Link
                   key={category.slug}
                   href={href as any}
-                  className="group block w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                  className="group flex flex-col w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
                   style={{
+                    background: 'var(--docs-card-bg)',
                     boxShadow: '0 2px 16px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)',
                   }}
                 >
                   {/* Banner */}
                   <div
-                    className="h-36 flex flex-col items-center justify-center relative overflow-hidden"
+                    className="h-36 flex flex-col items-center justify-center relative overflow-hidden shrink-0"
                     style={{ background: style.bg }}
                   >
                     <span className="text-5xl mb-2">{style.emoji}</span>
@@ -81,22 +82,17 @@ export default async function DocsPage({
                     </span>
                   </div>
 
-                  {/* Info — solid background, distinct from page bg */}
-                  <div
-                    className="p-5 space-y-2 border-t-0"
-                    style={{
-                      background: 'var(--docs-card-bg)',
-                    }}
-                  >
+                  {/* Info — flex-1 让信息区填满剩余空间 */}
+                  <div className="flex-1 p-5 space-y-2 flex flex-col">
                     <div className="flex items-center justify-between">
                       <h2 className="text-sm font-semibold group-hover:text-primary transition-colors">
                         {category.title}
                       </h2>
-                      <span className="text-xs text-muted-foreground bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
+                      <span className="text-xs text-muted-foreground bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium shrink-0 ml-2">
                         {category.docs.length} {t('articles')}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                    <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2 min-h-[2.75rem]">
                       {category.description}
                     </p>
                   </div>
