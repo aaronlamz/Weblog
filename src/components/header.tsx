@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { BookOpen, FileText, Home, UserRound, type LucideIcon } from 'lucide-react'
+import { BookOpen, FileText, Home, Images, UserRound, type LucideIcon } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { siteConfig } from '@/config/site.config'
@@ -20,7 +20,7 @@ function NavigationItem({ href, label, active, icon: Icon }: DockItemProps) {
   return (
     <Link
       href={href as any}
-      className="group flex w-[54px] flex-col items-center justify-center gap-1 sm:w-[72px]"
+      className="group flex w-[38px] flex-col items-center justify-center gap-1 sm:w-[68px]"
       aria-current={active ? 'page' : undefined}
     >
       <span
@@ -64,6 +64,11 @@ export function Header() {
       key: 'blog',
       href: buildLocalizedPath('/blog', locale),
       icon: FileText,
+    },
+    {
+      key: 'plog',
+      href: buildLocalizedPath('/plog', locale),
+      icon: Images,
     },
     {
       key: 'docs',

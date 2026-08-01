@@ -4,8 +4,9 @@
   },
   "navigation": {
     "home": "Home",
-    "blog": "Blog",
-    "docs": "Docs Hub",
+    "blog": "Essays",
+    "plog": "Plog",
+    "docs": "Docs",
     "about": "About",
     "back": "Back"
   },
@@ -60,13 +61,13 @@
     "title": "Tech Stack"
   },
   "posts": {
-    "blog": "Blog",
-    "stories": "stories",
+    "blog": "Essays",
+    "stories": "essays",
     "topics": "topics",
-    "allStories": "All stories",
+    "allStories": "All essays",
     "featured": "Featured Posts",
     "latest": "Latest Posts",
-    "description": "Documenting thoughts and life fragments.",
+    "description": "Long-form notes and ideas worth revisiting.",
     "readMore": "Read More",
     "publishedOn": "Published on",
     "readingTime": "{minutes} min read",
@@ -79,10 +80,15 @@
     "postNavigation": "Post navigation",
     "previousPost": "Previous",
     "nextPost": "Next",
-    "backToBlog": "Back to Blog"
+    "backToBlog": "Back to Essays"
   },
   "common": {
     "onThisPage": "On this page"
+  },
+  "plog": {
+    "title": "Plog",
+    "description": "A visual journal.",
+    "frames": "frames"
   },
   "footer": {
     "scrollToTop": "Scroll to top",

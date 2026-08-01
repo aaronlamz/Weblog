@@ -4,8 +4,9 @@
   },
   "navigation": {
     "home": "首页",
-    "blog": "博客",
-    "docs": "文档中心",
+    "blog": "思考",
+    "plog": "Plog",
+    "docs": "手册",
     "about": "关于",
     "back": "返回"
   },
@@ -60,13 +61,13 @@
     "title": "技术栈"
   },
   "posts": {
-    "blog": "博客",
+    "blog": "思考",
     "stories": "篇文章",
     "topics": "个主题",
     "allStories": "所有文章",
     "featured": "精选文章",
     "latest": "最新文章",
-    "description": "记录一些想法和生活碎片",
+    "description": "一些值得反复思考的长文与笔记",
     "readMore": "阅读全文",
     "publishedOn": "发布于",
     "readingTime": "阅读约 {minutes} 分钟",
@@ -79,10 +80,15 @@
     "postNavigation": "文章导航",
     "previousPost": "上一篇",
     "nextPost": "下一篇",
-    "backToBlog": "返回博客"
+    "backToBlog": "返回思考"
   },
   "common": {
     "onThisPage": "本页导读"
+  },
+  "plog": {
+    "title": "Plog",
+    "description": "影像记录。",
+    "frames": "帧"
   },
   "footer": {
     "scrollToTop": "回到顶部",

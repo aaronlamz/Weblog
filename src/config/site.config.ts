@@ -140,7 +140,8 @@ export const siteConfig: SiteConfig = {
   nav: {
     main: [
       { title: 'Home', href: '/' },
-      { title: 'Blog', href: '/blog' },
+      { title: 'Essays', href: '/blog' },
+      { title: 'Plog', href: '/plog' },
       { title: 'Docs', href: '/docs' },
       { title: 'About', href: '/about' },
       { title: 'Contact', href: '/contact' },
