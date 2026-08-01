@@ -1,16 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type Slide = {
   id: string
   image: string
   alt: string
-  title: string
   caption?: string
-  date?: string
-  location?: string
   fit: 'cover' | 'contain'
 }
 
@@ -50,29 +47,17 @@ export function PlogSlideshow({ slides }: { slides: Slide[] }) {
               aria-hidden="true"
               className="absolute inset-[-3%] h-[106%] w-[106%] scale-110 object-cover opacity-35 blur-3xl dark:opacity-25"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/10" />
             <img
               src={slide.image}
               alt={slide.alt}
               loading={index === 0 ? 'eager' : 'lazy'}
               className={`absolute inset-0 h-full w-full ${slide.fit === 'contain' ? 'object-contain p-12 sm:p-16' : 'object-cover'}`}
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent px-6 pb-6 pt-24 text-white sm:px-8 sm:pb-8">
-              {(slide.date || slide.location) && (
-                <div className="flex flex-wrap items-center gap-2 text-xs text-white/65">
-                  {slide.date && <time>{slide.date}</time>}
-                  {slide.date && slide.location && <span>·</span>}
-                  {slide.location && (
-                    <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5" />
-                      {slide.location}
-                    </span>
-                  )}
-                </div>
-              )}
-              <h2 className={`${slide.date || slide.location ? 'mt-2' : ''} text-3xl font-semibold tracking-[-0.04em] sm:text-5xl`}>{slide.title}</h2>
-              {slide.caption && <p className="mt-2 text-sm text-white/70 sm:text-base">{slide.caption}</p>}
-            </div>
+            {slide.caption && (
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-6 pb-6 pt-24 text-white sm:px-8 sm:pb-8">
+                <p className="text-sm text-white/80 sm:text-base">{slide.caption}</p>
+              </div>
+            )}
           </article>
         ))}
       </div>

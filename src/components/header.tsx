@@ -50,9 +50,10 @@ export function Header() {
   const locale = detectLocaleFromPath(pathname)
 
   const isBlogPost = /\/blog\/[^/]+\/?$/.test(pathname)
+  const isPlogDetail = /\/plog\/[^/]+\/?$/.test(pathname)
   const isDocDetail = /\/docs\/[^/]+\/[^/]+\/?$/.test(pathname)
 
-  if (isBlogPost || isDocDetail) return null
+  if (isBlogPost || isPlogDetail || isDocDetail) return null
 
   const items = [
     {

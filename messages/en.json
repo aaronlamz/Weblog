@@ -88,7 +88,11 @@
   "plog": {
     "title": "Plog",
     "description": "A visual journal.",
-    "frames": "frames"
+    "entries": "entries",
+    "photos": "photos",
+    "photoCount": "{count, plural, one {# photo} other {# photos}}",
+    "allEntries": "All Plog entries",
+    "backToPlog": "Back to Plog"
   },
   "footer": {
     "scrollToTop": "Scroll to top",

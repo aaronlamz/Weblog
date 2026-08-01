@@ -88,7 +88,11 @@
   "plog": {
     "title": "Plog",
     "description": "影像记录。",
-    "frames": "帧"
+    "entries": "篇",
+    "photos": "张照片",
+    "photoCount": "{count} 张照片",
+    "allEntries": "全部 Plog",
+    "backToPlog": "返回 Plog"
   },
   "footer": {
     "scrollToTop": "回到顶部",
