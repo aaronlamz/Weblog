@@ -11,19 +11,12 @@ export function DynamicMain({
 }) {
   const pathname = usePathname()
 
-  // Check if current page is a blog post
-  const isBlogPost = /\/blog\/[^\/]+\/?$/.test(pathname)
   // Check if current page is home page (/ or /en or /zh)
   const isHomePage = /^\/(en|zh)?\/?$/.test(pathname)
-  // Check if current page is a doc detail page
-  const isDocDetail = /\/docs\/[^\/]+\/[^\/]+/.test(pathname)
 
   return (
     <main className={`${
-      isBlogPost ? "pb-8" :
-      isHomePage ? "flex-1 flex items-center justify-center" :
-      isDocDetail ? "pb-8" :
-      "pb-8"
+      isHomePage ? "flex-1 flex items-center justify-center" : ""
     } ${className}`}>
       {children}
     </main>

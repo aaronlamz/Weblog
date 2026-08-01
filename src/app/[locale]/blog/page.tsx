@@ -25,7 +25,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   const topicCount = new Set(posts.flatMap((post) => post.tags)).size
 
   return (
-    <div className="container mx-auto px-5 pb-14 pt-8 sm:px-8 sm:pt-10">
+    <div className="container mx-auto px-5 pb-10 pt-6 sm:px-8 sm:pb-12 sm:pt-7">
       <div className="mx-auto max-w-6xl">
         <header className="border-b border-foreground/10 pb-8 pt-2 sm:pb-9 sm:pt-3">
           <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">

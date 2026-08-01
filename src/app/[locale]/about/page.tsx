@@ -32,7 +32,7 @@ export default async function AboutPage({
   const t = await getTranslations({ locale, namespace: 'about' })
 
   return (
-    <div className="mx-auto max-w-5xl px-5 pb-14 pt-8 sm:px-8 sm:pt-10">
+    <div className="mx-auto max-w-5xl px-5 pb-10 pt-6 sm:px-8 sm:pb-12 sm:pt-7">
       <header className="grid items-center gap-6 border-b border-black/[0.08] pb-8 dark:border-white/10 sm:grid-cols-[auto_1fr] sm:gap-8 sm:pb-9">
         <div className="relative h-28 w-28 overflow-hidden rounded-[2rem] bg-[#f5f5f7] dark:bg-[#1d1d1f]">
           {siteConfig.author.avatar ? (
