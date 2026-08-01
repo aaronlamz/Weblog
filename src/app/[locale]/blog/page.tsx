@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { getTranslations } from 'next-intl/server'
+import { BookMarked } from 'lucide-react'
 import { getAllPosts } from '@/lib/posts'
 import { BlogPostList } from '@/components/blog-post-list'
 
@@ -21,14 +22,31 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'posts' })
   const posts = getAllPosts(locale)
+  const topicCount = new Set(posts.flatMap((post) => post.tags)).size
 
   return (
-    <div className="mx-auto max-w-[980px] px-5 pb-16 pt-8 sm:px-8 sm:pt-10">
-        <header className="border-b border-foreground/10 pb-7 sm:pb-8">
-          <h1 className="text-4xl font-semibold tracking-[-0.045em] sm:text-[2.75rem]">{t('blog')}</h1>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-            {t('description')}
-          </p>
+    <div className="container mx-auto px-5 pb-14 pt-8 sm:px-8 sm:pt-10">
+      <div className="mx-auto max-w-6xl">
+        <header className="border-b border-foreground/10 pb-8 pt-2 sm:pb-9 sm:pt-3">
+          <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
+                <BookMarked className="h-4 w-4" />
+                <h1>{t('blog')}</h1>
+              </div>
+            </div>
+
+            <dl className="grid grid-cols-2 gap-8 sm:gap-12">
+              <div>
+                <dd className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">{posts.length}</dd>
+                <dt className="mt-1 text-xs text-muted-foreground">{t('stories')}</dt>
+              </div>
+              <div>
+                <dd className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">{topicCount}</dd>
+                <dt className="mt-1 text-xs text-muted-foreground">{t('topics')}</dt>
+              </div>
+            </dl>
+          </div>
         </header>
 
         <section aria-label={t('allStories')}>
@@ -36,6 +54,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             <BlogPostList posts={posts} />
           </Suspense>
         </section>
+      </div>
     </div>
   )
 }
