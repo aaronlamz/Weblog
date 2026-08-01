@@ -52,9 +52,12 @@ jobs:
         run: |
           # 从配置文件中读取默认语言设置
           DEFAULT_LOCALE=$(node -e "
-            const siteConfig = require('./src/config/site.config.ts');
-            console.log(siteConfig.siteConfig.i18n.defaultLocale);
-          " 2>/dev/null || echo "zh")
+            const fs = require('fs');
+            const content = fs.readFileSync('./src/config/site.config.ts', 'utf8');
+            const match = content.match(/defaultLocale:\s*['\"](zh|en)['\"]\s*,/);
+            if (!match) throw new Error('Unable to read defaultLocale from site.config.ts');
+            console.log(match[1]);
+          ")
           
           echo "Default locale detected: $DEFAULT_LOCALE"
           
