@@ -454,6 +454,18 @@
   display: none;
 }
 
+@keyframes plogAutoplayProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.plog-autoplay-progress {
+  transform-origin: left center;
+  animation-name: plogAutoplayProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
 .nav-product-icon {
   position: relative;
   transform-origin: center bottom;

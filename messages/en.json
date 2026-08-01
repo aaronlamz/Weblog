@@ -92,7 +92,17 @@
     "photos": "photos",
     "photoCount": "{count, plural, one {# photo} other {# photos}}",
     "allEntries": "All Plog entries",
-    "backToPlog": "Back to Plog"
+    "backToPlog": "Back to Plog",
+    "previousPhoto": "Previous moment",
+    "nextPhoto": "Next moment",
+    "timeline": "Story timeline",
+    "play": "Play story",
+    "pause": "Pause story",
+    "enterSlideshow": "Enter slideshow",
+    "exitSlideshow": "Exit slideshow",
+    "playMusic": "Play background music",
+    "pauseMusic": "Pause background music",
+    "nextMusic": "Play next track"
   },
   "footer": {
     "scrollToTop": "Scroll to top",

@@ -90,17 +90,17 @@ export default async function DocsPage({
         </section>
 
         {categories.length > 0 ? (
-          <section className="pt-8 sm:pt-10">
-            <div className="mb-8">
+          <section className="pt-7 sm:pt-8">
+            <div className="mb-6">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">{t('collectionEyebrow')}</p>
-                <h2 className="mt-2 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+                <p className="text-xs font-medium text-muted-foreground">{t('collectionEyebrow')}</p>
+                <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
                   {t('collectionTitle')}
                 </h2>
               </div>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {categories.map((category, index) => {
                 const firstDoc = category.docs[0]
                 const href = buildLocalizedPath(`/docs/${firstDoc.slug}`, locale as 'zh' | 'en')
@@ -113,12 +113,12 @@ export default async function DocsPage({
                   <Link
                     key={category.slug}
                     href={href as any}
-                    className={`group relative min-h-[24rem] overflow-hidden rounded-[1.75rem] p-7 transition duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-8 ${theme.card}`}
+                    className={`group relative min-h-[18rem] overflow-hidden rounded-[1.4rem] p-5 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:p-6 ${theme.card}`}
                   >
                     <div className="relative z-10 flex h-full flex-col">
                       <div className="flex items-start justify-between">
-                        <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl backdrop-blur-md ${theme.badge}`}>
-                          <Icon className="h-5 w-5" />
+                        <span className={`inline-flex h-10 w-10 items-center justify-center rounded-xl backdrop-blur-md ${theme.badge}`}>
+                          <Icon className="h-[1.125rem] w-[1.125rem]" />
                         </span>
                         <span className="flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.16em] opacity-55">
                           {t('handbook')} {String(index + 1).padStart(2, '0')}
@@ -126,17 +126,17 @@ export default async function DocsPage({
                         </span>
                       </div>
 
-                      <div className="mt-8">
-                        <h3 className="text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">{category.title}</h3>
-                        <p className="mt-4 max-w-md text-sm leading-6 opacity-65">{category.description}</p>
+                      <div className="mt-5">
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">{category.title}</h3>
+                        <p className="mt-2.5 max-w-md text-sm leading-5 opacity-65">{category.description}</p>
                       </div>
 
-                      <div className={`mt-auto border-t pt-5 ${theme.line}`}>
-                        <div className="mb-4 flex items-center justify-between text-xs font-medium opacity-55">
+                      <div className={`mt-6 border-t pt-4 ${theme.line}`}>
+                        <div className="mb-3 flex items-center justify-between text-[11px] font-medium opacity-55">
                           <span>{t('contents')}</span>
                           <span>{category.docs.length} {t('chapters')}</span>
                         </div>
-                        <ol className="space-y-2.5">
+                        <ol className="space-y-2">
                           {visibleDocs.map((doc, docIndex) => (
                             <li key={doc.slug} className="flex items-center gap-3 text-sm">
                               <span className="w-5 font-mono text-xs opacity-40">{String(docIndex + 1).padStart(2, '0')}</span>

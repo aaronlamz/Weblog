@@ -92,7 +92,17 @@
     "photos": "张照片",
     "photoCount": "{count} 张照片",
     "allEntries": "全部 Plog",
-    "backToPlog": "返回 Plog"
+    "backToPlog": "返回 Plog",
+    "previousPhoto": "上一个瞬间",
+    "nextPhoto": "下一个瞬间",
+    "timeline": "故事时间线",
+    "play": "播放故事",
+    "pause": "暂停故事",
+    "enterSlideshow": "进入幻灯片",
+    "exitSlideshow": "退出幻灯片",
+    "playMusic": "播放背景音乐",
+    "pauseMusic": "暂停背景音乐",
+    "nextMusic": "播放下一首"
   },
   "footer": {
     "scrollToTop": "回到顶部",
