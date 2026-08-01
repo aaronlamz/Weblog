@@ -26,23 +26,6 @@ const nextConfig = {
       },
     ],
   },
-  // 重定向仅在非静态导出模式下生效
-  ...(process.env.NODE_ENV !== 'production' && {
-    async redirects() {
-      return [
-        {
-          source: '/zh',
-          destination: '/',
-          permanent: false,
-        },
-        {
-          source: '/zh/:path*',
-          destination: '/:path*',
-          permanent: false,
-        },
-      ]
-    },
-  }),
 }
 
-module.exports = withNextIntl(nextConfig); 
+module.exports = withNextIntl(nextConfig);

@@ -8,7 +8,7 @@ interface SmartBackgroundProps {
   maxCreatures?: number // 可配置的最大动物数量，默认7个
 }
 
-export function SmartBackground({ maxCreatures }: SmartBackgroundProps) {
+export function SmartBackground(_props: SmartBackgroundProps) {
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
 
@@ -16,7 +16,7 @@ export function SmartBackground({ maxCreatures }: SmartBackgroundProps) {
     setMounted(true)
   }, [])
   
-  // Only show animated background on home page (/ or /en)
+  // Only show the ambient background on localized home pages.
   const isHomePage = mounted && (() => {
     // Clean the pathname by removing trailing slashes
     const cleanPath = pathname.replace(/\/$/, '') || '/'
@@ -26,23 +26,20 @@ export function SmartBackground({ maxCreatures }: SmartBackgroundProps) {
 
     // Home page scenarios:
     // 1. Root: / -> segments: []
-    // 2. English locale: /en -> segments: ['en']
+    // 2. Localized home: /en or /zh -> one locale segment
 
     if (segments.length === 0) return true // Root path
-    if (segments.length === 1 && segments[0] === 'en') return true // English locale
+    if (segments.length === 1 && ['en', 'zh'].includes(segments[0])) return true
 
     return false
   })()
   
   if (isHomePage) {
-    return <AnimatedBackground maxCreatures={maxCreatures || 3} />
+    return <AnimatedBackground />
   }
   
   // For other pages, provide a clean background
   return (
-    <div className="fixed inset-0 -z-10 bg-background">
-      {/* Optional: Add a subtle gradient for non-home pages */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
-    </div>
+    <div className="fixed inset-0 -z-10 bg-white dark:bg-black" />
   )
 }

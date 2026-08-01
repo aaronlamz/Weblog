@@ -13,11 +13,36 @@
     "greeting": "Hi, I'm",
     "introduction": "a",
     "roles": {
-      "fullstack": "Full Stack Engineer",
-      "web": "Web Developer", 
-      "solver": "Problem Solver"
+      "explorer": "Curious Explorer",
+      "observer": "Observer",
+      "learner": "Lifelong Learner"
     },
     "description": "The unexamined life is not worth living."
+  },
+  "home": {
+    "headline": "Hello, I’m Aaron.",
+    "description": "Welcome to my corner of the web.",
+    "primaryAction": "Start reading",
+    "secondaryAction": "Meet Aaron",
+    "collection": {
+      "eyebrow": "Selected paths",
+      "title": "Take your time. Explore.",
+      "action": "View all stories"
+    },
+    "cards": {
+      "blog": {
+        "title": "Journal",
+        "description": "Recent writing on technology, AI, and the texture of everyday life."
+      },
+      "docs": {
+        "title": "Field Notes",
+        "description": "Focused notes and handbooks on investing, finance, and quantitative methods."
+      },
+      "about": {
+        "title": "About",
+        "description": "Working in the securities industry, writing about investing, technology, and life."
+      }
+    }
   },
   "skills": {
     "title": "Skills",
@@ -36,6 +61,9 @@
   },
   "posts": {
     "blog": "Blog",
+    "stories": "stories",
+    "topics": "topics",
+    "allStories": "All stories",
     "featured": "Featured Posts",
     "latest": "Latest Posts",
     "description": "Documenting thoughts and life fragments.",
@@ -48,6 +76,9 @@
     "monthlyArchive": "Monthly Archive",
     "popularTags": "Popular Tags",
     "clearFilters": "Clear Filters",
+    "postNavigation": "Post navigation",
+    "previousPost": "Previous",
+    "nextPost": "Next",
     "backToBlog": "Back to Blog"
   },
   "common": {
@@ -55,8 +86,7 @@
   },
   "footer": {
     "scrollToTop": "Scroll to top",
-    "copyright": "All rights reserved",
-    "builtWith": "Built with Claude Code"
+    "copyright": "All rights reserved"
   },
   "contact": {
     "title": "Contact Me",
@@ -94,10 +124,6 @@
       "wechat": {
         "name": "WeChat",
         "desc": "Add me or view my QR code"
-      },
-      "wechatOfficialAccount": {
-        "name": "WeChat Official Account",
-        "desc": "Follow my official account for latest content"
       }
     },
     "sendMessage": "Send a Message",
@@ -106,7 +132,8 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Full-stack Developer · Securities Professional · Life Chronicler",
+    "description": "Working in the securities industry, writing about investing, technology, and life.",
+    "location": "Kuala Lumpur, Malaysia",
     "intro": "I write code for a living, working in the securities industry. Outside of work, I like hitting the gym and getting outdoors.",
     "bio": "Thoughts, life moments, investment insights, and the occasional tech post.",
     "connectTitle": "Let's Connect",
@@ -115,12 +142,25 @@
   },
   "docs": {
     "title": "Docs Hub",
-    "description": "Tutorials, Booklets & Knowledge Sharing",
+    "description": "Practical handbooks organized by subject. Each starts with the essentials and builds a clear path toward deeper understanding.",
+    "categories": "handbooks",
+    "chapters": "chapters",
+    "handbook": "Handbook",
+    "contents": "Contents preview",
+    "collectionEyebrow": "All handbooks",
+    "collectionTitle": "Choose a subject to begin.",
+    "moreChapters": "{count} more chapters",
+    "chapterProgress": "Chapter {current} of {total}",
+    "readingTime": "{minutes} min read",
+    "chapterNavigation": "Chapter navigation",
+    "previousChapter": "Previous",
+    "nextChapter": "Next",
     "articles": "articles",
     "empty": "No docs yet. Check back soon!",
     "backToDocs": "Back to Docs"
   },
   "meta": {
-    "description": "Personal blog about coding, learning tech, and life moments"
+    "title": "Aaron — Notes & Ideas",
+    "description": "Personal notes on ideas, investing, finance, technology, and things learned along the way"
   }
 }

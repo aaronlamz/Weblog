@@ -32,7 +32,6 @@ export interface SiteConfig {
     linkedin?: string
     email?: string
     wechat?: string
-    wechatOfficialAccount?: string // 微信公众号，格式：名称（微信号）
   }
   
   // SEO配置
@@ -91,8 +90,8 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: 'Weblog',
-  title: 'Personal Blog & Portfolio',
-  description: 'A modern blog built with Next.js, TypeScript, and Tailwind CSS. Share your thoughts, tutorials, and projects with the world.',
+  title: 'Notes & Ideas',
+  description: 'Personal notes on ideas, investing, finance, technology, and things learned along the way.',
   // 站点基础 URL：支持 GitHub Pages 子路径 (BASE_PATH) 和自定义域
   // 例如：
   // - 自定义域 + 子路径: https://www.justexploring.fun/Weblog
@@ -105,8 +104,8 @@ export const siteConfig: SiteConfig = {
   
   // 国际化配置 - 可以在这里轻松切换默认语言
   i18n: {
-    defaultLocale: 'zh', // 修改这里可以切换默认语言：'zh' 或 'en'
-    locales: ['zh', 'en'], // 支持的语言列表
+    defaultLocale: 'en', // 英文为默认语言；中文使用 /zh 前缀
+    locales: ['en', 'zh'], // 英文优先；中文使用 /zh 前缀
     localeNames: {
       zh: '中文',
       en: 'English'
@@ -121,21 +120,20 @@ export const siteConfig: SiteConfig = {
     name: 'Aaron', // 用户需要修改
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
     avatar: 'https://github.com/aaronlamz.png', // 用户需要修改：可以是 GitHub 头像或其他图片链接
-    bio: 'Developer, writer, and tech enthusiast',
+    bio: 'Writing about ideas, markets, technology, and everyday life.',
   },
   
   social: {
-    github: 'https://github.com/aaronlamz/Weblog', // 用户需要修改
+    github: 'https://github.com/aaronlamz',
     twitter: 'https://x.com/aaronlamz', // 用户需要修改（与 X 同步）
     x: 'https://x.com/aaronlamz', // 可选：也可使用 twitter 字段
     email: 'aaronlamz2022@gmail.com', // 用户需要修改
     // linkedin: 'https://www.linkedin.com/in/your-id', // 可选
     // wechat: 'your-wechat-id-or-link', // 可选：可填写微信号或二维码链接
-    wechatOfficialAccount: '微信公众号：小林光合（gh_e55b5317b107）', // 微信公众号
   },
   
   seo: {
-    keywords: ['blog', 'nextjs', 'typescript', 'web development', 'programming'],
+    keywords: ['personal blog', 'investing', 'finance', 'quantitative finance', 'technology', 'notes'],
     twitterCard: 'summary_large_image',
   },
   
@@ -164,18 +162,18 @@ export const siteConfig: SiteConfig = {
   pages: {
     home: {
       hero: {
-        title: 'Welcome to My Blog',
-        description: 'I write about web development, technology, and share my journey as a developer. Explore my thoughts, tutorials, and projects.',
+        title: 'Hello, I’m Aaron.',
+        description: 'A personal space for notes, ideas, and things worth remembering.',
       },
     },
     about: {
       title: 'About Me',
       description: 'Learn more about me and this blog.',
       content: {
-        intro: 'Hi there! 👋 I\'m a developer who loves building things for the web. This little corner of the internet is where I share my thoughts, experiments, and learnings about technology and life.',
-        bio: 'I started this blog as a way to document my journey and connect with like-minded people. You\'ll find posts about web development, new technologies I\'m exploring, and occasionally some non-tech musings.',
-        currentWork: 'Currently, I\'m focused on modern web technologies - mainly React, TypeScript, and various frameworks that make building for the web more enjoyable. I love experimenting with new tools and sharing what I learn along the way.',
-        beyondCode: 'When I\'m not coding, I enjoy reading, exploring new places, and always learning something new. I believe the best ideas often come from outside our usual domains.',
+        intro: 'This is where I keep thoughts, observations, and lessons gathered from work and everyday life.',
+        bio: 'The writing spans markets, technology, personal interests, and whatever feels worth exploring.',
+        currentWork: 'I work in the securities industry and stay curious about markets, products, and new ideas.',
+        beyondCode: 'Outside work, I enjoy reading, training, exploring new places, and learning from unfamiliar fields.',
         connect: 'Feel free to reach out if you want to chat about anything you\'ve read here, collaborate on something interesting, or just say hi. I\'m always excited to meet new people and hear different perspectives.',
         quote: 'The best way to learn is to teach, and the best way to teach is to keep learning.',
       },

@@ -25,8 +25,8 @@ export async function generateMetadata({
 
   return {
     title: {
-      template: '%s | Aaron Lam',
-      default: 'Aaron Lam - Full Stack Developer',
+      template: '%s | Aaron',
+      default: t('title'),
     },
     description: t('description'),
   };

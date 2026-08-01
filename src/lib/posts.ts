@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { readingTime } from './reading-time'
-import { locales } from '@/i18n/config'
+import { defaultLocale, locales } from '@/i18n/config'
 import { buildLocalizedPath } from './i18n-utils'
 
 export interface Post {
@@ -26,7 +26,7 @@ export interface Post {
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
-export function getAllPosts(locale: string = 'zh'): Post[] {
+export function getAllPosts(locale: string = defaultLocale): Post[] {
   try {
     const localePostsDir = path.join(postsDirectory, locale)
     
@@ -73,7 +73,7 @@ export function getAllPosts(locale: string = 'zh'): Post[] {
   }
 }
 
-export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null {
+export function getPostBySlug(slug: string, locale: string = defaultLocale): Post | null {
   try {
     const localePostsDir = path.join(postsDirectory, locale)
     const fullPath = path.join(localePostsDir, `${slug}.mdx`)
@@ -101,4 +101,4 @@ export function getPostBySlug(slug: string, locale: string = 'zh'): Post | null 
     console.error(`Error reading post ${slug}:`, error)
     return null
   }
-} 
+}

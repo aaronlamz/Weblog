@@ -2,15 +2,15 @@
 
 import { useTheme } from 'next-themes'
 import Giscus from '@giscus/react'
-import { defaultLocale } from '@/i18n/config'
 
 export default function Comments({ locale }: { locale: string }) {
   const { theme } = useTheme()
+  const isChinese = locale.startsWith('zh')
   
   return (
     <div className="mt-16 pt-8 border-t border-border/30">
       <h3 className="text-xl font-semibold mb-6">
-        {locale === defaultLocale ? '评论' : 'Comments'}
+        {isChinese ? '评论' : 'Comments'}
       </h3>
       {/* power by https://giscus.app/zh-CN */}
       <Giscus
@@ -24,7 +24,7 @@ export default function Comments({ locale }: { locale: string }) {
         emitMetadata="0"
         inputPosition="top"
         theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
-        lang={locale === defaultLocale ? 'zh-CN' : 'en'}
+        lang={isChinese ? 'zh-CN' : 'en'}
         loading="lazy"
       />
     </div>

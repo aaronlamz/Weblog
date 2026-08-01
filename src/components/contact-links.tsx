@@ -3,7 +3,7 @@
 import { siteConfig } from '@/config/site.config'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { Github, Twitter, Linkedin, Mail, QrCode, ExternalLink, Copy, Check, Eye, MessageSquare } from 'lucide-react'
+import { Github, Twitter, Linkedin, Mail, QrCode, ExternalLink, Copy, Check, Eye } from 'lucide-react'
 
 type ContactItem = {
   name: string
@@ -74,14 +74,6 @@ export function ContactLinks() {
       copyValue: siteConfig.social.wechat,
       isImageLink: isImageUrl(siteConfig.social.wechat),
     },
-    {
-      name: 'WeChatOfficialAccount',
-      href: undefined,
-      icon: MessageSquare,
-      labelKey: 'wechatOfficialAccount.name',
-      external: false,
-      copyValue: siteConfig.social.wechatOfficialAccount,
-    },
   ]
 
   const items = itemsRaw.filter(item => {
@@ -97,8 +89,6 @@ export function ContactLinks() {
         return Boolean(siteConfig.social.linkedin)
       case 'WeChat':
         return Boolean(siteConfig.social.wechat)
-      case 'WeChatOfficialAccount':
-        return Boolean(siteConfig.social.wechatOfficialAccount)
       default:
         return false
     }
@@ -156,9 +146,7 @@ export function ContactLinks() {
                   </a>
                 ) : (
                   <span className="text-sm text-foreground/80 truncate block">
-                    {item.name === 'WeChatOfficialAccount' && siteConfig.social.wechatOfficialAccount
-                      ? siteConfig.social.wechatOfficialAccount
-                      : t(item.labelKey as any)}
+                    {t(item.labelKey as any)}
                   </span>
                 )}
               </div>
@@ -218,5 +206,4 @@ export function ContactLinks() {
 }
 
 export default ContactLinks
-
 

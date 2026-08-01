@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { readingTime } from './reading-time'
-import { locales } from '@/i18n/config'
+import { defaultLocale, locales } from '@/i18n/config'
 
 export interface DocMeta {
   slug: string
@@ -49,7 +49,7 @@ function parseCategoryMeta(categoryDir: string): { title: string; description: s
   return { title: path.basename(categoryDir), description: '', order: 99 }
 }
 
-export function getAllDocCategories(locale: string = 'zh'): DocCategory[] {
+export function getAllDocCategories(locale: string = defaultLocale): DocCategory[] {
   try {
     const localeDir = path.join(docsDirectory, locale)
     if (!fs.existsSync(localeDir)) return []
@@ -64,6 +64,9 @@ export function getAllDocCategories(locale: string = 'zh'): DocCategory[] {
       const meta = parseCategoryMeta(categoryDir)
 
       const docs = getDocsInCategory(locale, entry.name, meta)
+      // Keep unfinished/empty handbook directories out of the public library.
+      if (docs.length === 0) continue
+
       categories.push({
         slug: entry.name,
         title: meta.title,
@@ -109,7 +112,7 @@ function getDocsInCategory(locale: string, categorySlug: string, categoryMeta: {
   return docs.sort((a, b) => a.order - b.order)
 }
 
-export function getDocBySlug(slugParts: string[], locale: string = 'zh'): Doc | null {
+export function getDocBySlug(slugParts: string[], locale: string = defaultLocale): Doc | null {
   try {
     if (slugParts.length !== 2) return null
     const [category, docSlug] = slugParts
@@ -140,7 +143,7 @@ export function getDocBySlug(slugParts: string[], locale: string = 'zh'): Doc | 
   }
 }
 
-export function getAllDocSlugs(locale: string = 'zh'): string[][] {
+export function getAllDocSlugs(locale: string = defaultLocale): string[][] {
   const categories = getAllDocCategories(locale)
   const slugs: string[][] = []
   for (const cat of categories) {

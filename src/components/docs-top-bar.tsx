@@ -1,8 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowLeft, Home } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { LanguageSwitcher } from '@/components/language-switcher'
+import { siteConfig } from '@/config/site.config'
 
 interface DocsTopBarProps {
   backHref: string
@@ -12,30 +14,44 @@ interface DocsTopBarProps {
 
 export function DocsTopBar({ backHref, backLabel, homeHref }: DocsTopBarProps) {
   return (
-    <div className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
-        <div className="flex items-center justify-between h-12">
-          {/* Left: back */}
+    <header className="global-nav sticky top-0 z-50 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/70">
+      <div className="mx-auto flex h-14 max-w-[1300px] items-center justify-between px-5 sm:px-8">
+        <div className="flex min-w-0 items-center gap-3">
           <Link
-            href={backHref as any}
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            href={homeHref as any}
+            className="siri-logo shrink-0"
+            aria-label={siteConfig.author.name}
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>{backLabel}</span>
+            <span className="siri-logo-halo" aria-hidden="true" />
+            <span className="siri-logo-ring" aria-hidden="true" />
+            <span className="siri-logo-core">
+              {siteConfig.author.avatar ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={siteConfig.author.avatar}
+                  alt=""
+                  className="h-full w-full rounded-full object-cover"
+                />
+              ) : (
+                'A'
+              )}
+            </span>
           </Link>
 
-          {/* Right: home + theme */}
-          <div className="flex items-center gap-2">
-            <Link
-              href={homeHref as any}
-              className="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-            >
-              <Home className="w-4 h-4" />
-            </Link>
-            <ThemeToggle />
-          </div>
+          <Link
+            href={backHref as any}
+            className="group inline-flex h-9 min-w-0 items-center gap-2 rounded-full bg-foreground/[0.045] px-3 text-sm font-medium text-foreground/65 transition-colors hover:bg-foreground/[0.075] hover:text-foreground dark:bg-foreground/[0.08] dark:hover:bg-foreground/[0.12]"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0 transition-transform group-hover:-translate-x-0.5" strokeWidth={1.7} />
+            <span className="truncate">{backLabel}</span>
+          </Link>
+        </div>
+
+        <div className="flex shrink-0 items-center gap-0.5">
+          <LanguageSwitcher />
+          <ThemeToggle />
         </div>
       </div>
-    </div>
+    </header>
   )
 }

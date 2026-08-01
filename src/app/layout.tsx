@@ -15,10 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
+  title: siteConfig.title,
   description: siteConfig.description,
   icons: {
     icon: [
@@ -35,13 +32,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: `Aaron — ${siteConfig.title}`,
     description: siteConfig.description,
     images: siteConfig.seo.ogImage ? [{ url: siteConfig.seo.ogImage }] : undefined,
   },
   twitter: {
     card: siteConfig.seo.twitterCard,
-    title: siteConfig.name,
+    title: `Aaron — ${siteConfig.title}`,
     description: siteConfig.description,
     images: siteConfig.seo.ogImage ? [siteConfig.seo.ogImage] : undefined,
   },
@@ -77,4 +74,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}

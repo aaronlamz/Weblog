@@ -23,7 +23,7 @@ export function DynamicMain({
       isBlogPost ? "pb-8" :
       isHomePage ? "flex-1 flex items-center justify-center" :
       isDocDetail ? "pb-8" :
-      "pt-20 pb-8"
+      "pb-8"
     } ${className}`}>
       {children}
     </main>

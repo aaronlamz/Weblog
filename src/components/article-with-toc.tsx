@@ -23,7 +23,17 @@ function slugify(input: string): string {
     .replace(/\s+/g, '-')
 }
 
-export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' }: { content: string; hideToc?: boolean; tocPosition?: 'left' | 'right' }) {
+export function ArticleWithTOC({
+  content,
+  hideToc = false,
+  tocPosition = 'left',
+  variant = 'docs',
+}: {
+  content: string
+  hideToc?: boolean
+  tocPosition?: 'left' | 'right'
+  variant?: 'docs' | 'article'
+}) {
   const t = useTranslations('common')
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [toc, setToc] = useState<TocItem[]>([])
@@ -33,6 +43,8 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
   const mobileTriggerRef = useRef<HTMLButtonElement | null>(null)
   const mobileDrawerRef = useRef<HTMLDivElement | null>(null)
   const [showDesktopTop, setShowDesktopTop] = useState(false)
+  const hasSectionHeadings = /^\s{0,3}#{2,3}\s+\S/m.test(content)
+  const showTocLayout = !hideToc && hasSectionHeadings
 
   // Build TOC and ensure heading IDs
   useEffect(() => {
@@ -143,7 +155,7 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
   }, [isMobileTocOpen])
 
   return (
-    <div className="relative">
+    <div className={`relative ${variant === 'article' ? 'article-reader' : ''}`}>
       {/* Progress bar */}
       <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent">
         <div
@@ -152,15 +164,19 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
         />
       </div>
 
-      <div className={`mx-auto ${!hideToc
+      <div className={`mx-auto ${showTocLayout && variant === 'article' ? 'max-w-[980px]' : ''} ${showTocLayout
         ? tocPosition === 'left'
-          ? 'grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-0'
-          : 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-0'
-        : ''}`}>
+          ? variant === 'article'
+            ? 'grid grid-cols-1 lg:grid-cols-[180px_minmax(0,760px)] lg:gap-10'
+            : 'grid grid-cols-1 lg:grid-cols-[220px_minmax(0,720px)] lg:gap-12'
+          : variant === 'article'
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,760px)_180px] lg:gap-10'
+            : 'grid grid-cols-1 lg:grid-cols-[minmax(0,760px)_180px] lg:gap-10'
+        : 'max-w-[760px]'}`}>
         {/* TOC — 左侧 */}
-        {!hideToc && tocPosition === 'left' && (toc.length > 0 ? (
-          <aside className="hidden lg:block lg:border-r lg:border-border/50 lg:pr-6" aria-label="Table of contents">
-            <div className="sticky top-14 space-y-2">
+        {showTocLayout && tocPosition === 'left' && (toc.length > 0 ? (
+          <aside className={`hidden lg:block ${variant === 'article' ? '' : 'lg:border-r lg:border-border/50 lg:pr-6'}`} aria-label="Table of contents">
+            <div className={`sticky space-y-2 ${variant === 'article' ? 'top-24' : 'top-14'}`}>
               <div className="py-1">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</div>
                 <div className="h-px bg-border/60 mt-2" />
@@ -171,12 +187,14 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={handleClickToc(item.id)}
-                    className={`block py-1 transition-colors ${
-                      item.level === 3 ? 'pl-4 text-foreground/80' : 'pl-0'
+                    className={`block transition-colors ${variant === 'article' ? 'border-l py-1.5 text-xs leading-5' : 'py-1'} ${
+                      item.level === 3
+                        ? variant === 'article' ? 'pl-6' : 'pl-4 text-foreground/80'
+                        : variant === 'article' ? 'pl-3' : 'pl-0'
                     } ${
                       activeId === item.id
-                        ? 'text-primary font-medium'
-                        : 'text-foreground/70 hover:text-foreground'
+                        ? variant === 'article' ? 'border-primary text-foreground font-medium' : 'text-primary font-medium'
+                        : variant === 'article' ? 'border-foreground/10 text-muted-foreground hover:border-foreground/30 hover:text-foreground' : 'text-foreground/70 hover:text-foreground'
                     }`}
                   >
                     {item.text}
@@ -190,8 +208,8 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
         ))}
 
         {/* 内容 */}
-        <div className={!hideToc ? (tocPosition === 'left' ? 'lg:pl-8' : 'lg:pr-8') : ''}>
-          <div ref={contentRef} className="prose prose-gray dark:prose-invert max-w-none">
+        <div className={showTocLayout ? (tocPosition === 'left' ? (variant === 'article' ? '' : 'lg:pl-8') : '') : ''}>
+          <div ref={contentRef} className={`prose prose-gray dark:prose-invert max-w-none ${variant === 'article' ? 'article-prose' : 'docs-prose'}`}>
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[
@@ -199,6 +217,7 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
                 [rehypeAutolinkHeadings, { behavior: 'wrap' }]
               ]}
               components={{
+                h1: ({ children, ...props }: any) => variant === 'article' ? null : <h1 {...props}>{children}</h1>,
                 code: ({ node, inline, className, children, ...props }: any) => {
                   const match = /language-(\w+)/.exec(className || '')
                   const language = match ? match[1] : 'javascript'
@@ -218,25 +237,25 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
         </div>
 
         {/* TOC — 右侧 */}
-        {!hideToc && tocPosition === 'right' && toc.length > 0 && (
-          <aside className="hidden lg:block lg:border-l lg:border-border/50 lg:pl-6" aria-label="Table of contents">
-            <div className="sticky top-14 space-y-2">
+        {showTocLayout && tocPosition === 'right' && toc.length > 0 && (
+          <aside className="hidden lg:block" aria-label="Table of contents">
+            <div className={`sticky space-y-2 ${variant === 'article' ? 'top-24' : 'top-14'}`}>
               <div className="py-1">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground">{t('onThisPage')}</div>
-                <div className="h-px bg-border/60 mt-2" />
+                <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">{t('onThisPage')}</div>
+                <div className="mt-2 h-px bg-foreground/10" />
               </div>
-              <nav className="flex flex-col gap-1 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto pr-1" role="navigation">
+              <nav className="flex max-h-[calc(100vh-12rem)] flex-col gap-1 overflow-y-auto pr-1 text-xs" role="navigation">
                 {toc.map((item) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={handleClickToc(item.id)}
-                    className={`block py-1 transition-colors ${
-                      item.level === 3 ? 'pl-4 text-foreground/80' : 'pl-0'
+                    className={`block border-l py-1.5 leading-5 transition-colors ${
+                      item.level === 3 ? 'pl-6' : 'pl-3'
                     } ${
                       activeId === item.id
-                        ? 'text-primary font-medium'
-                        : 'text-foreground/70 hover:text-foreground'
+                        ? 'border-primary font-medium text-foreground'
+                        : 'border-foreground/10 text-muted-foreground hover:border-foreground/30 hover:text-foreground'
                     }`}
                   >
                     {item.text}
@@ -253,14 +272,14 @@ export function ArticleWithTOC({ content, hideToc = false, tocPosition = 'left' 
         <button
           ref={mobileTriggerRef}
           type="button"
-          className="lg:hidden fixed bottom-20 right-4 z-50 inline-flex items-center gap-2 rounded-full px-4 py-2 bg-background/80 backdrop-blur border border-border/60 shadow-lg hover:bg-background transition-colors"
+          className="fixed bottom-5 right-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/10 bg-background/90 shadow-lg backdrop-blur transition-colors hover:bg-muted lg:hidden"
           aria-haspopup="dialog"
           aria-expanded={isMobileTocOpen}
           aria-controls="mobile-toc"
           onClick={() => setIsMobileTocOpen(true)}
         >
           <List className="h-4 w-4" />
-          <span className="text-sm">{t('onThisPage')}</span>
+          <span className="sr-only">{t('onThisPage')}</span>
         </button>
       )}
 

@@ -164,18 +164,15 @@ export function Footer() {
       )}
 
       {/* 传统底部 - 版权信息 */}
-      <footer className="mt-auto border-t bg-background/50">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="text-sm text-muted-foreground">
+      <footer className="mt-auto border-t border-black/[0.06] bg-[#f5f5f7] dark:border-white/[0.08] dark:bg-[#1d1d1f]">
+        <div className="mx-auto max-w-5xl px-5 py-5 sm:px-8">
+          <div className="flex flex-col items-center gap-1.5 text-center sm:flex-row sm:justify-between">
+            <div className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} {siteConfig.name}. {t('copyright')}
-            </div>
-            <div className="text-xs text-muted-foreground/60">
-              {t('builtWith')}
             </div>
           </div>
         </div>
       </footer>
     </>
   )
-} 
+}

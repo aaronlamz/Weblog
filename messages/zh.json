@@ -13,11 +13,36 @@
     "greeting": "Hi, I'm",
     "introduction": "a",
     "roles": {
-      "fullstack": "Full Stack Engineer",
-      "web": "Web Developer", 
-      "solver": "Problem Solver"
+      "explorer": "保持好奇",
+      "observer": "观察生活",
+      "learner": "持续学习"
     },
     "description": "The unexamined life is not worth living."
+  },
+  "home": {
+    "headline": "Hello, I’m Aaron.",
+    "description": "欢迎来到我的小站。",
+    "primaryAction": "开始阅读",
+    "secondaryAction": "认识我",
+    "collection": {
+      "eyebrow": "精选入口",
+      "title": "在这里，慢慢探索。",
+      "action": "查看全部文章"
+    },
+    "cards": {
+      "blog": {
+        "title": "博客",
+        "description": "关于技术、AI 与生活的近期文章和随笔。"
+      },
+      "docs": {
+        "title": "知识库",
+        "description": "投资、金融与量化相关的专题笔记和手册。"
+      },
+      "about": {
+        "title": "关于我",
+        "description": "从事证券行业，记录投资、技术与生活。"
+      }
+    }
   },
   "skills": {
     "title": "技能",
@@ -36,6 +61,9 @@
   },
   "posts": {
     "blog": "博客",
+    "stories": "篇文章",
+    "topics": "个主题",
+    "allStories": "所有文章",
     "featured": "精选文章",
     "latest": "最新文章",
     "description": "记录一些想法和生活碎片",
@@ -48,6 +76,9 @@
     "monthlyArchive": "月份归档",
     "popularTags": "热门标签",
     "clearFilters": "清除筛选",
+    "postNavigation": "文章导航",
+    "previousPost": "上一篇",
+    "nextPost": "下一篇",
     "backToBlog": "返回博客"
   },
   "common": {
@@ -55,8 +86,7 @@
   },
   "footer": {
     "scrollToTop": "回到顶部",
-    "copyright": "版权所有",
-    "builtWith": "Built with Claude Code"
+    "copyright": "版权所有"
   },
   "contact": {
     "title": "联系我",
@@ -94,10 +124,6 @@
       "wechat": {
         "name": "微信",
         "desc": "添加我为好友或查看二维码"
-      },
-      "wechatOfficialAccount": {
-        "name": "微信公众号",
-        "desc": "关注我的公众号获取最新内容"
       }
     },
     "sendMessage": "发送消息",
@@ -106,7 +132,8 @@
   },
   "about": {
     "title": "关于我",
-    "description": "全栈开发者 · 证券从业者 · 生活记录者",
+    "description": "从事证券行业，记录投资、技术与生活。",
+    "location": "马来西亚吉隆坡",
     "intro": "写代码的，在证券行业搬砖。平时喜欢撸撸铁、玩玩户外。",
     "bio": "聊聊想法，记录生活，分享投资思考和技术心得。",
     "connectTitle": "联系我",
@@ -115,12 +142,25 @@
   },
   "docs": {
     "title": "文档中心",
-    "description": "教程、小册与知识分享",
+    "description": "平时学习和做项目时记下来的内容，按主题放在这里，方便以后查阅。",
+    "categories": "本手册",
+    "chapters": "篇章节",
+    "handbook": "手册",
+    "contents": "目录预览",
+    "collectionEyebrow": "全部手册",
+    "collectionTitle": "选择一个主题开始。",
+    "moreChapters": "另有 {count} 篇章节",
+    "chapterProgress": "第 {current} 章，共 {total} 章",
+    "readingTime": "阅读约 {minutes} 分钟",
+    "chapterNavigation": "章节导航",
+    "previousChapter": "上一章",
+    "nextChapter": "下一章",
     "articles": "篇",
     "empty": "暂无文档，敬请期待！",
     "backToDocs": "返回文档"
   },
   "meta": {
-    "description": "个人博客，写代码、学技术、记录生活"
+    "title": "Aaron — 思考与随笔",
+    "description": "记录思考与见闻，以及投资、金融和技术相关的专题笔记"
   }
 }

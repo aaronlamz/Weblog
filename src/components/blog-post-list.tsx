@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { ArrowUpRight } from 'lucide-react'
 import type { Post } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 import { useEffect, useRef, useState } from 'react'
@@ -12,39 +13,33 @@ export interface BlogPostListProps {
 }
 
 export function BlogPostList({ posts, batchSize }: BlogPostListProps) {
-  const tPosts = useTranslations('posts')
-  const BATCH_SIZE = Math.max(1, Math.min(batchSize ?? 8, 24))
-  const [hydrated, setHydrated] = useState(false)
-  const [visibleCount, setVisibleCount] = useState(Math.min(BATCH_SIZE, posts.length))
+  const t = useTranslations('posts')
+  const batch = Math.max(1, Math.min(batchSize ?? 8, 24))
+  const [visibleCount, setVisibleCount] = useState(Math.min(batch, posts.length))
   const sentinelRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setHydrated(true), 120)
-    return () => window.clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    if (!hydrated) return
     if (visibleCount >= posts.length) return
-    const el = sentinelRef.current
-    if (!el) return
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
         if (entry.isIntersecting) {
-          setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, posts.length))
+          setVisibleCount((current) => Math.min(current + batch, posts.length))
         }
-      })
-    }, { rootMargin: '300px 0px' })
+      },
+      { rootMargin: '300px 0px' },
+    )
 
-    observer.observe(el)
+    observer.observe(sentinel)
     return () => observer.disconnect()
-  }, [hydrated, visibleCount, posts.length])
+  }, [batch, posts.length, visibleCount])
 
   if (posts.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-muted-foreground">{tPosts('empty')}</p>
+      <div className="rounded-[2rem] border border-dashed border-foreground/15 py-20 text-center">
+        <p className="text-muted-foreground">{t('empty')}</p>
       </div>
     )
   }
@@ -52,68 +47,46 @@ export function BlogPostList({ posts, batchSize }: BlogPostListProps) {
   const visiblePosts = posts.slice(0, visibleCount)
 
   return (
-    <div className="space-y-3">
-      {!hydrated ? (
-        Array.from({ length: Math.min(BATCH_SIZE, posts.length || 4) }).map((_, idx) => (
-          <SkeletonRow key={`skeleton-${idx}`} />
-        ))
-      ) : (
-        <>
-          {visiblePosts.map((post) => (
-            <article key={post.slug}>
-              <Link href={post.url as any}>
-                <div className="group lg-card rounded-xl p-4 hover:scale-[0.999] active:scale-[0.997]">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3 min-w-0 flex-1">
-                      <h2 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">
-                        {post.title}
-                      </h2>
-                      {post.featured && (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium lg-tag text-primary shrink-0">
-                          {tPosts('featured')}
-                        </span>
-                      )}
-                    </div>
-                    <time 
-                      dateTime={post.date}
-                      className="text-sm text-muted-foreground shrink-0 ml-4 font-mono"
-                    >
-                      {formatDate(post.date, post.locale)}
-                    </time>
-                  </div>
-                </div>
-              </Link>
-            </article>
-          ))}
-
-          {visibleCount < posts.length && (
-            <>
-              {/* loading placeholder for the next batch */}
-              {Array.from({ length: Math.min(BATCH_SIZE, posts.length - visibleCount) }).map((_, idx) => (
-                <SkeletonRow key={`skeleton-next-${idx}`} />
-              ))}
-              <div ref={sentinelRef} />
-            </>
-          )}
-        </>
-      )}
+    <div className="divide-y divide-foreground/10 border-b border-foreground/10">
+      {visiblePosts.map((post) => (
+        <StoryRow key={post.slug} post={post} />
+      ))}
+      {visibleCount < posts.length && <div ref={sentinelRef} className="h-px" />}
     </div>
   )
 }
 
+function StoryRow({ post }: { post: Post }) {
+  const t = useTranslations('posts')
 
-function SkeletonRow() {
   return (
-    <div className="lg-card rounded-xl p-4 animate-pulse">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-3 min-w-0 flex-1">
-          <div className="h-4 w-48 bg-foreground/10 rounded-full" />
-          <div className="h-5 w-14 bg-foreground/8 rounded-full" />
+    <article>
+      <Link
+        href={post.url as any}
+        className="group grid gap-3 py-7 sm:grid-cols-[8.5rem_minmax(0,1fr)_1.5rem] sm:gap-6 sm:py-8"
+      >
+        <div className="flex items-center gap-2 text-xs text-muted-foreground sm:block">
+          <time dateTime={post.date} className="block">{formatDate(post.date, post.locale)}</time>
+          <span className="sm:hidden">·</span>
+          <span className="block sm:mt-2">{t('readingTime', { minutes: Math.ceil(post.readingTime.minutes) })}</span>
         </div>
-        <div className="h-3.5 w-28 bg-foreground/8 rounded-full ml-4" />
-      </div>
-    </div>
+
+        <div className="min-w-0">
+          <h2 className="text-balance text-xl font-semibold leading-7 tracking-[-0.025em] transition-colors group-hover:text-primary sm:text-2xl">
+            {post.title}
+          </h2>
+          {post.description && (
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">{post.description}</p>
+          )}
+          {post.tags.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground/65">
+              {post.tags.slice(0, 3).map((tag) => <span key={tag}>#{tag}</span>)}
+            </div>
+          )}
+        </div>
+
+        <ArrowUpRight className="hidden h-4 w-4 self-start text-muted-foreground/60 transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground sm:block" />
+      </Link>
+    </article>
   )
 }
-
-

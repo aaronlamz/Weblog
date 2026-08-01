@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { siteConfig } from '@/config/site.config'
 import { ContactLinks } from '@/components/contact-links'
-import Image from 'next/image'
+import { MapPin } from 'lucide-react'
 
 export async function generateMetadata({
   params,
@@ -19,11 +20,6 @@ export async function generateMetadata({
       description: t('description'),
       type: 'website',
     },
-    twitter: {
-      card: siteConfig.seo.twitterCard,
-      title: `${t('title')} | ${siteConfig.name}`,
-      description: t('description'),
-    },
   }
 }
 
@@ -36,56 +32,46 @@ export default async function AboutPage({
   const t = await getTranslations({ locale, namespace: 'about' })
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-2xl mx-auto space-y-5">
-
-        {/* ── 头像 ── */}
-        <div className="flex justify-center">
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full blur-2xl opacity-25 bg-gradient-to-br from-sky-400 via-blue-500 to-cyan-400 scale-150" />
-            <div
-              className="relative w-20 h-20 rounded-full overflow-hidden"
-              style={{
-                boxShadow: [
-                  'inset 0 1px 0 rgba(255,255,255,0.7)',
-                  '0 0 0 3px rgba(255,255,255,0.55)',
-                  '0 0 0 5px rgba(100,160,240,0.22)',
-                  '0 8px 28px rgba(56,130,246,0.30)',
-                ].join(', '),
-              }}
-            >
-              {siteConfig.author.avatar ? (
-                <Image
-                  src={siteConfig.author.avatar}
-                  alt={siteConfig.author.name}
-                  width={80}
-                  height={80}
-                  className="object-cover"
-                  priority
-                />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold">
-                  {siteConfig.author.name[0]}
-                </div>
-              )}
+    <div className="mx-auto max-w-5xl px-5 pb-14 pt-8 sm:px-8 sm:pt-10">
+      <header className="grid items-center gap-6 border-b border-black/[0.08] pb-8 dark:border-white/10 sm:grid-cols-[auto_1fr] sm:gap-8 sm:pb-9">
+        <div className="relative h-28 w-28 overflow-hidden rounded-[2rem] bg-[#f5f5f7] dark:bg-[#1d1d1f]">
+          {siteConfig.author.avatar ? (
+            <Image
+              src={siteConfig.author.avatar}
+              alt={siteConfig.author.name}
+              fill
+              sizes="112px"
+              className="object-cover"
+              priority
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-4xl font-semibold">
+              {siteConfig.author.name[0]}
             </div>
+          )}
+        </div>
+        <div>
+          <p className="text-sm font-medium text-muted-foreground">{t('title')}</p>
+          <h1 className="mt-2 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">{siteConfig.author.name}</h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">{t('description')}</p>
+          <div className="mt-3 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4 text-primary" strokeWidth={1.7} aria-hidden="true" />
+            <span>{t('location')}</span>
           </div>
         </div>
+      </header>
 
-        {/* ── 简介卡 ── */}
-        <div className="lg-card rounded-2xl p-6 space-y-3">
-          <p className="text-base leading-relaxed text-foreground">{t('intro')}</p>
-          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          <p className="text-base leading-relaxed text-muted-foreground">{t('bio')}</p>
-        </div>
+      <div className="grid gap-4 pt-8 md:grid-cols-[1.1fr_0.9fr]">
+        <section className="rounded-[1.75rem] bg-[#f5f5f7] p-7 dark:bg-[#1d1d1f] sm:p-9">
+          <p className="text-lg font-medium leading-8 text-foreground">{t('intro')}</p>
+          <p className="mt-5 text-base leading-7 text-muted-foreground">{t('bio')}</p>
+        </section>
 
-        {/* ── 联系方式卡 ── */}
-        <div className="lg-card rounded-2xl p-6 space-y-1">
-          <h2 className="text-base font-semibold mb-1">{t('connectTitle')}</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">{t('connect')}</p>
+        <section className="rounded-[1.75rem] bg-[#f5f5f7] p-7 dark:bg-[#1d1d1f] sm:p-9">
+          <h2 className="text-xl font-semibold tracking-[-0.02em]">{t('connectTitle')}</h2>
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">{t('connect')}</p>
           <ContactLinks />
-        </div>
-
+        </section>
       </div>
     </div>
   )

@@ -95,9 +95,9 @@ function CodeBlockInner({ language, code }: CodeBlockProps) {
   }, [cacheKey, language, code, themeName])
 
   return (
-    <div className="relative my-6 rounded-lg border border-border/20 overflow-hidden shadow-sm bg-background">
+    <div className="relative my-8 overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-sm">
       {/* 头部信息栏 */}
-      <div className="flex items-center justify-between px-4 py-2 bg-muted/20 border-b border-border/20">
+      <div className="flex items-center justify-between border-b border-foreground/[0.07] bg-muted/20 px-4 py-2.5">
         <span className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wide">
           {language}
         </span>
