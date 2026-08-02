@@ -1,173 +1,162 @@
-# 🚀 可配置的 Next.js 博客模版
+# Weblog
 
-选择语言： [English](README.md) | [简体中文](README.zh-CN.md)
+[访问网站](https://www.justexploring.fun/) · [English](README.md)
 
-基于 Next.js 15、TypeScript、Tailwind CSS 和 MDX 的现代博客模版。一次配置，专注写作，随处部署。
+一个用于整理长文、影像经历与专题手册的个人空间。基于 Next.js 15、TypeScript、Tailwind CSS、MDX 和 `next-intl` 构建。
 
-## ✨ 特性亮点
+## 现有内容
 
-- **单文件配置**：`src/config/site.config.ts`
-- **内置国际化**：可配置默认语言，默认中文（`/`）与英文（`/en`）
-- **MDX 内容**：`content/blog/<locale>/*.mdx`
-- **默认静态导出**：生产构建生成 `out/`，适合静态托管
-- **开箱即用**：RSS/Atom/JSON 订阅、暗黑模式、动画、阅读时长
+- **思考（Essays）**：使用 MDX 编写的双语长文，支持标签、阅读时长、前后篇导航与 Giscus 评论。
+- **Plog**：按日期整理的生活时间线。首页相册宫格会自动换图，详情页支持自动播放、图文说明、全屏沉浸模式和可选背景音乐。
+- **手册（Docs）**：按主题分类的双语小册，支持章节侧栏以及前后章导航。
+- **多语言**：英文是默认语言并位于根路径 `/`，中文位于 `/zh`。
+- **静态站点**：支持完整静态导出、RSS/Atom/JSON Feed、暗黑模式、响应式布局和 GitHub Pages 部署。
 
-## 🏗️ 目录结构
+## 项目结构
 
-```
-weblog/
+```text
+Weblog/
 ├── content/
-│   └── blog/
-│       ├── en/           # 英文文章
-│       └── zh/           # 中文文章
+│   ├── blog/
+│   │   ├── en/                 # 英文长文
+│   │   └── zh/                 # 中文长文
+│   └── docs/
+│       ├── en/<category>/      # 英文手册章节
+│       └── zh/<category>/      # 中文手册章节
+├── public/
+│   └── plog/                   # Plog 图片和已授权音乐
 ├── src/
-│   ├── app/              # 路由（App Router）
+│   ├── app/[locale]/           # App Router 页面
 │   ├── components/
 │   ├── config/
-│   │   └── site.config.ts
+│   │   ├── site.config.ts      # 网站、作者、语言、导航和 UI 配置
+│   │   └── plog.config.ts      # Plog、时间、幻灯片和音乐配置
 │   ├── i18n/
 │   └── lib/
-└── out/                  # 生产静态产物（执行 `pnpm build` 后）
+└── .github/workflows/
+    └── dual-deploy.yml         # 根域名与子路径双部署
 ```
 
-## ⚡ 快速开始
+## 本地开发
 
-1）使用本仓库作为模版（推荐）或直接 clone
-2）安装依赖
+需要 Node.js 18+ 和 pnpm。
 
 ```bash
 pnpm install
-```
-
-3）启动开发服务器
-
-```bash
 pnpm dev
 ```
 
-打开浏览器访问：http://localhost:3000
+打开 [http://localhost:3000](http://localhost:3000)。常用检查命令：
 
-## 🔧 基础配置
-
-编辑 `src/config/site.config.ts`：
-
-- **基础信息**：`name`、`title`、`description`
-- **站点 URL**：由环境变量 `NEXT_PUBLIC_SITE_URL` + `BASE_PATH` 组合
-- **作者信息**：`author.name`、`author.email`、`author.bio`
-- **社交链接**：`social.github`、`social.twitter`、`social.email`
-- **SEO**：`seo.keywords`、`seo.ogImage`、`seo.twitterCard`
-- **导航**：`nav.main`
-- **页面**：`pages.home`、`pages.about`
-
-国际化配置在 `src/config/site.config.ts`：
-
-- `locales`: `['zh', 'en']`（可配置顺序）
-- `defaultLocale`: `'zh'`（可配置：'zh' 或 'en'）
-- URL 风格：默认语言无前缀，第二语言有前缀
-- **自动部署**：GitHub Actions 自动使用你配置的默认语言
-
-## 🌍 写作与内容
-
-将 MDX 文件放到对应语言目录：
-
-```
-content/blog/en/hello-world.mdx
-content/blog/zh/hello-world.mdx
+```bash
+pnpm type-check
+pnpm build
+pnpm test
+pnpm test:e2e
 ```
 
-Frontmatter 示例：
+生产构建使用 Next.js 静态导出，结果写入 `out/`。
+
+## 网站配置
+
+主要配置位于 [`src/config/site.config.ts`](src/config/site.config.ts)：
+
+- 网站标题、描述、规范 URL 和自定义域名
+- 作者资料与社交链接
+- SEO 关键词和分享卡片
+- 主导航和 UI 选项
+- 支持的语言和默认语言
+
+当前语言配置为：
+
+```ts
+i18n: {
+  defaultLocale: 'en',
+  locales: ['en', 'zh'],
+}
+```
+
+默认语言不带路径前缀，中文页面统一使用 `/zh`。
+
+## 新增内容
+
+### 长文
+
+文章存放在 `content/blog/en` 和 `content/blog/zh`。如果提供两种语言，应使用相同文件名。
 
 ```mdx
 ---
-title: "你的第一篇文章"
-description: "用于 SEO 的简要摘要"
-date: "2024-01-15"
-published: true
+title: "文章标题"
+date: "2026-08-02"
+summary: "简短说明。"
+tags: ["笔记"]
 featured: false
-tags: ["nextjs", "react"]
+published: true
 ---
 
-# 你的第一篇文章
+正文写在这里。
 ```
 
-字段说明：`title`（必填）、`description`（必填）、`date`（YYYY-MM-DD）、`published`（默认 true）、`featured`（默认 false）、`tags`。
+`summary` 也可以替换为 `description`。设置 `published: false` 后，文章不会出现在公开列表和订阅源中。
 
-## 🔐 环境变量
+### 专题手册
 
-在项目根目录创建 `.env.local`：
+`content/docs/<locale>/` 下的每个目录代表一本手册：
+
+```text
+content/docs/zh/getting-started/
+├── _meta.json
+├── introduction.mdx
+└── setup.mdx
+```
+
+`_meta.json` 配置手册标题、说明、图标和排序；每个章节通过 Frontmatter 中的 `title`、`description` 和 `order` 排序。中英文应保持相同的目录及文件名，确保切换语言后仍然位于对应章节。
+
+### Plog 经历
+
+Plog 位于 [`src/config/plog.config.ts`](src/config/plog.config.ts)。一篇 Plog 代表一次完整经历，而不是一张照片。
+
+每篇内容包括：
+
+- 唯一的 `slug`
+- 中英文标题与说明
+- 用于时间线排序的 ISO 日期（`YYYY-MM-DD`）
+- 可选的中英文地点
+- 按顺序排列的照片、时刻、标题和说明
+- 可选的背景音乐预设
+
+图片放在 `public/plog/<entry-name>/`。Plog 首页会自动按年份整理并倒序排列；当一篇内容超过四张照片时，首页宫格会继续从整组照片中自动轮换。
+
+背景音乐存放在 `public/plog/music/`。新增或替换音乐时，需要同步更新 [`public/plog/music/LICENSE.md`](public/plog/music/LICENSE.md)，保留来源与授权信息。
+
+## 环境变量
+
+需要自定义本地地址或子路径时，在项目根目录创建 `.env.local`：
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 BASE_PATH=
 ```
 
-- GitHub Pages（仓库名 `Weblog`）示例：
+`BASE_PATH` 必须以 `/` 开头，并且不能带尾部斜杠。
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://<user>.github.io/Weblog
-BASE_PATH=/Weblog
-```
+## 订阅源
 
-- GitHub Pages（用户主页）示例：
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://<user>.github.io
-BASE_PATH=
-```
-
-注意事项：
-
-- `BASE_PATH` 需带前导斜杠（如 `/Weblog`），不要带尾斜杠。
-- 使用自定义域名时，请确保与 `NEXT_PUBLIC_SITE_URL` 保持一致。
-
-## 🛠️ 常用脚本
-
-```bash
-pnpm dev          # 启动开发服务器
-pnpm build        # 生产构建（静态导出 → ./out）
-pnpm lint         # 代码检查
-pnpm format       # 代码格式化
-```
-
-## 📡 订阅与 RSS
-
-系统会基于英文文章生成订阅源：
+已发布文章会生成：
 
 - `/rss.xml`
 - `/rss.json`
 - `/atom.xml`
 
-请在 `site.config.ts` 设置 `author` 与 `seo.ogImage` 以确保订阅信息正确。
+## 部署
 
-## 🚀 部署
+推送到 `main` 会触发 [`.github/workflows/dual-deploy.yml`](.github/workflows/dual-deploy.yml)，分别生成并发布两个静态版本：
 
-本模版生产环境默认采用静态导出。执行 `pnpm build` 后，把 `out/` 目录部署到任意静态托管平台即可。
+1. 子路径版本：`https://aaronlamz.github.io/Weblog/`
+2. 根路径版本：`https://www.justexploring.fun/`，发布到 `aaronlamz/aaronlamz.github.io`
 
-### 部署选项：
-- **Vercel**：导入仓库 → 构建命令 `pnpm build` → 输出目录 `out/`（自动识别）
-- **Netlify**：构建命令 `pnpm build` → 发布目录 `out/`
-- **GitHub Pages**：内置工作流自动处理部署
+根路径部署依赖仓库 Secret `PERSONAL_ACCESS_TOKEN`。工作流会读取 `site.config.ts` 中的自定义域名和默认语言配置。
 
-### GitHub Pages 配置：
-内置的 `.github/workflows/deploy.yml` 自动：
-1. 从 `site.config.ts` 读取你的 `defaultLocale` 配置
-2. 将默认语言内容放置在根路径（`/`）
-3. 处理子路径部署的 `BASE_PATH` 配置
+## 协议
 
-**无需手动配置** - 只需推送到 main 分支！
-
-常见问题：
-- 链接 404 → 检查环境变量中的 `BASE_PATH`
-- 默认语言错误 → 检查 `site.config.ts` 中的 `defaultLocale`
-- 404 错误 → 确保两种语言的内容都存在
-
-## 📖 更多文档
-
-详见 [CONFIG.md](CONFIG.md) 获取更深入的自定义说明。
-
-## 🤝 贡献与协议
-
-欢迎贡献。遵循 MIT 协议。
-
-— 祝写作愉快！
-
+源代码遵循 MIT 协议。第三方媒体继续遵循各自授权，具体来源记录在对应资源目录中。
