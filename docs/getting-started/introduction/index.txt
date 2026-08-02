@@ -1,0 +1,257 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-1baa80b287344c50.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/aa821329c4e1c0c2.css","style"]
+:HL["/Weblog/_next/static/css/0fcc8de1b5d61491.css","style"]
+0:{"P":null,"b":"pM_Vjzl6IhMxUhq8Kgbo5","p":"/Weblog","c":["","en","docs","getting-started","introduction",""],"i":false,"f":[[["",{"children":[["locale","en","d"],{"children":["docs",{"children":[["slug","getting-started/introduction","c"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/aa821329c4e1c0c2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/Weblog/_next/static/css/0fcc8de1b5d61491.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","en","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["docs",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","getting-started/introduction","c"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","8uw-8cEfqlWm53ED8yB3fv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[59417,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","3128","static/chunks/3128-cd47855fb669bae6.js","3766","static/chunks/3766-f36e0ec37a9701a2.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-293dbf30c9a66cb8.js"],"DocsTopBar"]
+15:I[46288,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","3128","static/chunks/3128-cd47855fb669bae6.js","3766","static/chunks/3766-f36e0ec37a9701a2.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-293dbf30c9a66cb8.js"],"DocsSidebar"]
+16:I[15646,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","3128","static/chunks/3128-cd47855fb669bae6.js","3766","static/chunks/3766-f36e0ec37a9701a2.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-293dbf30c9a66cb8.js"],"default"]
+18:I[78079,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","3128","static/chunks/3128-cd47855fb669bae6.js","3766","static/chunks/3766-f36e0ec37a9701a2.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-293dbf30c9a66cb8.js"],""]
+19:I[67795,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","3128","static/chunks/3128-cd47855fb669bae6.js","3766","static/chunks/3766-f36e0ec37a9701a2.js","5779","static/chunks/app/%5Blocale%5D/docs/%5B...slug%5D/page-293dbf30c9a66cb8.js"],"default"]
+17:T130e,
+## Welcome
+
+Weblog is a modern blog system built with Next.js, featuring MDX content, internationalization, dark mode, documentation center, and more.
+
+Check out the live demo: [aaronlamz.github.io/Weblog](https://aaronlamz.github.io/Weblog/)
+
+### Key Features
+
+- Clean, modern design
+- Dark/light theme support
+- Chinese and English bilingual support
+- Responsive layout
+- Glassmorphism navigation effects
+- Blog system with tags and archives
+- Documentation center with category organization and sidebar navigation
+
+## Tech Stack
+
+- **Next.js 15** — Full-stack React framework
+- **TypeScript** — Type safety
+- **Tailwind CSS** — Styling solution
+- **MDX** — Markdown + JSX content format
+- **next-intl** — Internationalization support
+
+## Prerequisites
+
+Make sure you have the following tools installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (v8 or higher)
+- [Git](https://git-scm.com/)
+
+## Quick Start
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/aaronlamz/Weblog.git
+cd Weblog
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Start the development server:
+
+```bash
+pnpm dev
+```
+
+Your site should now be running at `http://localhost:3000`!
+
+## Configuration
+
+### Basic Site Configuration
+
+The main configuration file is located at `src/config/site.config.ts`:
+
+```typescript
+export const siteConfig = {
+  name: 'Your Site Name',
+  title: 'Your Site Title',
+  description: 'Your site description',
+
+  author: {
+    name: 'Your Name',
+    email: 'your.email@example.com',
+    avatar: 'https://github.com/yourusername.png',
+    bio: 'Your bio',
+  },
+
+  social: {
+    github: 'https://github.com/yourusername',
+    twitter: 'https://twitter.com/yourusername',
+    email: 'your.email@example.com',
+  }
+}
+```
+
+### Setting Up Giscus Comments
+
+Weblog uses [Giscus](https://giscus.app) as its comment system, powered by GitHub Discussions:
+
+1. Make sure your repository is public
+2. Enable GitHub Discussions: Repository Settings → Features → Check Discussions
+3. Install the [Giscus GitHub App](https://github.com/apps/giscus) for your repository
+4. Visit [giscus.app](https://giscus.app), enter your repository info, and copy the generated config
+5. Update the Giscus config in `src/components/comments.tsx`:
+
+```typescript
+<Giscus
+  repo="yourusername/reponame"
+  repoId="your-repo-id"
+  category="Announcements"
+  categoryId="category-id"
+  mapping="pathname"
+  theme={theme === 'dark' ? 'dark_dimmed' : 'light'}
+  lang={locale === 'zh' ? 'zh-CN' : 'en'}
+/>
+```
+
+### Internationalization
+
+Weblog supports Chinese and English by default. Translation files are located at:
+
+- `messages/en.json` — English translations
+- `messages/zh.json` — Chinese translations
+
+Using translations in components:
+
+```typescript
+const t = useTranslations('namespace')
+// ...
+<div>{t('key')}</div>
+```
+
+### Writing Blog Posts
+
+Blog posts use MDX format and are stored in:
+
+- `content/blog/en/` — English posts
+- `content/blog/zh/` — Chinese posts
+
+Each post requires frontmatter:
+
+```mdx
+---
+title: "Post Title"
+description: "A short description"
+date: "2024-03-20"
+featured: false
+tags: ["tag1", "tag2"]
+---
+
+Your post content...
+```
+
+### Writing Documentation
+
+Documentation uses MDX format, organized by category under `content/docs/`:
+
+```
+content/docs/
+└── en/
+    └── category-slug/
+        ├── _meta.json        # Category metadata
+        ├── article-slug.mdx  # Document file
+        └── ...
+```
+
+Each category needs a `_meta.json` file:
+
+```json
+{
+  "title": "Category Title",
+  "description": "Category description",
+  "icon": "BookOpen",
+  "order": 1
+}
+```
+
+Document frontmatter:
+
+```mdx
+---
+title: "Document Title"
+description: "Document description"
+order: 1
+---
+```
+
+## Deployment
+
+### GitHub Pages
+
+1. GitHub Actions workflows are already configured in `.github/workflows/`
+2. Enable GitHub Pages in repository settings, set source to "GitHub Actions"
+3. Push your code to deploy automatically:
+
+```bash
+git add .
+git commit -m "configure deployment"
+git push
+```
+
+### Custom Domain
+
+Set `customDomain` in `src/config/site.config.ts` to auto-generate a CNAME file during deployment:
+
+```typescript
+customDomain: 'www.yourdomain.com',
+```
+
+## Customization
+
+### Styling
+
+Weblog uses Tailwind CSS. Key config files:
+
+- `tailwind.config.ts` — Tailwind configuration
+- `src/styles/globals.css` — Global styles
+
+### Components
+
+Key components you may want to customize:
+
+- `src/components/header.tsx` — Navigation and site header
+- `src/components/footer.tsx` — Site footer
+- `src/components/theme-toggle.tsx` — Dark/light mode toggle
+- `src/components/language-switcher.tsx` — Language switcher
+
+## Need Help?
+
+If you run into issues:
+
+- Check [GitHub Issues](https://github.com/aaronlamz/Weblog/issues)
+- Create a new issue if you can't find a solution
+6:[["$","$L14",null,{"backHref":"/docs","backLabel":"Back to Docs","homeHref":"/"}],["$","div",null,{"className":"mx-auto max-w-[1300px] px-5 pb-12 pt-5 sm:px-8 sm:pt-6","children":["$","div",null,{"className":"grid grid-cols-1 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-10","children":[["$","aside",null,{"className":"hidden lg:block","children":["$","div",null,{"className":"sticky top-24","children":["$","$L15",null,{"categories":[{"slug":"getting-started","title":"Getting Started","description":"Set up and use this blog system from scratch","icon":"BookOpen","order":1,"docs":[{"slug":"getting-started/introduction","title":"Weblog Setup Guide","description":"Set up and configure your own Weblog blog system from scratch","order":1,"category":"getting-started","categoryTitle":"Getting Started","categoryOrder":1,"categoryIcon":"BookOpen"},{"slug":"getting-started/setup","title":"Setup & Configuration","description":"How to run and deploy the blog locally","order":2,"category":"getting-started","categoryTitle":"Getting Started","categoryOrder":1,"categoryIcon":"BookOpen"}]}]}]}]}],["$","article",null,{"className":"min-w-0","children":[["$","header",null,{"className":"grid lg:grid-cols-[minmax(0,760px)_180px] lg:gap-10 border-b border-foreground/[0.08] pb-6 lg:pb-7","children":["$","div",null,{"children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2 text-[11px] font-medium text-muted-foreground sm:text-xs","children":[["$","span",null,{"className":"uppercase tracking-[0.15em] text-primary","children":"Getting Started"}],["$","span",null,{"className":"h-1 w-1 rounded-full bg-foreground/20"}],["$","span",null,{"children":"Chapter 1 of 2"}],["$","span",null,{"className":"h-1 w-1 rounded-full bg-foreground/20"}],["$","span",null,{"className":"inline-flex items-center gap-1.5","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock3 h-3.5 w-3.5","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","polyline","1aq6pp",{"points":"12 6 12 12 16.5 12"}],"$undefined"]}],"3 min read"]}]]}],["$","h1",null,{"className":"text-balance text-[2rem] font-semibold leading-[1.14] tracking-[-0.035em] sm:text-[2.6rem]","children":"Weblog Setup Guide"}],["$","p",null,{"className":"mt-3 max-w-[720px] text-base leading-7 text-foreground/60 sm:text-[1.0625rem]","children":"Set up and configure your own Weblog blog system from scratch"}]]}]}],["$","div",null,{"className":"pt-6","children":["$","$L16",null,{"content":"$17","tocPosition":"right"}]}],["$","nav",null,{"className":"grid lg:grid-cols-[minmax(0,760px)_180px] lg:gap-10 gap-3 border-t border-foreground/[0.08] pt-6","aria-label":"Chapter navigation","children":["$","div",null,{"className":"grid gap-3 sm:grid-cols-2","children":[null,["$","$L18",null,{"href":"/docs/getting-started/setup","className":"group rounded-2xl border border-foreground/[0.09] p-4 text-right transition-colors hover:bg-foreground/[0.035] sm:col-start-2","children":[["$","span",null,{"className":"flex items-center justify-end gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground","children":["Next",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-right h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5","children":[["$","path","1ays0h",{"d":"M5 12h14"}],["$","path","xquz4c",{"d":"m12 5 7 7-7 7"}],"$undefined"]}]]}],["$","span",null,{"className":"mt-2 block text-sm font-medium leading-5 text-foreground","children":"Setup & Configuration"}]]}]]}]}],["$","div",null,{"className":"grid lg:grid-cols-[minmax(0,760px)_180px] lg:gap-10","children":["$","div",null,{"children":["$","$L19",null,{"locale":"en"}]}]}]]}]]}]}]]
+1a:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"default"]
+1b:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"HtmlLangSetter"]
+1c:I[33935,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"SmartBackground"]
+1d:I[79285,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"Header"]
+1e:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"DynamicMain"]
+1f:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"PageTransition"]
+20:I[65055,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"Footer"]
+5:["$","$L1a",null,{"formats":"$undefined","locale":"en","messages":{"site":{"name":"Weblog"},"navigation":{"home":"Home","blog":"Essays","plog":"Plog","docs":"Docs","about":"About","back":"Back"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"explorer":"Curious Explorer","observer":"Observer","learner":"Lifelong Learner"},"description":"The unexamined life is not worth living."},"home":{"headline":"Hello, I’m Aaron.","description":"Welcome to my corner of the web.","primaryAction":"Start reading","secondaryAction":"Meet Aaron","collection":{"eyebrow":"Selected paths","title":"Take your time. Explore.","action":"View all stories"},"cards":{"blog":{"title":"Journal","description":"Recent writing on technology, AI, and the texture of everyday life."},"docs":{"title":"Field Notes","description":"Focused notes and handbooks on investing, finance, and quantitative methods."},"about":{"title":"About","description":"Working in the securities industry, writing about investing, technology, and life."}}},"skills":{"title":"Skills","frontend":"Frontend Development","mobile":"Mobile Development","beyond":"Beyond Code"},"skillsDesc":{"frontend":"Modern web technologies","design":"UI/UX and visual design","mobile":"iOS/Android with React Native and PWA","beyond":"Reading, thinking, and capturing life's beautiful moments"},"tech":{"title":"Tech Stack"},"posts":{"blog":"Essays","stories":"essays","topics":"topics","allStories":"All essays","featured":"Featured Posts","latest":"Latest Posts","description":"Long-form notes and ideas worth revisiting.","readMore":"Read More","publishedOn":"Published on","readingTime":"{minutes} min read","empty":"No posts yet. Check back soon!","tags":"Tags","archive":"Archive","monthlyArchive":"Monthly Archive","popularTags":"Popular Tags","clearFilters":"Clear Filters","postNavigation":"Post navigation","previousPost":"Previous","nextPost":"Next","backToBlog":"Back to Essays"},"common":{"onThisPage":"On this page"},"plog":{"title":"Plog","description":"Days, places, and moments I want to remember.","entries":"entries","photos":"photos","photoCount":"{count, plural, one {# photo} other {# photos}}","entryCount":"{count, plural, one {# story} other {# stories}}","allEntries":"All Plog entries","backToPlog":"Back to Plog","previousPhoto":"Previous moment","nextPhoto":"Next moment","timeline":"Story timeline","play":"Play story","pause":"Pause story","enterSlideshow":"Enter slideshow","exitSlideshow":"Exit slideshow","playMusic":"Play background music","pauseMusic":"Pause background music","nextMusic":"Play next track"},"footer":{"scrollToTop":"Scroll to top","copyright":"All rights reserved"},"contact":{"title":"Contact Me","getInTouch":"Get In Touch","subtitle":"I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out.","name":"Name","email":"Email","subject":"Subject","message":"Message","send":"Send","sending":"Sending...","success":"Message sent successfully!","error":"Failed to send, please try again","methods":{"email":{"name":"Email","desc":"Send me an email for work inquiries or collaboration"},"github":{"name":"GitHub","desc":"Check out my code and projects"},"twitter":{"name":"Twitter","desc":"Follow me for updates and tech discussions"},"linkedin":{"name":"LinkedIn","desc":"View my professional profile and network"},"x":{"name":"X","desc":"Get my latest updates and tech shares"},"wechat":{"name":"WeChat","desc":"Add me or view my QR code"}},"sendMessage":"Send a Message","responseTime":"Response Time","responseTip":"I typically respond to emails within 24-48 hours. Looking forward to connecting with you!"},"about":{"title":"About Me","description":"Working in the securities industry, writing about investing, technology, and life.","location":"Kuala Lumpur, Malaysia","intro":"I write code for a living, working in the securities industry. Outside of work, I like hitting the gym and getting outdoors.","bio":"Thoughts, life moments, investment insights, and the occasional tech post.","connectTitle":"Let's Connect","connect":"Investing, tech, or just life — always happy to chat.","quote":"The Great Way is simple."},"docs":{"title":"Docs Hub","description":"Practical handbooks organized by subject. Each starts with the essentials and builds a clear path toward deeper understanding.","categories":"handbooks","chapters":"chapters","handbook":"Handbook","contents":"Contents preview","collectionEyebrow":"All handbooks","collectionTitle":"Choose a subject to begin.","moreChapters":"{count} more chapters","chapterProgress":"Chapter {current} of {total}","readingTime":"{minutes} min read","chapterNavigation":"Chapter navigation","previousChapter":"Previous","nextChapter":"Next","articles":"articles","empty":"No docs yet. Check back soon!","backToDocs":"Back to Docs"},"meta":{"title":"Aaron — Notes & Ideas","description":"Personal notes on ideas, investing, finance, technology, and things learned along the way"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L1b",null,{"locale":"en"}],["$","$L1c",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L1d",null,{}],["$","$L1e",null,{"className":"flex-1","children":["$","$L1f",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L20",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"Weblog Setup Guide | Aaron"}],["$","meta","1",{"name":"description","content":"Set up and configure your own Weblog blog system from scratch"}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"personal blog,investing,finance,quantitative finance,technology,notes"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"Weblog Setup Guide | Getting Started"}],["$","meta","8",{"property":"og:description","content":"Set up and configure your own Weblog blog system from scratch"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Aaron — Notes & Ideas"}],["$","meta","12",{"name":"twitter:description","content":"Personal notes on ideas, investing, finance, technology, and things learned along the way."}],["$","link","13",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","14",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","15",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}

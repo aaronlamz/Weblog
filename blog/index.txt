@@ -1,0 +1,116 @@
+1:"$Sreact.fragment"
+2:I[87157,["7177","static/chunks/app/layout-1baa80b287344c50.js"],"ThemeProvider"]
+3:I[91850,[],""]
+4:I[1640,[],""]
+7:I[89762,[],"OutletBoundary"]
+a:I[77874,[],"AsyncMetadataOutlet"]
+c:I[89762,[],"ViewportBoundary"]
+e:I[89762,[],"MetadataBoundary"]
+10:I[10157,[],""]
+:HL["/Weblog/_next/static/media/bb3ef058b751a6ad-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Weblog/_next/static/css/aa821329c4e1c0c2.css","style"]
+:HL["/Weblog/_next/static/css/0fcc8de1b5d61491.css","style"]
+0:{"P":null,"b":"pM_Vjzl6IhMxUhq8Kgbo5","p":"/Weblog","c":["","en","blog",""],"i":false,"f":[[["",{"children":[["locale","en","d"],{"children":["blog",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Weblog/_next/static/css/aa821329c4e1c0c2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/Weblog/_next/static/css/0fcc8de1b5d61491.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_b6ac51 __variable_c81db4 font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["locale","en","d"],["$","$1","c",{"children":[null,"$L5"]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8","$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","HJlOJh26Bam3c17wzJGjnv",{"children":[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Le",null,{"children":"$Lf"}]]}],false]],"m":"$undefined","G":["$10","$undefined"],"s":false,"S":true}
+11:"$Sreact.suspense"
+12:I[77874,[],"AsyncMetadata"]
+f:["$","div",null,{"hidden":true,"children":["$","$11",null,{"fallback":null,"children":["$","$L12",null,{"promise":"$@13"}]}]}]
+9:null
+14:I[11850,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","7454","static/chunks/app/%5Blocale%5D/blog/page-434ca86484a2ec8b.js"],"BlogPostList"]
+15:T10f2,
+> Time really does fly. Another year has passed, and it feels like the right moment to sum up a pretty ordinary one.
+
+---
+
+## 💻 Work
+
+Twelve years into my career. Nothing dramatic—somewhere in the middle, as they say.
+
+- **What I did this year**: Kept doing Web development as usual. I’m more open-minded about work now: less obsessed with grinding, more willing to try new things when they show up. Prefer a real work–life balance and not pushing myself too hard.
+- **Technical growth**: Started using AI tools like **Cursor** and **Claude Code**, and got a taste of **Vibe Coding**. Writing code has shifted toward designing products with AI; efficiency has clearly gone up.
+- **Vibe Coding**: AI is changing how we program. Using it made me see how powerful vibe coding can be. For straightforward tasks it can break down knowledge barriers and feel like a real “dimension drop.” That’s both risk and opportunity—only way through is to keep learning and grab the chance (classic “always hustling” mindset 😂).
+- **Side gigs & side projects**: Tried some freelance and personal projects this year. Realized my time management still isn’t good enough; I need to plan better and get more done in less time.
+
+---
+
+## 🏠 Daily Life
+
+### Routine
+
+- **Sleep & health**: Having a 🐱 has helped—I’ve been going to bed and waking up earlier, so my schedule is more regular. As long as work from the night before doesn’t spill over 😅.
+
+### Hobbies
+
+- **Reading**: Still mostly technical books. I’d like to step away from work reading more and pick up other genres to broaden the view.
+- **Fitness**: I’ve been casually working out for years with no big results—more for general wellness. Next year I might plan diet a bit more and aim for a more standard shape.
+
+---
+
+## ✈️ Travel
+
+### Places I went
+
+I traveled a bit more than in past years. Sticking to the “at least one trip a year” rule—life’s for experiencing.
+
+1. **Altay road trip** — Scenery was great. Last day we got stuck in heavy snow on the road and sat in traffic till dawn. Unforgettable in its own way.
+2. **Bangkok** — First time in Bangkok. Lots of eating and wandering; international vibe was nice.
+3. **Tibet, Ngari (Ali) road trip** — As a Guangdong native, first time seeing thick snowfall. Every day was another “co” (lake), very photogenic. I had altitude sickness and threw up on day one, but the trip was still worth it.
+
+### Takeaway
+
+Getting out more, feeling different cultures and landscapes, does open your eyes.
+
+---
+
+## ❤️ Relationships
+
+Not much to say here. I try to be kind and care more about family. With friends I’m working on better communication and expression. More socializing, more going out, meeting more people, trying more new things.
+
+---
+
+## 🎯 New Experiences
+
+### Sports
+
+- **Skiing** 🎿 — First time ever. Alpine (two skis) was easier to start; snowboard was a lot harder. Planning to keep at it next year.
+- **Badminton** 🏸 — Joined the company badminton group for the first time this year. Good experience; played a couple of matches.
+
+---
+
+## 💰 Investing & Money
+
+- **How it went**: Overall not great—some wins, some losses, net negative, but almost back to even.
+- **Lessons**: If you don’t understand it, don’t invest. A lot of it is luck anyway; you won’t get rich from it. Better to spend time on things that add more value.
+- **Going forward**: Pay more attention to US stock ETFs and keep building basic financial literacy.
+
+---
+
+## 🌟 Turning 35
+
+I turned 35 in 2025. Honestly it didn’t feel like a big shift—no “I must set big goals” anxiety like at 30. Accepting that ordinary is the norm. Still, it’s a good time to look at my life again and plan the next chapter.
+
+---
+
+## Closing
+
+Looking back at 2025: new experiences with AI and this blog, slowing down and simplifying in daily life, more travel and relationships and trying new sports. Investing was rough but the lessons were real. At 35 I’ve looked at my life a bit more clearly and have a better sense of what matters. Nothing spectacular, but every step was still growth.
+
+**Here’s to becoming a slightly better version of ourselves on the way.** 🚀
+
+---
+Took me a while to finish this—time to start the next leg of the journey.
+
+*Last updated: 2026-03-07*
+6:["$","div",null,{"className":"container mx-auto px-5 pb-10 pt-6 sm:px-8 sm:pb-12 sm:pt-7","children":["$","div",null,{"className":"mx-auto max-w-6xl","children":[["$","header",null,{"className":"border-b border-foreground/10 pb-8 pt-2 sm:pb-9 sm:pt-3","children":["$","div",null,{"className":"grid items-end gap-10 lg:grid-cols-[1fr_auto]","children":[["$","div",null,{"className":"max-w-3xl","children":["$","div",null,{"className":"flex items-center gap-2 text-sm font-semibold text-muted-foreground","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-book-marked h-4 w-4","children":[["$","path","sqw3rj",{"d":"M10 2v8l3-3 3 3V2"}],["$","path","k3hazp",{"d":"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"}],"$undefined"]}],["$","h1",null,{"children":"Essays"}]]}]}],["$","dl",null,{"className":"grid grid-cols-2 gap-8 sm:gap-12","children":[["$","div",null,{"children":[["$","dd",null,{"className":"text-3xl font-semibold tracking-[-0.04em] sm:text-4xl","children":2}],["$","dt",null,{"className":"mt-1 text-xs text-muted-foreground","children":"essays"}]]}],["$","div",null,{"children":[["$","dd",null,{"className":"text-3xl font-semibold tracking-[-0.04em] sm:text-4xl","children":4}],["$","dt",null,{"className":"mt-1 text-xs text-muted-foreground","children":"topics"}]]}]]}]]}]}],["$","section",null,{"aria-label":"All essays","children":["$","$11",null,{"fallback":["$","div",null,{"className":"divide-y divide-foreground/10 animate-pulse","children":[["$","div","0",{"className":"h-40 py-7","children":["$","div",null,{"className":"h-full rounded-xl bg-foreground/[0.04]"}]}],["$","div","1",{"className":"h-40 py-7","children":["$","div",null,{"className":"h-full rounded-xl bg-foreground/[0.04]"}]}],["$","div","2",{"className":"h-40 py-7","children":["$","div",null,{"className":"h-full rounded-xl bg-foreground/[0.04]"}]}]]}],"children":["$","$L14",null,{"posts":[{"slug":"2025-annual-review","title":"2025 Year in Review","description":"A look back at work and life in 2025—the growth, the lessons, and what matters.","date":"2026-01-12","published":true,"featured":false,"tags":["Year in Review"],"author":"Aaron Lam","content":"$15","readingTime":{"words":747,"minutes":4,"text":"4 min read"},"url":"/blog/2025-annual-review","locale":"en"},{"slug":"hello-world","title":"Hello World - Welcome to My Blog","description":"Welcome to my personal blog! This is my first post where I introduce myself and share what you can expect from this blog.","date":"2025-01-01","published":true,"featured":false,"tags":["welcome","introduction","blog"],"author":"Admin","content":"\n# Hello World! 👋\n\nWelcome to my personal blog! I'm Aaron Lam, a full-stack engineer based in Hong Kong.\n\n## About This Blog\n\nThis blog is where I'll be sharing:\n\n- **Technical insights** from my development journey\n- **Project showcases** and case studies  \n- **Learning notes** on new technologies\n- **Industry thoughts** and trends\n\n## What to Expect\n\nYou can expect posts about:\n\n- Modern web development (React, Next.js, TypeScript)\n- Backend technologies (Node.js, Python, databases)\n- DevOps and deployment strategies\n- UI/UX design principles\n- Personal projects and experiments\n\n## Let's Connect\n\nFeel free to reach out if you have any questions or want to discuss technology! You can find me on various platforms or use the contact form on this site.\n\nThanks for visiting, and I hope you find the content useful! 🚀\n","readingTime":{"words":135,"minutes":1,"text":"1 min read"},"url":"/blog/hello-world","locale":"en","summary":"Welcome to my personal blog! This is my first post where I introduce myself and share what you can expect from this blog."}]}]}]}]]}]}]
+16:I[88164,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"default"]
+17:I[73614,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"HtmlLangSetter"]
+18:I[33935,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"SmartBackground"]
+19:I[79285,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"Header"]
+1a:I[39217,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"DynamicMain"]
+1b:I[24793,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"PageTransition"]
+1c:I[65055,["8079","static/chunks/8079-2b3f7eedf4f1d672.js","2402","static/chunks/2402-3527955e28de82cf.js","5612","static/chunks/5612-3c1ae2a8191546c0.js","1125","static/chunks/1125-27de13960d51d8b3.js","8450","static/chunks/app/%5Blocale%5D/layout-5d152ad345282e47.js"],"Footer"]
+5:["$","$L16",null,{"formats":"$undefined","locale":"en","messages":{"site":{"name":"Weblog"},"navigation":{"home":"Home","blog":"Essays","plog":"Plog","docs":"Docs","about":"About","back":"Back"},"hero":{"greeting":"Hi, I'm","introduction":"a","roles":{"explorer":"Curious Explorer","observer":"Observer","learner":"Lifelong Learner"},"description":"The unexamined life is not worth living."},"home":{"headline":"Hello, I’m Aaron.","description":"Welcome to my corner of the web.","primaryAction":"Start reading","secondaryAction":"Meet Aaron","collection":{"eyebrow":"Selected paths","title":"Take your time. Explore.","action":"View all stories"},"cards":{"blog":{"title":"Journal","description":"Recent writing on technology, AI, and the texture of everyday life."},"docs":{"title":"Field Notes","description":"Focused notes and handbooks on investing, finance, and quantitative methods."},"about":{"title":"About","description":"Working in the securities industry, writing about investing, technology, and life."}}},"skills":{"title":"Skills","frontend":"Frontend Development","mobile":"Mobile Development","beyond":"Beyond Code"},"skillsDesc":{"frontend":"Modern web technologies","design":"UI/UX and visual design","mobile":"iOS/Android with React Native and PWA","beyond":"Reading, thinking, and capturing life's beautiful moments"},"tech":{"title":"Tech Stack"},"posts":{"blog":"Essays","stories":"essays","topics":"topics","allStories":"All essays","featured":"Featured Posts","latest":"Latest Posts","description":"Long-form notes and ideas worth revisiting.","readMore":"Read More","publishedOn":"Published on","readingTime":"{minutes} min read","empty":"No posts yet. Check back soon!","tags":"Tags","archive":"Archive","monthlyArchive":"Monthly Archive","popularTags":"Popular Tags","clearFilters":"Clear Filters","postNavigation":"Post navigation","previousPost":"Previous","nextPost":"Next","backToBlog":"Back to Essays"},"common":{"onThisPage":"On this page"},"plog":{"title":"Plog","description":"Days, places, and moments I want to remember.","entries":"entries","photos":"photos","photoCount":"{count, plural, one {# photo} other {# photos}}","entryCount":"{count, plural, one {# story} other {# stories}}","allEntries":"All Plog entries","backToPlog":"Back to Plog","previousPhoto":"Previous moment","nextPhoto":"Next moment","timeline":"Story timeline","play":"Play story","pause":"Pause story","enterSlideshow":"Enter slideshow","exitSlideshow":"Exit slideshow","playMusic":"Play background music","pauseMusic":"Pause background music","nextMusic":"Play next track"},"footer":{"scrollToTop":"Scroll to top","copyright":"All rights reserved"},"contact":{"title":"Contact Me","getInTouch":"Get In Touch","subtitle":"I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out.","name":"Name","email":"Email","subject":"Subject","message":"Message","send":"Send","sending":"Sending...","success":"Message sent successfully!","error":"Failed to send, please try again","methods":{"email":{"name":"Email","desc":"Send me an email for work inquiries or collaboration"},"github":{"name":"GitHub","desc":"Check out my code and projects"},"twitter":{"name":"Twitter","desc":"Follow me for updates and tech discussions"},"linkedin":{"name":"LinkedIn","desc":"View my professional profile and network"},"x":{"name":"X","desc":"Get my latest updates and tech shares"},"wechat":{"name":"WeChat","desc":"Add me or view my QR code"}},"sendMessage":"Send a Message","responseTime":"Response Time","responseTip":"I typically respond to emails within 24-48 hours. Looking forward to connecting with you!"},"about":{"title":"About Me","description":"Working in the securities industry, writing about investing, technology, and life.","location":"Kuala Lumpur, Malaysia","intro":"I write code for a living, working in the securities industry. Outside of work, I like hitting the gym and getting outdoors.","bio":"Thoughts, life moments, investment insights, and the occasional tech post.","connectTitle":"Let's Connect","connect":"Investing, tech, or just life — always happy to chat.","quote":"The Great Way is simple."},"docs":{"title":"Docs Hub","description":"Practical handbooks organized by subject. Each starts with the essentials and builds a clear path toward deeper understanding.","categories":"handbooks","chapters":"chapters","handbook":"Handbook","contents":"Contents preview","collectionEyebrow":"All handbooks","collectionTitle":"Choose a subject to begin.","moreChapters":"{count} more chapters","chapterProgress":"Chapter {current} of {total}","readingTime":"{minutes} min read","chapterNavigation":"Chapter navigation","previousChapter":"Previous","nextChapter":"Next","articles":"articles","empty":"No docs yet. Check back soon!","backToDocs":"Back to Docs"},"meta":{"title":"Aaron — Notes & Ideas","description":"Personal notes on ideas, investing, finance, technology, and things learned along the way"}},"now":"$undefined","timeZone":"UTC","children":[["$","$L17",null,{"locale":"en"}],["$","$L18",null,{"maxCreatures":3}],["$","div",null,{"className":"relative min-h-screen flex flex-col","children":[["$","$L19",null,{}],["$","$L1a",null,{"className":"flex-1","children":["$","$L1b",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}],["$","$L1c",null,{}]]}]]}]
+d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+b:{"metadata":[["$","title","0",{"children":"Essays | Aaron"}],["$","meta","1",{"name":"description","content":"Long-form notes and ideas worth revisiting."}],["$","meta","2",{"name":"author","content":"Aaron"}],["$","meta","3",{"name":"keywords","content":"personal blog,investing,finance,quantitative finance,technology,notes"}],["$","meta","4",{"name":"creator","content":"Aaron"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"property":"og:title","content":"Aaron — Notes & Ideas"}],["$","meta","8",{"property":"og:description","content":"Personal notes on ideas, investing, finance, technology, and things learned along the way."}],["$","meta","9",{"property":"og:url","content":"https://aaronlamz.github.io/Weblog/"}],["$","meta","10",{"property":"og:site_name","content":"Weblog"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"Aaron — Notes & Ideas"}],["$","meta","15",{"name":"twitter:description","content":"Personal notes on ideas, investing, finance, technology, and things learned along the way."}],["$","link","16",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","17",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","18",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}]],"error":null,"digest":"$undefined"}
+13:{"metadata":"$b:metadata","error":null,"digest":"$undefined"}
