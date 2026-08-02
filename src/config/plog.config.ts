@@ -42,7 +42,7 @@ export type PlogEntry = {
   slug: string
   title: LocalizedText
   description?: LocalizedText
-  date?: string
+  date: string
   location?: LocalizedText
   soundtracks?: PlogSoundtrackKey[]
   slides: PlogSlide[]
@@ -58,6 +58,7 @@ export const plogEntries: PlogEntry[] = [
       en: 'Rain, streets, lunch, and blue hour.',
       zh: '一场雨、几条街、一顿午餐和入夜时分。',
     },
+    date: '2026-07-26',
     location: { en: 'Kuala Lumpur, Malaysia', zh: '马来西亚吉隆坡' },
     soundtracks: ['sereneView', 'forestWalk', 'valleySunset'],
     slides: [
@@ -128,25 +129,27 @@ const languageFor = (locale: string) => (locale === 'zh' ? 'zh' : 'en')
 
 export function getLocalizedPlogEntries(locale: string) {
   const language = languageFor(locale)
-  return plogEntries.map((entry) => ({
-    slug: entry.slug,
-    title: entry.title[language],
-    description: entry.description?.[language],
-    date: entry.date,
-    location: entry.location?.[language],
-    soundtracks: entry.soundtracks?.map((key) => plogSoundtracks[key]),
-    cover: entry.slides[0]?.image,
-    photoCount: entry.slides.length,
-    slides: entry.slides.map((slide) => ({
-      id: slide.id,
-      image: slide.image,
-      alt: slide.alt[language],
-      time: slide.time?.[language],
-      title: slide.title?.[language],
-      caption: slide.caption?.[language],
-      fit: slide.fit ?? 'cover',
-    })),
-  }))
+  return plogEntries
+    .map((entry) => ({
+      slug: entry.slug,
+      title: entry.title[language],
+      description: entry.description?.[language],
+      date: entry.date,
+      location: entry.location?.[language],
+      soundtracks: entry.soundtracks?.map((key) => plogSoundtracks[key]),
+      cover: entry.slides[0]?.image,
+      photoCount: entry.slides.length,
+      slides: entry.slides.map((slide) => ({
+        id: slide.id,
+        image: slide.image,
+        alt: slide.alt[language],
+        time: slide.time?.[language],
+        title: slide.title?.[language],
+        caption: slide.caption?.[language],
+        fit: slide.fit ?? 'cover',
+      })),
+    }))
+    .sort((a, b) => b.date.localeCompare(a.date))
 }
 
 export function getLocalizedPlogEntry(slug: string, locale: string) {

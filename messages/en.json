@@ -87,10 +87,11 @@
   },
   "plog": {
     "title": "Plog",
-    "description": "A visual journal.",
+    "description": "Days, places, and moments I want to remember.",
     "entries": "entries",
     "photos": "photos",
     "photoCount": "{count, plural, one {# photo} other {# photos}}",
+    "entryCount": "{count, plural, one {# story} other {# stories}}",
     "allEntries": "All Plog entries",
     "backToPlog": "Back to Plog",
     "previousPhoto": "Previous moment",

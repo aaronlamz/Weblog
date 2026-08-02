@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
-import { Images, MapPin } from 'lucide-react'
+import { CalendarDays, Images, MapPin } from 'lucide-react'
 import { locales } from '@/i18n/config'
 import { buildLocalizedPath } from '@/lib/i18n-utils'
 import { getLocalizedPlogEntry, plogEntries } from '@/config/plog.config'
@@ -45,6 +45,15 @@ export default async function PlogDetailPage({ params }: PlogDetailProps) {
   const entry = getLocalizedPlogEntry(slug, locale)
   const t = await getTranslations({ locale, namespace: 'plog' })
   if (!entry) notFound()
+  const displayDate = new Intl.DateTimeFormat(
+    locale === 'zh' ? 'zh-CN' : 'en-US',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    },
+  ).format(new Date(`${entry.date}T00:00:00Z`))
 
   return (
     <>
@@ -67,15 +76,24 @@ export default async function PlogDetailPage({ params }: PlogDetailProps) {
               {entry.description}
             </p>
           )}
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            {entry.date && <time dateTime={entry.date}>{entry.date}</time>}
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <time
+              dateTime={entry.date}
+              className="inline-flex items-center gap-1.5 font-medium text-foreground/75"
+            >
+              <CalendarDays className="h-3.5 w-3.5" />
+              {displayDate}
+            </time>
             {entry.location && (
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="h-3.5 w-3.5" />
                 {entry.location}
               </span>
             )}
-            <span>{t('photoCount', { count: entry.photoCount })}</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Images className="h-3.5 w-3.5" />
+              {t('photoCount', { count: entry.photoCount })}
+            </span>
           </div>
         </header>
         <PlogSlideshow

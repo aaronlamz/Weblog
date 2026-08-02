@@ -87,10 +87,11 @@
   },
   "plog": {
     "title": "Plog",
-    "description": "影像记录。",
+    "description": "记下走过的地方和日常片段。",
     "entries": "篇",
     "photos": "张照片",
     "photoCount": "{count} 张照片",
+    "entryCount": "{count} 篇记录",
     "allEntries": "全部 Plog",
     "backToPlog": "返回 Plog",
     "previousPhoto": "上一个瞬间",
